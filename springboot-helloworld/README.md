@@ -221,3 +221,71 @@ Spring的底层注解@Import，给容器中导入一个组件；导入的组件�
 ​		SpringFactoriesLoader.loadFactoryNames(EnableAutoConfiguration.class,classLoader)；
 
 
+## 4.使用Spring Initializer快速创建Spring Boot项目
+
+### 1. IDEA：使用 Spring Initializer快速创建项目
+
+IDE都支持使用Spring的项目创建向导快速创建一个Spring Boot项目；
+
+选择我们需要的模块；向导会联网创建Spring Boot项目；
+
+默认生成的Spring Boot项目；
+
+- 主程序已经生成好了，我们只需要编写我们自己的核心逻辑
+- resources文件夹中目录结构
+  - static：保存所有的静态资源； js css  images；
+  - templates：保存所有的模板页面；（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面）；可以使用模板引擎（freemarker、thymeleaf）；
+  - application.properties：Spring Boot应用的配置文件；可以修改一些默认设置；
+
+
+### 2.配置文件
+
+SpringBoot使用一个全局的配置文件，配置文件名是固定的；
+
+	•application.properties
+	•application.yml
+
+>配置文件的作用：修改SpringBoot自动配置的默认值；SpringBoot在底层都给我们自动配置好；
+
+
+#### YAML（YAML Ain't Markup Language）
+
+​	YAML  A Markup Language：是一个标记语言
+
+​	YAML   isn't Markup Language：不是一个标记语言；
+
+标记语言：
+
+​	以前的配置文件；大多都使用的是  **xxxx.xml**文件；
+
+​	YAML：**以数据为中心**，比json、xml等更适合做配置文件；
+
+​	YAML：配置例子
+
+```yaml
+server:
+  port: 8081
+```
+
+​	XML：
+
+```xml
+<server>
+	<port>8081</port>
+</server>
+```
+
+#### 基本语法
+
+k:(空格)v：表示一对键值对（空格必须有）；
+
+以**空格**的缩进来控制层级关系；只要是左对齐的一列数据，都是同一个层级的
+
+```yaml
+server:
+    port: 8081
+    path: /hello
+```
+
+属性和值也是大小写敏感；
+
