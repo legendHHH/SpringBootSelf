@@ -23,7 +23,7 @@ import java.util.Map;
  *  @ConfigurationProperties(prefix = "person")默认从全局配置文件中获取值；
  *
  */
-//@PropertySource(value = {"classpath:person.properties"})
+@PropertySource(value = {"classpath:person.properties"})
 @Component
 @ConfigurationProperties(prefix = "person")
 //@Validated
@@ -37,7 +37,7 @@ public class Person {
 
    //lastName必须是邮箱格式
    // @Email
-    //@Value("${person.last-name}")
+    @Value("${person.last-name}")
     private String lastName;
     //@Value("#{11*2}")
     private Integer age;
