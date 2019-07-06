@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--引入thymeleaf命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>成功</h1>
+
+    <!--th:text将div里面的文本内容设置为取出来的内容-->
+    <div id="div01" class="myDiv" th:id="${hello}" th:class="${hello}" th:text="${hello}">这是欢迎信息</div>
+<hr>
+    <!--有u是表示转义的字符,使用的是html的语法;没有u表示的是以字符串形式输出-->
+    <div th:text="${hello}">这是欢迎信息</div>
+    <div th:utext="${hello}">这是欢迎信息</div>
+
+    <!-- th:each 每次遍历都会生成当前这个标签： 3个h4标签 -->
+    <h4 th:text="${user}"  th:each="user:${users}">这是欢迎信息</h4>
+<hr/>
+
+    <h4>
+        <span th:each="user:${users}"> [[${user}]] </span>
+    </h4>
+</body>
+</html>
