@@ -1,4 +1,4 @@
-
+#文档快支持多环境配置
 server:
   port: 8082
 spring:
