@@ -20,9 +20,12 @@ public class MyLocaleResolver implements LocaleResolver {
         String l = request.getParameter("l");
         //System.out.println(l);
 
+        //如果locale为空我们就使用的是系统默认的
         Locale locale = Locale.getDefault();
         if (!StringUtils.isEmpty(l)){
             String[] split = l.split("_");
+
+            //第一个值是语言代码,第二个值是国家代码 zh_CN
             locale = new Locale(split[0],split[1]);
         }
         return locale;

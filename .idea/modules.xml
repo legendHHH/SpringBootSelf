@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/springboot-config/springboot-config.iml" filepath="$PROJECT_DIR$/springboot-config/springboot-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-config-autocongfig/springboot-config-autocongfig.iml" filepath="$PROJECT_DIR$/springboot-config-autocongfig/springboot-config-autocongfig.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-helloworld/springboot-helloworld.iml" filepath="$PROJECT_DIR$/springboot-helloworld/springboot-helloworld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-logging/springboot-logging.iml" filepath="$PROJECT_DIR$/springboot-logging/springboot-logging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-web-restful/springboot-web-restful.iml" filepath="$PROJECT_DIR$/springboot-web-restful/springboot-web-restful.iml" />
     </modules>
   </component>
 </project>

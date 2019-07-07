@@ -45,6 +45,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
                 registry.addViewController("/").setViewName("login");
                 registry.addViewController("/index.html").setViewName("login");
                 registry.addViewController("/main.html").setViewName("dashboard");
+                registry.addViewController("/prod").setViewName("emp/product");
             }
 
             //注册拦截器
@@ -52,8 +53,9 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
             public void addInterceptors(InterceptorRegistry registry) {
                 //super.addInterceptors(registry);
                 //静态资源  *.css *.js   SpringBoot 已经做好了资源映射
+                // /**  表示拦截任意多层路径下的任意请求
                 registry.addInterceptor(new LoginHandlerInteceptor()).addPathPatterns("/**")
-                        .excludePathPatterns("/index.html","/","/user/login");//排除方法
+                        .excludePathPatterns("/index.html","/","/user/login");//排除方法：登陆页面、登陆请求排除
             }
         };
         return adapter;
