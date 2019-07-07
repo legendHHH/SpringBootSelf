@@ -20,7 +20,11 @@ public class EmployeeController {
     @Autowired
     private DepartmentDao departmentDao;
 
-    //查询所有员工信息返回列表页面
+    /**
+     * 查询所有员工信息返回列表页面
+     * @param model
+     * @return
+     */
     @GetMapping("/emps")
     public String list(Model model){
         //获取所有员工数据
@@ -33,7 +37,11 @@ public class EmployeeController {
     }
 
 
-    //来到员工添加页面
+    /**
+     * 来到员工添加页面
+     * @param model
+     * @return
+     */
     @GetMapping("/emp")
     public String toAddPage(Model model){
         //去到员工添加页面时候,先查询部门列表
@@ -43,8 +51,14 @@ public class EmployeeController {
     }
 
 
-    //员工添加
-    //SpringMVC自动将请求参数和入参对象的属性进行一一绑定;要求请求参数的名字和javaBean入参的对象里面的属性名一致
+    /**
+     * 员工添加
+     *      SpringMVC自动将请求参数和入参对象的属性进行一一绑定;
+     *          要求请求参数的名字和javaBean入参的对象里面的属性名一致
+     * @param employee
+     * @return
+     */
+    //
     @PostMapping("/emp")
     public String addEmp(Employee employee){
         System.out.println("员工信息"+employee);
@@ -57,6 +71,12 @@ public class EmployeeController {
     }
 
 
+    /**
+     * 去编辑页面
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping(value = "/emp/{id}")
     public String toEditPage(@PathVariable("id") Integer id,
                              Model model){
@@ -70,7 +90,11 @@ public class EmployeeController {
     }
 
 
-    //修改员工  需要传过来员工id
+    /**
+     * 修改员工  需要传过来员工id
+     * @param employee
+     * @return
+     */
     @PutMapping("/emp")
     public String updateEmp(Employee employee){
         System.out.println("新修改的员工"+employee);
@@ -79,6 +103,11 @@ public class EmployeeController {
     }
 
 
+    /**
+     * 删除员工
+     * @param id
+     * @return
+     */
     @DeleteMapping("/emp/{id}")
     public String deleteEmp(@PathVariable("id") Integer id){
         employeeDao.delete(id);

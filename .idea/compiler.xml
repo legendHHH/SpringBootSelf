@@ -7,17 +7,25 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-config" />
+        <module name="springboot-config-autocongfig" />
         <module name="springboot-helloworld" />
+        <module name="springboot-logging" />
+        <module name="springboot-web-restful" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="springboot-config" target="1.8" />
+      <module name="springboot-config-autocongfig" target="1.8" />
       <module name="springboot-helloworld" target="1.8" />
+      <module name="springboot-logging" target="1.8" />
+      <module name="springboot-web-restful" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="springboot-config" options="" />
+      <module name="springboot-logging" options="" />
+      <module name="springboot-web-restful" options="" />
     </option>
   </component>
 </project>
