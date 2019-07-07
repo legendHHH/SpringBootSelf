@@ -18,14 +18,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * 使用WebMvcConfigurerAdapter 可以来扩展SpringMVC功能
  */
 //不要接管SpringMVC
-//@EnableWebMvc
+@EnableWebMvc
 @Configuration
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
+    /**
+     * 添加视图映射
+     * @param registry
+     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         //super.addViewControllers(registry);
-        registry.addViewController("/legend").setViewName("success");
+        //添加视图映射规则(即把什么请求映射到什么页面)
+        registry.addViewController("/legend").setViewName("success");//浏览器发送 /legend请求来到success页面
     }
 
 
