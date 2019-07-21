@@ -20,10 +20,5 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
 
-    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-    #filters: stat,wall,log4j
-    maxPoolPreparedStatementPerConnectionSize: 20
-    useGlobalDataSourceStat: true
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
     #schema:
      # - classpath:department.sql
