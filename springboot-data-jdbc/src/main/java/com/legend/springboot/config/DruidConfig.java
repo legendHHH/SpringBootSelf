@@ -34,7 +34,7 @@ public class DruidConfig {
     @Bean
     public ServletRegistrationBean statViewServlet(){
         //拦截 /druid  的所有请求
-        ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid");
+        ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
         Map<String, String> initParameters = new HashMap<>();
         //设置相关配置
         initParameters.put("loginUsername","admin");
