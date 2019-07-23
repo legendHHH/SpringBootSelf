@@ -14,6 +14,18 @@ JPA:ORM（Object Relational Mapping）;
 `编写接口访问数据`
 ![](https://img2018.cnblogs.com/blog/1231979/201907/1231979-20190723091213574-1405370538.png)
 
+`基本的配置JpaProperties`
+
+```yaml
+spring:  
+ jpa:
+    hibernate:
+#     更新或者创建数据表结构
+      ddl-auto: update
+#    控制台显示SQL
+    show-sql: true
+```
+
 `测试`
 ![](https://img2018.cnblogs.com/blog/1231979/201907/1231979-20190723093913876-1120253028.png)
 
