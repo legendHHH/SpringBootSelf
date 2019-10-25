@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/springboot-config-autocongfig/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-web-restful/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-logging/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-test/pom.xml" />
       </list>
     </option>
   </component>
