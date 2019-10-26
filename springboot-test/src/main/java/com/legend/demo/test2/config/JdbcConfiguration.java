@@ -3,6 +3,7 @@ package com.legend.demo.test2.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,6 +47,7 @@ public class JdbcConfiguration {
      * @return
      */
     @Bean
+    @ConfigurationProperties(prefix="jdbc")
     public DataSource dataSource(){
         DruidDataSource dataSource = new DruidDataSource();
         //如果是全局的变量会在前面加this关键字   区分局部和全局
