@@ -47,7 +47,7 @@ public class JdbcConfiguration {
      * @return
      */
     @Bean
-    @ConfigurationProperties(prefix="jdbc")
+    @ConfigurationProperties(prefix="jdbc")  //第四种方法
     public DataSource dataSource(){
         DruidDataSource dataSource = new DruidDataSource();
         //如果是全局的变量会在前面加this关键字   区分局部和全局
@@ -56,11 +56,12 @@ public class JdbcConfiguration {
         dataSource.setUsername(this.userName);
         dataSource.setPassword(this.password);*/
 
+        //第四种方法
         //替换成配置文件读取属性
-        dataSource.setDriverClassName(this.jdbcProperties.getDriverClassName());
+        /*dataSource.setDriverClassName(this.jdbcProperties.getDriverClassName());
         dataSource.setUrl(this.jdbcProperties.getUrl());
         dataSource.setUsername(this.jdbcProperties.getUserName());
-        dataSource.setPassword(this.jdbcProperties.getPassword());
+        dataSource.setPassword(this.jdbcProperties.getPassword());*/
         return dataSource;
     }
 }

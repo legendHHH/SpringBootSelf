@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e34d59bf-ddcc-4403-8d93-f2a49eaeda31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/springboot-test/SpringBoot启动器.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-test/springboot.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/springboot-config/target/" />
     <ignored path="$PROJECT_DIR$/springboot-logging/target/" />
@@ -27,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="49" column="28" lean-forward="true" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+            <state relative-caret-position="840">
+              <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,13 +36,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springboot-test/SpringBoot启动器.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2722">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="2961">
+              <caret line="141" column="19" selection-start-line="141" selection-start-column="19" selection-end-line="141" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -55,44 +52,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springboot-test/springboot.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="231">
-                <caret line="1390" column="41" lean-forward="true" selection-start-line="1390" selection-start-column="24" selection-end-line="1390" selection-end-column="41" />
-                <folding>
-                  <element signature="e#120#121#0" expanded="true" />
-                  <element signature="e#163#164#0" expanded="true" />
-                  <element signature="e#208#209#0" expanded="true" />
-                  <element signature="e#274#275#0" expanded="true" />
-                  <element signature="e#97#98#0" expanded="true" />
-                  <element signature="e#141#142#0" expanded="true" />
-                  <element signature="e#99#100#0" expanded="true" />
-                  <element signature="e#165#166#0" expanded="true" />
-                  <element signature="e#95#96#0" expanded="true" />
-                  <element signature="e#138#139#0" expanded="true" />
-                  <element signature="e#114#115#0" expanded="true" />
-                  <element signature="e#180#181#0" expanded="true" />
-                  <element signature="e#97#98#0" expanded="true" />
-                  <element signature="e#163#164#0" expanded="true" />
-                  <element signature="e#145#146#0" expanded="true" />
-                  <element signature="e#188#189#0" expanded="true" />
-                  <element signature="e#199#200#0" expanded="true" />
-                  <element signature="e#247#248#0" expanded="true" />
-                  <element signature="e#97#98#0" expanded="true" />
-                  <element signature="e#157#158#0" expanded="true" />
-                  <element signature="e#119#120#0" expanded="true" />
-                  <element signature="e#153#154#0" expanded="true" />
-                  <element signature="e#120#121#0" expanded="true" />
-                  <element signature="e#181#182#0" expanded="true" />
-                  <element signature="e#237#238#0" expanded="true" />
-                  <element signature="e#291#292#0" expanded="true" />
-                  <element signature="e#203#204#0" expanded="true" />
-                  <element signature="e#256#257#0" expanded="true" />
-                  <element signature="e#307#308#0" expanded="true" />
-                  <element signature="e#341#342#0" expanded="true" />
-                </folding>
+              <first_editor relative-caret-position="29589">
+                <caret line="1409" column="14" selection-start-line="1409" selection-start-column="14" selection-end-line="1409" selection-end-column="14" />
               </first_editor>
               <second_editor />
             </state>
@@ -111,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/HelloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="252">
               <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -188,7 +153,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -252,6 +216,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,7 +226,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572100264419" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572100274652" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="settings.editor.selected.configurable" value="spring.boot" />
   </component>
@@ -271,6 +236,11 @@
     </key>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -343,18 +313,18 @@
       <workItem from="1571990826240" duration="1793000" />
       <workItem from="1572061128463" duration="1233000" />
       <workItem from="1572081056557" duration="443000" />
-      <workItem from="1572096599478" duration="3470000" />
+      <workItem from="1572096599478" duration="3761000" />
+      <workItem from="1572143128748" duration="667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16761000" />
+    <option name="totallyTimeSpent" value="17719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="714" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49827588" weight="0.260574" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.26435044" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -363,6 +333,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info id="Favorites" order="7" sideWeight="0.5017241" side_tool="true" weight="0.25" />
       <window_info id="Web" order="8" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" visible="true" weight="0.49655172" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.76724136" />
@@ -371,7 +342,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924472" weight="0.06724138" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924472" weight="0.4448276" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007553" side_tool="true" weight="0.46896553" />
       <window_info anchor="bottom" id="Tail" order="11" />
@@ -551,6 +522,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/HELP.md" />
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/SpringBoot启动器.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2961">
+          <caret line="141" column="19" selection-start-line="141" selection-start-column="19" selection-end-line="141" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/springboot.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="29589">
+            <caret line="1409" column="14" selection-start-line="1409" selection-start-column="14" selection-end-line="1409" selection-end-column="14" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -560,7 +566,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/HelloController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="252">
           <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -577,86 +583,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-test/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="49" column="28" lean-forward="true" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-test/HELP.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="62" selection-start-column="62" selection-end-column="62" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-test/SpringBoot启动器.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2722">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-test/springboot.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="231">
-            <caret line="1390" column="41" lean-forward="true" selection-start-line="1390" selection-start-column="24" selection-end-line="1390" selection-end-column="41" />
-            <folding>
-              <element signature="e#120#121#0" expanded="true" />
-              <element signature="e#163#164#0" expanded="true" />
-              <element signature="e#208#209#0" expanded="true" />
-              <element signature="e#274#275#0" expanded="true" />
-              <element signature="e#97#98#0" expanded="true" />
-              <element signature="e#141#142#0" expanded="true" />
-              <element signature="e#99#100#0" expanded="true" />
-              <element signature="e#165#166#0" expanded="true" />
-              <element signature="e#95#96#0" expanded="true" />
-              <element signature="e#138#139#0" expanded="true" />
-              <element signature="e#114#115#0" expanded="true" />
-              <element signature="e#180#181#0" expanded="true" />
-              <element signature="e#97#98#0" expanded="true" />
-              <element signature="e#163#164#0" expanded="true" />
-              <element signature="e#145#146#0" expanded="true" />
-              <element signature="e#188#189#0" expanded="true" />
-              <element signature="e#199#200#0" expanded="true" />
-              <element signature="e#247#248#0" expanded="true" />
-              <element signature="e#97#98#0" expanded="true" />
-              <element signature="e#157#158#0" expanded="true" />
-              <element signature="e#119#120#0" expanded="true" />
-              <element signature="e#153#154#0" expanded="true" />
-              <element signature="e#120#121#0" expanded="true" />
-              <element signature="e#181#182#0" expanded="true" />
-              <element signature="e#237#238#0" expanded="true" />
-              <element signature="e#291#292#0" expanded="true" />
-              <element signature="e#203#204#0" expanded="true" />
-              <element signature="e#256#257#0" expanded="true" />
-              <element signature="e#307#308#0" expanded="true" />
-              <element signature="e#341#342#0" expanded="true" />
-            </folding>
-          </first_editor>
           <second_editor />
         </state>
       </provider>
