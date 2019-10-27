@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="legend-user" />
         <module name="springboot-config" />
         <module name="springboot-config-autocongfig" />
         <module name="springboot-helloworld" />
@@ -14,6 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="legend-user" target="1.8" />
       <module name="springboot-config" target="1.8" />
       <module name="springboot-config-autocongfig" target="1.8" />
       <module name="springboot-helloworld" target="1.8" />
@@ -24,6 +26,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="legend-user" options="-parameters" />
       <module name="springboot-config" options="" />
       <module name="springboot-logging" options="" />
       <module name="springboot-test" options="-parameters" />
