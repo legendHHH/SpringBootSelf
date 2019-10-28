@@ -1,0 +1,5 @@
+server:
+  port: 8045
+
+mybatis:
+  type-aliases-package: com.legend.pojo
