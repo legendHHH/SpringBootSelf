@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/http-demo/http-demo.iml" filepath="$PROJECT_DIR$/http-demo/http-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-user/legend-user.iml" filepath="$PROJECT_DIR$/legend-user/legend-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-config/springboot-config.iml" filepath="$PROJECT_DIR$/springboot-config/springboot-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-config-autocongfig/springboot-config-autocongfig.iml" filepath="$PROJECT_DIR$/springboot-config-autocongfig/springboot-config-autocongfig.iml" />
