@@ -3,3 +3,10 @@ server:
 
 mybatis:
   type-aliases-package: com.legend.pojo
+spring:
+  application:
+    name: service-consumer #\u5C06\u6765\u4F5C\u4E3A\u5FAE\u670D\u52A1\u540D\u79F0\u6CE8\u5165\u5230Eureka\u5BB9\u5668
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka

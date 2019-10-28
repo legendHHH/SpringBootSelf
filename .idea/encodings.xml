@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/http-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/legend-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/legend-service-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/legend-service-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/legend-user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-config-autocongfig" charset="UTF-8" />

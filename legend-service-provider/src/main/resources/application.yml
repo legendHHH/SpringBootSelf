@@ -6,7 +6,13 @@ spring:
     password: Aqi1314@xiang?
     url: jdbc:mysql://39.106.152.49:3306/test
     username: root
-
+  application:
+    name: service-provider  #\u5C06\u6765\u4F5C\u4E3A\u5FAE\u670D\u52A1\u7684\u540D\u79F0
 
 mybatis:
   type-aliases-package: com.legend.service.pojo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
