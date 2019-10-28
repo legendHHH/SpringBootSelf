@@ -11,6 +11,9 @@
         <option value="$PROJECT_DIR$/springboot-test/pom.xml" />
         <option value="$PROJECT_DIR$/legend-user/pom.xml" />
         <option value="$PROJECT_DIR$/http-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/legend-service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/legend-service-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/legend-eureka/pom.xml" />
       </list>
     </option>
   </component>
