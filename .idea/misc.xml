@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/springboot-logging/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-test/pom.xml" />
         <option value="$PROJECT_DIR$/legend-user/pom.xml" />
+        <option value="$PROJECT_DIR$/http-demo/pom.xml" />
       </list>
     </option>
   </component>
