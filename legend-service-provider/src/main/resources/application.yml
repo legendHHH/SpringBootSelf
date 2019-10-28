@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    password: Aqi1314@xiang?
+    url: jdbc:mysql://39.106.152.49:3306/test
+    username: root
+
+
+mybatis:
+  type-aliases-package: com.legend.service.pojo
