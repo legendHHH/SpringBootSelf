@@ -4,16 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/http-demo/http-demo.iml" filepath="$PROJECT_DIR$/http-demo/http-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-eureka/legend-eureka.iml" filepath="$PROJECT_DIR$/legend-eureka/legend-eureka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-eureka/legend-eureka.iml" filepath="$PROJECT_DIR$/legend-eureka/legend-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-service-consumer/legend-service-consumer.iml" filepath="$PROJECT_DIR$/legend-service-consumer/legend-service-consumer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-service-consumer/legend-service-consumer.iml" filepath="$PROJECT_DIR$/legend-service-consumer/legend-service-consumer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-service-provider/legend-service-provider.iml" filepath="$PROJECT_DIR$/legend-service-provider/legend-service-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-service-provider/legend-service-provider.iml" filepath="$PROJECT_DIR$/legend-service-provider/legend-service-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-user/legend-user.iml" filepath="$PROJECT_DIR$/legend-user/legend-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-config/springboot-config.iml" filepath="$PROJECT_DIR$/springboot-config/springboot-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-config-autocongfig/springboot-config-autocongfig.iml" filepath="$PROJECT_DIR$/springboot-config-autocongfig/springboot-config-autocongfig.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-helloworld/springboot-helloworld.iml" filepath="$PROJECT_DIR$/springboot-helloworld/springboot-helloworld.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-logging/springboot-logging.iml" filepath="$PROJECT_DIR$/springboot-logging/springboot-logging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-redis/springboot-redis.iml" filepath="$PROJECT_DIR$/springboot-redis/springboot-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-swagger/springboot-swagger.iml" filepath="$PROJECT_DIR$/springboot-swagger/springboot-swagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-test/springboot-test.iml" filepath="$PROJECT_DIR$/springboot-test/springboot-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-web-restful/springboot-web-restful.iml" filepath="$PROJECT_DIR$/springboot-web-restful/springboot-web-restful.iml" />

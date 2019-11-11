@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/legend-service-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/legend-eureka/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-swagger/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-redis/pom.xml" />
       </list>
     </option>
   </component>
