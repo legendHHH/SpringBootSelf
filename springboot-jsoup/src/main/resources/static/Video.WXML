@@ -1,0 +1,10 @@
+<cu-custom bgColor="bg-main" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">列表</view>
+  </cu-custom>
+
+
+<view class="section tc">
+  <video id="myVideo" src="{{voideUrl}}" enable-danmu danmu-btn controls>
+  </video>
+</view>
