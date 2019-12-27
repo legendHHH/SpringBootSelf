@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.legend.springboot.starter.config.TestServiceAutoConfiguration
