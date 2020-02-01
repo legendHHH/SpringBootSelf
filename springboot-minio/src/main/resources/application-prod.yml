@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev #默认为开发环境
   servlet:
     multipart:
       enabled: true #开启文件上传
@@ -13,3 +11,7 @@ minio:
   bucketName: test-minio #存储桶名称
   accessKey: EIKDDECHC3X95UKHCUW7 #访问的key
   secretKey: DR+w+Paz5UpaQMwecrFyxJCQRXNGbWCATfxTxTfg #访问的秘钥
+
+
+logging:
+  path: D:/WorkCode/logs #配置日志生成路径
