@@ -7,7 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demo" />
         <module name="http-demo" />
         <module name="legend-eureka" />
         <module name="legend-service-consumer" />
@@ -21,6 +20,11 @@
         <module name="springboot-data-jpa" />
         <module name="springboot-data-mybatis" />
         <module name="springboot-helloworld" />
+        <module name="springboot-itext-pdf" />
+        <module name="springboot-japidocs" />
+        <module name="springboot-jsoup" />
+        <module name="springboot-logging" />
+        <module name="springboot-mybatis" />
         <module name="springboot-redis" />
         <module name="springboot-restapi-project" />
         <module name="springboot-send-mail" />
@@ -29,11 +33,11 @@
         <module name="springboot-starter-test" />
         <module name="springboot-swagger" />
         <module name="springboot-web-restful" />
+        <module name="springbootminio" />
         <module name="z-study-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demo" target="1.8" />
       <module name="http-demo" target="1.8" />
       <module name="legend-eureka" target="1.8" />
       <module name="legend-service-consumer" target="1.8" />
@@ -47,6 +51,11 @@
       <module name="springboot-data-jpa" target="1.8" />
       <module name="springboot-data-mybatis" target="1.8" />
       <module name="springboot-helloworld" target="1.8" />
+      <module name="springboot-itext-pdf" target="1.8" />
+      <module name="springboot-japidocs" target="1.8" />
+      <module name="springboot-jsoup" target="1.8" />
+      <module name="springboot-logging" target="1.8" />
+      <module name="springboot-mybatis" target="1.8" />
       <module name="springboot-redis" target="1.8" />
       <module name="springboot-restapi-project" target="1.8" />
       <module name="springboot-send-mail" target="1.8" />
@@ -56,12 +65,12 @@
       <module name="springboot-swagger" target="1.8" />
       <module name="springboot-test" target="1.8" />
       <module name="springboot-web-restful" target="1.8" />
+      <module name="springbootminio" target="1.8" />
       <module name="z-study-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo" options="-parameters" />
       <module name="http-demo" options="-parameters" />
       <module name="legend-eureka" options="-parameters" />
       <module name="legend-service-consumer" options="-parameters" />
@@ -70,7 +79,11 @@
       <module name="springboot-async" options="-parameters" />
       <module name="springboot-config" options="" />
       <module name="springboot-data-jpa" options="-parameters" />
+      <module name="springboot-itext-pdf" options="-parameters" />
+      <module name="springboot-japidocs" options="-parameters" />
+      <module name="springboot-jsoup" options="-parameters" />
       <module name="springboot-logging" options="" />
+      <module name="springboot-mybatis" options="-parameters" />
       <module name="springboot-redis" options="-parameters" />
       <module name="springboot-restapi-project" options="-parameters" />
       <module name="springboot-send-mail" options="-parameters" />
@@ -80,6 +93,7 @@
       <module name="springboot-swagger" options="-parameters" />
       <module name="springboot-test" options="-parameters" />
       <module name="springboot-web-restful" options="" />
+      <module name="springbootminio" options="-parameters" />
       <module name="z-study-demo" options="-parameters" />
     </option>
   </component>
