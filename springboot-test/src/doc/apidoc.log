@@ -1,0 +1,12 @@
+七月 11, 2020 11:09:21 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find multi modules in this project: [../springboot-restapi-project]
+七月 11, 2020 11:09:22 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: project type not set, try to figure out...
+七月 11, 2020 11:09:22 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start find controllers in path : D:\WorkCode\ideaWork\SpringBootSelf\springboot-test\..\springboot-restapi-project\src\main\java\
+七月 11, 2020 11:09:22 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs start...
+七月 11, 2020 11:09:22 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs done !!!
+七月 11, 2020 11:09:22 下午 io.github.yedaxia.apidocs.LogUtils warn
+警告: warning!! docs config properties miss, we don't think you want to post to rap!
