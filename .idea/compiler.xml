@@ -2,43 +2,29 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
         <module name="http-demo" />
         <module name="legend-eureka" />
         <module name="legend-service-consumer" />
         <module name="legend-service-provider" />
-        <module name="legend-user" />
-        <module name="springboot-config" />
-        <module name="springboot-config-autocongfig" />
-        <module name="springboot-helloworld" />
-        <module name="springboot-logging" />
-        <module name="springboot-redis" />
-        <module name="springboot-swagger" />
-        <module name="springboot-web-restful" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
       <module name="http-demo" target="1.8" />
       <module name="legend-eureka" target="1.8" />
       <module name="legend-service-consumer" target="1.8" />
       <module name="legend-service-provider" target="1.8" />
-      <module name="legend-user" target="1.8" />
-      <module name="springboot-config" target="1.8" />
-      <module name="springboot-config-autocongfig" target="1.8" />
-      <module name="springboot-helloworld" target="1.8" />
-      <module name="springboot-logging" target="1.8" />
-      <module name="springboot-redis" target="1.8" />
-      <module name="springboot-swagger" target="1.8" />
-      <module name="springboot-test" target="1.8" />
-      <module name="springboot-web-restful" target="1.8" />
-      <module name="test2" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
       <module name="http-demo" options="-parameters" />
       <module name="legend-eureka" options="-parameters" />
       <module name="legend-service-consumer" options="-parameters" />
