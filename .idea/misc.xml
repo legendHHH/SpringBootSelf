@@ -11,6 +11,25 @@
         <option value="$PROJECT_DIR$/legend-eureka/pom.xml" />
         <option value="$PROJECT_DIR$/legend-service-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/legend-service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/legend-user/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-activiti/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-config/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-async/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-config-autocongfig/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-data-jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-data-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-data-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-helloworld/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-itext-pdf/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-web-restful/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-restapi-project/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-starter-self/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-springcache/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-send-mail/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-starter-self-test/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-swagger/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-test/pom.xml" />
       </list>
     </option>
   </component>
