@@ -30,6 +30,11 @@
         <option value="$PROJECT_DIR$/springboot-starter-self-test/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-swagger/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-test/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-minio/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-logging/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-jsoup/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-japidocs/pom.xml" />
       </list>
     </option>
   </component>
