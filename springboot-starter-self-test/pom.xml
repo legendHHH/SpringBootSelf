@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.legend</groupId>
-    <artifactId>springboot-starter-test</artifactId>
+    <artifactId>springboot-starter-self-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-starter-test</name>
+    <name>springboot-starter-self-test</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

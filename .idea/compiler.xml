@@ -24,16 +24,18 @@
         <module name="springboot-japidocs" />
         <module name="springboot-jsoup" />
         <module name="springboot-logging" />
+        <module name="springboot-minio" />
         <module name="springboot-mybatis" />
         <module name="springboot-redis" />
         <module name="springboot-restapi-project" />
+        <module name="springboot-retrofit" />
         <module name="springboot-send-mail" />
+        <module name="springboot-shardingjdbc" />
         <module name="springboot-springcache" />
         <module name="springboot-starter-self" />
-        <module name="springboot-starter-test" />
+        <module name="springboot-starter-self-test" />
         <module name="springboot-swagger" />
         <module name="springboot-web-restful" />
-        <module name="springbootminio" />
         <module name="z-study-demo" />
       </profile>
     </annotationProcessing>
@@ -43,6 +45,7 @@
       <module name="legend-service-consumer" target="1.8" />
       <module name="legend-service-provider" target="1.8" />
       <module name="legend-user" target="1.8" />
+      <module name="spring-boot-swagger-knife4j" target="1.8" />
       <module name="springboot-activiti" target="1.8" />
       <module name="springboot-async" target="1.8" />
       <module name="springboot-config" target="1.8" />
@@ -55,17 +58,21 @@
       <module name="springboot-japidocs" target="1.8" />
       <module name="springboot-jsoup" target="1.8" />
       <module name="springboot-logging" target="1.8" />
+      <module name="springboot-minio" target="1.8" />
       <module name="springboot-mybatis" target="1.8" />
       <module name="springboot-redis" target="1.8" />
       <module name="springboot-restapi-project" target="1.8" />
+      <module name="springboot-retrofit" target="1.8" />
       <module name="springboot-send-mail" target="1.8" />
+      <module name="springboot-shardingjdbc" target="1.8" />
       <module name="springboot-springcache" target="1.8" />
       <module name="springboot-starter-self" target="1.8" />
-      <module name="springboot-starter-test" target="1.8" />
+      <module name="springboot-starter-self-test" target="1.8" />
       <module name="springboot-swagger" target="1.8" />
+      <module name="springboot-swagger-knife4j" target="1.8" />
+      <module name="springboot-swagger2-knife4j" target="1.8" />
       <module name="springboot-test" target="1.8" />
       <module name="springboot-web-restful" target="1.8" />
-      <module name="springbootminio" target="1.8" />
       <module name="z-study-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -83,17 +90,21 @@
       <module name="springboot-japidocs" options="-parameters" />
       <module name="springboot-jsoup" options="-parameters" />
       <module name="springboot-logging" options="" />
+      <module name="springboot-minio" options="-parameters" />
       <module name="springboot-mybatis" options="-parameters" />
       <module name="springboot-redis" options="-parameters" />
       <module name="springboot-restapi-project" options="-parameters" />
+      <module name="springboot-retrofit" options="-parameters -parameters" />
       <module name="springboot-send-mail" options="-parameters" />
+      <module name="springboot-shardingjdbc" options="-parameters" />
       <module name="springboot-springcache" options="-parameters" />
       <module name="springboot-starter-self" options="-parameters" />
-      <module name="springboot-starter-test" options="-parameters" />
+      <module name="springboot-starter-self-test" options="-parameters" />
       <module name="springboot-swagger" options="-parameters" />
+      <module name="springboot-swagger-knife4j" options="-parameters" />
+      <module name="springboot-swagger2-knife4j" options="-parameters" />
       <module name="springboot-test" options="-parameters" />
       <module name="springboot-web-restful" options="" />
-      <module name="springbootminio" options="-parameters" />
       <module name="z-study-demo" options="-parameters" />
     </option>
   </component>
