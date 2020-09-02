@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.legend</groupId>
-    <artifactId>springcache</artifactId>
+    <artifactId>springboot-springcache</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springcache</name>
+    <name>springboot-springcache</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

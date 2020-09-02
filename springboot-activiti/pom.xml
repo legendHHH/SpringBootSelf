@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.legend</groupId>
-    <artifactId>activity</artifactId>
+    <artifactId>springboot-activiti</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>

@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.legend</groupId>
-    <artifactId>springbootminio</artifactId>
+    <artifactId>springboot-minio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springbootminio</name>
+    <name>springboot-minio</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

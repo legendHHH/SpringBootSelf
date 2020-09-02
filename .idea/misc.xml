@@ -35,6 +35,9 @@
         <option value="$PROJECT_DIR$/springboot-logging/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-jsoup/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-japidocs/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-swagger2-knife4j/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-retrofit/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/pom.xml" />
       </list>
     </option>
   </component>
