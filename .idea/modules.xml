@@ -19,7 +19,6 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-itext-pdf/demo (1) (com.itext).iml" filepath="$PROJECT_DIR$/springboot-itext-pdf/demo (1) (com.itext).iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-japidocs/springboot-japidocs.iml" filepath="$PROJECT_DIR$/springboot-japidocs/springboot-japidocs.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-jsoup/springboot-jsoup.iml" filepath="$PROJECT_DIR$/springboot-jsoup/springboot-jsoup.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-knife4j-swagger/springboot-knife4j-swagger.iml" filepath="$PROJECT_DIR$/springboot-knife4j-swagger/springboot-knife4j-swagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-logging/springboot-logging.iml" filepath="$PROJECT_DIR$/springboot-logging/springboot-logging.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-minio/springbootminio.iml" filepath="$PROJECT_DIR$/springboot-minio/springbootminio.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-mybatis/springboot-mybatis.iml" filepath="$PROJECT_DIR$/springboot-mybatis/springboot-mybatis.iml" />
