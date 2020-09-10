@@ -22,7 +22,7 @@
         <!--引入自定义的starter-->
         <dependency>
             <groupId>com.legend</groupId>
-            <artifactId>legend-springboot-starter-self</artifactId>
+            <artifactId>springboot-starter-self</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
