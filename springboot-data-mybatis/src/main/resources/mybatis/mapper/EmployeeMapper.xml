@@ -10,6 +10,10 @@
         SELECT * FROM employee WHERE id=#{id}
     </select>
 
+    <select id="selectAll" resultType="com.legend.springboot.bean.Employee">
+        SELECT * FROM employee
+    </select>
+
     <insert id="insertEmp">
         INSERT INTO employee(lastName,email,gender,d_id) VALUES (#{lastName},#{email},#{gender},#{dId})
     </insert>
