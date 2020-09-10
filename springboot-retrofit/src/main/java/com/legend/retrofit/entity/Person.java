@@ -1,6 +1,5 @@
 package com.legend.retrofit.entity;
 
-import lombok.Data;
 
 /**
  * @author legend
@@ -8,8 +7,23 @@ import lombok.Data;
  * @description
  * @date 2020/8/24
  */
-@Data
 public class Person {
     private Long id;
     private String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
