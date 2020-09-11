@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.legend.springcache.mapper.EmployeeMapper">
+
+    <select id="updateEmp" resultType="com.legend.springcache.entity.Employee">
+        update employee set gender = #{gender} WHERE id=#{id}
+    </select>
+
+    <select id="selectAll" resultType="com.legend.springcache.entity.Employee">
+        SELECT * FROM employee
+    </select>
+
+    <insert id="insertEmp">
+        INSERT INTO employee(lastName,email,gender,d_id) VALUES (#{lastName},#{email},#{gender},#{dId})
+    </insert>
+</mapper>
