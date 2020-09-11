@@ -2,6 +2,7 @@ package com.qcl.datasource;
 
 import com.qcl.datasource.config.DBConfig1;
 import com.qcl.datasource.config.DBConfig2;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -17,6 +18,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 //或者在 DBConfig1 类上添加 @Component 注册进去Spring容器
 @EnableConfigurationProperties({DBConfig1.class, DBConfig2.class})
+@MapperScan("com.qcl.datasource.mapper")
 public class SpringbootDataSourceApplication {
 
     public static void main(String[] args) {
