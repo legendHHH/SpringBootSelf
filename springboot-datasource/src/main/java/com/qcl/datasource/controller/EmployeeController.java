@@ -43,6 +43,10 @@ public class EmployeeController {
 
     /**
      * 添加员工
+     * http://localhost:8080/addEmp?gender=1
+     *
+     * com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Failed to get a connection using the URL 'null'.
+     * 出现异常 降低版本有办法解决
      *
      * @param employee
      * @return

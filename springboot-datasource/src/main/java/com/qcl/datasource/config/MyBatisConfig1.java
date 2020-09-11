@@ -1,7 +1,7 @@
 package com.qcl.datasource.config;
 
-import javax.sql.DataSource;
-
+import com.atomikos.jdbc.AtomikosDataSourceBean;
+import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,22 +14,23 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
+import javax.sql.DataSource;
+import java.sql.SQLException;
+
 /**
  * 多数据源配置类
  * 下面要进行扫包，目的是标清楚为谁添加的数据源，这样对应的包里函数执行数据库操作的时候，就知道要执行的数据库账号
  * 密码，表，以及事务处理之类的。
  *
- * 跟MyBatisConfig1配置类差不多那个使用了分布式事务
- *
  * @author legend
  * @version 1.0
  * @description
- * @date 2020/9/10
+ * @date 2020/9/11
  */
 //注册到springboot容器，相当于原来xml文件里的<beans>
-//@Configuration
-//@MapperScan(basePackages = {"com.qcl.datasource.mapper.test01"}, sqlSessionFactoryRef = "test1SqlSessionFactory")
-public class DataSource1 {
+@Configuration
+@MapperScan(basePackages = {"com.qcl.datasource.mapper.test01"}, sqlSessionTemplateRef = "test1SqlSessionTemplate")
+public class MyBatisConfig1 {
 
     /**
      * 注入到这个容器
@@ -38,10 +39,27 @@ public class DataSource1 {
      * @return
      */
     @Bean(name = "test1DataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test1")//表示取application.properties配置文件中的前缀
+//    @ConfigurationProperties(prefix = "spring.datasource.test1")//表示取application.properties配置文件中的前缀
     @Primary
-    public DataSource testDataSource() {
-        return DataSourceBuilder.create().build();
+    public DataSource testDataSource(DBConfig1 testConfig) throws SQLException {
+        MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
+        mysqlXaDataSource.setUrl(testConfig.getUrl());
+        mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
+        mysqlXaDataSource.setPassword(testConfig.getPassword());
+        mysqlXaDataSource.setUser(testConfig.getUsername());
+        mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
+        AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
+        xaDataSource.setXaDataSource(mysqlXaDataSource);
+        xaDataSource.setUniqueResourceName("test1DataSource");
+        xaDataSource.setMinPoolSize(testConfig.getMinPoolSize());
+        xaDataSource.setMaxPoolSize(testConfig.getMaxPoolSize());
+        xaDataSource.setMaxLifetime(testConfig.getMaxLifeTime());
+        xaDataSource.setBorrowConnectionTimeout(testConfig.getBorrowConnectionTimeout());
+        xaDataSource.setLoginTimeout(testConfig.getLoginTimeout());
+        xaDataSource.setMaintenanceInterval(testConfig.getMaintenanceInterval());
+        xaDataSource.setMaxIdleTime(testConfig.getMaxIdleTime());
+        xaDataSource.setTestQuery(testConfig.getTestQuery());
+        return xaDataSource;
     }
 
     /**
