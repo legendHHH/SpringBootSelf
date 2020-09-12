@@ -1,0 +1,16 @@
+server:
+  port: 1234
+
+
+redis:
+  config:
+    host: redis://127.0.0.1:6379
+
+spring:
+  redis:
+    # db3 不是从下标0开始计算的
+    database: 3
+    host: localhost
+    port: 6379
+  profiles:
+    active: dev
