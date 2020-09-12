@@ -12,13 +12,16 @@
         <module name="legend-service-consumer" />
         <module name="legend-service-provider" />
         <module name="legend-user" />
+        <module name="redis-lock" />
         <module name="springboot-activiti" />
         <module name="springboot-async" />
+        <module name="springboot-ci-jenkins" />
         <module name="springboot-config" />
         <module name="springboot-config-autocongfig" />
         <module name="springboot-data-jdbc" />
         <module name="springboot-data-jpa" />
         <module name="springboot-data-mybatis" />
+        <module name="springboot-datasource" />
         <module name="springboot-helloworld" />
         <module name="springboot-itext-pdf" />
         <module name="springboot-japidocs" />
@@ -45,14 +48,17 @@
       <module name="legend-service-consumer" target="1.8" />
       <module name="legend-service-provider" target="1.8" />
       <module name="legend-user" target="1.8" />
+      <module name="redis-lock" target="1.8" />
       <module name="spring-boot-swagger-knife4j" target="1.8" />
       <module name="springboot-activiti" target="1.8" />
       <module name="springboot-async" target="1.8" />
+      <module name="springboot-ci-jenkins" target="1.8" />
       <module name="springboot-config" target="1.8" />
       <module name="springboot-config-autocongfig" target="1.8" />
       <module name="springboot-data-jdbc" target="1.8" />
       <module name="springboot-data-jpa" target="1.8" />
       <module name="springboot-data-mybatis" target="1.8" />
+      <module name="springboot-datasource" target="1.8" />
       <module name="springboot-helloworld" target="1.8" />
       <module name="springboot-itext-pdf" target="1.8" />
       <module name="springboot-japidocs" target="1.8" />
@@ -83,9 +89,11 @@
       <module name="legend-service-consumer" options="-parameters" />
       <module name="legend-service-provider" options="-parameters" />
       <module name="legend-user" options="-parameters" />
+      <module name="redis-lock" options="-parameters" />
       <module name="springboot-async" options="-parameters" />
       <module name="springboot-config" options="" />
       <module name="springboot-data-jpa" options="-parameters" />
+      <module name="springboot-datasource" options="-parameters" />
       <module name="springboot-itext-pdf" options="-parameters" />
       <module name="springboot-japidocs" options="-parameters" />
       <module name="springboot-jsoup" options="-parameters" />

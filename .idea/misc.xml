@@ -38,6 +38,9 @@
         <option value="$PROJECT_DIR$/springboot-swagger2-knife4j/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-retrofit/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-shardingjdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/redis-lock/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-datasource/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-ci-jenkins/pom.xml" />
       </list>
     </option>
   </component>
