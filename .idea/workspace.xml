@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16582339-c39c-4bf3-bfce-193874042862" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/FastDFSApp8088.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/controller/FileSystemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/entity/FileSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/resources/config/fastdfs-client.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/resources/templates/helloworld.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/resources/templates/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/test/java/com/qcl/fastdfs/FastDFSTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-fastdfs/src/test/java/com/qcl/fastdfs/TestFastDFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legend-user/src/main/java/com/legend/user/config/MvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/legend-user/src/main/java/com/legend/user/config/MvcConfiguration.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/z-study-demo/target/" />
@@ -42,6 +54,7 @@
     <ignored path="$PROJECT_DIR$/redis-lock/target/" />
     <ignored path="$PROJECT_DIR$/springboot-datasource/target/" />
     <ignored path="$PROJECT_DIR$/springboot-ci-jenkins/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-fastdfs/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +66,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/legend-user/src/main/java/com/legend/user/config/MvcConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+            <state relative-caret-position="105">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/springboot-fastdfs/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/controller/FileSystemController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -91,12 +123,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/legend-user/pom.xml">
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
+            <state relative-caret-position="966">
               <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
             </state>
           </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
         </entry>
       </file>
     </leaf>
@@ -129,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/bean/Area.java" />
         <option value="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/bean/Node.java" />
         <option value="$PROJECT_DIR$/springboot-datasource/src/main/resources/mapper/TestMapper.xml" />
         <option value="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/mapper/test01/Test1Mapper.java" />
@@ -180,6 +211,7 @@
         <option value="$PROJECT_DIR$/springboot-ci-jenkins/README.md" />
         <option value="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/LockApplication1234.java" />
         <option value="$PROJECT_DIR$/legend-user/src/main/java/com/legend/user/config/MvcConfiguration.java" />
+        <option value="$PROJECT_DIR$/springboot-fastdfs/pom.xml" />
       </list>
     </option>
   </component>
@@ -197,6 +229,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,88 +240,25 @@
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="legend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="redis-lock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="redis-lock" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="redis-lock" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="redis-lock" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -296,148 +266,51 @@
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="redis-lock" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-ci-jenkins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-ci-jenkins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-ci-jenkins" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-logging" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fastdfs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test2" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test2" type="462c0819:PsiDirectoryNode" />
+              <item name="fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="z-study-demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="z-study-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="z-study-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="z-study-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="z-study-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-fastdfs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="z-study-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="thread" type="462c0819:PsiDirectoryNode" />
+              <item name="fastdfs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="CatdeaLogs" />
     </panes>
   </component>
@@ -450,7 +323,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600156886237" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600185769605" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -845,7 +718,8 @@
       <workItem from="1600140218451" duration="865000" />
       <workItem from="1600141932007" duration="934000" />
       <workItem from="1600156378646" duration="480000" />
-      <workItem from="1600171283140" duration="248000" />
+      <workItem from="1600171283140" duration="659000" />
+      <workItem from="1600185238439" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="解决冲突">
       <created>1595515516205</created>
@@ -1043,17 +917,24 @@
       <option name="project" value="LOCAL" />
       <updated>1599902042457</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="[UPDATE] 修改拦截器">
+      <created>1600171631795</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1600171631795</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107820000" />
+    <option name="totallyTimeSpent" value="108571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.24731903" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.25067025" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -1073,11 +954,11 @@
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49329758" weight="0.56373936" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50469166" side_tool="true" weight="0.50141644" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053619" side_tool="true" weight="0.28470254" />
       <window_info anchor="bottom" id="Tail" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4953083" visible="true" weight="0.28470254" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49463806" visible="true" weight="0.28470254" />
       <window_info anchor="bottom" id="MyBatis Log" order="15" />
       <window_info anchor="bottom" id="JRebel Executor" order="16" />
       <window_info anchor="bottom" id="JRebel Console" order="17" sideWeight="0.5007553" side_tool="true" weight="0.46896553" />
@@ -1195,7 +1076,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="【ADD】 SpringBoot整合Redis缓存-编写RedisTemplate接口测试和相关配置" />
     <MESSAGE value="解决冲突" />
     <MESSAGE value="Merge branch 'master' of https://github.com/qichunlin/SpringBootSelf&#10;&#10;# Conflicts:&#10;#&#9;springboot-restapi-project/springboot-restapi-project.iml" />
     <MESSAGE value="[UPDATE] springboot整合shardingjdbc分表分库" />
@@ -1220,29 +1100,10 @@
     <MESSAGE value="[UPDATE] springboot整合Redisson实现redis的分布式锁高并发场景下的线程问题" />
     <MESSAGE value="code sync" />
     <MESSAGE value="code sync2" />
-    <option name="LAST_COMMIT_MESSAGE" value="code sync2" />
+    <MESSAGE value="[UPDATE] 修改拦截器" />
+    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] 修改拦截器" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/springboot-logging/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-315">
-            <folding>
-              <element signature="imports" expanded="true" />
-              <element signature="e#0#29#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-logging/springboot.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="1737" column="22" selection-start-line="1737" selection-start-column="22" selection-end-line="1737" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/annotation/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -1307,12 +1168,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot-springcache/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="66" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot-springcache/src/main/java/com/legend/springcache/entity/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1456,12 +1317,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot-ci-jenkins/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot-ci-jenkins/src/main/java/com/qcl/springboot/ci/JenkinsCiApplication.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1518,8 +1379,8 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/redis-lock/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/LockApplication1234.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1573,10 +1434,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot-test/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="51" column="21" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="51" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-user/src/main/java/com/legend/user/config/MvcConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1602,19 +1470,27 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-user/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
+        <state relative-caret-position="966">
           <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
         </state>
       </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/legend-user/src/main/java/com/legend/user/config/MvcConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/controller/FileSystemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        <state relative-caret-position="231">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-fastdfs/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
   </component>
   <component name="masterDetails">
