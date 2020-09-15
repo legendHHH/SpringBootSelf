@@ -41,6 +41,7 @@
         <option value="$PROJECT_DIR$/redis-lock/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-datasource/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-ci-jenkins/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-fastdfs/pom.xml" />
       </list>
     </option>
   </component>

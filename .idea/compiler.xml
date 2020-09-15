@@ -22,6 +22,7 @@
         <module name="springboot-data-jpa" />
         <module name="springboot-data-mybatis" />
         <module name="springboot-datasource" />
+        <module name="springboot-fastdfs" />
         <module name="springboot-helloworld" />
         <module name="springboot-itext-pdf" />
         <module name="springboot-japidocs" />
@@ -59,6 +60,7 @@
       <module name="springboot-data-jpa" target="1.8" />
       <module name="springboot-data-mybatis" target="1.8" />
       <module name="springboot-datasource" target="1.8" />
+      <module name="springboot-fastdfs" target="1.8" />
       <module name="springboot-helloworld" target="1.8" />
       <module name="springboot-itext-pdf" target="1.8" />
       <module name="springboot-japidocs" target="1.8" />
@@ -94,6 +96,7 @@
       <module name="springboot-config" options="" />
       <module name="springboot-data-jpa" options="-parameters" />
       <module name="springboot-datasource" options="-parameters" />
+      <module name="springboot-fastdfs" options="-parameters" />
       <module name="springboot-itext-pdf" options="-parameters" />
       <module name="springboot-japidocs" options="-parameters" />
       <module name="springboot-jsoup" options="-parameters" />
