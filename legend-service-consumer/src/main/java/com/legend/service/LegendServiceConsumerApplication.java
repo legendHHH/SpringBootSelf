@@ -6,11 +6,21 @@ import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * 主启动
+ *
+ * @author legend
+ * @version 1.0
+ * @description
+ * @date 2020/9/19
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableFeignClients // 开启feign客户端
 @EnableCircuitBreaker //开启熔断
 //@SpringCloudApplication //组合注解,相当于 @SpringBootApplication  @EnableDiscoveryClient  @EnableCircuitBreaker
 public class LegendServiceConsumerApplication {
