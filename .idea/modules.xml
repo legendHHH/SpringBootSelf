@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/legend-service-consumer/legend-service-consumer.iml" filepath="$PROJECT_DIR$/legend-service-consumer/legend-service-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-service-provider/legend-service-provider.iml" filepath="$PROJECT_DIR$/legend-service-provider/legend-service-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-user/legend-user.iml" filepath="$PROJECT_DIR$/legend-user/legend-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legend-zuul/legend-zuul.iml" filepath="$PROJECT_DIR$/legend-zuul/legend-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/redis-lock/redis-lock.iml" filepath="$PROJECT_DIR$/redis-lock/redis-lock.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-activiti/springboot-activiti.iml" filepath="$PROJECT_DIR$/springboot-activiti/springboot-activiti.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-async/springboot-async.iml" filepath="$PROJECT_DIR$/springboot-async/springboot-async.iml" />
