@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
  * @author legend
  * @version 1.0
  * @description
- * @date 2020/9/19
+ * @date 2019/10/28
  */
 @SpringBootApplication
 @EnableDiscoveryClient
