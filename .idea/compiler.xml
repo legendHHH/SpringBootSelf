@@ -12,6 +12,7 @@
         <module name="legend-service-consumer" />
         <module name="legend-service-provider" />
         <module name="legend-user" />
+        <module name="legend-zuul" />
         <module name="redis-lock" />
         <module name="springboot-activiti" />
         <module name="springboot-async" />
@@ -50,6 +51,7 @@
       <module name="legend-service-consumer" target="1.8" />
       <module name="legend-service-provider" target="1.8" />
       <module name="legend-user" target="1.8" />
+      <module name="legend-zuul" target="1.8" />
       <module name="redis-lock" target="1.8" />
       <module name="spring-boot-swagger-knife4j" target="1.8" />
       <module name="springboot-activiti" target="1.8" />
@@ -93,6 +95,7 @@
       <module name="legend-service-consumer" options="-parameters" />
       <module name="legend-service-provider" options="-parameters" />
       <module name="legend-user" options="-parameters" />
+      <module name="legend-zuul" options="-parameters" />
       <module name="redis-lock" options="-parameters" />
       <module name="springboot-async" options="-parameters" />
       <module name="springboot-config" options="" />

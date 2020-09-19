@@ -43,6 +43,7 @@
         <option value="$PROJECT_DIR$/springboot-ci-jenkins/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-fastdfs/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-elasticsearch/pom.xml" />
+        <option value="$PROJECT_DIR$/legend-zuul/pom.xml" />
       </list>
     </option>
   </component>
