@@ -1,8 +1,14 @@
+# 服务端口号
 server:
   port: 8011
+
+
+# 微服务名称
 spring:
   application:
     name: service-consumer
+
+# eureka客户端相关配置
 eureka:
   client:
     service-url:
@@ -23,3 +29,14 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 6000 #设置Hystrix的超时时间为6000ms
+
+
+# Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过程中的性能损耗
+feign:
+  compression:
+    request:
+      enabled: true # 开启请求压缩
+      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型
+      min-request-size: 2048 # 设置触发压缩的大小下限
+    response:
+      enabled: true # 开启响应压缩
