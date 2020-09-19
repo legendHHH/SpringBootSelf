@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author legend
  * @version 1.0
  * @description
- * @date 2020/9/19
+ * @date 2019/11/2
  */
-@FeignClient(value = "service-provider") // 标注该类是一个feign接口
+//@FeignClient(value = "service-provider") // 标注该类是一个feign接口
+@FeignClient(value = "service-provider", fallback = UserClientFallback.class) // 标注该类是一个feign接口
 public interface UserClient {
 
     /**
