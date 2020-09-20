@@ -32,6 +32,7 @@
         <module name="springboot-logging" />
         <module name="springboot-minio" />
         <module name="springboot-mybatis" />
+        <module name="springboot-mybatisplus" />
         <module name="springboot-redis" />
         <module name="springboot-restapi-project" />
         <module name="springboot-retrofit" />
@@ -72,6 +73,7 @@
       <module name="springboot-logging" target="1.8" />
       <module name="springboot-minio" target="1.8" />
       <module name="springboot-mybatis" target="1.8" />
+      <module name="springboot-mybatisplus" target="1.8" />
       <module name="springboot-redis" target="1.8" />
       <module name="springboot-restapi-project" target="1.8" />
       <module name="springboot-retrofit" target="1.8" />
@@ -109,6 +111,7 @@
       <module name="springboot-logging" options="" />
       <module name="springboot-minio" options="-parameters" />
       <module name="springboot-mybatis" options="-parameters" />
+      <module name="springboot-mybatisplus" options="-parameters" />
       <module name="springboot-redis" options="-parameters" />
       <module name="springboot-restapi-project" options="-parameters" />
       <module name="springboot-retrofit" options="-parameters -parameters" />
