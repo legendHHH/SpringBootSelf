@@ -44,6 +44,7 @@
         <option value="$PROJECT_DIR$/springboot-fastdfs/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-elasticsearch/pom.xml" />
         <option value="$PROJECT_DIR$/legend-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mybatisplus/pom.xml" />
       </list>
     </option>
   </component>

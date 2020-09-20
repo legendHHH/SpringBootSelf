@@ -30,6 +30,7 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-logging/springboot-logging.iml" filepath="$PROJECT_DIR$/springboot-logging/springboot-logging.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-minio/springboot-minio.iml" filepath="$PROJECT_DIR$/springboot-minio/springboot-minio.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-mybatis/springboot-mybatis.iml" filepath="$PROJECT_DIR$/springboot-mybatis/springboot-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-mybatisplus/springboot-mybatisplus.iml" filepath="$PROJECT_DIR$/springboot-mybatisplus/springboot-mybatisplus.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-redis/springboot-redis.iml" filepath="$PROJECT_DIR$/springboot-redis/springboot-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-restapi-project/springboot-restapi-project.iml" filepath="$PROJECT_DIR$/springboot-restapi-project/springboot-restapi-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-retrofit/springboot-retrofit.iml" filepath="$PROJECT_DIR$/springboot-retrofit/springboot-retrofit.iml" />
