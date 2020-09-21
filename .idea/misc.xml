@@ -45,6 +45,8 @@
         <option value="$PROJECT_DIR$/springboot-elasticsearch/pom.xml" />
         <option value="$PROJECT_DIR$/legend-zuul/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-mybatisplus/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/pom.xml" />
       </list>
     </option>
   </component>

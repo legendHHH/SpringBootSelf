@@ -17,6 +17,7 @@
         <module name="springboot-activiti" />
         <module name="springboot-async" />
         <module name="springboot-ci-jenkins" />
+        <module name="springboot-codegenerator-mp" />
         <module name="springboot-config" />
         <module name="springboot-config-autocongfig" />
         <module name="springboot-data-jdbc" />
@@ -39,6 +40,7 @@
         <module name="springboot-send-mail" />
         <module name="springboot-shardingjdbc" />
         <module name="springboot-springcache" />
+        <module name="springboot-springsecurity" />
         <module name="springboot-starter-self" />
         <module name="springboot-starter-self-test" />
         <module name="springboot-swagger" />
@@ -58,6 +60,7 @@
       <module name="springboot-activiti" target="1.8" />
       <module name="springboot-async" target="1.8" />
       <module name="springboot-ci-jenkins" target="1.8" />
+      <module name="springboot-codegenerator-mp" target="1.8" />
       <module name="springboot-config" target="1.8" />
       <module name="springboot-config-autocongfig" target="1.8" />
       <module name="springboot-data-jdbc" target="1.8" />
@@ -80,6 +83,7 @@
       <module name="springboot-send-mail" target="1.8" />
       <module name="springboot-shardingjdbc" target="1.8" />
       <module name="springboot-springcache" target="1.8" />
+      <module name="springboot-springsecurity" target="1.8" />
       <module name="springboot-starter-self" target="1.8" />
       <module name="springboot-starter-self-test" target="1.8" />
       <module name="springboot-swagger" target="1.8" />
@@ -118,6 +122,7 @@
       <module name="springboot-send-mail" options="-parameters" />
       <module name="springboot-shardingjdbc" options="-parameters" />
       <module name="springboot-springcache" options="-parameters" />
+      <module name="springboot-springsecurity" options="-parameters" />
       <module name="springboot-starter-self" options="-parameters" />
       <module name="springboot-starter-self-test" options="-parameters" />
       <module name="springboot-swagger" options="-parameters" />
