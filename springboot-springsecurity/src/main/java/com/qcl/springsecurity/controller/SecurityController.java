@@ -39,7 +39,7 @@ public class SecurityController {
 
     /**
      * 有指定角色,每个角色有指定的权限
-     *
+     * <p>
      * 在主启动类中使用@EnableGlobalMethodSecurity 让这个PreAuthorize注解生效
      *
      * @return
@@ -51,16 +51,30 @@ public class SecurityController {
     }
 
 
+    /**
+     * PostAuthorize注解是在调用方法完成之后进行权限检查
+     *
+     * @param id
+     * @param username
+     * @param user
+     * @return
+     */
     @PreAuthorize("#id<10 and principal.username.equals(#username) and #user.username.equals('abc')")
-    @PostAuthorize("returnObject%2==0")
+    @PostAuthorize("returnObject%2==0") //在调用方法完成后进行权限检查,判断方法返回值是不是偶数的 returnObject能获取到返回值
     @RequestMapping("/test")
     public Integer test(Integer id, String username, User user) {
         // ...
         return id;
     }
 
+    /**
+     * PreFilter是对集合类的数据进行处理
+     *
+     * @param idList
+     * @return
+     */
     @PreFilter("filterObject%2==0")
-    @PostFilter("filterObject%4==0")
+    @PostFilter("filterObject%4==0") //是对集合类的参数进行过滤
     @RequestMapping("/test2")
     public List<Integer> test2(List<Integer> idList) {
         // ...

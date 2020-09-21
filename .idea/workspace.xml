@@ -2,41 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16582339-c39c-4bf3-bfce-193874042862" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/sql/mp_demo.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/sql/tb_employee.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/CodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/MyBatisPlusApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/dto/GeneratorParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/entity/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/entity/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/mapper/EmployeeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/mapper/TestMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/service/IEmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/service/ITestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/service/impl/EmployeeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/service/impl/TestServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/vo/ResponseDataVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/mapper/TestMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/templates/a.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/templates/generator-templates/controller.java.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/templates/generator-templates/entity.java.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/templates/generator-templates/mapper.java.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/templates/generator-templates/mapper.xml.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/templates/generator-templates/service.java.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/templates/generator-templates/serviceImpl.java.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-springsecurity/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-springsecurity/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/controller/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/controller/SecurityController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/z-study-demo/target/" />
@@ -79,6 +52,8 @@
     <ignored path="$PROJECT_DIR$/springboot-elasticsearch/target/" />
     <ignored path="$PROJECT_DIR$/legend-zuul/target/" />
     <ignored path="$PROJECT_DIR$/springboot-mybatisplus/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-codegenerator-mp/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-springsecurity/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,10 +66,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/service/impl/TestServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/service/MyUserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/SpringSecurityApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="24" column="27" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/controller/SecurityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/config/SpringSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <caret line="43" column="71" lean-forward="true" selection-start-line="43" selection-start-column="71" selection-end-line="43" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,10 +108,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/controller/TestController.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.12.RELEASE/spring-security-core-4.2.12.RELEASE.jar!/org/springframework/security/core/userdetails/jdbc/users.ddl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+            <state>
+              <caret selection-end-line="2" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/sql/users.ddl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/config/MyPasswordEncoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="19" column="26" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,81 +138,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/vo/ResponseDataVO.java">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/utils/MD5Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="126">
+              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+              <folding>
+                <element signature="e#153#154#0" expanded="true" />
+                <element signature="e#199#200#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="152" selection-start-line="3" selection-start-column="152" selection-end-line="3" selection-end-column="152" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/entity/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/entity/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-42">
-              <caret line="8" selection-start-line="8" selection-end-line="16" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1358#1359#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-annotation/3.3.1.tmp/mybatis-plus-annotation-3.3.1.tmp.jar!/com/baomidou/mybatisplus/annotation/TableId.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/mapper/TestMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/mapper/TestMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="39" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="39" />
+        <entry file="file://$PROJECT_DIR$/springboot-springsecurity/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="426">
+                <caret line="199" column="17" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -225,19 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/springboot-test/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/RestartController.java" />
-        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/Test2Application.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/LoggingController.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/SpringbootLoggingApplication.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/service/ScheduleService.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/ScheduleController.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/intercepter/Loginintercepter.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/intercepter/Loginntercepter.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/config/WebConfig.java" />
-        <option value="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/intercepter/LoginIntercepter.java" />
-        <option value="$PROJECT_DIR$/springboot-ci-jenkins/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-ci-jenkins/src/main/java/com/qcl/lspringboot/ci/JenkinsCiApplication.java" />
         <option value="$PROJECT_DIR$/springboot-ci-jenkins/README.md" />
         <option value="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/LockApplication1234.java" />
@@ -276,6 +240,19 @@
         <option value="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/controller/EmployeeController.java" />
         <option value="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/controller/TestController.java" />
         <option value="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/entity/Test.java" />
+        <option value="$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/DemoApplication.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/MyPasswordEncoder.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/SpringSecurityApplication.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/service/MyUserService.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/utils/MD5Util.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/config/MyPasswordEncoder.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/config/SpringSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/sql/users.ddl" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/controller/SecurityController.java" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/README.md" />
       </list>
     </option>
   </component>
@@ -309,8 +286,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,115 +298,67 @@
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatisplus" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springsecurity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springsecurity" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springsecurity" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-springsecurity" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatisplus" type="462c0819:PsiDirectoryNode" />
+              <item name="springsecurity" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot-mybatisplus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -447,7 +376,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600596830264" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600694506423" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -466,11 +395,11 @@
       <recent name="com.legend.springcache.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-mybatisplus\src\main\java\com\qcl\mybatisplus\config" />
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-mybatisplus\src\main\java\com\qcl\mybatisplus\controller" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-springsecurity\src\main\java\com\qcl\springsecurity\config" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-springsecurity\src\main\java\com\qcl\springsecurity" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-springsecurity" />
       <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-mybatisplus\sql" />
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-mybatisplus\src\main\resources\mapper" />
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-mybatisplus\src\main\java\com\qcl\mybatisplus\vo" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-mybatisplus\src\main\java\com\qcl\mybatisplus\config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -491,7 +420,7 @@
     </option>
     <option name="contentProportion" value="0.22404371" />
   </component>
-  <component name="RunManager" selected="Spring Boot.MyBatisPlusApplication">
+  <component name="RunManager" selected="Spring Boot.SpringSecurityApplication">
     <configuration name="RedissonUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.redis.lock.util.RedissonUtil" />
       <module name="redis-lock" />
@@ -620,6 +549,13 @@
     <configuration name="ShardingjdbcMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springboot-shardingjdbc" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.shardingjdbc.ShardingjdbcMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringSecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot-springsecurity" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.springsecurity.SpringSecurityApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -801,6 +737,7 @@
       <item itemvalue="Spring Boot.DemoApplication (1)" />
       <item itemvalue="Spring Boot.ShardingjdbcMain" />
       <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Spring Boot.SpringSecurityApplication" />
       <item itemvalue="Spring Boot.LockApplication1234" />
       <item itemvalue="Spring Boot.SpringbootDataSourceApplication" />
       <item itemvalue="Spring Boot.SpringcacheApplication" />
@@ -881,7 +818,10 @@
       <workItem from="1600253728451" duration="41000" />
       <workItem from="1600353810288" duration="1162000" />
       <workItem from="1600505792124" duration="8797000" />
-      <workItem from="1600575900975" duration="11560000" />
+      <workItem from="1600575900975" duration="12175000" />
+      <workItem from="1600652766230" duration="199000" />
+      <workItem from="1600673806240" duration="3144000" />
+      <workItem from="1600682276254" duration="4521000" />
     </task>
     <task id="LOCAL-00001" summary="解决冲突">
       <created>1595515516205</created>
@@ -1149,17 +1089,38 @@
       <option name="project" value="LOCAL" />
       <updated>1600529494133</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="[UPDATE] springboot整合mybatis-plus实现crud">
+      <created>1600596934339</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1600596934339</updated>
+    </task>
+    <task id="LOCAL-00040" summary="‘’">
+      <created>1600596987052</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1600596987052</updated>
+    </task>
+    <task id="LOCAL-00041" summary="[UPDATE] springboot整合springsecurity安全权限框架">
+      <created>1600689042659</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1600689042659</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134436000" />
+    <option name="totallyTimeSpent" value="142915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.2707775" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.27815014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -1179,16 +1140,16 @@
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49329758" weight="0.5226629" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5067024" side_tool="true" weight="0.26770538" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5073727" side_tool="true" weight="0.12322946" />
       <window_info anchor="bottom" id="Tail" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49396783" weight="0.49150142" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4919571" weight="0.4164306" />
       <window_info anchor="bottom" id="MyBatis Log" order="15" />
       <window_info anchor="bottom" id="JRebel Executor" order="16" />
       <window_info anchor="bottom" id="JRebel Console" order="17" sideWeight="0.5007553" side_tool="true" weight="0.46896553" />
-      <window_info anchor="bottom" id="Messages" order="18" weight="0.28328612" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.49396783" visible="true" weight="0.3838527" />
+      <window_info anchor="bottom" id="Messages" order="18" sideWeight="0.49932975" weight="0.28328612" />
+      <window_info anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.49262735" visible="true" weight="0.12322946" />
       <window_info anchor="bottom" id="RNConsole" order="20" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="21" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1208,7 +1169,7 @@
       <window_info anchor="right" id="Alibaba Log Console" order="14" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.29758713" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.27815014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -1225,25 +1186,25 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4953083" weight="0.31444758" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49329758" weight="0.5226629" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50402147" side_tool="true" weight="0.1855524" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5067024" side_tool="true" weight="0.2733711" />
       <window_info anchor="bottom" id="Tail" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49932975" weight="0.35835695" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4919571" weight="0.4164306" />
       <window_info anchor="bottom" id="MyBatis Log" order="15" />
       <window_info anchor="bottom" id="JRebel Executor" order="16" />
       <window_info anchor="bottom" id="JRebel Console" order="17" sideWeight="0.5007553" side_tool="true" weight="0.46896553" />
-      <window_info anchor="bottom" id="Messages" order="18" weight="0.3371105" />
-      <window_info anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.49597856" visible="true" weight="0.194051" />
+      <window_info anchor="bottom" id="Messages" order="18" sideWeight="0.49932975" weight="0.28328612" />
+      <window_info anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.49329758" visible="true" weight="0.407932" />
       <window_info anchor="bottom" id="RNConsole" order="20" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="21" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.5030257" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.50268096" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -1301,10 +1262,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[FIX] 复习springboot整合PageHelper分页插件" />
-    <MESSAGE value="[UPDATE] 补充springboot整合DataSource多数据源使用JTA+Atomic管理分布式事务问题" />
     <MESSAGE value="[UPDATE] springboot整合DataSource多数据源案例" />
-    <MESSAGE value="‘’" />
     <MESSAGE value="[fix] 修改中文转unicode" />
     <MESSAGE value="[UPDATE] 通过AOP切面方式打印日志和@Log注解的方式打印日志并替换接口参数" />
     <MESSAGE value="[UPDATE] springboot整合自带的springcache(ehcache缓存)并处理同步数据库更新问题" />
@@ -1326,157 +1284,12 @@
     <MESSAGE value="[UPDATE] 修改配置文件Feign 请求压缩" />
     <MESSAGE value="[UPDATE] OpenFeign的log日志打印" />
     <MESSAGE value="[UPDATE] zuul网关相关知识点" />
-    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] zuul网关相关知识点" />
+    <MESSAGE value="[UPDATE] springboot整合mybatis-plus实现crud" />
+    <MESSAGE value="‘’" />
+    <MESSAGE value="[UPDATE] springboot整合springsecurity安全权限框架" />
+    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] springboot整合springsecurity安全权限框架" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/springboot-datasource/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="13" selection-start-line="5" selection-start-column="4" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/legend/elasticsearch/ElasticsearchAppMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-elasticsearch/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-provider/src/main/java/com/legend/service/LegendServiceProviderApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http-demo/src/main/java/com/leyou/httpdemo/pojo/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-commons/2.0.2.RELEASE/spring-cloud-commons-2.0.2.RELEASE.jar!/org/springframework/cloud/client/SpringCloudApplication.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="28" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/main/java/com/legend/service/client/UserClientFallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-provider/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/main/java/com/legend/service/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/main/java/com/legend/service/controller/UserControllerLoadBalance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/main/java/com/legend/service/LegendServiceConsumerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="12" selection-start-line="12" selection-end-line="19" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/test/java/com/legend/service/RabbonLoadBalanceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-eureka/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/main/java/com/legend/service/config/FeignLogConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-service-consumer/src/main/java/com/legend/service/client/UserClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="18" column="115" selection-start-line="18" selection-start-column="115" selection-end-line="18" selection-end-column="115" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-zuul/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-zuul/src/main/java/com/qcl/zuul/filter/LoginFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-user/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/legend-zuul/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -1485,44 +1298,12 @@
       </provider>
       <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/mapper/hello/MpDemoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/config/DemoAutoConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/controller/GeneratorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/annoation/EnableDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/DemoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/log4j.xml" />
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/mapper/hello/MpDemoMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/config/DemoAutoConfiguration.java" />
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/controller/GeneratorController.java" />
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/annoation/EnableDemo.java" />
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/DemoApplication.java" />
     <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1537,20 +1318,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/sql/mp_demo.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/sql/tb_employee.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1673,13 +1440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -1723,8 +1483,163 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/entity/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+        <state relative-caret-position="194">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/sql/t_test.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/sql/tb_employee.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/sql/mp_demo.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-378">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-mybatisplus/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-redis/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.2.2.RELEASE/spring-boot-autoconfigure-2.2.2.RELEASE.jar!/org/springframework/boot/autoconfigure/SpringBootApplication.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/configuration/RedisConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/SpringbootRedisApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+          <folding>
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/MyPasswordEncoder.java" />
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/ServletInitializer.java" />
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/SpringSecurityApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="152" selection-start-line="3" selection-start-column="152" selection-end-line="3" selection-end-column="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/utils/MD5Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding>
+            <element signature="e#153#154#0" expanded="true" />
+            <element signature="e#199#200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/config/MyPasswordEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/service/MyUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/config/SpringSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="43" column="71" lean-forward="true" selection-start-line="43" selection-start-column="71" selection-end-line="43" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.12.RELEASE/spring-security-core-4.2.12.RELEASE.jar!/org/springframework/security/core/userdetails/jdbc/users.ddl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/sql/users.ddl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/src/main/java/com/qcl/springsecurity/controller/SecurityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="426">
+            <caret line="199" column="17" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
