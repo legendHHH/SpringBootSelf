@@ -67,8 +67,10 @@ public class UserController {
             //获取登陆用户
             User user = (User) subject.getPrincipal();
             session.setAttribute("user", user);
+            System.out.println("登录成功" + user);
             return "index";
         } catch (Exception e) {
+            System.out.println("登录失败");
             return "login";
         }
     }
