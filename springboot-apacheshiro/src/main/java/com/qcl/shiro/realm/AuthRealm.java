@@ -45,6 +45,7 @@ public class AuthRealm extends AuthorizingRealm {
         //从session里面获取用户
         User user = (User) principals.fromRealm(this.getClass().getName()).iterator().next();
         List<String> permissionList = new ArrayList<>();
+        //不同角色访问不同接口
         List<String> roleNameList = new ArrayList<>();
 
         Set<Role> roleSet = user.getRoles();

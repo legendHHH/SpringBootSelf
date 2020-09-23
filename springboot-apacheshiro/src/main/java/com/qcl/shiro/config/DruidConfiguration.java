@@ -18,6 +18,8 @@ import javax.sql.DataSource;
 
 /**
  * Druid配置
+ * http://localhost:8080/druid/index.html
+ * druid 12345678
  *
  * @author legend
  * @version 1.0
