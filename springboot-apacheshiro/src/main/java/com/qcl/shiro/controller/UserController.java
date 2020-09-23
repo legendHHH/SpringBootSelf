@@ -64,6 +64,7 @@ public class UserController {
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
+            //获取登陆用户
             User user = (User) subject.getPrincipal();
             session.setAttribute("user", user);
             return "index";

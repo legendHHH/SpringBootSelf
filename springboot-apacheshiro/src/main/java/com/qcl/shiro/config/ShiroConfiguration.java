@@ -32,11 +32,15 @@ public class ShiroConfiguration {
         bean.setSuccessUrl("/index");
         bean.setUnauthorizedUrl("/unauthorized");
 
+        //某些请求该怎么拦截
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
+        //这个给的value取决于 DefaultFilter 枚举类中的属性(key指定的url 使用value指定的拦截器)
         filterChainDefinitionMap.put("/index", "authc");
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/loginUser", "anon");
+        //访问admin接口的时候只有admin角色才可以访问
         filterChainDefinitionMap.put("/admin", "roles[admin]");
+        //具有了edit权限的才可以访问
         filterChainDefinitionMap.put("/edit", "perms[edit]");
         filterChainDefinitionMap.put("/druid/**", "anon");
         filterChainDefinitionMap.put("/**", "user");
@@ -61,6 +65,7 @@ public class ShiroConfiguration {
     @Bean("authRealm")
     public AuthRealm authRealm(@Qualifier("credentialMatcher") CredentialMatcher matcher) {
         AuthRealm authRealm = new AuthRealm();
+        //缓存权限认证
         authRealm.setCacheManager(new MemoryConstrainedCacheManager());
         authRealm.setCredentialsMatcher(matcher);
         return authRealm;
@@ -76,6 +81,14 @@ public class ShiroConfiguration {
         return new CredentialMatcher();
     }
 
+    /**
+     * shiro跟spring的关系
+     *
+     * 使用成我们自己定制的了
+     *
+     * @param securityManager
+     * @return
+     */
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(@Qualifier("securityManager") SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
