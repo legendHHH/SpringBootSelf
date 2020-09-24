@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置具体可以参考 org.apache.ibatis.session.Configuration-->
+    <settings>
+        <setting name="safeRowBoundsEnabled" value="true"/>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="useGeneratedKeys" value="true"/>
+    </settings>
+
+
+    <!--<typeAliases>-->
+        <!--&lt;!&ndash;指定包的类别名 可以直接使用aa 相当于做了映射&ndash;&gt;-->
+        <!--<typeAlias type="com.xxx" alias="aa" />-->
+    <!--</typeAliases>-->
+
+
+    <!--sql的监控逻辑-->
+    <!--<plugins>
+        <plugin interceptor=""></plugin>
+    </plugins>-->
+
+    <!--<typeHandlers>-->
+
+    <!--</typeHandlers>-->
+
+</configuration>
