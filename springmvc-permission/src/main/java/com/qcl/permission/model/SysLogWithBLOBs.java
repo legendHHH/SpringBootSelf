@@ -1,0 +1,31 @@
+package com.qcl.permission.model;
+
+/**
+ * 实体类
+ *
+ * @author legend
+ * @version 1.0
+ * @description
+ * @date 2020/9/25
+ */
+public class SysLogWithBLOBs extends SysLog {
+    private String oldValue;
+
+    private String newValue;
+
+    public String getOldValue() {
+        return oldValue;
+    }
+
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue == null ? null : oldValue.trim();
+    }
+
+    public String getNewValue() {
+        return newValue;
+    }
+
+    public void setNewValue(String newValue) {
+        this.newValue = newValue == null ? null : newValue.trim();
+    }
+}
