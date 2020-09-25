@@ -1,5 +1,7 @@
 package com.qcl.permission.controller;
 
+import com.qcl.permission.common.JsonData;
+import com.qcl.permission.exception.PermissionException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,20 @@ public class TestController {
     public String hello() {
         log.info("hello");
         return "hello, permission";
+    }
+
+    @RequestMapping(value = "/hello.json",method = RequestMethod.GET)
+    @ResponseBody
+    public JsonData helloJson() {
+        log.info("helloJson");
+        return JsonData.success("hello Json, permission");
+    }
+
+    @RequestMapping(value = "/hello2.json",method = RequestMethod.GET)
+    @ResponseBody
+    public JsonData helloJsonException() {
+        log.info("helloJson");
+        throw new PermissionException("test permission exception");
     }
 
     /*@RequestMapping("/validate.json")
