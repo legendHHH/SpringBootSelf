@@ -17,7 +17,7 @@ import java.util.Enumeration;
  * 日志AOP切面
  * https://blog.csdn.net/weixin_34014277/article/details/91369520
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/11

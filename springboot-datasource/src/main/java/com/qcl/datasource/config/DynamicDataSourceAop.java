@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 动态数据源Aop切面
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/11

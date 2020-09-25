@@ -1,7 +1,7 @@
 package com.example.demo.thread;
 
 /**
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/7/15

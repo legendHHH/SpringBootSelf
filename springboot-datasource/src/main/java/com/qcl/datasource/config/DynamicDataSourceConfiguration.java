@@ -21,7 +21,7 @@ import java.util.Map;
  * <p>
  * 用户登陆,获取用户的地区,判断是028还是010根据这个获取对应的数据源进行操作对应的数据库
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/11

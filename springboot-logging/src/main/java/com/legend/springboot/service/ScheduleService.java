@@ -4,7 +4,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/12

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/springmvc-permission" />
+  </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
@@ -47,6 +50,10 @@
         <option value="$PROJECT_DIR$/springboot-mybatisplus/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-springsecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-apacheshiro/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-websocket/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-permission/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc-permission/pom.xml" />
       </list>
     </option>
   </component>

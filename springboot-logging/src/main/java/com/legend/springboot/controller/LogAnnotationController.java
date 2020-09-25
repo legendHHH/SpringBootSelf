@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Log注解方式的日志测试
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/11
