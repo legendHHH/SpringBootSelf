@@ -30,10 +30,13 @@
     <!--定义了一个SpringMvc的接口我们会使用注解标记RequestMapping,把定义好的RequestMapping 接口以什么样的代码执行-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
 
+    <!--全局异常处理类-->
+    <bean class="com.qcl.permission.common.SpringExceptionResolver" />
 
     <!--告诉Springmvc当来了一个请求之后以什么样的数据返回如：json/jsp/pdf 做视图渲染-->
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
 
+    <!-- 全局异常处理类返回的viewName com.qcl.permission.common.SpringExceptionResolver-->
     <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
 
     <!--对jsp页面进行处理-->
