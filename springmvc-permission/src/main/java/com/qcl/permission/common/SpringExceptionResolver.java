@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author legend
  * @version 1.0
  * @description
- * @date 2020/9/24
+ * @date 2020/9/25
  */
 @Slf4j
 public class SpringExceptionResolver implements HandlerExceptionResolver {
