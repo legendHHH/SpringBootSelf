@@ -6,7 +6,7 @@ package com.qcl.permission.exception;
  * @author legend
  * @version 1.0
  * @description
- * @date 2020/9/24
+ * @date 2020/9/25
  */
 public class ParamException extends RuntimeException {
     public ParamException() {
