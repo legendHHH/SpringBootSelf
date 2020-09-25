@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * 使用ftl模板测试接口
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/10

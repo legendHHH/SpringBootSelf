@@ -5,7 +5,7 @@ import com.qcl.shardingjdbc.entity.Book;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/2

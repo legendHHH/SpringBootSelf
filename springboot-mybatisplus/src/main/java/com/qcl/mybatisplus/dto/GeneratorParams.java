@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 代码生成配置参数
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/4/3

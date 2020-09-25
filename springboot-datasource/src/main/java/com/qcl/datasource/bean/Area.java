@@ -4,7 +4,7 @@ package com.qcl.datasource.bean;
  * 地区实体
  * INSERT INTO `test`.`hjmall_area`(`area_code`, `area_parent_code`, `area_name`, `area_simple_name`, `area_level`, `area_sort`) VALUES ('410423', '410400', '鲁山县', '鲁山', '3', '1933');
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/11

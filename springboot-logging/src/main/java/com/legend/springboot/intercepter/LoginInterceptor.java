@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * 拦截器是基于反射底层是动态代理;不依赖于Servlet容器;只对Controller请求起作用;Controller调用中;可能会调用多次
  * 过滤器是函数回调;依赖于Servlet容器;几乎所有的请求起作用;调用一次
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/12

@@ -10,7 +10,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/4/18

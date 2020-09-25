@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * 注解EnableScheduling 开启定时任务
  * 注解EnableAsync 开启异步
  *
- * @author chunlin.qi@hand-china.com
+ * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/12

@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 
 /**
- * @author chunlin.qi@hand-china.com
+ * @author legend
  *
  * 优化 提取到JdbcProperties类中,作为全局使用 不需要每次需要用就注入一下
  */
