@@ -11,21 +11,23 @@
     <!-- 启动注解驱动的spring mvc 功能 -->
     <mvc:annotation-driven/>
 
-    <!--<mvc:interceptors>
+    <!--Htp请求前后拦截器-->
+    <mvc:interceptors>
         <bean class="com.qcl.permission.interceptor.HttpInterceptor"/>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 
     <!-- 启动包扫描功能 -->
     <context:component-scan base-package="com.qcl.permission.controller"/>
     <context:component-scan base-package="com.qcl.permission.service"/>
 
-    <!--<mvc:resources location="/js/" mapping="/js/**"/>
-    <mvc:resources location="/css/" mapping="/css/**"/>
-    <mvc:resources location="/bootstrap3.3.5/" mapping="/bootstrap3.3.5/**"/>
-    <mvc:resources location="/assets/" mapping="/assets/**"/>
-    <mvc:resources location="/ztree/" mapping="/ztree/**"/>
+    <!--<mvc:resources location="/js/" mapping="/js/**"/>-->
+    <!--<mvc:resources location="/css/" mapping="/css/**"/>-->
+    <!--<mvc:resources location="/bootstrap3.3.5/" mapping="/bootstrap3.3.5/**"/>-->
+    <!--<mvc:resources location="/assets/" mapping="/assets/**"/>-->
+    <!--<mvc:resources location="/ztree/" mapping="/ztree/**"/>-->
 
-    <bean class="com.mmall.common.ApplicationContextHelper" lazy-init="false"/>-->
+    <!--spring上下文注册到容器 启动加载-->
+    <bean class="com.qcl.permission.common.ApplicationContextHelper" lazy-init="false"/>
 
     <!--定义了一个SpringMvc的接口我们会使用注解标记RequestMapping,把定义好的RequestMapping 接口以什么样的代码执行-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
