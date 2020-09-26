@@ -59,6 +59,7 @@
     </dependency>
 
     <!-- mybatis -->
+    <!-- 选择mybatis-spring版本的时候需要对应mybatis的版本 -->
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
