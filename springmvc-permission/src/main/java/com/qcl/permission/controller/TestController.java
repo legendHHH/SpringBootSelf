@@ -1,5 +1,6 @@
 package com.qcl.permission.controller;
 
+import com.qcl.permission.common.ApplicationContextHelper;
 import com.qcl.permission.common.JsonData;
 import com.qcl.permission.exception.ParamException;
 import com.qcl.permission.exception.PermissionException;
@@ -69,13 +70,20 @@ public class TestController {
     }
 
 
+    /**
+     * 测试 com.qcl.permission.common.ApplicationContextHelper 获取spring上下文工具类
+     * @param vo
+     * @return
+     * @throws ParamException
+     */
     @RequestMapping("/validate2.json")
     @ResponseBody
     public JsonData validate2(TestVo vo) throws ParamException {
         log.info("validate");
-//        SysAclModuleMapper moduleMapper = ApplicationContextHelper.popBean(SysAclModuleMapper.class);
-//        SysAclModule module = moduleMapper.selectByPrimaryKey(1);
-//        log.info(JsonMapper.obj2String(module));
+        //从自定义 ApplicationContextHelper中获取Bean
+        SysAclModuleMapper moduleMapper = ApplicationContextHelper.popBean(SysAclModuleMapper.class);
+        SysAclModule module = moduleMapper.selectByPrimaryKey(1);
+        log.info(JsonMapper.obj2String(module));
         BeanValidator.check(vo);
         return JsonData.success("test validate");
     }
