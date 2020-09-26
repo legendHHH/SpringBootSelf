@@ -1,15 +1,24 @@
 package com.qcl.permission.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.Date;
 
 /**
- * 实体类
+ * 部门实体类
  *
  * @author legend
  * @version 1.0
  * @description
  * @date 2020/9/25
  */
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class SysDept {
     private Integer id;
 
