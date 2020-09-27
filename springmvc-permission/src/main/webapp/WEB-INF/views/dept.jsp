@@ -207,7 +207,7 @@
 
         function loadDeptTree() {
             $.ajax({
-                url: "/sys/dept/tree.json",
+                url: "/permission/sys/dept/tree.json",
                 success : function (result) {
                     if (result.ret) {
                         deptList = result.data;
@@ -253,7 +253,7 @@
                 var deptName = $(this).attr("data-name");
                 if (confirm("确定要删除部门[" + deptName + "]吗?")) {
                     $.ajax({
-                        url: "/sys/dept/delete.json",
+                        url: "/permission/sys/dept/delete.json",
                         data: {
                             id: deptId
                         },
@@ -323,7 +323,7 @@
 
         function loadUserList(deptId) {
             var pageSize = $("#pageSize").val();
-            var url = "/sys/user/page.json?deptId=" + deptId;
+            var url = "/permission/sys/user/page.json?deptId=" + deptId;
             var pageNo = $("#userPage .pageNo").val() || 1;
             $.ajax({
                 url : url,
@@ -410,7 +410,7 @@
                 e.stopPropagation();
                 var userId = $(this).attr("data-id");
                 $.ajax({
-                    url: "/sys/user/acls.json",
+                    url: "/permission/sys/user/acls.json",
                     data: {
                         userId: userId
                     },
@@ -515,7 +515,7 @@
 
         function updateUser(isCreate, successCallback, failCallback) {
             $.ajax({
-                url: isCreate ? "/sys/user/save.json" : "/sys/user/update.json",
+                url: isCreate ? "/permission/sys/user/save.json" : "/sys/user/update.json",
                 data: $("#userForm").serializeArray(),
                 type: 'POST',
                 success: function(result) {
@@ -535,7 +535,7 @@
 
         function updateDept(isCreate, successCallback, failCallback) {
             $.ajax({
-                url: isCreate ? "/sys/dept/save.json" : "/sys/dept/update.json",
+                url: isCreate ? "/permission/sys/dept/save.json" : "/sys/dept/update.json",
                 data: $("#deptForm").serializeArray(),
                 type: 'POST',
                 success: function(result) {
