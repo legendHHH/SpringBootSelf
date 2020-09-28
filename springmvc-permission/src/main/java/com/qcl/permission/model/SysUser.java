@@ -1,5 +1,10 @@
 package com.qcl.permission.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.Date;
 
 /**
@@ -10,6 +15,10 @@ import java.util.Date;
  * @description
  * @date 2020/9/25
  */
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class SysUser {
     private Integer id;
 

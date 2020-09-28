@@ -9,6 +9,14 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+/**
+ * 用户参数
+ *
+ * @author legend
+ * @version 1.0
+ * @description
+ * @date 2020/9/27
+ */
 @Getter
 @Setter
 public class UserParam {
