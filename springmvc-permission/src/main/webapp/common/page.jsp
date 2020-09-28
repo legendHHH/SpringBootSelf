@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%--分页页面--%>
 <script id="paginateTemplate" type="x-tmpl-mustache">
 <div class="col-xs-6">
     <div class="dataTables_info" id="dynamic-table_info" role="status" aria-live="polite">
@@ -30,6 +30,7 @@
     </div>
 </div>
 
+
 </script>
 
 <script type="text/javascript">
@@ -37,9 +38,13 @@
     Mustache.parse(paginateTemplate);
 
     function renderPage(url, total, pageNo, pageSize, currentSize, idElement, callback) {
+        //最大页数
         var maxPageNo = Math.ceil(total / pageSize);
+        //参数
         var paramStartChar = url.indexOf("?") > 0 ? "&" : "?";
+        //从多少条到多少条
         var from = (pageNo - 1) * pageSize + 1;
+        //对象页面
         var view = {
             from: from > total ? total : from,
             to: (from + currentSize - 1) > total ? total : (from + currentSize - 1),
