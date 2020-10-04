@@ -1,11 +1,12 @@
 package com.qcl.permission.service;
 
+import com.qcl.permission.dto.AclModuleLevelDto;
 import com.qcl.permission.dto.DeptLevelDto;
 
 import java.util.List;
 
 /**
- * 部门层级树结构
+ * 层级树结构
  *
  * @author legend
  * @version 1.0
@@ -20,5 +21,12 @@ public interface ISysTreeService {
      * @return
      */
     public List<DeptLevelDto> deptTree();
+
+    /**
+     * 权限模块树
+     *
+     * @return
+     */
+    public List<AclModuleLevelDto> aclModuleTree();
 
 }

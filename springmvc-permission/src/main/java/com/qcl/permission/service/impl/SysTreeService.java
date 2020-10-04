@@ -3,10 +3,14 @@ package com.qcl.permission.service.impl;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
+import com.qcl.permission.dto.AclDto;
+import com.qcl.permission.dto.AclModuleLevelDto;
 import com.qcl.permission.dto.DeptLevelDto;
 import com.qcl.permission.mapper.SysAclMapper;
 import com.qcl.permission.mapper.SysAclModuleMapper;
 import com.qcl.permission.mapper.SysDeptMapper;
+import com.qcl.permission.model.SysAcl;
+import com.qcl.permission.model.SysAclModule;
 import com.qcl.permission.model.SysDept;
 import com.qcl.permission.service.ISysTreeService;
 import com.qcl.permission.utils.LevelUtil;
@@ -17,9 +21,11 @@ import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
- * 部门层级树结构
+ * 层级树结构Service
  *
  * @author legend
  * @version 1.0
@@ -73,7 +79,7 @@ public class SysTreeService implements ISysTreeService {
             aclDtoList.add(dto);
         }
         return aclListToTree(aclDtoList);
-    }
+    }*/
 
     public List<AclModuleLevelDto> aclListToTree(List<AclDto> aclDtoList) {
         if (CollectionUtils.isEmpty(aclDtoList)) {
@@ -105,15 +111,24 @@ public class SysTreeService implements ISysTreeService {
         }
     }
 
+    @Override
     public List<AclModuleLevelDto> aclModuleTree() {
+        //获取当前所有的权限模块
         List<SysAclModule> aclModuleList = sysAclModuleMapper.getAllAclModule();
         List<AclModuleLevelDto> dtoList = Lists.newArrayList();
+        //做成权限模块层级对象
         for (SysAclModule aclModule : aclModuleList) {
             dtoList.add(AclModuleLevelDto.adapt(aclModule));
         }
-        return aclModuleListToTree(dtoList);
+        return this.aclModuleListToTree(dtoList);
     }
 
+    /**
+     * 权限模块转化成树
+     *
+     * @param dtoList
+     * @return
+     */
     public List<AclModuleLevelDto> aclModuleListToTree(List<AclModuleLevelDto> dtoList) {
         if (CollectionUtils.isEmpty(dtoList)) {
             return Lists.newArrayList();
@@ -129,22 +144,35 @@ public class SysTreeService implements ISysTreeService {
             }
         }
         Collections.sort(rootList, aclModuleSeqComparator);
+        //转化树操作
         transformAclModuleTree(rootList, LevelUtil.ROOT, levelAclModuleMap);
         return rootList;
     }
 
+    /**
+     * 转化树操作
+     *
+     * @param dtoList
+     * @param level
+     * @param levelAclModuleMap
+     */
     public void transformAclModuleTree(List<AclModuleLevelDto> dtoList, String level, Multimap<String, AclModuleLevelDto> levelAclModuleMap) {
         for (int i = 0; i < dtoList.size(); i++) {
+            //遍历当前层的每一个元素
             AclModuleLevelDto dto = dtoList.get(i);
+            //当前层级的Level
             String nextLevel = LevelUtil.calculateLevel(level, dto.getId());
+            //取出下一个层级的列表
             List<AclModuleLevelDto> tempList = (List<AclModuleLevelDto>) levelAclModuleMap.get(nextLevel);
+            //判断是否有下一层级模块
             if (CollectionUtils.isNotEmpty(tempList)) {
                 Collections.sort(tempList, aclModuleSeqComparator);
                 dto.setAclModuleList(tempList);
+                //递归处理下一层
                 transformAclModuleTree(tempList, nextLevel, levelAclModuleMap);
             }
         }
-    }*/
+    }
 
     @Override
     public List<DeptLevelDto> deptTree() {
@@ -236,17 +264,23 @@ public class SysTreeService implements ISysTreeService {
         }
     };
 
-    /*public Comparator<AclModuleLevelDto> aclModuleSeqComparator = new Comparator<AclModuleLevelDto>() {
+    /**
+     * 权限模块的Comparator比较器
+     */
+    public Comparator<AclModuleLevelDto> aclModuleSeqComparator = new Comparator<AclModuleLevelDto>() {
         @Override
         public int compare(AclModuleLevelDto o1, AclModuleLevelDto o2) {
             return o1.getSeq() - o2.getSeq();
         }
     };
 
+    /**
+     * 权限的Comparator比较器
+     */
     public Comparator<AclDto> aclSeqComparator = new Comparator<AclDto>() {
         @Override
         public int compare(AclDto o1, AclDto o2) {
             return o1.getSeq() - o2.getSeq();
         }
-    };*/
+    };
 }

@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
- * 获取spring上下文工具
+ * 权限模块参数
  *
  * @author legend
  * @version 1.0
