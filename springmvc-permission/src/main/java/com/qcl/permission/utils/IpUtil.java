@@ -48,7 +48,6 @@ public class IpUtil {
         if (ip.length() > 23) {
             ip = ip.substring(0, 23);
         }
-
         return ip;
     }
 

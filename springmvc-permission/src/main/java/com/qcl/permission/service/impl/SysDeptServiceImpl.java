@@ -72,6 +72,8 @@ public class SysDeptServiceImpl implements ISysDeptService {
                 .seq(param.getSeq()).remark(param.getRemark()).build();
 
         after.setLevel(LevelUtil.calculateLevel(getLevel(param.getParentId()), param.getParentId()));
+
+        //通过当前线程去获取用户的完整信息
         after.setOperator(RequestHolder.getCurrentUser().getUsername());
         after.setOperateIp(IpUtil.getRemoteIp(RequestHolder.getCurrentRequest()));
         after.setOperateTime(new Date());

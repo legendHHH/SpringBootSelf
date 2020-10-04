@@ -1,5 +1,6 @@
 package com.qcl.permission.interceptor;
 
+import com.qcl.permission.common.RequestHolder;
 import com.qcl.permission.utils.JsonMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.ModelAndView;
@@ -82,6 +83,6 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
     }
 
     public void removeThreadLocalInfo() {
-        //RequestHolder.remove();
+        RequestHolder.remove();
     }
 }
