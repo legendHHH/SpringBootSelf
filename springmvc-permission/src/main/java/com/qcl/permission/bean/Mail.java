@@ -10,7 +10,7 @@ import lombok.ToString;
 import java.util.Set;
 
 /**
- * 邮件对象
+ * 邮件信息对象
  *
  * @author legend
  * @version 1.0
@@ -25,9 +25,18 @@ import java.util.Set;
 @AllArgsConstructor
 public class Mail {
 
+    /**
+     * 邮件主题
+     */
     private String subject;
 
+    /**
+     * 邮件信息
+     */
     private String message;
 
+    /**
+     * 收件人邮箱
+     */
     private Set<String> receivers;
 }
