@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.legend.retrofit.mapper.PersonMapper">
+    <insert id="savePerson" parameterType="com.legend.retrofit.entity.Person" >
+        insert into person(id,name) values (#{id},#{name})
+    </insert>
+
+    <select id="getPerson" resultType="com.legend.retrofit.entity.Person">
+        select id,name from person where id =1
+    </select>
+</mapper>
