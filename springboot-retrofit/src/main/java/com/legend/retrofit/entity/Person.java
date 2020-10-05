@@ -1,11 +1,12 @@
 package com.legend.retrofit.entity;
 
-
 /**
+ * 实体类
+ *
  * @author legend
  * @version 1.0
  * @description
- * @date 2020/8/24
+ * @date 2020/9/2
  */
 public class Person {
     private Long id;
@@ -24,6 +25,14 @@ public class Person {
     }
 
     public void setName(String name) {
+        this.name = name;
+    }
+
+    public Person() {
+    }
+
+    public Person(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 }
