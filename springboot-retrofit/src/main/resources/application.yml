@@ -1,0 +1,17 @@
+test:
+  baseUrl: http://localhost:8080/api/test
+
+
+retrofit:
+  # 连接池配置
+  pool:
+    test1:
+      max-idle-connections: 3
+      keep-alive-second: 100
+    test2:
+      max-idle-connections: 5
+      keep-alive-second: 50
+  #你也可以自定义实现自己的日志打印拦截器，只需要继承BaseLoggingInterceptor（具体可以参考DefaultLoggingInterceptor的实现），然后在配置文件中进行相关配置即可
+  logging-interceptor: com.github.lianjiatech.retrofit.spring.boot.interceptor.DefaultLoggingInterceptor
+  #你也可以进行自定义，只需要继承BaseHttpExceptionMessageFormatter，再进行相关配置即可
+  http-exception-message-formatter: com.github.lianjiatech.retrofit.spring.boot.interceptor.DefaultHttpExceptionMessageFormatter
