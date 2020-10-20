@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: springfox-swagger
+server:
+  port: 8080
+
+# ===== 自定义swagger配置 ===== #
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
+
+#项目访问地址 http://localhost:8080/swagger-ui/index.html
+#项目访问地址 http://localhost:8080/swagger-ui.html
