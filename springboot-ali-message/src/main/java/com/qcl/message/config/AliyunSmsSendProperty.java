@@ -57,4 +57,14 @@ public class AliyunSmsSendProperty {
 
     public AliyunSmsSendProperty() {
     }
+
+    @Override
+    public String toString() {
+        return "AliyunSmsSendProperty{" +
+                "accessKeyId='" + accessKeyId + '\'' +
+                ", accessSecret='" + accessSecret + '\'' +
+                ", singleName='" + singleName + '\'' +
+                ", templateCode='" + templateCode + '\'' +
+                '}';
+    }
 }
