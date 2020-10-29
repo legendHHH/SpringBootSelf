@@ -1,4 +1,6 @@
 首次接口调用控制台执行会报错(因为MongoDB数据库没有用户)
+(AuthenticationFailed): 'Authentication failed.' on server localhost:27017.
+
 ![](https://img2020.cnblogs.com/blog/1231979/202010/1231979-20201029211023561-2041673590.png)
 
 给MongoDB的admin数据库创建一个用户
