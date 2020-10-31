@@ -61,12 +61,34 @@ public class FileController {
         }
         String[] split = fileId.split("\\.");
         try {
+            //下载文件
             fileService.download(split[0], response);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
             return new Response<>(Constant.EXCEPTION, e.getMessage());
         }
         log.info("退出方法>>>--download--下载文件");
+        return new Response<>(ResponseCode.SUCCESS);
+    }
+
+
+    @ApiOperation(value = "查询文件", notes = "查询文件")
+    @GetMapping(value = "query")
+    public Response<Object> query(String fileId) {
+        log.info("进入方法>>>--query--查询文件");
+        if (!StringUtils.hasLength(fileId)) {
+            return new Response<>(Constant.ERROR_PARAM_CODE, "文件ID不能为空");
+        }
+        String[] split = fileId.split("\\.");
+        try {
+            //下载文件
+            FileResult fileResult = fileService.query(split[0]);
+            log.info("FileResult>>>--{}", fileResult);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return new Response<>(Constant.EXCEPTION, e.getMessage());
+        }
+        log.info("退出方法>>>--query--查询文件");
         return new Response<>(ResponseCode.SUCCESS);
     }
 }
