@@ -3,11 +3,13 @@ package com.qcl.mongodb.service.impl;
 import com.mongodb.client.gridfs.model.GridFSFile;
 import com.qcl.mongodb.file.FileResult;
 import com.qcl.mongodb.mapper.FileMapper;
+import com.qcl.mongodb.resource.MongoResource;
 import com.qcl.mongodb.service.IFileService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.gridfs.GridFsResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -118,5 +120,21 @@ public class FileServiceImpl implements IFileService {
             log.error(e.getMessage());
         }
         log.info("文件传输完成,退出方法");
+    }
+
+    @Override
+    public FileResult query(String fileId) {
+        FileResult fileResult = new FileResult();
+        if (!StringUtils.hasLength(fileId)) {
+            throw new RuntimeException("ID不能为空");
+        }
+        GridFSFile gridFSFile = fileMapper.find(fileId);
+        if (null == gridFSFile) {
+            throw new RuntimeException("ID对应文件不存在");
+        }
+        fileResult.setId(gridFSFile.getId().toString());
+        fileResult.setFileName(gridFSFile.getFilename());
+        log.info("文件查询完成,退出方法");
+        return fileResult;
     }
 }

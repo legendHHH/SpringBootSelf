@@ -29,4 +29,12 @@ public interface IFileService {
      * @param response
      */
     void download(String fileId, HttpServletResponse response);
+
+    /**
+     * 查询
+     *
+     * @param fileId
+     * @return
+     */
+    FileResult query(String fileId);
 }

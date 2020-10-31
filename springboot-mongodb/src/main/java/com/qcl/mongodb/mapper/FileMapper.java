@@ -1,7 +1,10 @@
 package com.qcl.mongodb.mapper;
 
+import com.mongodb.client.gridfs.model.GridFSFile;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -36,5 +39,15 @@ public class FileMapper {
             return id;
         }
         return null;
+    }
+
+    /**
+     * 查询文件根据 id
+     *
+     * @param fileId
+     * @return
+     */
+    public GridFSFile find(String fileId) {
+        return gridFsTemplate.findOne(Query.query(Criteria.where("_id").is(fileId)));
     }
 }
