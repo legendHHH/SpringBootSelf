@@ -19,6 +19,17 @@
     </properties>
 
     <dependencies>
+        <!-- spring的事务测试 -->
+        <!--<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.2.7.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
         <!--热部署插件-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
