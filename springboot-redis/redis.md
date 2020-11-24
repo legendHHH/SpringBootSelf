@@ -158,3 +158,6 @@ mset            mset key value key value	批量赋值
 
 mget            mget key key	        批量取值
 ```
+![](https://img2020.cnblogs.com/blog/1231979/202011/1231979-20201117091554948-1592297842.png)
+
+https://juejin.im/post/6893871526710525966?utm_source=gold_browser_extension
