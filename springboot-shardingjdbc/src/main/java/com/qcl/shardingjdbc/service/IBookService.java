@@ -27,4 +27,13 @@ public interface IBookService {
      * @return
      */
     public boolean save(Book book);
+
+    /**
+     * 批量保存数据
+     *
+     * @param bookList 数据集合
+     * @param batchSize 一次保存多少
+     * @return
+     */
+    boolean saveBatch(List<Book> bookList,int batchSize);
 }
