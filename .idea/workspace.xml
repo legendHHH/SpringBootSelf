@@ -6,77 +6,36 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16582339-c39c-4bf3-bfce-193874042862" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-permission/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-permission/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-permission/sql/permission.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/interceptor/HttpInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/AclModuleParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/AclParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/DeptParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/RoleParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/SearchLogParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/UserParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/IpUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/JsonMapper.java" afterDir="false" />
+    <list default="true" id="16582339-c39c-4bf3-bfce-193874042862" name="Default Changelist" comment="[UPDATE] springboot2.x整合echarts">
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/iputil/IPUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/iputil/IPZone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/iputil/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/iputil/MyLoginInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/iputil/QQWry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/iputil/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/lock/AbstractTemplateLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/lock/Lock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/lock/zklock/curator/CuratorConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/lock/zklock/curator/ZkLockWithCuratorTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/lock/zklock/zksequen/ZkSequenTemplateLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/java/com/qcl/echarts/lock/zklock/zksimple/ZkTemplateLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/resources/iputil/inde.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/resources/iputil/js/china.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/resources/iputil/js/echarts-gl.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/resources/iputil/js/echarts.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/resources/iputil/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/resources/qqwry.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-echarts/src/main/resources/zookeeper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legend-zuul/src/main/java/com/qcl/zuul/filter/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/legend-zuul/src/main/java/com/qcl/zuul/filter/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/LockApplication1234.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/LockApplication1234.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/config/RedissonClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/config/RedissonClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/controller/KillItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/controller/KillItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/controller/LockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/controller/LockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/lottery/Lottery.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/lottery/Lottery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/service/KillItmsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/service/KillItmsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/util/RedissonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/util/RedissonUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-ci-jenkins/src/main/java/com/qcl/springboot/ci/JenkinsCiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-ci-jenkins/src/main/java/com/qcl/springboot/ci/JenkinsCiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/bean/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/bean/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/bean/AreaKeyId.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/bean/AreaKeyId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/common/CommonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/common/CommonResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicDataSourceAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicDataSourceAop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicDataSourceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicDataSourceConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicDataSourceContextHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicDataSourceContextHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicRoutingDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/config/DynamicRoutingDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/mapper/TestMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/mapper/TestMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/mapper/test01/Test1Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/mapper/test01/Test1Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/mapper/test02/Test2Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/mapper/test02/Test2Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-datasource/src/main/java/com/qcl/datasource/service/impl/EmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/FastDFSApp8088.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/FastDFSApp8088.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/entity/FileSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-fastdfs/src/main/java/com/qcl/fastdfs/entity/FileSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-helloworld/src/main/java/com/legend/springboot/controller/FreemarkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-helloworld/src/main/java/com/legend/springboot/controller/FreemarkerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-itext-pdf/src/main/java/com/itext/demo/itext/ItextMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-itext-pdf/src/main/java/com/itext/demo/itext/ItextMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-itext-pdf/src/main/java/com/itext/demo/utils/PdfKitUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-itext-pdf/src/main/java/com/itext/demo/utils/PdfKitUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-japidocs/src/main/java/com/legend/japidoc/demo/domain/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-japidocs/src/main/java/com/legend/japidoc/demo/domain/UserVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/SpringbootLoggingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/SpringbootLoggingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/annotation/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/annotation/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/aop/LogAnnotationAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/aop/LogAnnotationAop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/aop/LoggingAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/aop/LoggingAop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/LogAnnotationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/LogAnnotationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/LoggingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/LoggingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/controller/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/intercepter/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/intercepter/LoginInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-logging/src/main/java/com/legend/springboot/service/ScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/dto/GeneratorParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mybatisplus/src/main/java/com/qcl/mybatisplus/dto/GeneratorParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/ShardingjdbcMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/ShardingjdbcMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/entity/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/mapper/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/mapper/BookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/IBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/IBookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-test/src/test/java/com/legend/demo/test2/controller/HelloController2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-test/src/test/java/com/legend/demo/test2/controller/HelloController2Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/thread/CreateRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/thread/CreateRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/thread/CreateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/thread/CreateThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/thread/ThreadDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/thread/ThreadDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-codegenerator-mp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-redis/redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-redis/redis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/controller/RedisTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/controller/RedisTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/AclParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/AclParam.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/z-study-demo/target/" />
@@ -125,6 +84,11 @@
     <ignored path="$PROJECT_DIR$/springboot-websocket/target/" />
     <ignored path="$PROJECT_DIR$/springboot-permission/target/" />
     <ignored path="$PROJECT_DIR$/springmvc-permission/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-echarts/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-ali-message/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-mongodb/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-kafka/target/" />
+    <ignored path="$PROJECT_DIR$/springboot-dayvisit-live/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,97 +101,92 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/common/JsonData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="45" selection-start-column="45" selection-end-column="45" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/common/SpringExceptionResolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" selection-start-line="11" selection-end-line="18" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/resources/mapper/BookMapper.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/BeanValidator.java">
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="104" column="9" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="104" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="882">
+              <caret line="42" column="103" selection-start-line="42" selection-start-column="103" selection-end-line="42" selection-end-column="103" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/TestVo.java">
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/IBookService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="320">
+              <caret line="28" column="10" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/exception/PermissionException.java">
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/impl/BookServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="509">
+              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
               <folding>
-                <element signature="e#206#207#0" expanded="true" />
-                <element signature="e#236#237#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#680#681#0" expanded="true" />
+                <element signature="e#732#733#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/exception/ParamException.java">
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/controller/BookController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="1134">
+              <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/interceptor/HttpInterceptor.java">
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="339">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/ShardingjdbcMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/Random.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6090">
+              <caret line="328" column="22" selection-start-line="328" selection-start-column="20" selection-end-line="328" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/IpUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/controller/TestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="55" column="31" lean-forward="true" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#11985#11986#0" expanded="true" />
+                <element signature="e#12016#12017#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -238,8 +197,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -251,10 +210,16 @@
       <find>）；</find>
       <find>getFor</find>
       <find>mappers</find>
+      <find>chunlin.qi@hand-china.com</find>
+      <find>doIn</find>
+      <find>isCreate</find>
+      <find>&amp;lt;&amp;gt;</find>
+      <find>&amp;lt;</find>
       <find>，</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
+      <replace>legend</replace>
       <replace>,</replace>
     </replaceStrings>
     <dirStrings>
@@ -267,57 +232,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/resources/static/index.html" />
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/java/com/qcl/websocket/ws/OneWebSocket.java" />
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/java/com/qcl/websocket/WebSocketApplication.java" />
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/java/com/qcl/websocket/config/WebSocketConfig.java" />
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/java/com/qcl/websocket/dto/MyMessage.java" />
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/java/com/qcl/websocket/ws/OneToManyWebSocket.java" />
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/java/com/qcl/websocket/ws/OneToOneWebSocket.java" />
-        <option value="$PROJECT_DIR$/springboot-websocket/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot-websocket/README.md" />
-        <option value="$PROJECT_DIR$/springboot-springsecurity/README.md" />
-        <option value="$PROJECT_DIR$/springboot-apacheshiro/README.md" />
-        <option value="$PROJECT_DIR$/springboot-permission/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot-permission/README.md" />
-        <option value="$PROJECT_DIR$/springmvc-permission/pom.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/resources/settings.properties" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/resources/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/resources/mybatis-config.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/TestMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/resources/mapper/TestMapper.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/generator/generator.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/generator/generator.txt" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysAclMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysAclModuleMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysDeptMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysLogMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysRoleAclMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysRoleMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysRoleUserMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysUserMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysAcl.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysAclModule.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysDept.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysLog.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysLogWithBLOBs.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysRole.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysRoleAcl.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysRoleUser.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysUser.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/IpUtil.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/JsonMapper.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/webapp/WEB-INF/spring-servlet.xml" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/BeanValidator.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/common/SpringExceptionResolver.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/common/JsonData.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/exception/ParamException.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/interceptor/HttpInterceptor.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/exception/PermissionException.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/TestVo.java" />
+        <option value="$PROJECT_DIR$/springboot-kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-kafka/src/main/java/com/qcl/kafka/KafkaApplication.java" />
+        <option value="$PROJECT_DIR$/springboot-kafka/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot-kafka/src/main/java/com/qcl/kafka/controller/ProducerController.java" />
+        <option value="$PROJECT_DIR$/springboot-kafka/src/main/java/com/qcl/kafka/config/KafkaConsumerConfig.java" />
+        <option value="$PROJECT_DIR$/springboot-kafka/src/main/java/com/qcl/kafka/listener/RawDataListener.java" />
+        <option value="$PROJECT_DIR$/springboot-kafka/src/main/java/com/qcl/kafka/config/KafkaProducerConfig.java" />
+        <option value="$PROJECT_DIR$/springboot-kafka/src/main/java/com/qcl/kafka/listener/ConsumerListener.java" />
+        <option value="$PROJECT_DIR$/z-study-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/reflection/Users.java" />
+        <option value="$PROJECT_DIR$/z-study-demo/src/main/java/com/example/demo/reflection/Reflect.java" />
+        <option value="$PROJECT_DIR$/springboot-kafka/README.md" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/config/RedisConfig.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/entity/MkyAccessLog.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/mapper/MkyAccessLogMapper.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/controller/PortalController.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/DayVisitAndLiveMain.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/entity/AccessLog.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/entity/MyAccessLog.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/utils/IPUtil.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/utils/RedisUtil.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/utils/IdWorker.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/mapper/AccessLogMapper.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/service/TestService.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/controller/TestRestController.java" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/src/main/resources/templates/portal/index.html" />
+        <option value="$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/service/TestService.java" />
+        <option value="$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/service/IAsyncService.java" />
+        <option value="$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/service/AsyncServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/TractionalService.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/TractionalController.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/Transactional2Service.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/TransactionalService3.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/TransactionalController.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/TransactionalService2.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/TransactionalService.java" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/Test2Application.java" />
+        <option value="$PROJECT_DIR$/springboot-test/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-test/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/controller/RedisTestController.java" />
+        <option value="$PROJECT_DIR$/springboot-redis/redis.md" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/config/ShardingJdbcConfig.java" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/README.md" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/sql/create.sql" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/impl/BookServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/IBookService.java" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/controller/BookController.java" />
+        <option value="$PROJECT_DIR$/springboot-shardingjdbc/pom.xml" />
       </list>
     </option>
   </component>
@@ -333,11 +298,11 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="legend-zuul" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="springboot-test" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="legend-zuul" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="springboot-test" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
@@ -345,10 +310,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="75" />
-    <option name="y" value="25" />
-    <option name="width" value="1175" />
-    <option name="height" value="675" />
+    <option name="x" value="235" />
+    <option name="y" value="35" />
+    <option name="width" value="830" />
+    <option name="height" value="730" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -368,102 +333,143 @@
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="springbootredis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springbootredis" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springbootredis" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-redis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+              <item name="springbootredis" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-              <item name="param" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="shardingjdbc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="shardingjdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -471,26 +477,63 @@
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-shardingjdbc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc-permission" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="test2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootSelf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootSelf" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="test2" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="CatdeaLogs" />
     </panes>
   </component>
@@ -503,30 +546,33 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1601049301714" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1606231472709" />
+    <property name="jdk.selected.PYTHON_MODULE" value="Python 3.7" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hap-pms" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.34767443" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-shardingjdbc\src\main\resources\mapper" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-dayvisit-live\src\main\resources\templates\portal" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-dayvisit-live\src\main\resources\static" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-dayvisit-live\src\main\java\com\qcl\springboot\utils" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-dayvisit-live" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-mongodb\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.qcl.shiro" />
-      <recent name="com.qcl.mybatisplus.mapper" />
-      <recent name="com.qcl.mybatisplus.service.impl" />
-      <recent name="com.qcl.mybatisplus.service" />
-      <recent name="com.legend.demo.test2.controller" />
+      <recent name="com.legend.demo.test2.service" />
+      <recent name="com.example.demo.reflection" />
+      <recent name="com.legend.retrofit.http" />
+      <recent name="com.legend.retrofit.common" />
+      <recent name="com.legend.elasticsearch" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springmvc-permission\src\main\java\com\qcl\permission" />
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springmvc-permission\src\main\java\com\qcl\permission\utils" />
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springmvc-permission\src\main\java\com\qcl\permission\exception" />
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springmvc-permission\src\main\java\com\qcl\permission\interceptor" />
-      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springmvc-permission\src\main\java\com\qcl\permission\common" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-echarts\src\main\resources\static" />
+      <recent name="D:\WorkCode\ideaWork\SpringBootSelf\springboot-shardingjdbc\src\main\resources\mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -545,17 +591,24 @@
         </RuleState>
       </list>
     </option>
-    <option name="contentProportion" value="0.22404371" />
+    <option name="contentProportion" value="0.14890711" />
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.45">
-    <configuration name="ApacheShiroApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="springboot-apacheshiro" />
+  <component name="RunManager" selected="Spring Boot.ShardingjdbcMain">
+    <configuration name="Reflect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.reflection.Reflect" />
+      <module name="z-study-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.qcl.shiro.*" />
+          <option name="PATTERN" value="com.example.demo.reflection.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApacheShiroApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot-apacheshiro" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.shiro.ApacheShiroApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -564,6 +617,19 @@
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springboot-activiti" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="boot.spring.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DayVisitAndLiveMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="springboot-dayvisit-live" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qcl.springboot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.springboot.DayVisitAndLiveMain" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -597,6 +663,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EchartsMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot-echarts" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.echarts.EchartsMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ElasticsearchAppMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springboot-elasticsearch" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.legend.elasticsearch.ElasticsearchAppMain" />
@@ -607,6 +680,19 @@
     <configuration name="HttpDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="http-demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.leyou.httpdemo.HttpDemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KafkaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="springboot-kafka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qcl.kafka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.kafka.KafkaApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -632,14 +718,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyBatisPlusApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="springboot-mybatisplus" />
+    <configuration name="LockApplication1234" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="redis-lock" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.redis.lock.LockApplication1234" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MongoDbMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="springboot-mongodb" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.qcl.mybatisplus.*" />
+          <option name="PATTERN" value="com.qcl.mongodb.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.mongodb.MongoDbMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyBatisPlusApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot-mybatisplus" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.mybatisplus.MyBatisPlusApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -709,14 +809,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringbootDataSourceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="SpringbootDataSourceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springboot-datasource" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.qcl.datasource.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.datasource.SpringbootDataSourceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -792,14 +886,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringcacheApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="SpringcacheApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springboot-springcache" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.legend.springcache.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.legend.springcache.SpringcacheApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -816,19 +904,6 @@
     <configuration name="Test2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springboot-test" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.legend.demo.test2.Test2Application" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WebSocketApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="springboot-websocket" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.qcl.websocket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qcl.websocket.WebSocketApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -940,6 +1015,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Reflect" />
       <item itemvalue="Spring Boot.HttpDemoApplication" />
       <item itemvalue="Spring Boot.LegendEurekaApplication" />
       <item itemvalue="Spring Boot.LegendServiceConsumerApplication" />
@@ -970,20 +1046,23 @@
       <item itemvalue="Spring Boot.ShardingjdbcMain" />
       <item itemvalue="Spring Boot.Application" />
       <item itemvalue="Spring Boot.SpringSecurityApplication" />
-      <item itemvalue="Spring Boot.SpringbootDataSourceApplication" />
-      <item itemvalue="Spring Boot.SpringcacheApplication" />
-      <item itemvalue="Spring Boot.MyBatisPlusApplication" />
       <item itemvalue="Spring Boot.ApacheShiroApplication" />
-      <item itemvalue="Spring Boot.WebSocketApplication" />
+      <item itemvalue="Spring Boot.LockApplication1234" />
+      <item itemvalue="Spring Boot.EchartsMain" />
+      <item itemvalue="Spring Boot.MyBatisPlusApplication" />
+      <item itemvalue="Spring Boot.SpringcacheApplication" />
+      <item itemvalue="Spring Boot.SpringbootDataSourceApplication" />
+      <item itemvalue="Spring Boot.MongoDbMain" />
+      <item itemvalue="Spring Boot.KafkaApplication" />
+      <item itemvalue="Spring Boot.DayVisitAndLiveMain" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.45" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.WebSocketApplication" />
-        <item itemvalue="Spring Boot.ApacheShiroApplication" />
-        <item itemvalue="Spring Boot.MyBatisPlusApplication" />
-        <item itemvalue="Spring Boot.SpringcacheApplication" />
-        <item itemvalue="Spring Boot.SpringbootDataSourceApplication" />
+        <item itemvalue="Spring Boot.DayVisitAndLiveMain" />
+        <item itemvalue="Application.Reflect" />
+        <item itemvalue="Spring Boot.KafkaApplication" />
+        <item itemvalue="Spring Boot.MongoDbMain" />
       </list>
     </recent_temporary>
   </component>
@@ -1060,287 +1139,71 @@
       <workItem from="1600761461240" duration="1480000" />
       <workItem from="1600841741167" duration="8995000" />
       <workItem from="1600914356238" duration="9335000" />
-      <workItem from="1601038307025" duration="7845000" />
-    </task>
-    <task id="LOCAL-00004" summary="Merge branch 'master' of https://github.com/qichunlin/SpringBootSelf&#10;&#10;# Conflicts:&#10;#&#9;springboot-restapi-project/springboot-restapi-project.iml">
-      <created>1595518248111</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1595518248111</updated>
-    </task>
-    <task id="LOCAL-00005" summary="[UPDATE] springboot整合shardingjdbc分表分库">
-      <created>1599040775375</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1599040775375</updated>
-    </task>
-    <task id="LOCAL-00006" summary="[UPDATE] springboot整理各个项目的一些文件删掉没用的并修改项目名称">
-      <created>1599056690731</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1599056690731</updated>
-    </task>
-    <task id="LOCAL-00007" summary="[UPDATE] springboot整理各个项目的一些文件删掉没用的并修改项目名称2">
-      <created>1599057139827</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1599057139827</updated>
-    </task>
-    <task id="LOCAL-00008" summary="[FIX] 更新项目依赖">
-      <created>1599739420343</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1599739420343</updated>
-    </task>
-    <task id="LOCAL-00009" summary="[FIX] 复习springboot整合ftl的前端语法">
-      <created>1599743516616</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1599743516616</updated>
-    </task>
-    <task id="LOCAL-00010" summary="[FIX] 复习springboot整合jdbc并使用jdbcTemplate操作数据库">
-      <created>1599744227965</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1599744227965</updated>
-    </task>
-    <task id="LOCAL-00011" summary="[FIX] 复习springboot整合PageHelper分页插件">
-      <created>1599747902320</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1599747902320</updated>
-    </task>
-    <task id="LOCAL-00012" summary="[UPDATE] springboot整合DataSource多数据源案例">
-      <created>1599753108825</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1599753108825</updated>
-    </task>
-    <task id="LOCAL-00013" summary="[UPDATE] 补充springboot整合DataSource多数据源使用JTA+Atomic管理分布式事务问题">
-      <created>1599791536846</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1599791536846</updated>
-    </task>
-    <task id="LOCAL-00014" summary="''">
-      <created>1599791563774</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1599791563774</updated>
-    </task>
-    <task id="LOCAL-00015" summary="[UPDATE] springboot整合DataSource多数据源案例">
-      <created>1599835579504</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1599835579504</updated>
-    </task>
-    <task id="LOCAL-00016" summary="‘’">
-      <created>1599836384962</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1599836384962</updated>
-    </task>
-    <task id="LOCAL-00017" summary="[fix] 修改中文转unicode">
-      <created>1599836927032</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1599836927032</updated>
-    </task>
-    <task id="LOCAL-00018" summary="[UPDATE] 通过AOP切面方式打印日志和@Log注解的方式打印日志并替换接口参数">
-      <created>1599841752048</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1599841752048</updated>
-    </task>
-    <task id="LOCAL-00019" summary="[UPDATE] springboot整合自带的springcache(ehcache缓存)并处理同步数据库更新问题">
-      <created>1599845996971</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1599845996971</updated>
-    </task>
-    <task id="LOCAL-00020" summary="[UPDATE] 全局异常拦截处理">
-      <created>1599847065813</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1599847065813</updated>
-    </task>
-    <task id="LOCAL-00021" summary="[UPDATE] devtools热部署测试">
-      <created>1599847421303</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1599847421303</updated>
-    </task>
-    <task id="LOCAL-00022" summary="[UPDATE] springboot简单版性能优化">
-      <created>1599847987486</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1599847987487</updated>
-    </task>
-    <task id="LOCAL-00023" summary="[UPDATE] springboot整合Schedule任务调度定时任务和异步处理Async">
-      <created>1599849158452</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1599849158452</updated>
-    </task>
-    <task id="LOCAL-00024" summary="[UPDATE] jenkins持续部署学习">
-      <created>1599891572477</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1599891572477</updated>
-    </task>
-    <task id="LOCAL-00025" summary="[UPDATE] springboot整合Redisson实现redis的分布式锁高并发场景下的线程问题">
-      <created>1599892458603</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1599892458603</updated>
-    </task>
-    <task id="LOCAL-00026" summary="code sync">
-      <created>1599892627682</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1599892627682</updated>
-    </task>
-    <task id="LOCAL-00027" summary="code sync2">
-      <created>1599901996711</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1599901996711</updated>
-    </task>
-    <task id="LOCAL-00028" summary="code sync2">
-      <created>1599902042456</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1599902042457</updated>
-    </task>
-    <task id="LOCAL-00029" summary="[UPDATE] 修改拦截器">
-      <created>1600171631795</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1600171631795</updated>
-    </task>
-    <task id="LOCAL-00030" summary="[UPDATE] springboot整合FastDFS分布式文件系统">
-      <created>1600185838177</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1600185838177</updated>
-    </task>
-    <task id="LOCAL-00031" summary="[FIX] 修改数据库地址">
-      <created>1600238213378</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1600238213378</updated>
-    </task>
-    <task id="LOCAL-00032" summary="[UPDATE] springboot整合Elasticsearch高级搜索并实现增删改查操作以及常见的API操作">
-      <created>1600354391215</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1600354391215</updated>
-    </task>
-    <task id="LOCAL-00033" summary="[UPDATE] openFeign的使用">
-      <created>1600510188858</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1600510188858</updated>
-    </task>
-    <task id="LOCAL-00034" summary="[UPDATE] openFeign降级">
-      <created>1600511256121</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1600511256121</updated>
-    </task>
-    <task id="LOCAL-00035" summary="''">
-      <created>1600511349342</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1600511349342</updated>
-    </task>
-    <task id="LOCAL-00036" summary="[UPDATE] 修改配置文件Feign 请求压缩">
-      <created>1600512644816</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1600512644816</updated>
-    </task>
-    <task id="LOCAL-00037" summary="[UPDATE] OpenFeign的log日志打印">
-      <created>1600513263627</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1600513263627</updated>
-    </task>
-    <task id="LOCAL-00038" summary="[UPDATE] zuul网关相关知识点">
-      <created>1600529494133</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1600529494133</updated>
-    </task>
-    <task id="LOCAL-00039" summary="[UPDATE] springboot整合mybatis-plus实现crud">
-      <created>1600596934339</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1600596934339</updated>
-    </task>
-    <task id="LOCAL-00040" summary="‘’">
-      <created>1600596987052</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1600596987052</updated>
-    </task>
-    <task id="LOCAL-00041" summary="[UPDATE] springboot整合springsecurity安全权限框架">
-      <created>1600689042659</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1600689042659</updated>
-    </task>
-    <task id="LOCAL-00042" summary="[UPDATE] springsecurity">
-      <created>1600694645652</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1600694645652</updated>
-    </task>
-    <task id="LOCAL-00043" summary="[UPDATE] springboot整合apacheshiro权限框架">
-      <created>1600701196878</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1600701196878</updated>
+      <workItem from="1601038307025" duration="8102000" />
+      <workItem from="1601089084087" duration="13264000" />
+      <workItem from="1601172506792" duration="3468000" />
+      <workItem from="1601213670196" duration="4182000" />
+      <workItem from="1601259597261" duration="1817000" />
+      <workItem from="1601278145269" duration="618000" />
+      <workItem from="1601280126008" duration="147000" />
+      <workItem from="1601303225349" duration="620000" />
+      <workItem from="1601344890091" duration="2577000" />
+      <workItem from="1601436163984" duration="3547000" />
+      <workItem from="1601556946553" duration="2274000" />
+      <workItem from="1601623425316" duration="1635000" />
+      <workItem from="1601628211244" duration="256000" />
+      <workItem from="1601629482509" duration="38000" />
+      <workItem from="1601711247091" duration="725000" />
+      <workItem from="1601774682533" duration="10772000" />
+      <workItem from="1601849300660" duration="10153000" />
+      <workItem from="1602159983687" duration="594000" />
+      <workItem from="1602209420840" duration="3350000" />
+      <workItem from="1602228400610" duration="1744000" />
+      <workItem from="1602231059473" duration="214000" />
+      <workItem from="1602727753023" duration="2245000" />
+      <workItem from="1602853063016" duration="6010000" />
+      <workItem from="1602868170355" duration="63000" />
+      <workItem from="1602907432146" duration="3789000" />
+      <workItem from="1602995632176" duration="651000" />
+      <workItem from="1603200982432" duration="5859000" />
+      <workItem from="1603247166747" duration="172000" />
+      <workItem from="1603284407065" duration="1327000" />
+      <workItem from="1603291565193" duration="5662000" />
+      <workItem from="1603326492069" duration="3022000" />
+      <workItem from="1603332049348" duration="15000" />
+      <workItem from="1603435654152" duration="3664000" />
+      <workItem from="1603473194718" duration="632000" />
+      <workItem from="1603691578794" duration="1149000" />
+      <workItem from="1603716083454" duration="2312000" />
+      <workItem from="1603786995838" duration="854000" />
+      <workItem from="1603844044228" duration="2474000" />
+      <workItem from="1603871456306" duration="1994000" />
+      <workItem from="1603885724680" duration="315000" />
+      <workItem from="1603926720915" duration="5759000" />
+      <workItem from="1603938085974" duration="967000" />
+      <workItem from="1603971620132" duration="4502000" />
+      <workItem from="1603987458210" duration="5084000" />
+      <workItem from="1604019251563" duration="3066000" />
+      <workItem from="1604025295032" duration="9710000" />
+      <workItem from="1604118576232" duration="7596000" />
+      <workItem from="1604205413411" duration="1207000" />
+      <workItem from="1604210655525" duration="3070000" />
+      <workItem from="1604235623874" duration="5964000" />
+      <workItem from="1604281860889" duration="894000" />
+      <workItem from="1604449578665" duration="1199000" />
+      <workItem from="1604455944370" duration="31000" />
+      <workItem from="1604989166840" duration="2999000" />
+      <workItem from="1605000563285" duration="2244000" />
+      <workItem from="1605054464499" duration="11483000" />
+      <workItem from="1605185071206" duration="4811000" />
+      <workItem from="1605232493149" duration="1164000" />
+      <workItem from="1605275117745" duration="6467000" />
+      <workItem from="1605311273229" duration="7225000" />
+      <workItem from="1605490464329" duration="1265000" />
+      <workItem from="1605537929326" duration="496000" />
+      <workItem from="1605574382825" duration="1445000" />
+      <workItem from="1605655622297" duration="6261000" />
+      <workItem from="1606231064523" duration="772000" />
     </task>
     <task id="LOCAL-00044" summary="[UPDATE] apacheshiro权限测试">
       <created>1600843815998</created>
@@ -1405,16 +1268,296 @@
       <option name="project" value="LOCAL" />
       <updated>1601048960112</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="[UPDATE] chunlin.qi@hand-china.com 修改为legend">
+      <created>1601049513188</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1601049513188</updated>
+    </task>
+    <task id="LOCAL-00054" summary="[UPDATE] permission权限项目工具类相关开发{JsonMapper、ApplicationContextHolder、HttpInterceptor}">
+      <created>1601091830733</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1601091830735</updated>
+    </task>
+    <task id="LOCAL-00055" summary="[UPDATE] permission权限项目 readme">
+      <created>1601092157054</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1601092157054</updated>
+    </task>
+    <task id="LOCAL-00056" summary="[UPDATE] permission权限项目 前端接口添加前缀">
+      <created>1601190259715</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1601190259716</updated>
+    </task>
+    <task id="LOCAL-00057" summary="[UPDATE] permission权限项目 passwordUtil工具类和MD5加密工具类">
+      <created>1601216852546</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1601216852548</updated>
+    </task>
+    <task id="LOCAL-00058" summary="[UPDATE] permission权限项目 前端补充页面">
+      <created>1601303688757</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1601303688758</updated>
+    </task>
+    <task id="LOCAL-00059" summary="[UPDATE] permission权限项目 后端用户相关接口">
+      <created>1601303808837</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1601303808837</updated>
+    </task>
+    <task id="LOCAL-00060" summary="‘’">
+      <created>1601449469547</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1601449469549</updated>
+    </task>
+    <task id="LOCAL-00061" summary="[UPDATE] permission权限项目 接口常用对象">
+      <created>1601564197334</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1601564197334</updated>
+    </task>
+    <task id="LOCAL-00062" summary="[UPDATE] springboot的elasticsearch测试类">
+      <created>1601628401690</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1601628401691</updated>
+    </task>
+    <task id="LOCAL-00063" summary="[UPDATE] permission权限项目 ThreadLocal的使用和LoginFilter登录请求拦截处理/IP获取的工具类">
+      <created>1601780671219</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1601780671221</updated>
+    </task>
+    <task id="LOCAL-00064" summary="''">
+      <created>1601781241867</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1601781241867</updated>
+    </task>
+    <task id="LOCAL-00065" summary="[UPDATE] permission权限项目 权限模块相关内容">
+      <created>1601804385837</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1601804385837</updated>
+    </task>
+    <task id="LOCAL-00066" summary="[UPDATE] retrofit远程http请求调用">
+      <created>1601879257999</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1601879258001</updated>
+    </task>
+    <task id="LOCAL-00067" summary="[UPDATE] retrofit远程http请求调用">
+      <created>1601879549085</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1601879549085</updated>
+    </task>
+    <task id="LOCAL-00068" summary="‘’">
+      <created>1601901619887</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1601901619887</updated>
+    </task>
+    <task id="LOCAL-00069" summary="[UPDATE] springboot整合Swagger3.0官方starter">
+      <created>1603205006739</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1603205006744</updated>
+    </task>
+    <task id="LOCAL-00070" summary="[UPDATE] Spring Boot + Echarts 实现用户访问地图可视化">
+      <created>1603210195872</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1603210195872</updated>
+    </task>
+    <task id="LOCAL-00071" summary="[UPDATE] JAVA8用Optional解决判断Null为空的问题">
+      <created>1603294821780</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1603294821782</updated>
+    </task>
+    <task id="LOCAL-00072" summary="[UPDATE] permission权限项目 前端引入框架 &amp;后端实现部门树结构以及更新操作接口完善">
+      <created>1603329206959</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1603329206962</updated>
+    </task>
+    <task id="LOCAL-00073" summary="[UPDATE] springboot2.x加载静态资源复习">
+      <created>1603329755795</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1603329755797</updated>
+    </task>
+    <task id="LOCAL-00074" summary="[UPDATE] springboot2.x整合阿里云message">
+      <created>1603719619532</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1603719619533</updated>
+    </task>
+    <task id="LOCAL-00075" summary="‘’">
+      <created>1603846742823</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1603846742823</updated>
+    </task>
+    <task id="LOCAL-00076" summary="[UPDATE] springboot2.x整合Mongodb">
+      <created>1603886360977</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1603886360977</updated>
+    </task>
+    <task id="LOCAL-00077" summary="；；">
+      <created>1603928052468</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1603928052469</updated>
+    </task>
+    <task id="LOCAL-00078" summary="[UPDATE] springboot2.x整合Mongodb并实现增删改查功能接口">
+      <created>1603978247629</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1603978247629</updated>
+    </task>
+    <task id="LOCAL-00079" summary="[UPDATE] MongoDB数据库存储上传的文件">
+      <created>1603992509756</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1603992509757</updated>
+    </task>
+    <task id="LOCAL-00080" summary="[UPDATE] 基于MongoDB数据库进行图片的上传和下载功能">
+      <created>1604125459816</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1604125459818</updated>
+    </task>
+    <task id="LOCAL-00081" summary="[UPDATE] springboot2.x整合kafka 完成kafka消息的生产和消费">
+      <created>1604161468359</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1604161468359</updated>
+    </task>
+    <task id="LOCAL-00082" summary="[UPDATE] 反射基础复习">
+      <created>1604217537321</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1604217537322</updated>
+    </task>
+    <task id="LOCAL-00083" summary="[UPDATE] 反射基础复习2">
+      <created>1604245219526</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1604245219528</updated>
+    </task>
+    <task id="LOCAL-00084" summary="readme">
+      <created>1604450203481</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1604450203482</updated>
+    </task>
+    <task id="LOCAL-00085" summary="[UPDATE] springboot2.x整合redis、mybatis、@EnableScheduling定时任务，实现日访问量与日活量的统计与记录">
+      <created>1605083136016</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1605083136016</updated>
+    </task>
+    <task id="LOCAL-00086" summary="2">
+      <created>1605188368602</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1605188368602</updated>
+    </task>
+    <task id="LOCAL-00087" summary="[UPDATE] springboot2.x测试@Async注解的异步使用">
+      <created>1605190491569</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1605190491570</updated>
+    </task>
+    <task id="LOCAL-00088" summary="[UPDATE] 测试spring事务的传播方式">
+      <created>1605282252433</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1605282252434</updated>
+    </task>
+    <task id="LOCAL-00089" summary="[UPDATE] redis">
+      <created>1605452469647</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1605452469648</updated>
+    </task>
+    <task id="LOCAL-00090" summary="''">
+      <created>1605659810215</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1605659810217</updated>
+    </task>
+    <task id="LOCAL-00091" summary="[UPDATE] 补充建表sql">
+      <created>1605660232924</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1605660232924</updated>
+    </task>
+    <task id="LOCAL-00092" summary="‘’">
+      <created>1606231228159</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1606231228161</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179283000" />
+    <option name="totallyTimeSpent" value="379425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.288874" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.1769437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -1423,27 +1566,27 @@
       <window_info id="UI Designer" order="6" />
       <window_info id="Favorites" order="7" sideWeight="0.5017241" side_tool="true" weight="0.25" />
       <window_info id="Web" order="8" side_tool="true" />
-      <window_info id="Alibaba Cloud Explorer" order="9" />
+      <window_info id="Alibaba Cloud Explorer" order="9" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4953083" weight="0.44334278" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4919571" weight="0.44617563" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28045326" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49262735" visible="true" weight="0.31303117" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49061662" weight="0.33427763" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50469166" side_tool="true" weight="0.6203966" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5127346" side_tool="true" weight="0.22521247" />
       <window_info anchor="bottom" id="Tail" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4919571" weight="0.29320112" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="14" sideWeight="0.4872654" visible="true" weight="0.47450426" />
       <window_info anchor="bottom" id="MyBatis Log" order="15" />
       <window_info anchor="bottom" id="JRebel Executor" order="16" />
-      <window_info anchor="bottom" id="JRebel Console" order="17" sideWeight="0.5007553" side_tool="true" weight="0.46896553" />
-      <window_info anchor="bottom" id="Messages" order="18" sideWeight="0.49932975" weight="0.4348442" />
-      <window_info anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.49262735" weight="0.10339943" />
+      <window_info anchor="bottom" id="JRebel Console" order="17" sideWeight="0.5087131" side_tool="true" weight="0.37393767" />
+      <window_info anchor="bottom" id="Messages" order="18" sideWeight="0.49932975" weight="0.31303117" />
+      <window_info anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.4872654" weight="0.28186968" />
       <window_info anchor="bottom" id="RNConsole" order="20" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="21" />
       <window_info anchor="bottom" id="Application Servers" order="22" weight="0.3286119" />
@@ -1462,9 +1605,10 @@
       <window_info anchor="right" id="Alibaba ROS Templates" order="12" />
       <window_info anchor="right" id="Alibaba Function Compute" order="13" />
       <window_info anchor="right" id="Alibaba Log Console" order="14" />
+      <window_info anchor="right" id="SciView" order="15" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.28954422" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.1769437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -1473,27 +1617,27 @@
       <window_info id="UI Designer" order="6" />
       <window_info id="Favorites" order="7" sideWeight="0.5017241" side_tool="true" weight="0.25" />
       <window_info id="Web" order="8" side_tool="true" />
-      <window_info id="Alibaba Cloud Explorer" order="9" />
+      <window_info id="Alibaba Cloud Explorer" order="9" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4953083" weight="0.21954674" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.28045326" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4919571" weight="0.44617563" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28045326" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49262735" weight="0.16713881" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49061662" weight="0.33427763" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50469166" side_tool="true" weight="0.6203966" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5127346" side_tool="true" weight="0.22521247" />
       <window_info anchor="bottom" id="Tail" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4919571" weight="0.0694051" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4872654" weight="0.47450426" />
       <window_info anchor="bottom" id="MyBatis Log" order="15" />
       <window_info anchor="bottom" id="JRebel Executor" order="16" />
-      <window_info anchor="bottom" id="JRebel Console" order="17" sideWeight="0.5007553" side_tool="true" weight="0.46896553" />
-      <window_info anchor="bottom" id="Messages" order="18" sideWeight="0.49932975" weight="0.4348442" />
-      <window_info anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.49262735" weight="0.10339943" />
+      <window_info anchor="bottom" id="JRebel Console" order="17" sideWeight="0.5087131" side_tool="true" weight="0.37393767" />
+      <window_info anchor="bottom" id="Messages" order="18" sideWeight="0.49932975" weight="0.31303117" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="19" sideWeight="0.4872654" visible="true" weight="0.28186968" />
       <window_info anchor="bottom" id="RNConsole" order="20" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="21" />
       <window_info anchor="bottom" id="Application Servers" order="22" weight="0.3286119" />
@@ -1512,6 +1656,7 @@
       <window_info anchor="right" id="Alibaba ROS Templates" order="12" />
       <window_info anchor="right" id="Alibaba Function Compute" order="13" />
       <window_info anchor="right" id="Alibaba Log Console" order="14" />
+      <window_info anchor="right" id="SciView" order="15" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1558,32 +1703,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="code sync" />
-    <MESSAGE value="code sync2" />
-    <MESSAGE value="[UPDATE] 修改拦截器" />
-    <MESSAGE value="[UPDATE] springboot整合FastDFS分布式文件系统" />
-    <MESSAGE value="[FIX] 修改数据库地址" />
-    <MESSAGE value="[UPDATE] springboot整合Elasticsearch高级搜索并实现增删改查操作以及常见的API操作" />
-    <MESSAGE value="[UPDATE] openFeign的使用" />
-    <MESSAGE value="[UPDATE] openFeign降级" />
+    <MESSAGE value="[UPDATE] permission权限项目 权限模块相关内容" />
+    <MESSAGE value="[UPDATE] retrofit远程http请求调用" />
+    <MESSAGE value="[UPDATE] springboot整合Swagger3.0官方starter" />
+    <MESSAGE value="[UPDATE] Spring Boot + Echarts 实现用户访问地图可视化" />
+    <MESSAGE value="[UPDATE] JAVA8用Optional解决判断Null为空的问题" />
+    <MESSAGE value="[UPDATE] springboot2.x整合echarts" />
+    <MESSAGE value="[UPDATE] springboot2.x加载静态资源复习" />
+    <MESSAGE value="[UPDATE] springboot2.x整合阿里云message" />
+    <MESSAGE value="[UPDATE] springboot2.x整合Mongodb" />
+    <MESSAGE value="；；" />
+    <MESSAGE value="[UPDATE] springboot2.x整合Mongodb并实现增删改查功能接口" />
+    <MESSAGE value="[UPDATE] MongoDB数据库存储上传的文件" />
+    <MESSAGE value="[UPDATE] 基于MongoDB数据库进行图片的上传和下载功能" />
+    <MESSAGE value="[UPDATE] springboot2.x整合kafka 完成kafka消息的生产和消费" />
+    <MESSAGE value="[UPDATE] 反射基础复习" />
+    <MESSAGE value="[UPDATE] 反射基础复习2" />
+    <MESSAGE value="readme" />
+    <MESSAGE value="[UPDATE] springboot2.x整合redis、mybatis、@EnableScheduling定时任务，实现日访问量与日活量的统计与记录" />
+    <MESSAGE value="2" />
+    <MESSAGE value="[UPDATE] springboot2.x测试@Async注解的异步使用" />
+    <MESSAGE value="[UPDATE] 测试spring事务的传播方式" />
+    <MESSAGE value="[UPDATE] redis" />
     <MESSAGE value="''" />
-    <MESSAGE value="[UPDATE] 修改配置文件Feign 请求压缩" />
-    <MESSAGE value="[UPDATE] OpenFeign的log日志打印" />
-    <MESSAGE value="[UPDATE] zuul网关相关知识点" />
-    <MESSAGE value="[UPDATE] springboot整合mybatis-plus实现crud" />
+    <MESSAGE value="[UPDATE] 补充建表sql" />
     <MESSAGE value="‘’" />
-    <MESSAGE value="[UPDATE] springboot整合springsecurity安全权限框架" />
-    <MESSAGE value="[UPDATE] springsecurity" />
-    <MESSAGE value="[UPDATE] springboot整合apacheshiro权限框架" />
-    <MESSAGE value="[UPDATE] apacheshiro权限测试" />
-    <MESSAGE value="[UPDATE] springboot整合websocket" />
-    <MESSAGE value="[UPDATE] springsecurity的readme文件" />
-    <MESSAGE value="[UPDATE] springshiro的readme文件" />
-    <MESSAGE value="[UPDATE] 基于SpringMvc的permission权限项目环境搭建并启动" />
-    <MESSAGE value="[UPDATE] permission权限项目表结构设计以及核心类Mybatis generator代码生成" />
-    <MESSAGE value="[UPDATE] permission权限项目全局异常类定义以及返回json" />
-    <MESSAGE value="[UPDATE] permission权限项目定义BeanValidate" />
-    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] permission权限项目定义BeanValidate" />
+    <option name="LAST_COMMIT_MESSAGE" value="‘’" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1606,372 +1751,394 @@
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/springboot-mongodb/src/main/java/com/qcl/mongodb/controller/FileController.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/springboot-springsecurity/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="417">
-            <caret line="149" selection-start-line="149" selection-end-line="149" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-apacheshiro/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="312">
-            <caret line="72" selection-start-line="72" selection-end-line="72" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-permission/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-permission/sql/permission.sql">
+    <entry file="file://$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/entity/MyAccessLog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3777" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot-permission/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="335">
-            <caret line="55" selection-start-line="55" selection-end-line="55" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1420">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/sql/permission.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.2/mybatis-3.4.2-sources.jar!/org/apache/ibatis/session/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="95" column="19" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/controller/a.java" />
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="64" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/mapper/TestMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/TestMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2268">
-          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/settings.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="55" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/generator/generator.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="86" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/mapper/SysAclMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/mapper/SysAclModuleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/resources/mapper/SysDeptMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/generator/generator.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/generator/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysAclMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysAclModuleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysDeptMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysLogMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysRoleAclMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysRoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysRoleUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/mapper/SysUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysAclModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysLogWithBLOBs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysRole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysRoleAcl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysRoleUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysDept.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/JsonMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/webapp/WEB-INF/spring-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/exception/ParamException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/interceptor/HttpInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="-147">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/IpUtil.java">
+    <entry file="file://$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/service/TestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-dayvisit-live/src/main/resources/templates/portal/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-dayvisit-live/src/main/java/com/qcl/springboot/controller/TestRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/config/ExecutorConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/service/TestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="77" column="53" selection-start-line="77" selection-start-column="53" selection-end-line="77" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/service/IAsyncService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/service/AsyncManage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding>
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/DemoAsyncApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/src/main/java/com/example/demo/service/AsyncServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/HelloController2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/RestartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/Test2Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" column="27" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/TransactionalService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42" selection-start-column="42" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/resources/jdbc-移到application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/TransactionalService2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="29" column="110" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/service/TransactionalService3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/config/JdbcConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-async/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/lottery/Lottery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/LockApplication1234.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/exception/PermissionException.java">
+    <entry file="file://$PROJECT_DIR$/redis-lock/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="210">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/config/RedisConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-redis/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-6627" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-test/src/main/java/com/legend/demo/test2/controller/TransactionalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
           <folding>
-            <element signature="e#206#207#0" expanded="true" />
-            <element signature="e#236#237#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/model/SysAcl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+    <entry file="file://$PROJECT_DIR$/springboot-redis/redis.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="179">
+            <caret line="146" selection-start-line="146" selection-end-line="146" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/common/JsonData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/common/SpringExceptionResolver.java">
+    <entry file="file://$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/configuration/RedisConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="11" selection-start-line="11" selection-end-line="18" selection-end-column="3" />
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/util/RedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10563">
+          <caret line="524" column="31" selection-start-line="524" selection-start-column="31" selection-end-line="524" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-redis/src/main/java/com/legend/springbootredis/controller/RedisTestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/utils/BeanValidator.java">
+    <entry file="file://$PROJECT_DIR$/redis-lock/src/main/java/com/redis/lock/config/RedissonClientConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="104" column="9" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="104" selection-end-column="9" />
+        <state relative-caret-position="273">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/config/ShardingJdbcConfig.java" />
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/entity/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/sql/create.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/shardingsphere/sharding-jdbc-spring-boot-starter/3.1.0/sharding-jdbc-spring-boot-starter-3.1.0.jar!/io/shardingsphere/shardingjdbc/spring/boot/sharding/SpringBootShardingRuleConfigurationProperties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/springboot-shardingjdbc.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.1.1/mybatis-plus-extension-3.1.1.jar!/com/baomidou/mybatisplus/extension/service/impl/ServiceImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-287">
+          <caret line="75" column="19" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="45" selection-start-column="45" selection-end-column="45" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/resources/mapper/BookMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="42" column="103" selection-start-line="42" selection-start-column="103" selection-end-line="42" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/controller/BookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/ShardingjdbcMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/Random.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6090">
+          <caret line="328" column="22" selection-start-line="328" selection-start-column="20" selection-end-line="328" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#11985#11986#0" expanded="true" />
+            <element signature="e#12016#12017#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/controller/TestController.java">
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="55" column="31" lean-forward="true" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+        <state relative-caret-position="339">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/impl/BookServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springmvc-permission/src/main/java/com/qcl/permission/param/TestVo.java">
+    <entry file="file://$PROJECT_DIR$/springboot-shardingjdbc/src/main/java/com/qcl/shardingjdbc/service/IBookService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="320">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="10" />
         </state>
       </provider>
     </entry>

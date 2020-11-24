@@ -10,6 +10,14 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+/**
+ * 权限点参数
+ *
+ * @author legend
+ * @version 1.0
+ * @description
+ * @date 2020/10/4
+ */
 @Getter
 @Setter
 @ToString

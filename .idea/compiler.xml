@@ -15,6 +15,7 @@
         <module name="legend-zuul" />
         <module name="redis-lock" />
         <module name="springboot-activiti" />
+        <module name="springboot-ali-message" />
         <module name="springboot-apacheshiro" />
         <module name="springboot-async" />
         <module name="springboot-ci-jenkins" />
@@ -25,14 +26,18 @@
         <module name="springboot-data-jpa" />
         <module name="springboot-data-mybatis" />
         <module name="springboot-datasource" />
+        <module name="springboot-dayvisit-live" />
+        <module name="springboot-echarts" />
         <module name="springboot-elasticsearch" />
         <module name="springboot-fastdfs" />
         <module name="springboot-helloworld" />
         <module name="springboot-itext-pdf" />
         <module name="springboot-japidocs" />
         <module name="springboot-jsoup" />
+        <module name="springboot-kafka" />
         <module name="springboot-logging" />
         <module name="springboot-minio" />
+        <module name="springboot-mongodb" />
         <module name="springboot-mybatis" />
         <module name="springboot-mybatisplus" />
         <module name="springboot-permission" />
@@ -62,6 +67,7 @@
       <module name="redis-lock" target="1.8" />
       <module name="spring-boot-swagger-knife4j" target="1.8" />
       <module name="springboot-activiti" target="1.8" />
+      <module name="springboot-ali-message" target="1.8" />
       <module name="springboot-apacheshiro" target="1.8" />
       <module name="springboot-async" target="1.8" />
       <module name="springboot-ci-jenkins" target="1.8" />
@@ -72,14 +78,18 @@
       <module name="springboot-data-jpa" target="1.8" />
       <module name="springboot-data-mybatis" target="1.8" />
       <module name="springboot-datasource" target="1.8" />
+      <module name="springboot-dayvisit-live" target="1.8" />
+      <module name="springboot-echarts" target="1.8" />
       <module name="springboot-elasticsearch" target="1.8" />
       <module name="springboot-fastdfs" target="1.8" />
       <module name="springboot-helloworld" target="1.8" />
       <module name="springboot-itext-pdf" target="1.8" />
       <module name="springboot-japidocs" target="1.8" />
       <module name="springboot-jsoup" target="1.8" />
+      <module name="springboot-kafka" target="1.8" />
       <module name="springboot-logging" target="1.8" />
       <module name="springboot-minio" target="1.8" />
+      <module name="springboot-mongodb" target="1.8" />
       <module name="springboot-mybatis" target="1.8" />
       <module name="springboot-mybatisplus" target="1.8" />
       <module name="springboot-permission" target="1.8" />
@@ -111,18 +121,24 @@
       <module name="legend-user" options="-parameters" />
       <module name="legend-zuul" options="-parameters" />
       <module name="redis-lock" options="-parameters" />
+      <module name="springboot-ali-message" options="-parameters" />
       <module name="springboot-apacheshiro" options="-parameters" />
       <module name="springboot-async" options="-parameters" />
+      <module name="springboot-codegenerator-mp" options="-parameters" />
       <module name="springboot-config" options="" />
       <module name="springboot-data-jpa" options="-parameters" />
       <module name="springboot-datasource" options="-parameters" />
+      <module name="springboot-dayvisit-live" options="-parameters" />
+      <module name="springboot-echarts" options="-parameters" />
       <module name="springboot-elasticsearch" options="-parameters" />
       <module name="springboot-fastdfs" options="-parameters" />
       <module name="springboot-itext-pdf" options="-parameters" />
       <module name="springboot-japidocs" options="-parameters" />
       <module name="springboot-jsoup" options="-parameters" />
+      <module name="springboot-kafka" options="-parameters" />
       <module name="springboot-logging" options="" />
       <module name="springboot-minio" options="-parameters" />
+      <module name="springboot-mongodb" options="-parameters" />
       <module name="springboot-mybatis" options="-parameters" />
       <module name="springboot-mybatisplus" options="-parameters" />
       <module name="springboot-redis" options="-parameters" />

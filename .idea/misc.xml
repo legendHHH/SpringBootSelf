@@ -54,6 +54,11 @@
         <option value="$PROJECT_DIR$/springboot-websocket/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-permission/pom.xml" />
         <option value="$PROJECT_DIR$/springmvc-permission/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-echarts/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-ali-message/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mongodb/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-dayvisit-live/pom.xml" />
       </list>
     </option>
   </component>
