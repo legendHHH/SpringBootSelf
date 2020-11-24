@@ -27,4 +27,9 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
     public boolean save(Book book) {
         return super.save(book);
     }
+
+    @Override
+    public boolean saveBatch(List<Book> bookList, int batchSize) {
+        return super.saveBatch(bookList, batchSize);
+    }
 }
