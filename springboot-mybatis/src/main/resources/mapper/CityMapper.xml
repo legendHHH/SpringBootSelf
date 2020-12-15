@@ -21,4 +21,32 @@
 		where city_name = #{cityName}
 	</select>
 
+	<!--保存或者更新-->
+	<!--<insert id="saveOrUpdate" parameterType="TestVo">
+ 		insert into table_name ( col1, col2, col3 ) values ( #{field1}, #{field2}, #{field3} ) on duplicate key update col1 = #{field1}, col2 = #{field2}, col3 = #{field3}
+ 	</insert>-->
+
+	<!-- 批量保存 -->
+	<!--<insert id="batchSaveOrUpdate" parameterType="java.util.List">-->
+	<!--insert into table_name ( col1, col2, col3 )-->
+	<!--<foreach collection="list" item="item" index="index" separator=",">-->
+	<!--values ( #{item.field1}, #{item.field2}, #{item.field3} )-->
+	<!--</foreach>-->
+	<!--on duplicate key update col1 = VALUES (col1), col2 = VALUES (col2), col3 = VALUES (col3)-->
+	<!--</insert>-->
+
+	<insert id="saveOrUpdate" parameterType="com.legend.springbootmybatis.domain.City">
+ 		insert into city ( id, province_id, city_name, description )
+ 		values ( #{id}, #{provinceId}, #{cityName},#{description} )
+ 		on duplicate key update city_name = #{cityName},description = #{description}
+ 	</insert>
+
+	<insert id="batchSaveOrUpdate" parameterType="java.util.List">
+		insert into city ( id, province_id, city_name, description )
+		<foreach collection="list" item="item" index="index" separator=",">
+			values ( #{item.id}, #{item.provinceId}, #{item.cityName}, #{item.description})
+		</foreach>
+		on duplicate key update city_name = VALUES (city_name), description = VALUES (description)
+	</insert>
+
 </mapper>
