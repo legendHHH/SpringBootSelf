@@ -6,6 +6,8 @@ import com.legend.springbootmybatis.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 城市业务逻辑实现类
  *
@@ -20,6 +22,17 @@ public class CityServiceImpl implements CityService {
     @Override
     public City findCityByName(String cityName) {
         return cityDao.findByName(cityName);
+    }
+
+    @Override
+    public int saveOrUpdate(City city) {
+        return cityDao.saveOrUpdate(city);
+    }
+
+
+    @Override
+    public int batchSaveOrUpdate(List<City> city) {
+        return cityDao.batchSaveOrUpdate(city);
     }
 
 }
