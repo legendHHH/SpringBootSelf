@@ -1,5 +1,6 @@
-package com.example.demo.localtime;
+package com.example.demo.datatime;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -32,6 +33,16 @@ public class DateTimeTest {
         //localDateMethod(2019,12,30);
         //localDateNowMethod();
         //simpleDateFormatMethod();
+
+        long g = 2998L;
+        long g2 = 1000;
+
+        BigDecimal divide = new BigDecimal(g).divide(new BigDecimal(g2));
+        System.out.println(divide);
+        String x = divide.toString();
+        System.out.println(x);
+
+
     }
 
     /**
