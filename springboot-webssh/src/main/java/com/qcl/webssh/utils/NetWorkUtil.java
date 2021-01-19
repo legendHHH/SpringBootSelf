@@ -1,24 +1,26 @@
 package com.qcl.webssh.utils;
 
 import cn.hutool.core.date.DateUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author chunlin.qi@hand-china.com
+ * 持续检测网络是否连通
+ *
+ * @author legend
  * @version 1.0
  * @description
  * @date 2021/1/18
  */
+@Slf4j
 public class NetWorkUtil implements Runnable {
 
     public static void main(String[] args) {
         NetWorkUtil nw = new NetWorkUtil();
         new Thread(nw).start();
-
-//        getCurrentTime2();
     }
 
 
@@ -42,7 +44,7 @@ public class NetWorkUtil implements Runnable {
     private void isConnect() {
         Runtime runtime = Runtime.getRuntime();
         //获取系统的编码
-        System.out.print(System.getProperty("file.encoding"));
+        log.info("当前文件的编码格式：{}", System.getProperty("file.encoding"));
         try {
             //执行对应的命令
             Process process = runtime.exec("ping " + "www.baidu.com");
@@ -54,7 +56,7 @@ public class NetWorkUtil implements Runnable {
             StringBuffer sb = new StringBuffer();
             while ((line = br.readLine()) != null) {
                 sb.append(line);
-                System.out.println("返回值为:" + line);
+                log.info("返回值为:{}", line);
 
             }
             is.close();
@@ -65,12 +67,12 @@ public class NetWorkUtil implements Runnable {
                 String logString = "";
                 if (sb.toString().indexOf("TTL") > 0) {
                     // 网络畅通
-                    logString = "网络正常，时间 " + this.getCurrentTime();
-                    System.out.println(logString);
+                    logString = "网络正常，时间 " + this.getCurrentTime2();
+                    log.info(logString);
                 } else {
                     // 网络不畅通
-                    logString = "网络断开，时间 " + this.getCurrentTime();
-                    System.out.println(logString);
+                    logString = "网络断开，时间 " + this.getCurrentTime2();
+                    log.error(logString);
                 }
                 //将信息写入日志文件
                 this.writeIntoLog(logString);
@@ -127,7 +129,7 @@ public class NetWorkUtil implements Runnable {
      *
      * @return
      */
-    public static String getCurrentTime2() {
+    public String getCurrentTime2() {
         return DateUtil.date(new Date()).toStringDefaultTimeZone();
     }
 }
