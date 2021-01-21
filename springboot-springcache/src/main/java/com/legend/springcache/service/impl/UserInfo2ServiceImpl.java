@@ -6,6 +6,7 @@ import com.legend.springcache.service.UserInfo2Service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -23,6 +24,7 @@ import java.util.Map;
  */
 @Slf4j
 @Service
+@CacheConfig(cacheNames = "caffeineCacheManager")
 public class UserInfo2ServiceImpl implements UserInfo2Service {
 
     /**
