@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VideoController {
 
-    @RequestMapping(value = "/video")
+    /*@RequestMapping(value = "/video")
     public ResultModel test() {
         ResultModel resultModel = new ResultModel();
         resultModel.setMsg("成功");
@@ -21,5 +21,5 @@ public class VideoController {
             resultModel.setCode(JsonConfigModel.ERROR_VIDEO);
         }
         return resultModel;
-    }
+    }*/
 }
