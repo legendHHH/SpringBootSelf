@@ -1,0 +1,17 @@
+server:
+  port: 8080 # 配置端口
+
+spring:
+  datasource:
+    #数据源基本配置
+    username: root
+    password: 123456
+    #driver-class-name: com.mysql.jdbc.Driver  已经被废弃了
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+  jpa:
+    hibernate:
+      #更新或者创建数据表结构
+      ddl-auto: update
+    #控制台显示sql
+    show-sql: true
