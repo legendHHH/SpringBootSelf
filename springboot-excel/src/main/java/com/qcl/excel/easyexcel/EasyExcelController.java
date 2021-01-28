@@ -128,4 +128,12 @@ public class EasyExcelController {
         System.out.println(s);
         return s;
     }
+
+    @RequestMapping(value = "/test2", method = RequestMethod.POST)
+    @ResponseBody
+    public String method2(@RequestParam("id") Integer id, @RequestParam("name") String name, @RequestParam("age") Integer age) {
+        String s = "hello " + id + " " + name + " " + age;
+        System.out.println(s);
+        return s;
+    }
 }
