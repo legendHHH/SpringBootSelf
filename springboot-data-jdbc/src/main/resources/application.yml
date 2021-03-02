@@ -2,10 +2,14 @@ spring:
   datasource:
     #数据源基本配置
     username: root
-    password: 123456
+    password: AvY2gZrjNmQjJIqlir3VSQib1KO3TIrKT3V9oNKgOIzS6c9cUR1ZLOMsoscf2XylZt6qauZFXbstHRqXkb0QWg==
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springboot
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
+    publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKGua2OHiTKUB4+tBbmuKlq7nhz+Dxh7IsViaKyX0ztEod5iAYdeHRSrRumwPTkkxLWijkEdt9qASAm4BtZEwm8CAwEAAQ==
+    filters: stat,wall,slf4j,config
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKGua2OHiTKUB4+tBbmuKlq7nhz+Dxh7IsViaKyX0ztEod5iAYdeHRSrRumwPTkkxLWijkEdt9qASAm4BtZEwm8CAwEAAQ==
+
 
     #数据源其他配置
     initialSize: 5
