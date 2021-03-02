@@ -16,9 +16,18 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <testable.version>0.4.9</testable.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba.testable</groupId>
+            <artifactId>testable-all</artifactId>
+            <version>${testable.version}</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+
+
         <!-- spring的事务测试 -->
         <!--<dependency>
             <groupId>org.springframework</groupId>
@@ -43,6 +52,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!-- spring 单元测试组件包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.7.RELEASE</version>
+        </dependency>
+        <!-- 单元测试Junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <!-- Mock测试使用的json-path依赖 -->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.2.0</version>
         </dependency>
 
         <dependency>
@@ -85,6 +112,13 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-javaagent:${settings.localRepository}/com/alibaba/testable/testable-agent/${testable.version}/testable-agent-${testable.version}.jar</argLine>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
