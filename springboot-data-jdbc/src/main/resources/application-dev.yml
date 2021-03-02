@@ -1,0 +1,15 @@
+# 废弃无用
+#spring:
+#  # MySQL 配置
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#      url: jdbc:mysql://127.0.0.1:3306/springboot?serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&useSSL=false
+#      username: root
+#      password: IMgKm27bOHok3/+5aDL4jGBoVVZkpicbbM6pIXQppi3dI7h3jngSAqhqwqYnfuYpyVJ0k++q9xWWnHtd6sAWnQ==
+#      # encrypt config
+#      filters: config
+#      connect-properties:
+#        config.decrypt: true
+#        config.decrypt.key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKTo3DFkg8yYilRprXAQaED7TPbVVth9nJ0usWSuza280F2Fi0A9s3nyK68fbzL6kSBxKpJgB07lHFFx4AsbtHMCAwEAAQ==
