@@ -1,0 +1,9 @@
+server:
+  port: 8080 # 配置端口
+
+spring:
+  thymeleaf:
+    # 开发时关闭缓存，不然无法看到实时页面
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
