@@ -16,4 +16,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka
-    register-with-eureka: true
+    register-with-eureka: true #服务提供方启动时会检测参数是否为true，true注册给eureka
+  instance:
+    lease-expiration-duration-in-seconds: 15 #过期时间
+    lease-renewal-interval-in-seconds: 5 #心跳时间
