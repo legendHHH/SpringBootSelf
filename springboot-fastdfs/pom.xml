@@ -23,6 +23,8 @@
         <dependency>
             <groupId>com.github.tobato</groupId>
             <artifactId>fastdfs-client</artifactId>
+            <version>1.26.2</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.oschina.zcx7878</groupId>
