@@ -20,6 +20,12 @@
     </properties>
 
     <dependencies>
+        <!--日志追踪框架TLog-->
+        <dependency>
+            <groupId>com.yomahub</groupId>
+            <artifactId>tlog-all-spring-boot-starter</artifactId>
+            <version>1.1.5</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba.testable</groupId>
             <artifactId>testable-all</artifactId>
