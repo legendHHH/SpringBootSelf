@@ -6,16 +6,24 @@ import com.legend.elasticsearch.config.EsConfig;
 import com.legend.elasticsearch.entity.EsParam;
 import com.legend.elasticsearch.entity.Item;
 import com.legend.elasticsearch.respository.ItemRepository;
+import com.legend.elasticsearch.utils.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 商品控制器
@@ -48,6 +56,9 @@ public class ItemController {
      */
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      * 创建索引库和类型测试
@@ -115,6 +126,51 @@ public class ItemController {
     public String httpEsApi() {
         String result = esConfig.get();
         return result;
+    }
+
+
+    /**
+     * Es搜索引擎根据索引和id查询信息
+     * <p>
+     * http://localhost:8012/queryEsInfo?indexName=item&typeName=docs&id=10
+     * curl -X GET 127.0.0.1:9200/item/docs/10
+     *
+     * @return
+     */
+    @GetMapping(value = "/queryEsInfo")
+    @ResponseBody
+    public String queryEsByIdAndIndexAndName(@RequestParam("indexName") String indexName,
+                                             @RequestParam("typeName") String typeName,
+                                             @RequestParam(value = "esDealType", required = false) String esDealType,
+                                             @RequestParam(value = "id", required = false) Integer id) {
+
+        //限制不能频繁查询
+        String queryEsTimestamp = (String) redisTemplate.opsForValue().get("query_es_timestamp");
+        long currentTimestamp = System.currentTimeMillis();
+        if (StringUtils.isEmpty(queryEsTimestamp)) {
+            redisTemplate.opsForValue().set("query_es_timestamp", String.valueOf(currentTimestamp), 3, TimeUnit.MINUTES);
+        } else {
+            long esTimestamp = Long.parseLong(queryEsTimestamp);
+            if (currentTimestamp - esTimestamp < 3000) {
+                return "访问太频繁,稍后重试";
+            }
+        }
+        //curl http://192.168.0.189:9200/product1/product_type/_mapping
+        String[] cmds = {"curl", "http://localhost:9200/" + indexName + "/" + typeName + "/" + id};
+        ProcessBuilder builder = new ProcessBuilder(cmds);
+        try {
+            Process p = builder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+            return sb.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return indexName + "成功" + typeName + "   id：" + id;
     }
 
 }
