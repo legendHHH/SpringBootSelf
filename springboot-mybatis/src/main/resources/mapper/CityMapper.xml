@@ -49,4 +49,17 @@
 		on duplicate key update city_name = VALUES (city_name), description = VALUES (description)
 	</insert>
 
+	<insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="true"
+			keyProperty="id">
+
+		INSERT INTO `springboot_springserurity`.`city`(`province_id`, `city_name`, `description`)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.provinceId},
+			#{item.cityName},
+			#{item.description}
+	  		)
+		</foreach>
+	</insert>
 </mapper>

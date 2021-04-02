@@ -25,6 +25,11 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public void batchInsert(List<City> city) {
+        cityDao.batchInsert(city);
+    }
+
+    @Override
     public int saveOrUpdate(City city) {
         return cityDao.saveOrUpdate(city);
     }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -42,5 +43,21 @@ public class CityRestController {
             cityList.add(city);
         }
         return cityService.batchSaveOrUpdate(cityList);
+    }
+
+    @RequestMapping(value = "/api/city/batchInsert", method = RequestMethod.GET)
+    public int batchInsert() {
+        List<City> cityList = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            City city = new City();
+            city.setDescription("北京路" + i + i);
+            city.setCityName("北京路" + i);
+            city.setProvinceId(i + 10000L);
+            city.setId(i + 10L);
+            cityList.add(city);
+        }
+        cityService.batchInsert(cityList);
+        System.out.println(cityList.stream().map(City::getId).collect(Collectors.toList()));
+        return 1;
     }
 }

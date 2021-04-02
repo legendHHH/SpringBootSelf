@@ -19,6 +19,13 @@ public interface CityService {
      */
     City findCityByName(String cityName);
 
+    /**
+     * 保存或者更新
+     *
+     * @param city
+     * @return
+     */
+    void batchInsert(List<City> city);
 
     /**
      * 保存或者更新
