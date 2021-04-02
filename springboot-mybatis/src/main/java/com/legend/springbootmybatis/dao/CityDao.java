@@ -20,6 +20,14 @@ public interface CityDao {
     City findByName(@Param("cityName") String cityName);
 
     /**
+     * 批量保存或更新
+     *
+     * @param cityList
+     * @return
+     */
+    void batchInsert(@Param("list") List<City> cityList);
+
+    /**
      * 保存或更新
      *
      * @param city

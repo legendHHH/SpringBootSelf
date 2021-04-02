@@ -1,5 +1,10 @@
 package com.legend.springbootmybatis.domain;
 
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * 城市实体类
  *
@@ -10,6 +15,8 @@ public class City {
     /**
      * 城市编号
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**

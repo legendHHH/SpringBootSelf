@@ -93,6 +93,10 @@
             <!-- 有人说optional一定要配置成true才有效, 但我调试完感觉不加optional也有效 -->
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
