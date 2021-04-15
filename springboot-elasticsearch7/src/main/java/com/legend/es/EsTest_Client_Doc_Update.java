@@ -4,20 +4,22 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.update.UpdateRequest;
+import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
 
 /**
- * 文档数据新增
+ * 文档数据更新
  *
  * @author legend
  * @version 1.0
  * @description
- * @date 2021/4/13
+ * @date 2021/4/15
  */
-public class EsTest_Client_Doc_Insert {
+public class EsTest_Client_Doc_Update {
 
     public static void main(String[] args) throws Exception {
 
@@ -26,22 +28,14 @@ public class EsTest_Client_Doc_Insert {
                 RestClient.builder(new HttpHost("localhost", 9200, "http"))
         );
 
-        //插入数据
-        IndexRequest indexRequest = new IndexRequest();
-        indexRequest.index("user").id("1011");
+        //修改数据
+        UpdateRequest updateRequest = new UpdateRequest();
+        updateRequest.index("user").id("1011");
 
-        User user = new User();
-        user.setName("张三");
-        user.setAge(23);
-        user.setTel("10010");
-        user.setSex("男");
+        //局部修改数据
+        updateRequest.doc(XContentType.JSON, "sex","女");
 
-        //向ES插入数据，必须将数据转化为JSON格式
-        ObjectMapper objectMapper = new ObjectMapper();
-        String userJsonStr = objectMapper.writeValueAsString(user);
-        indexRequest.source(userJsonStr, XContentType.JSON);
-
-        IndexResponse response = esClient.index(indexRequest, RequestOptions.DEFAULT);
+        UpdateResponse response = esClient.update(updateRequest, RequestOptions.DEFAULT);
         System.out.println(response.getId());
         System.out.println(response.getVersion());
         System.out.println(response.getResult());
