@@ -13,12 +13,22 @@
 	<sql id="Base_Column_List">
 		id, province_id, city_name, description
 	</sql>
+	<update id="update" parameterType="com.legend.springbootmybatis.domain.City">
+		update city set city_name = #{cityName} where id = #{id}
+	</update>
 
 	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from city
 		where city_name = #{cityName}
+	</select>
+
+	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from city
+		where id = #{id}
 	</select>
 
 	<!--保存或者更新-->

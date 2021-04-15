@@ -3,10 +3,7 @@ package com.legend.springbootmybatis.controller;
 import com.legend.springbootmybatis.domain.City;
 import com.legend.springbootmybatis.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,5 +56,15 @@ public class CityRestController {
         cityService.batchInsert(cityList);
         System.out.println(cityList.stream().map(City::getId).collect(Collectors.toList()));
         return 1;
+    }
+
+
+    @GetMapping("/testSelect")
+    public String method(){
+        City city = new City();
+        city.setId(5L);
+        city.setCityName("889999998888");
+        cityService.update(city);
+        return cityService.testSelect(5L).toString();
     }
 }

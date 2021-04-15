@@ -20,6 +20,22 @@ public interface CityService {
     City findCityByName(String cityName);
 
     /**
+     * 根据城市名称，查询城市信息
+     *
+     * @param id
+     * @return
+     */
+    City findCityById(Long id);
+
+    /**
+     * 更新数据
+     *
+     * @param city
+     * @return
+     */
+    void update(City city);
+
+    /**
      * 保存或者更新
      *
      * @param city
@@ -42,4 +58,12 @@ public interface CityService {
      * @return
      */
     int batchSaveOrUpdate(List<City> city);
+
+    /**
+     * 测试事务
+     *
+     * @param id
+     * @return
+     */
+    City testSelect(long id);
 }

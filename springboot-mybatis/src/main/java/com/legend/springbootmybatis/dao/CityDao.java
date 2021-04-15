@@ -20,6 +20,21 @@ public interface CityDao {
     City findByName(@Param("cityName") String cityName);
 
     /**
+     * 根据主键id查询
+     *
+     * @param id
+     * @return
+     */
+    City findById(@Param("id") Long id);
+
+    /**
+     * 更新数据
+     *
+     * @param city
+     */
+    void update(City city);
+
+    /**
      * 批量保存或更新
      *
      * @param cityList
