@@ -33,7 +33,7 @@ public class EsTest_Client_Doc_MatchPage {
         searchRequest.indices("user");
         //取出年龄为30的数据
         SearchSourceBuilder builder = new SearchSourceBuilder().query(QueryBuilders.termQuery("age", "30"));
-        //(当前页码 - 1) * 每页页数
+        //(当前页码 - 1) * 每页显示数据条数
         builder.from(2);
         builder.size(2);
         searchRequest.source(builder);
