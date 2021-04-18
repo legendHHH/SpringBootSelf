@@ -7,17 +7,21 @@ import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.TermsQueryBuilder;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 
 /**
- * 文档查询字段过滤
+ * 文档高亮查询
  *
  * @author legend
  * @version 1.0
  * @description
- * @date 2021/4/16
+ * @date 2021/4/18
  */
-public class EsTest_Client_Doc_FilterFields {
+public class EsTest_Client_Doc_HighlightQuery {
 
     public static void main(String[] args) throws Exception {
 
@@ -26,25 +30,31 @@ public class EsTest_Client_Doc_FilterFields {
                 RestClient.builder(new HttpHost("localhost", 9200, "http"))
         );
 
-        //查询数据字段过滤
+        //查询结果高亮
         SearchRequest searchRequest = new SearchRequest();
         searchRequest.indices("user");
 
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        searchSourceBuilder.query(QueryBuilders.termQuery("age", 30));
 
-        //字段过滤和不过滤数组
-        //包含
-        String[] includes = {"name"};
-        //排除
-        String[] excludes = {};
-        searchSourceBuilder.fetchSource(includes, excludes);
+        TermsQueryBuilder termQueryBuilder = QueryBuilders.termsQuery("name", "legend");
+
+        HighlightBuilder highlightBuilder = new HighlightBuilder();
+        highlightBuilder.preTags("<font color='red'>");
+        highlightBuilder.postTags("</font>");
+        highlightBuilder.field("name");
+        searchSourceBuilder.highlighter(highlightBuilder);
+        searchSourceBuilder.query(termQueryBuilder);
         searchRequest.source(searchSourceBuilder);
 
         SearchResponse searchResponse = esClient.search(searchRequest, RequestOptions.DEFAULT);
         System.out.println(searchResponse.toString());
+        SearchHits searchHits = searchResponse.getHits();
+        for (SearchHit hit: searchHits.getHits()) {
+            System.out.println(hit.getSourceAsMap());
+        }
         System.out.println(searchResponse.getClusters());
-        System.out.println(searchResponse.getHits());
+        System.out.println(searchResponse.getHits().getTotalHits());
+
 
         //关闭客户端
         esClient.close();

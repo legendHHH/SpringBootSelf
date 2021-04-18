@@ -6,18 +6,21 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.aggregations.AggregationBuilder;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 /**
- * 文档查询字段过滤
+ * 文档聚合分组查询
  *
  * @author legend
  * @version 1.0
  * @description
- * @date 2021/4/16
+ * @date 2021/4/18
  */
-public class EsTest_Client_Doc_FilterFields {
+public class EsTest_Client_Doc_GroupQuery {
 
     public static void main(String[] args) throws Exception {
 
@@ -26,25 +29,27 @@ public class EsTest_Client_Doc_FilterFields {
                 RestClient.builder(new HttpHost("localhost", 9200, "http"))
         );
 
-        //查询数据字段过滤
+        //聚合查询
         SearchRequest searchRequest = new SearchRequest();
         searchRequest.indices("user");
 
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        searchSourceBuilder.query(QueryBuilders.termQuery("age", 30));
 
-        //字段过滤和不过滤数组
-        //包含
-        String[] includes = {"name"};
-        //排除
-        String[] excludes = {};
-        searchSourceBuilder.fetchSource(includes, excludes);
+        //取分组名字叫 ageGroup  对age的字段进行分组
+        AggregationBuilder aggregationBuilder = AggregationBuilders.terms("ageGroup").field("age");
+        searchSourceBuilder.aggregation(aggregationBuilder);
+
         searchRequest.source(searchSourceBuilder);
 
         SearchResponse searchResponse = esClient.search(searchRequest, RequestOptions.DEFAULT);
         System.out.println(searchResponse.toString());
+        SearchHits searchHits = searchResponse.getHits();
+        for (SearchHit hit: searchHits.getHits()) {
+            System.out.println(hit.getSourceAsMap());
+        }
         System.out.println(searchResponse.getClusters());
-        System.out.println(searchResponse.getHits());
+        System.out.println(searchResponse.getHits().getTotalHits());
+
 
         //关闭客户端
         esClient.close();
