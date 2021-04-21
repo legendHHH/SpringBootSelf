@@ -44,6 +44,21 @@ public class User {
         this.tel = tel;
     }
 
+    public User() {
+    }
+
+    public User(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public User(String name, Integer age, String sex, String tel) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.tel = tel;
+    }
+
     @Override
     public String toString() {
         return "User{" +
