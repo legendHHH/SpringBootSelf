@@ -115,4 +115,28 @@ public class BeanMapUtil {
         fieldList.toArray(fields);
         return fields;
     }
+
+    /**
+     * 获取利用反射获取类里面的值和名称(排除为空的属性不在map里面)
+     *
+     * @param obj
+     * @return
+     * @throws IllegalAccessException
+     */
+    public static Map<String, Object> objectToMap(Object obj) throws IllegalAccessException {
+        Map<String, Object> map = new HashMap<>(16);
+        Class<?> clazz = obj.getClass();
+        for (Field field : clazz.getDeclaredFields()) {
+            field.setAccessible(true);
+            String fieldName = field.getName();
+            if (fieldName.equals("serialVersionUID")) {
+                continue;
+            }
+            Object value = field.get(obj);
+            if (value != null) {
+                map.put(fieldName, value);
+            }
+        }
+        return map;
+    }
 }
