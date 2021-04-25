@@ -1,5 +1,6 @@
 package com.legend.es;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.index.IndexRequest;
@@ -30,15 +31,39 @@ public class EsTest_Client_Doc_Update {
 
         //修改数据
         UpdateRequest updateRequest = new UpdateRequest();
-        updateRequest.index("user").id("1011");
+        String idStr = "1099";
+        updateRequest.index("user").id(idStr);
 
         //局部修改数据
         updateRequest.doc(XContentType.JSON, "sex","女");
 
-        UpdateResponse response = esClient.update(updateRequest, RequestOptions.DEFAULT);
-        System.out.println(response.getId());
-        System.out.println(response.getVersion());
-        System.out.println(response.getResult());
+        UpdateResponse response = null;
+        try {
+            response = esClient.update(updateRequest, RequestOptions.DEFAULT);
+            System.out.println("ccc："+response.toString());
+            System.out.println(response.getId());
+            System.out.println(response.getVersion());
+            System.out.println(response.getResult());
+        } catch (Exception e) {
+            System.out.println("出异常了："+e.getMessage());
+            System.out.println("111111出异常了："+e.getMessage().contains("document missing"));
+
+            if (e.getMessage().contains("document missing")) {
+                IndexRequest indexRequest = new IndexRequest();
+                indexRequest.index("user");
+                indexRequest.id(idStr);
+                User user = new User();
+                user.setName("测试异常新增");
+                user.setTel("120981234");
+                indexRequest.source(JSONObject.toJSONString(user), XContentType.JSON);
+                IndexResponse response2 = esClient.index(indexRequest, RequestOptions.DEFAULT);
+                //IndexResponse[index=user,type=_doc,id=1099,version=1,result=created,seqNo=29,primaryTerm=6,shards={"total":2,"successful":1,"failed":0}]
+                System.out.println(response2.toString());
+                //201
+                System.out.println(response2.status().getStatus());
+            }
+
+        }
 
         //关闭客户端
         esClient.close();
