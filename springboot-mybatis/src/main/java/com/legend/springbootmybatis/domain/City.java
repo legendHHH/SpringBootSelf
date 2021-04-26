@@ -34,6 +34,9 @@ public class City {
      */
     private String description;
 
+    private Integer salesNum;
+    private Integer evaNum;
+
     public Long getId() {
         return id;
     }
@@ -66,6 +69,22 @@ public class City {
         this.description = description;
     }
 
+    public Integer getSalesNum() {
+        return salesNum;
+    }
+
+    public void setSalesNum(Integer salesNum) {
+        this.salesNum = salesNum;
+    }
+
+    public Integer getEvaNum() {
+        return evaNum;
+    }
+
+    public void setEvaNum(Integer evaNum) {
+        this.evaNum = evaNum;
+    }
+
     @Override
     public String toString() {
         return "City{" +
@@ -73,6 +92,8 @@ public class City {
                 ", provinceId=" + provinceId +
                 ", cityName='" + cityName + '\'' +
                 ", description='" + description + '\'' +
+                ", salesNum=" + salesNum +
+                ", evaNum=" + evaNum +
                 '}';
     }
 }

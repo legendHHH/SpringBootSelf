@@ -35,6 +35,13 @@ public interface CityDao {
     void update(City city);
 
     /**
+     * 更新数据
+     *
+     * @param city
+     */
+    void update2(City city);
+
+    /**
      * 批量保存或更新
      *
      * @param cityList
@@ -57,4 +64,12 @@ public interface CityDao {
      * @return
      */
     int batchSaveOrUpdate(@Param("list") List<City> cityList);
+
+    /**
+     * 批量更新第一种方式
+     *
+     * @param cityList
+     * @return
+     */
+    void batchUpdate1(@Param("list") List<City> cityList);
 }

@@ -67,4 +67,44 @@ public class CityRestController {
         cityService.update(city);
         return cityService.testSelect(5L).toString();
     }
+
+    /**
+     * 测试更新后的数据返回
+     *
+     *
+     * @return
+     */
+    @GetMapping("/updateAfter")
+    public String updateAfter(){
+        City city = new City();
+        city.setId(4L);
+        city.setCityName("测试123456");
+        city.setProvinceId(12L);
+        return cityService.update2(city).toString();
+    }
+
+    /**
+     * 批量更新第一种方式
+     *
+     * @return
+     */
+    @GetMapping("/batchUpdate1")
+    public String batchUpdate1() {
+        System.out.println("hello");
+        List<City> cityList = new ArrayList<>();
+        City city = new City();
+        city.setId(4L);
+        city.setProvinceId(999L);
+        city.setCityName("南京西路");
+
+        City city2 = new City();
+        city2.setId(5L);
+        city2.setCityName("南京东路");
+
+        cityList.add(city);
+        cityList.add(city2);
+
+        cityService.batchUpdate1(cityList);
+        return "更新了 " + 0 + " 条数据";
+    }
 }
