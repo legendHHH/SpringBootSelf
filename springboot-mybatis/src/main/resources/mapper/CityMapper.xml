@@ -6,18 +6,46 @@
 		<result column="province_id" property="provinceId" />
 		<result column="city_name" property="cityName" />
 		<result column="description" property="description" />
+		<result column="sales_num" property="salesNum" />
+		<result column="eva_num" property="evaNum" />
 	</resultMap>
 
 	<parameterMap id="City" type="com.legend.springbootmybatis.domain.City"/>
 
 	<sql id="Base_Column_List">
-		id, province_id, city_name, description
+		id, province_id, city_name, description,sales_num,eva_num
 	</sql>
 	<update id="update" parameterType="com.legend.springbootmybatis.domain.City">
 		update city set city_name = #{cityName} where id = #{id}
 	</update>
 
-	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<!-- 批量更新第一种方法，通过接收传进来的参数list进行循环着组装sql -->
+	<update id="batchUpdate1" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			update city
+			<set>
+				<if test="item.cityName != null">
+					city_name = #{item.cityName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.description != null">
+					description = #{item.description,jdbcType=VARCHAR},
+				</if>
+				<if test="item.provinceId != null">
+					province_id = #{item.provinceId,jdbcType=BIGINT},
+				</if>
+			</set>
+			where id = #{item.id,jdbcType=BIGINT}
+		</foreach>
+	</update>
+
+	<update id="update2">
+		<!--<selectKey resultType="java.lang.Integer" keyProperty="stock" order="AFTER">
+			select * FROM city WHERE id &lt; #{id}
+		</selectKey>-->
+		update city set eva_num = eva_num + 1, city_name = #{cityName}, province_id = #{provinceId} where id <![CDATA[<=]]> #{id}
+	</update>
+
+    <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from city

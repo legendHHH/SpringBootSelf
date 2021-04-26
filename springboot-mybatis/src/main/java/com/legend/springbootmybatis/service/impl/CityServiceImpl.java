@@ -35,6 +35,12 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public City update2(City city) {
+        cityDao.update2(city);
+        return cityDao.findById(city.getId());
+    }
+
+    @Override
     public void batchInsert(List<City> city) {
         cityDao.batchInsert(city);
     }
@@ -53,5 +59,10 @@ public class CityServiceImpl implements CityService {
     @Override
     public City testSelect(long id) {
         return cityDao.findById(id);
+    }
+
+    @Override
+    public void batchUpdate1(List<City> cityList) {
+        cityDao.batchUpdate1(cityList);
     }
 }

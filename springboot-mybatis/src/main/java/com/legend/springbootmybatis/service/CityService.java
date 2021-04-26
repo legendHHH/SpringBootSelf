@@ -36,6 +36,14 @@ public interface CityService {
     void update(City city);
 
     /**
+     * 更新数据
+     *
+     * @param city
+     * @return
+     */
+    City update2(City city);
+
+    /**
      * 保存或者更新
      *
      * @param city
@@ -66,4 +74,12 @@ public interface CityService {
      * @return
      */
     City testSelect(long id);
+
+    /**
+     * 批量更新第一种方式
+     *
+     * @param cityList
+     * @return
+     */
+    void batchUpdate1(List<City> cityList);
 }
