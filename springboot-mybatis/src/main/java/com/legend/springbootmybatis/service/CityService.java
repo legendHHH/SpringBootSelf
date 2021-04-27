@@ -82,4 +82,20 @@ public interface CityService {
      * @return
      */
     void batchUpdate1(List<City> cityList);
+
+    /**
+     * 批量更新第二种方式
+     *
+     * @param cityList
+     * @return
+     */
+    void batchUpdate2(List<City> cityList);
+
+    /**
+     * 批量更新第三种方式
+     *
+     * @param cityList
+     * @return
+     */
+    void batchUpdate3(List<City> cityList);
 }

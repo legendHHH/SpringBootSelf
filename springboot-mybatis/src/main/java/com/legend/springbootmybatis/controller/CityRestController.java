@@ -60,7 +60,7 @@ public class CityRestController {
 
 
     @GetMapping("/testSelect")
-    public String method(){
+    public String method() {
         City city = new City();
         city.setId(5L);
         city.setCityName("889999998888");
@@ -71,11 +71,10 @@ public class CityRestController {
     /**
      * 测试更新后的数据返回
      *
-     *
      * @return
      */
     @GetMapping("/updateAfter")
-    public String updateAfter(){
+    public String updateAfter() {
         City city = new City();
         city.setId(4L);
         city.setCityName("测试123456");
@@ -85,6 +84,7 @@ public class CityRestController {
 
     /**
      * 批量更新第一种方式
+     * http://localhost:8083/batchUpdate1
      *
      * @return
      */
@@ -105,6 +105,56 @@ public class CityRestController {
         cityList.add(city2);
 
         cityService.batchUpdate1(cityList);
+        return "更新了 " + 0 + " 条数据";
+    }
+
+    /**
+     * 批量更新第二种方式
+     * http://localhost:8083/batchUpdate2
+     *
+     * @return
+     */
+    @GetMapping("/batchUpdate2")
+    public String batchUpdate2() {
+        List<City> cityList = new ArrayList<>();
+        City city = new City();
+        city.setId(4L);
+        city.setProvinceId(999L);
+        city.setCityName("南京1111西路");
+
+        City city2 = new City();
+        city2.setId(5L);
+        city2.setCityName("南京22222东路");
+
+        cityList.add(city);
+        cityList.add(city2);
+
+        cityService.batchUpdate2(cityList);
+        return "更新了 " + 0 + " 条数据";
+    }
+
+    /**
+     * 批量更新第二种方式
+     * http://localhost:8083/batchUpdate3
+     *
+     * @return
+     */
+    @GetMapping("/batchUpdate3")
+    public String batchUpdate3() {
+        List<City> cityList = new ArrayList<>();
+        City city = new City();
+        city.setId(44L);
+        city.setProvinceId(999L);
+        city.setCityName("南京1111西路");
+
+        City city2 = new City();
+        city2.setId(55L);
+        city2.setCityName("南京22222东路");
+
+        cityList.add(city);
+        cityList.add(city2);
+
+        cityService.batchUpdate3(cityList);
         return "更新了 " + 0 + " 条数据";
     }
 }
