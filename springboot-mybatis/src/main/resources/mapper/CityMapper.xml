@@ -38,6 +38,55 @@
 		</foreach>
 	</update>
 
+	<!-- 批量更新第二种方法，通过 case when语句变相的进行批量更新 -->
+	<update id="batchUpdate2" parameterType="java.util.List">
+		update city
+		<trim prefix="set" suffixOverrides=",">
+			<trim prefix="id =case" suffix="end,">
+				<foreach collection="list" item="item" index="index">
+					<if test="item.id!=null">
+						when id=#{id.id} then #{item.id}
+					</if>
+				</foreach>
+			</trim>
+			<trim prefix="standard_to_uuid =case" suffix="end,">
+				<foreach collection="list" item="i" index="index">
+					<if test="i.standardToUuid!=null">
+						when id=#{i.id} then #{i.standardToUuid}
+					</if>
+				</foreach>
+			</trim>
+			<trim prefix="gmt_modified =case" suffix="end,">
+				<foreach collection="list" item="i" index="index">
+					<if test="i.gmtModified!=null">
+						when id=#{i.id} then #{i.gmtModified}
+					</if>
+				</foreach>
+			</trim>
+		</trim>
+		where
+		<foreach collection="list" separator="or" item="i" index="index">
+			id=#{i.id}
+		</foreach>
+	</update>
+
+	<insert id="batchUpdate3" parameterType="java.util.List">
+		INSERT INTO city ( id, province_id, city_name, description )
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+				#{item.provinceId},
+				#{item.cityName},
+				#{item.description}
+			)
+		</foreach>
+		ON DUPLICATE KEY UPDATE
+		id=VALUES(id),
+		province_id = VALUES(province_id),
+		city_name = VALUES(city_name),
+		description = VALUES(description)
+	</insert>
+
 	<update id="update2">
 		<!--<selectKey resultType="java.lang.Integer" keyProperty="stock" order="AFTER">
 			select * FROM city WHERE id &lt; #{id}

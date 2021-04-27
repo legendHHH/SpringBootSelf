@@ -65,4 +65,9 @@ public class CityServiceImpl implements CityService {
     public void batchUpdate1(List<City> cityList) {
         cityDao.batchUpdate1(cityList);
     }
+
+    @Override
+    public void batchUpdate2(List<City> cityList) {
+        cityDao.batchUpdate2(cityList);
+    }
 }

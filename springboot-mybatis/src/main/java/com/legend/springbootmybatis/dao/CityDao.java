@@ -72,4 +72,20 @@ public interface CityDao {
      * @return
      */
     void batchUpdate1(@Param("list") List<City> cityList);
+
+    /**
+     * 批量更新第二种方式
+     *
+     * @param cityList
+     * @return
+     */
+    void batchUpdate2(@Param("list") List<City> cityList);
+
+    /**
+     * 批量更新第三种方式
+     *
+     * @param cityList
+     * @return
+     */
+    void batchUpdate3(@Param("list") List<City> cityList);
 }
