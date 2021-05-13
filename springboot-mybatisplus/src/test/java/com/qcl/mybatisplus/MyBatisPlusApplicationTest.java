@@ -1,6 +1,7 @@
 package com.qcl.mybatisplus;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qcl.mybatisplus.entity.User;
 import com.qcl.mybatisplus.mapper.UserMapper;
 import org.junit.Test;
@@ -9,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 测试
@@ -26,6 +30,78 @@ public class MyBatisPlusApplicationTest {
 
     @Autowired
     private UserMapper userMapper;
+
+    /**
+     * 测试根据简单条件删除
+     */
+    @Test
+    public void testDeleteByMap() {
+        //根据id删除
+        Map<String, Object> columnMap = new HashMap<>();
+        columnMap.put("user_name", "legend9999");
+        int result = userMapper.deleteByMap(columnMap);
+        System.out.println(result);
+    }
+
+    /**
+     * 测试根据ids批量删除
+     */
+    @Test
+    public void testDeleteBatchIds() {
+        //根据id删除
+        int result = userMapper.deleteBatchIds(Arrays.asList(1392827352362381313L));
+        System.out.println(result);
+    }
+
+    /**
+     * 测试根据id删除
+     */
+    @Test
+    public void testDeleteById() {
+        //根据id删除
+        int result = userMapper.deleteById(1392831124501172225L);
+        System.out.println(result);
+    }
+
+    /**
+     * 测试简单分页查询
+     */
+    @Test
+    public void testSelectPage() {
+        //分页查询(需要添加分页插件)
+        Page<User> page = new Page<>(0, 5);
+        Page<User> userPage = userMapper.selectPage(page, null);
+        List<User> userList = userPage.getRecords();
+        System.out.println(userList.toString());
+        System.out.println("总页数：" + userPage.getPages());
+        System.out.println("当前页：" + userPage.getCurrent());
+        System.out.println("总条数：" + userPage.getTotal());
+        System.out.println("是否有上一页：" + userPage.hasPrevious());
+        System.out.println("是否有下一页：" + userPage.hasNext());
+    }
+
+    /**
+     * 测试简单条件查询
+     */
+    @Test
+    public void testSelectByMap() {
+        //根据条件查询
+        Map<String, Object> columnMap = new HashMap<>();
+        columnMap.put("user_name", "John");
+        columnMap.put("age", "33");
+        List<User> userList = userMapper.selectByMap(columnMap);
+        System.out.println(userList.toString());
+    }
+
+    /**
+     * 测试批量id查询
+     */
+    @Test
+    public void testSelectBatchIds() {
+        //根据id查询
+        List<User> userList = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
+        System.out.println(userList.toString());
+    }
 
     /**
      * 测试乐观锁
