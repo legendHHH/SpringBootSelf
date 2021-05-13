@@ -48,4 +48,12 @@ public class User {
     @Version
     @TableField(fill = FieldFill.INSERT)
     private Integer version;
+
+    /**
+     * 逻辑删除标识位
+     * TableLogic 配置逻辑删除
+     */
+    @TableLogic
+    @TableField(fill = FieldFill.INSERT)
+    private Integer deleted;
 }
