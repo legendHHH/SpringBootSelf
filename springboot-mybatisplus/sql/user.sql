@@ -11,7 +11,7 @@
  Target Server Version : 50640
  File Encoding         : 65001
 
- Date: 13/05/2021 21:18:46
+ Date: 13/05/2021 19:08:22
 */
 
 SET NAMES utf8mb4;
@@ -29,20 +29,21 @@ CREATE TABLE `user`  (
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `last_update_time` datetime(0) NULL DEFAULT NULL COMMENT '最后更新时间',
   `version` bigint(25) NULL DEFAULT NULL COMMENT '版本号',
+  `deleted` bigint(2) NULL DEFAULT NULL COMMENT '逻辑删除标志位(0没有删除,1删除)',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'Tom', 11, '1111111@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1);
-INSERT INTO `user` VALUES (2, 'Hom', 14, '1111111@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1);
-INSERT INTO `user` VALUES (3, 'Join', 16, '232132@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1);
-INSERT INTO `user` VALUES (4, 'Desk', 11, '424563@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1);
-INSERT INTO `user` VALUES (5, 'Bili', 19, '1313213@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1);
-INSERT INTO `user` VALUES (1392821377689559042, 'legend', 30, '737796231@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1);
-INSERT INTO `user` VALUES (1392826562788720642, 'John', 33, '737796231@qq.com', '2021-05-13 20:58:25', '2021-05-13 21:17:53', 2);
-INSERT INTO `user` VALUES (1392827352362381313, 'legend9999', 33, '737796231@qq.com', '2021-05-13 21:01:33', '2021-05-13 21:01:33', 1);
-INSERT INTO `user` VALUES (1392831124501172225, 'legend9', 33, '737796231@qq.com', '2021-05-13 21:16:32', '2021-05-13 21:16:32', 1);
+INSERT INTO `user` VALUES (1, 'Tom', 11, '1111111@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1, 0);
+INSERT INTO `user` VALUES (2, 'Hom', 14, '1111111@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1, 0);
+INSERT INTO `user` VALUES (3, 'Join', 16, '232132@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1, 0);
+INSERT INTO `user` VALUES (4, 'Desk', 11, '424563@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1, 0);
+INSERT INTO `user` VALUES (5, 'Bili', 19, '1313213@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1, 0);
+INSERT INTO `user` VALUES (1392821377689559042, 'legend', 30, '737796231@qq.com', '2021-05-13 20:58:25', '2021-05-13 20:58:25', 1, 0);
+INSERT INTO `user` VALUES (1392826562788720642, 'John', 33, '737796231@qq.com', '2021-05-13 20:58:25', '2021-05-13 21:17:53', 2, 0);
+INSERT INTO `user` VALUES (1392827352362381313, 'legend9999', 33, '737796231@qq.com', '2021-05-13 21:01:33', '2021-05-13 21:01:33', 1, 0);
+INSERT INTO `user` VALUES (1392831124501172225, 'legend9', 33, '737796231@qq.com', '2021-05-13 21:16:32', '2021-05-13 21:16:32', 1, 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
