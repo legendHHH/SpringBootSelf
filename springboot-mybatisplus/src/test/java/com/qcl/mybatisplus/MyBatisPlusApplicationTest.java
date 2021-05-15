@@ -31,6 +31,40 @@ public class MyBatisPlusApplicationTest {
     @Autowired
     private UserMapper userMapper;
 
+    @Test
+    public void test() {
+        Integer i = 10;
+        Integer j = 10;
+        System.out.println(i == j);
+        System.out.println(i.equals(j));
+    }
+
+    /**
+     * 测试条件构造器和常用接口查询
+     */
+    @Test
+    public void testSelect() {
+        System.out.println(userMapper.toString());
+        //带上查询条件
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        //ge gt le lt
+        queryWrapper.gt("age", 1);
+
+        //eq ne
+        queryWrapper.eq("user_name", "Tom");
+
+        //between notBetween
+        queryWrapper.between("id", 1, 2);
+
+        //like、notLike、likeRight、likeLeft
+        queryWrapper.like("email", "1111111");
+
+        //orderBy、orderByDesc、orderByAsc
+        queryWrapper.orderByAsc("id");
+        List<User> userList = userMapper.selectList(queryWrapper);
+        System.out.println(userList.toString());
+    }
+
     /**
      * 测试根据简单条件删除
      */
