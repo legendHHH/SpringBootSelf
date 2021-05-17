@@ -21,6 +21,11 @@ public class CityRestController {
         return cityService.findCityByName(cityName);
     }
 
+    @RequestMapping(value = "/api/city6", method = RequestMethod.GET)
+    public List<City> findSomeCity(City city) {
+        city.setFlag(true);
+        return cityService.findSomeCity(city);
+    }
 
     @RequestMapping(value = "/api/city/saveOrUpdate", method = RequestMethod.GET)
     public int saveOrUpdate(City city) {

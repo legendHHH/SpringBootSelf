@@ -107,8 +107,21 @@
 		from city
 		where id = #{id}
 	</select>
+    <select id="findSomeCity" resultType="com.legend.springbootmybatis.domain.City">
+		select
+		<include refid="Base_Column_List" />
+		from city
+		where id = 1
+		<if test="flag != null and flag == true" >
+			union all
+			select
+			<include refid="Base_Column_List" />
+			from city
+			where id = 2
+		</if>
+	</select>
 
-	<!--保存或者更新-->
+    <!--保存或者更新-->
 	<!--<insert id="saveOrUpdate" parameterType="TestVo">
  		insert into table_name ( col1, col2, col3 ) values ( #{field1}, #{field2}, #{field3} ) on duplicate key update col1 = #{field1}, col2 = #{field2}, col3 = #{field3}
  	</insert>-->

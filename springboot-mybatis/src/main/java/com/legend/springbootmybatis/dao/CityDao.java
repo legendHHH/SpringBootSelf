@@ -88,4 +88,12 @@ public interface CityDao {
      * @return
      */
     void batchUpdate3(@Param("list") List<City> cityList);
+
+    /**
+     * 拼接sql语句通过字段
+     *
+     * @param city
+     * @return
+     */
+    List<City> findSomeCity(City city);
 }

@@ -98,4 +98,12 @@ public interface CityService {
      * @return
      */
     void batchUpdate3(List<City> cityList);
+
+    /**
+     * 拼接sql语句通过字段
+     *
+     * @param city
+     * @return
+     */
+    List<City> findSomeCity(City city);
 }
