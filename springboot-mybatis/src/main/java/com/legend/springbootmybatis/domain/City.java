@@ -4,6 +4,7 @@ package com.legend.springbootmybatis.domain;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * 城市实体类
@@ -36,6 +37,9 @@ public class City {
 
     private Integer salesNum;
     private Integer evaNum;
+
+    @Transient
+    private boolean flag;
 
     public Long getId() {
         return id;
@@ -83,6 +87,14 @@ public class City {
 
     public void setEvaNum(Integer evaNum) {
         this.evaNum = evaNum;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 
     @Override
