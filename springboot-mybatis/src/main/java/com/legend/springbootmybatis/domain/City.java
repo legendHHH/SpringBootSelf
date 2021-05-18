@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import java.util.List;
 
 /**
  * 城市实体类
@@ -40,6 +41,9 @@ public class City {
 
     @Transient
     private boolean flag;
+
+    @Transient
+    private List<Integer> idList;
 
     public Long getId() {
         return id;
@@ -97,6 +101,14 @@ public class City {
         this.flag = flag;
     }
 
+    public List<Integer> getIdList() {
+        return idList;
+    }
+
+    public void setIdList(List<Integer> idList) {
+        this.idList = idList;
+    }
+
     @Override
     public String toString() {
         return "City{" +
@@ -106,6 +118,8 @@ public class City {
                 ", description='" + description + '\'' +
                 ", salesNum=" + salesNum +
                 ", evaNum=" + evaNum +
+                ", flag=" + flag +
+                ", idList=" + idList +
                 '}';
     }
 }

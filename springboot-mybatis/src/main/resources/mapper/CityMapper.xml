@@ -117,8 +117,15 @@
 			select
 			<include refid="Base_Column_List" />
 			from city
-			where id = 2
+			where 1 = 1
+			<if test="idList != null and idList.size > 0">
+				and id in
+				<foreach collection="idList" item="id" open="(" close=")" separator=",">
+					#{id}
+				</foreach>
+			</if>
 		</if>
+
 	</select>
 
     <!--保存或者更新-->

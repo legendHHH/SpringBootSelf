@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +25,7 @@ public class CityRestController {
     @RequestMapping(value = "/api/city6", method = RequestMethod.GET)
     public List<City> findSomeCity(City city) {
         city.setFlag(true);
+        city.setIdList(Arrays.asList(3,4,5));
         return cityService.findSomeCity(city);
     }
 
