@@ -145,7 +145,7 @@
 	<insert id="saveOrUpdate" parameterType="com.legend.springbootmybatis.domain.City">
  		insert into city ( id, province_id, city_name, description )
  		values ( #{id}, #{provinceId}, #{cityName},#{description} )
- 		on duplicate key update city_name = #{cityName},description = #{description}
+ 		on duplicate key update city_name = #{cityName},description = #{description},sales_num=#{salesNum},eva_num=#{evaNum}
  	</insert>
 
 	<insert id="batchSaveOrUpdate" parameterType="java.util.List">
