@@ -1,7 +1,9 @@
 package com.qcl.datastructure.sparsearray;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * 稀疏数组
@@ -98,16 +100,18 @@ public class SparseArray {
             System.out.println();
         }
 
-
         System.out.println("\n将稀疏数组转化为二维数组~~~~");
         //将稀疏数组转化为二维数组
         int[][] chessArr2 = null;
         for (int i = 0; i < sParseArray.length; i++) {
-            //第一行数据为了初始化数组使用
-            if (i == 0) {
-                chessArr2 = new int[sParseArray[0][0]][sParseArray[0][1]];
-            } else {
-                chessArr2[sParseArray[i][0]][sParseArray[i][1]] = sParseArray[i][2];
+            for (int j = 0; j < sParseArray[i].length; j++) {
+                //第一行数据为了初始化数组使用
+                if (i == 0) {
+                    chessArr2 = new int[sParseArray[0][0]][sParseArray[0][1]];
+                } else {
+                    //列的数据根据 sParseArray[i].length 行数里面的长度决定  然后通过 长度减1 来获取指定的数据
+                    chessArr2[sParseArray[i][sParseArray[i].length - 3]][sParseArray[i][sParseArray[i].length - 2]] = sParseArray[i][sParseArray[i].length - 1];
+                }
             }
         }
 
@@ -118,21 +122,52 @@ public class SparseArray {
             System.out.println();
         }
 
+        //写入数据到文件
+        try {
+            String result = writeDataToFile("chessArr1.data", chessArr1);
+            String result2 = writeDataToFile("sparseArray.data", sParseArray);
+            System.out.println("写入数据完成......" + result + "  " + result2);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
 
-
-    public static String writeDataToFile(Object data) {
+    /**
+     * 写入数据到文件
+     *
+     * @param fileName
+     * @param data
+     * @return
+     * @throws IOException
+     */
+    public static String writeDataToFile(String fileName, Object data) throws Exception {
+        if (fileName == null) {
+            throw new RuntimeException("文件后缀名不规范");
+        }
+        File file = new File("D:/WorkCode/logs/" + fileName);
+        FileOutputStream fos = null;
+        StringBuffer sb = new StringBuffer();
         try {
-            File file = new File("D:/WorkCode/logs/sparseArray.data");
-            FileOutputStream fos = new FileOutputStream(file);
-            StringBuffer sb = new StringBuffer();
-            sb.append(data);
-            sb.append("\t");
-            sb.append("\n");
+
+            if (!(data instanceof int[][])) {
+                throw new RuntimeException("非二维数组");
+            }
+
+            fos = new FileOutputStream(file);
+            int[][] dataArr = (int[][]) data;
+            for (int i = 0; i < dataArr.length; i++) {
+                for (int j = 0; j < dataArr[i].length; j++) {
+                    sb.append(dataArr[i][j]).append("\t");
+                }
+                sb.append("\n");
+            }
             fos.write(sb.toString().getBytes());
         } catch (Exception e) {
             e.printStackTrace();
             return "写入失败";
+        } finally {
+            fos.close();
         }
         return "写入成功";
     }
