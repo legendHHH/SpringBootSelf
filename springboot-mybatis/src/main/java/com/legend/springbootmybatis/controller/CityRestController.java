@@ -164,4 +164,14 @@ public class CityRestController {
         cityService.batchUpdate3(cityList);
         return "更新了 " + 0 + " 条数据";
     }
+
+    public static void main(String[] args) {
+        City city = new City();
+        System.out.println(city.isFlag());
+        city.setId(-1L);
+
+        List<Integer> in = new ArrayList<>();
+        System.out.println(Long.parseLong(String.valueOf(city.getId())));
+        System.out.println(in.toString());
+    }
 }
