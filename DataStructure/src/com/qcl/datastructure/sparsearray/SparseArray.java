@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 /**
  * 稀疏数组
@@ -16,6 +19,7 @@ import java.io.IOException;
 public class SparseArray {
 
     public static void main(String[] args) {
+        streamFileRead();
         //创建一个原始二维数组 11 * 11
         //0：表示没有棋子 1：表示黑子,2：表示蓝子
         int[][] chessArr1 = new int[11][11];
@@ -131,6 +135,8 @@ public class SparseArray {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
+
+        readFileToData("sparseArray.data");
     }
 
     /**
@@ -170,5 +176,66 @@ public class SparseArray {
             fos.close();
         }
         return "写入成功";
+    }
+
+    /**
+     * 使用stream流来读取文件
+     *
+     * @return
+     */
+    public static String streamFileRead() {
+        Stream<String> lines = null;
+        try {
+            lines = Files.lines(Paths.get("D:/WorkCode/logs/sparseArray.data"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        lines.forEach(System.out::println);
+        return null;
+    }
+
+    /**
+     * 读取文件转化为数据
+     *
+     * @param fileName
+     * @return
+     */
+    public static int[][] readFileToData(String fileName) {
+        int[][] result = null;
+        try {
+            FileInputStream fis = new FileInputStream(new File("D:/WorkCode/logs/" + fileName));
+            StringBuffer sb = new StringBuffer();
+            byte[] bytes = new byte[1024];
+            int len;
+            while ((len = fis.read(bytes)) != -1) {
+                sb.append(new String(bytes, 0, len));
+            }
+            System.out.println("读取的数据：" + sb.toString());
+            String[] row = sb.toString().split("\n");
+
+            for (int i = 0; i < row.length; i++) {
+                String[] dataStr = row[i].split("\t");
+                int[] data = new int[dataStr.length];
+                for (int j = 0; j < dataStr.length; j++) {
+                    data[j] = Integer.parseInt(dataStr[0]);
+                }
+                if (i == 0) {
+                    result = new int[data[1]][data[1]];
+                } else {
+                    //result[data[i]][data[i]] = row[i][data[i]];
+                }
+            }
+
+            //输出结果
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result[i].length; j++) {
+                    System.out.printf("%d\t", result[i][j]);
+                }
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
