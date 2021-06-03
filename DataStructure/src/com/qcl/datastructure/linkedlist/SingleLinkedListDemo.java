@@ -42,9 +42,53 @@ public class SingleLinkedListDemo {
         System.out.println("修改后的数据～～～");
         //显示
         singleLinkedList.showList();
+
+        System.out.println("删除节点");
+        singleLinkedList.del(3);
+        singleLinkedList.del(4);
+        singleLinkedList.del(1);
+        //singleLinkedList.del(2);
+        System.out.println("删除后的链表情况");
+        singleLinkedList.showList();
+
+        //求单链表中有效节点的个数
+        System.out.println("1.有效节点个数：" + getLengthOfNode(singleLinkedList.getHead()));
+        System.out.println("2.有效节点个数：" + getLengthOfNode2(singleLinkedList.getHead()));
     }
 
+    /**
+     * 求单链表中节点的个数(如果是带头节点的链表，需求不统计头节点)
+     *
+     * @param head 链表的头节点
+     * @return 返回有效节点的个数
+     */
+    public static int getLengthOfNode(HeroNode head) {
+        //空链表
+        if (head.next == null) {
+            return 0;
+        }
 
+        //下一个节点
+        HeroNode current = head.next;
+        int count = 0;
+        while (current != null) {
+            count++;
+            //指针后移,进行遍历
+            current = current.next;
+        }
+        return count;
+    }
+
+    /**
+     * 求单链表中节点的个数(如果是带头节点的链表，需求不统计头节点)
+     *
+     * @param head 链表的头节点
+     * @return 返回有效节点的个数
+     */
+    public static int getLengthOfNode2(HeroNode head) {
+        return 0;
+
+    }
 }
 
 
@@ -56,6 +100,15 @@ class SingleLinkedList {
      * 先初始化头节点，头节点不要动,不存放具体的数据
      */
     private HeroNode head = new HeroNode(0, "", "");
+
+    /**
+     * 提供get方法获取内部的数据
+     *
+     * @return
+     */
+    public HeroNode getHead() {
+        return head;
+    }
 
     /**
      * 添加节点到单向链表
@@ -161,6 +214,35 @@ class SingleLinkedList {
             System.out.printf("没有找到编号%d 的数据，不能修改", newHeroNode.no);
         }
 
+    }
+
+    /**
+     * 删除节点
+     * head不能动，先找到要删的这个节点的前一个节点temp
+     * temp.next = temp.next.next
+     * 被删除的节点，将不会有其他的引用指向，会被垃圾回收机制回收
+     *
+     * @param no
+     * @return
+     */
+    public void del(int no) {
+         HeroNode temp = head;
+
+         if (temp.next == null) {
+             System.out.println("当前链表为空");
+         }
+         while (true) {
+             if (temp.next == null) {
+                 System.out.println("最后一个元素");
+                 break;
+
+             }
+             if (temp.next.no == no) {
+                 temp.next = temp.next.next;
+                 break;
+             }
+             temp = temp.next;
+         }
     }
 
     /**
