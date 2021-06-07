@@ -26,5 +26,10 @@ public class TransferTest {
         //a=12,b=10
         System.out.println("a===>" + a);
         System.out.println("b===>" + b);
+
+        //快速判断两个值是否相等
+        int c = 6;
+        int d = 0;
+        System.out.println((c ^ d) == 0);
     }
 }
