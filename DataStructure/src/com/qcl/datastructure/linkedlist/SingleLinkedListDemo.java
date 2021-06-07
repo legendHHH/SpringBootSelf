@@ -1,5 +1,7 @@
 package com.qcl.datastructure.linkedlist;
 
+import java.util.Stack;
+
 /**
  * 单向链表
  *
@@ -36,6 +38,10 @@ public class SingleLinkedListDemo {
         //显示
         singleLinkedList.showList();
 
+        //从尾到头打印单链表
+        System.out.println("测试逆序打印单链表，没有改变单链表的结构");
+        reversePrint(singleLinkedList.getHead());
+
         //单链表的反转
         reversalSetList(singleLinkedList.getHead());
         System.out.println("测试单链表的反转.....");
@@ -64,7 +70,42 @@ public class SingleLinkedListDemo {
         //查找单链表中的倒数第k个节点
         System.out.println("----》倒数第K个节点：" + getLastNodeOfK(singleLinkedList.getHead(), 1));
 
+    }
 
+    /**
+     * TODO 合并两个有序的单链表，合并之后的链表依然有序
+     */
+    public static void mergeTwoLinkList(HeroNode heroNode1, HeroNode heroNode2){
+
+    }
+
+    /**
+     * 从尾到头打印单链表
+     * 这个题目要求逆序打印单链表
+     * 方式一：先将单链表进行反转操作，然后在遍历即可。这样做的问题是会破坏原来单链表的结构，不建议
+     * 方式二：可以利用栈这个数据结构，将各个节点压入到栈中，然后利用栈的先进后出的特点，就实现了逆序打印的效果
+     */
+    public static void reversePrint(HeroNode head) {
+        //空链表,不能打印
+        if (head.next == null) {
+            return;
+        }
+        //创建一个栈，将各个节点压入栈
+        Stack<HeroNode> stack = new Stack<>();
+        HeroNode curr = head.next;
+        while (curr != null) {
+            //第一个为栈顶
+            stack.push(curr);
+
+            //curr后移，这样就可以压入下一个节点
+            curr = curr.next;
+        }
+
+        //将栈中的节点进行打印，pop出栈
+        while (stack.size() > 0) {
+            //stack的特点是先进后出
+            System.out.println(stack.pop());
+        }
     }
 
     /**
