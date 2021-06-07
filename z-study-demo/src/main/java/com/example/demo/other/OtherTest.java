@@ -1,5 +1,8 @@
 package com.example.demo.other;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 其他测试
  *
@@ -39,5 +42,17 @@ public class OtherTest {
         System.out.println(System.identityHashCode(e));
         System.out.println(System.identityHashCode(f));
         System.out.println(System.identityHashCode(g));
+
+        int q1 = 10;
+        int q2 = --q1;
+        System.out.println("q2222=" + (q2--));
+        int q3 = q2--;
+        System.out.println("q1=" + q1);
+        System.out.println("q2=" + q2);
+        System.out.println("q3=" + q3);
+
+        Integer aa = 1;
+        List<Integer> list = Arrays.asList(1, 4, 5);
+        System.out.println(list.contains(aa));
     }
 }
