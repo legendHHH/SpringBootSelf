@@ -54,5 +54,21 @@ public class OtherTest {
         Integer aa = 1;
         List<Integer> list = Arrays.asList(1, 4, 5);
         System.out.println(list.contains(aa));
+
+        System.out.println("字符串测试开始");
+        //a:97   A:65
+        char c1 = 'a';
+        int num = 10;
+        String str = "hello";
+        //107hello
+        System.out.println(c1 + num + str);
+        //ahello10
+        System.out.println(c1 + str + num);
+        //a10hello
+        System.out.println(c1 + (num + str));
+        //107hello
+        System.out.println((c1 + num) + str);
+        //helloa10
+        System.out.println(str + c1 + num);
     }
 }
