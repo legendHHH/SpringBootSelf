@@ -1,10 +1,20 @@
 # 若需要安装 则直接运行  pip install urllib  (包名)
 import json
+import requests
 from urllib import parse
 
-# 该网站有反爬机制，要模拟浏览器来进行伪装
-import requests
+# Python反爬破解vip付费音乐
 
+# 该网站有反爬机制，要模拟浏览器来进行伪装
+
+# 学习过程：
+# 1.打开网站：http://www.kuwo.cn/search/list?key=%E5%91%A8%E6%9D%B0%E4%BC%A6
+# 2.查找对应的浏览器请求头信息：User-Agent、Cookie、Referer(找到这个链接https://h5static.kuwo.cn/www/kw-www/runtime.0f378bf.js 会找到)、csrf(可以通过search功能找)
+# 3.开始组装参数获取music的url：例子--》http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=%E5%91%A8%E6%9D%B0%E4%BC%A6&pn=1&rn=30&httpsStatus=1&reqId=bf816fd1-ccb5-11eb-92e5-27c9224eb044
+# 4.通过上面的url可以得到music对应的每一个数据内容，最后进行下载即可
+
+
+# 浏览器请求头信息
 headers = {
     # 这里是使用对象kv键值对的形式不然会报错
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36',
@@ -31,6 +41,7 @@ def get_music_url():
             # 歌曲的数量
             'rn': 10,
             'httpsStatus': 1,
+            # 这里的reqId使用的是http://www.kuwo.cn/api/www/search/searchMusicBykeyWord? 接口里面的 Response Headers
             'reqId': '766a8fc58e0da8134fb2fff0e179e59f'
         }
         # {"code":200,"curTime":1623600348325,"data":["雾里","半生雪","大风吹","别错过","今夜无人入睡","野摩托","银河与星斗","踏山河","爱难求情难断","白月光与朱砂痣"],"msg":"success","profileId":"site","reqId":"766a8fc58e0da8134fb2fff0e179e59f","tId":""}
@@ -68,6 +79,7 @@ def get_music_data(url):
 def get_music_mp3(rid):
     # 定义空列表
     list_data = []
+    # 注意：这个需要点击一下任意的歌曲播放才会有这个请求
     # url = 'http://www.kuwo.cn/url?format=mp3&rid={}&response=url&type=convert_url3&br=128kmp3&from=web&t=1623602926957&httpsStatus=1&reqId=38ae58e1-cc67-11eb-903d-1d12ef1e7fac'.format(rid)
     url = 'http://www.kuwo.cn/url?format=mp3&rid={}&response=url&type=convert_url3&br=128kmp3&from=web&t=1623634939497&httpsStatus=1&reqId=c1a44ca1-ccb1-11eb-a798-e1afd5aa0fcf'.format(
         rid)
@@ -91,6 +103,7 @@ def main():
         for i in get_music_data(url):
             # 歌曲的rid
             rid = i[0]
+            # 歌曲的name
             name = i[1]
             for music_url in get_music_mp3(rid):
                 # 异常处理
