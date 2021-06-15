@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: canal
+
+
+#canal配置
+canal:
+  client:
+    instances:
+      example:
+        host: 127.0.0.1
+        port: 11111
