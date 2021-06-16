@@ -24,6 +24,33 @@ public class ShardingjdbcMainTest {
     @Autowired
     private CourseMapper courseMapper;
 
+
+    //==========测试水平分库==========
+    @Test
+    public void addCourseDb(){
+        for (int i = 0; i < 100; i++) {
+            Course course = new Course();
+            //分库根据userId
+            course.setUserId(100L + i);
+            course.setCname("Java Demo"+ i);
+            course.setCstatus("Normal"+ i);
+            int res = courseMapper.insert(course);
+            System.out.println(res);
+        }
+    }
+
+    @Test
+    public void findCourseDb(){
+        QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("cid", 611915248579903488L);
+        queryWrapper.eq("user_id", 100L);
+        Course course = courseMapper.selectOne(queryWrapper);
+        System.out.println(course);
+    }
+
+    //==========测试水平分表==========
+
+
     @Test
     public void addCourse(){
         for (int i = 0; i < 100; i++) {
