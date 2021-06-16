@@ -42,18 +42,29 @@
             <version>3.1.1</version>
         </dependency>
         <!--shardingsphere start-->
-        <!-- for spring boot -->
+        <!--3.X的版本 shardingsphere application.properties使用这个来的-->
         <dependency>
             <groupId>io.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
             <version>3.1.0</version>
         </dependency>
-        <!-- for spring namespace -->
         <dependency>
             <groupId>io.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-namespace</artifactId>
             <version>3.1.0</version>
         </dependency>
+
+        <!--4.X的版本,如果使用application-splittable.properties 配置文件则需要放开下面的-->
+        <!--<dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>4.0.0-RC1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-namespace</artifactId>
+            <version>4.0.0-RC1</version>
+        </dependency>-->
         <!--shardingsphere end-->
         <!--lombok-->
         <dependency>
