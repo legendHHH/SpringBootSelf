@@ -1,8 +1,12 @@
 package com.qcl.shardingjdbc;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.qcl.shardingjdbc.entity.Course;
+import com.qcl.shardingjdbc.entity.Udict;
 import com.qcl.shardingjdbc.mapper.CourseMapper;
+import com.qcl.shardingjdbc.mapper.UdictMapper;
+import com.qcl.shardingjdbc.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,38 @@ public class ShardingjdbcMainTest {
 
     @Autowired
     private CourseMapper courseMapper;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private UdictMapper udictMapper;
+
+
+    //==========测试公共表==========
+    @Test
+    public void addDict(){
+        Udict udict = new Udict();
+        udict.setUstatus("NORMAL2");
+        udict.setUvalues("正常2");
+        int res = udictMapper.insert(udict);
+        System.out.println(res);
+    }
+
+    @Test
+    public void updateDict(){
+        QueryWrapper<Udict> udictQueryWrapper = new QueryWrapper<>();
+        udictQueryWrapper.eq("dictid", 612770118648201217L);
+        Udict udict = udictMapper.selectOne(udictQueryWrapper);
+        udict.setName("我是公共表,正在测试修改.....");
+        int res = udictMapper.updateById(udict);
+        System.out.println(res);
+    }
+
+    @Test
+    public void deleteDict(){
+        QueryWrapper<Udict> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("dictid", 1405894446456799233L);
+        udictMapper.delete(queryWrapper);
+    }
 
 
     //==========测试水平分库==========

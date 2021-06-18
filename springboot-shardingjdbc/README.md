@@ -54,6 +54,7 @@ Sharding-Proxy：分库分表操作
 
 ![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210616151248875-1301949249.png)
 
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618132648161-822096285.png)
 
 
 #### 水平分库
@@ -191,11 +192,37 @@ spring.shardingsphere.sharding.tables.course.database-strategy.inline.algorithm-
 #### Sharding-JDBC的示例-垂直分库
 
 
+#### Sharding-JDBC公共表
+1.存储固定数据的表,表数据很少发生变化,查询时候经常进行关联 
+2.在每个数据库中都创建相同结构的表
+
+```sql
+CREATE TABLE `t_udict` (
+  `dictid` int(11) NOT NULL AUTO_INCREMENT,
+  `ustatus` varchar(20) NOT NULL,
+  `uvalues` varchar(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`dictid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+
 ### 遇到的问题
 
 一个实体类对应两张表(spring.main.allow-bean-definition-overriding=true)，设置两张表的操作用坐一个实体类
 ![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210616112212323-1547782074.png)
 
 
+- 解决 There is no getter for property named ‘null‘ in ‘class 报错
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618222325423-3877274.png)
 
-Sharding JDBC 水平分库
+在使用MyBatis-plus自带的删除和更新方法时，它都是通过ID来进行删除和更新，而我们的实体类没有id这个字段。
+
+>解决方案：在实体类主键字段上加一个@TableId注解
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618222625707-113260671.png)
+
+
+### Sharding JDBC 读写分离
+
+
+### 
