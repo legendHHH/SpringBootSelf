@@ -1,0 +1,15 @@
+[mysqld]
+#开启日志
+log‐bin = mysql‐bin
+#设置服务id，主从不能一致
+server‐id = 2222
+#选择row模式
+binlog_format=ROW
+#设置需要同步的数据库
+replicate_wild_do_table=db0.%
+replicate_wild_do_table=db1.%
+replicate_wild_do_table=db2.%
+#屏蔽系统库同步
+replicate_wild_ignore_table=mysql.%
+replicate_wild_ignore_table=information_schema.%
+replicate_wild_ignore_table=performance_schema.%

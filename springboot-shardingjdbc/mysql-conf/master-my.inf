@@ -1,0 +1,15 @@
+[mysqld]
+#开启日志
+log‐bin = mysql‐bin
+#设置服务id，主从不能一致
+server‐id = 111
+#选择row模式
+binlog_format=ROW
+#设置需要同步的数据库
+binlog‐do‐db=db0
+binlog‐do‐db=db1
+binlog‐do‐db=db2
+#屏蔽系统库同步
+binlog‐ignore‐db=mysql
+binlog‐ignore‐db=information_schema
+binlog‐ignore‐db=performance_schema

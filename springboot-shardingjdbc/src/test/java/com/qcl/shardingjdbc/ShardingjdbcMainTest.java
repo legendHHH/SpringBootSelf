@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.qcl.shardingjdbc.entity.Course;
 import com.qcl.shardingjdbc.entity.Udict;
+import com.qcl.shardingjdbc.entity.User;
 import com.qcl.shardingjdbc.mapper.CourseMapper;
 import com.qcl.shardingjdbc.mapper.UdictMapper;
 import com.qcl.shardingjdbc.mapper.UserMapper;
@@ -60,6 +61,25 @@ public class ShardingjdbcMainTest {
         udictMapper.delete(queryWrapper);
     }
 
+    //==========测试垂直分库 读写分离操作==========
+    @Test
+    public void addUserDb(){
+        for (int i = 0; i < 10; i++) {
+            User user = new User();
+            user.setUsername("legend  "+ i);
+            user.setUstatus("Y");
+            int res = userMapper.insert(user);
+            System.out.println(res);
+        }
+    }
+
+    @Test
+    public void findUserDb(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", 100L);
+        User user = userMapper.selectOne(queryWrapper);
+        System.out.println(user);
+    }
 
     //==========测试水平分库==========
     @Test
