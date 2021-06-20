@@ -223,6 +223,311 @@ CREATE TABLE `t_udict` (
 
 
 ### Sharding JDBC 读写分离
+#### 概念
+  为了确保数据库产品的稳定性,很多数据库拥有双机热备功能。也就是,第一台数据库服务器,是对外提供增删改业务的生产服务器;
+第二台数据库服务器,主要进行读的操作。
+
+原理：让主数据库（master）处理事务性增、改、删操作，而从数据库（slave）处理SELECT查询操作。
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618223237511-492108873.png)
 
 
-### 
+#### 读写原理
+- 主从复制:当主服务器有写入(insert/update/delete)语句的时候,从服务器自动获取
+
+- 读写分离:insert/update/delete语句操作一台服务器,select操作另一个服务器。
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618223453470-1915725559.png)
+
+
+>Sharding-JDBC读写分离则是根据SQL语义的分析,将读操作和写操作分别路由至主库与从库。它提供透明化读写分离,让使用方尽量像使用一个数据库一样使用主从数据库集群。
+
+
+### MySQL配置读写分离配置 
+
+约定：**主数据库5.6-->3306**    **从数据库5.7-->3308**
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618230004615-816570191.png)
+
+
+- 修改mysql配置
+
+具体配置文件修改 查看 mysql-conf 里面的主从配置文件即可
+
+
+>修改完配置记得重启主库和从库
+
+
+- 创建用于主从复制的账号
+
+```
+# 切换至主库bin目录，登录主库
+mysql ‐h localhost ‐uroot ‐p
+# 授权主备复制专用账号
+GRANT REPLICATION SLAVE ON *.* TO 'db_sync'@'%' IDENTIFIED BY 'db_sync';
+# 刷新权限
+FLUSH PRIVILEGES;
+# 确认位点 记录下文件名以及位点
+show master status;
+
+
+-- 命令集合
+CREATE USER 'db_sync'@'%' IDENTIFIED BY 'db_sync';
+GRANT REPLICATION SLAVE ON *.* TO 'db_sync'@'%' IDENTIFIED BY 'db_sync';
+FLUSH PRIVILEGES;
+show master status;
+```
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618230229708-1662972991.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618230304468-731307773.png)
+
+mysql-bin.000048   199
+
+
+
+- 设置主库向从库同步数据(主从数据同步 设置)
+
+```
+# 切换至从库bin目录，登录从库
+mysql ‐h localhost ‐P3308 ‐uroot ‐p
+
+# 先停止同步
+STOP SLAVE;
+
+# 修改从库指向到主库，使用上一步记录的文件名以及位点
+CHANGE MASTER TO
+master_host = 'localhost',
+master_user = 'db_sync',
+master_password = 'db_sync',
+master_log_file = 'mysql-bin.000048',
+master_log_pos = 199;
+
+# 启动同步
+START SLAVE;
+
+# 查看从库状态Slave_IO_Runing和Slave_SQL_Runing都为Yes说明同步成功，如果不为Yes，请检查error_log，然后排查相关异常
+SHOW SLAVE STATUS;
+
+
+# Slave_SQL_Runing  No  解决
+STOP SLAVE;
+set GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+START SLAVE;
+
+
+# 注意 如果之前此从库已有主库指向 需要先执行以下命令清空
+STOP SLAVE IO_THREAD FOR CHANNEL '';
+reset slave all;
+```
+
+
+原因分析：
+  1.程序可能在slave上进行了写操作
+
+  2.也可能是slave机器重起后,事务回滚造成的
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618231842946-417190779.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210618232007933-984678917.png)
+
+
+### Sharding-Proxy
+
+透明化的数据库代理端
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620135112717-1042409383.png)
+
+
+>Sharding-Proxy独立应用,使用安装服务,进行分库分表或者读写分离配置,启动使用
+
+
+#### Sharding-Proxy的安装
+
+[下载 Sharding-Proxy-4.0.0版本](https://www.apache.org/dyn/closer.cgi?path=incubator/shardingsphere/4.0.0/apache-shardingsphere-incubating-4.0.0-sharding-proxy-bin.tar.gz)
+
+
+- 修改conf/server.yaml
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620143501787-1394514289.png)
+
+
+- 修改conf/config-sharding.yaml
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620144206904-512893705.png)
+
+
+`分表配置`
+```yaml
+schemaName: sharding_db
+
+dataSources:
+ ds_0:
+   url: jdbc:mysql://127.0.0.1:3306/db0?serverTimezone=UTC&useSSL=false
+   username: root
+   password: 123456
+   connectionTimeoutMilliseconds: 30000
+   idleTimeoutMilliseconds: 60000
+   maxLifetimeMilliseconds: 1800000
+   maxPoolSize: 50
+ ds_1:
+   url: jdbc:mysql://127.0.0.1:3306/db1?serverTimezone=UTC&useSSL=false
+   username: root
+   password: 123456
+   connectionTimeoutMilliseconds: 30000
+   idleTimeoutMilliseconds: 60000
+   maxLifetimeMilliseconds: 1800000
+   maxPoolSize: 50
+
+shardingRule:
+ tables:
+   t_order:
+     actualDataNodes: ds_${0}.t_order_${0..1}
+     tableStrategy:
+       inline:
+         shardingColumn: order_id
+         algorithmExpression: t_order_${order_id % 2}
+     keyGenerator:
+       type: SNOWFLAKE
+       column: order_id
+   # t_order_item:
+     # actualDataNodes: ds_${0..1}.t_order_item_${0..1}
+     # tableStrategy:
+       # inline:
+         # shardingColumn: order_id
+         # algorithmExpression: t_order_item_${order_id % 2}
+     # keyGenerator:
+       # type: SNOWFLAKE
+       # column: order_item_id
+ bindingTables:
+   - t_order #,t_order_item
+ defaultDatabaseStrategy:
+   inline:
+     shardingColumn: user_id
+     algorithmExpression: ds_0
+ defaultTableStrategy:
+   none:
+
+```
+
+- 启动Sharding-Proxy 服务
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620144958014-1521036613.png)
+
+
+按照报错信息找到类似名字的文件修改成.jar 包即可  具体修改了几个不记得了
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620145026661-757313922.png)
+
+最后启动成功的标志(默认是3307  可以指定  start.bat 3308 即可)
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620150019027-1341768042.png)
+
+
+- Sharding-Proxy启动端口进行连接
+
+(1)cmd方式：mysql -P3307 -uroot -p
+(2)Navicat方式：
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620150343713-1822124234.png)
+
+
+连接问题
+1.ERROR 10002 (C1000): 2Unknown exception: [Cannot support database type 'MySQL']
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620152134715-427900847.png)
+
+解决：
+下载shardingsphere-sql-parser-mysql-4.0.0 的jar包  原来的无法修改 提示不存在该项目
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620152318610-1048746899.png)
+
+重启sharding-proxy 
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620152418015-1715091037.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620152537464-1029083876.png)
+
+
+Cause: java.lang.IllegalStateException: no table route info
+解决：
+由于进入分表策略的时候逻辑表匹配不到物理真实的表，看一下自己的分片策略，是否能够匹配到真实的表
+
+
+
+
+建表和初始化数据
+```sql
+CREATE TABLE IF NOT EXISTS ds_0.t_order (order_id BIGINT NOT NULL,user_id INT NOT NULL,status VARCHAR(50),PRIMARY KEY(order_id));
+
+INSERT INTO t_order (order_id, user_id, status) VALUES (11,1,'init');
+```
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620153143739-213229426.png)
+
+
+查看3307中的数据
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620153231297-1659615700.png)
+
+
+再查看3306的表和数据(都是自动创建的)
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620153520024-705430108.png)
+
+
+
+
+`分库配置`
+```yaml
+schemaName: sharding_db
+
+dataSources:
+ ds_0:
+   url: jdbc:mysql://127.0.0.1:3306/db0?serverTimezone=UTC&useSSL=false
+   username: root
+   password: 123456
+   connectionTimeoutMilliseconds: 30000
+   idleTimeoutMilliseconds: 60000
+   maxLifetimeMilliseconds: 1800000
+   maxPoolSize: 50
+ ds_1:
+   url: jdbc:mysql://127.0.0.1:3306/db1?serverTimezone=UTC&useSSL=false
+   username: root
+   password: 123456
+   connectionTimeoutMilliseconds: 30000
+   idleTimeoutMilliseconds: 60000
+   maxLifetimeMilliseconds: 1800000
+   maxPoolSize: 50
+
+shardingRule:
+ tables:
+   t_order:
+     actualDataNodes: ds_${0..1}.t_order_${0..1}
+     tableStrategy:
+       inline:
+         shardingColumn: order_id
+         algorithmExpression: t_order_${order_id % 2}
+     keyGenerator:
+       type: SNOWFLAKE
+       column: order_id
+   t_order_item:
+     actualDataNodes: ds_${0..1}.t_order_item_${0..1}
+     tableStrategy:
+       inline:
+         shardingColumn: order_id
+         algorithmExpression: t_order_item_${order_id % 2}
+     keyGenerator:
+       type: SNOWFLAKE
+       column: order_item_id
+ bindingTables:
+   - t_order ,t_order_item
+ defaultDatabaseStrategy:
+   inline:
+     shardingColumn: user_id
+     algorithmExpression: ds_${user_id % 2}
+ defaultTableStrategy:
+   none:
+```
+>修改配置之后需要重新初始化数据
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620160835044-283222861.png)
+
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620160938823-1359102674.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620161037334-1678556346.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620160853304-584244449.png)
+
+
+``
+
