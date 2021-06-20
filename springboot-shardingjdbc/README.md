@@ -529,5 +529,100 @@ shardingRule:
 ![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620160853304-584244449.png)
 
 
-``
 
+- 修改conf/config-master_slave.yaml
+
+约定：db0是主库,db1、db2是从库
+
+
+`读写分离配置`
+```yaml
+schemaName: master_slave_db
+
+dataSources:
+ master_ds:
+   url: jdbc:mysql://127.0.0.1:3306/db0?serverTimezone=UTC&useSSL=false
+   username: root
+   password: 123456
+   connectionTimeoutMilliseconds: 30000
+   idleTimeoutMilliseconds: 60000
+   maxLifetimeMilliseconds: 1800000
+   maxPoolSize: 50
+ slave_ds_0:
+   url: jdbc:mysql://127.0.0.1:3306/db1?serverTimezone=UTC&useSSL=false
+   username: root
+   password: 123456
+   connectionTimeoutMilliseconds: 30000
+   idleTimeoutMilliseconds: 60000
+   maxLifetimeMilliseconds: 1800000
+   maxPoolSize: 50
+ slave_ds_1:
+   url: jdbc:mysql://127.0.0.1:3306/db2?serverTimezone=UTC&useSSL=false
+   username: root
+   password: 123456
+   connectionTimeoutMilliseconds: 30000
+   idleTimeoutMilliseconds: 60000
+   maxLifetimeMilliseconds: 1800000
+   maxPoolSize: 50
+
+masterSlaveRule:
+ name: ms_ds
+ masterDataSourceName: master_ds
+ slaveDataSourceNames:
+   - slave_ds_0
+   - slave_ds_1
+```
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620162228406-1844518873.png)
+
+
+
+在主数据库和从数据库创建相同表
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620162317419-1202092674.png)
+
+
+```sql
+CREATE TABLE IF NOT EXISTS db0.t_order_item (order_item_id BIGINT NOT NULL,order_id BIGINT NOT NULL,user_id INT NOT NULL,status VARCHAR(50),PRIMARY KEY(order_item_id));
+CREATE TABLE IF NOT EXISTS db1.t_order_item (order_item_id BIGINT NOT NULL,order_id BIGINT NOT NULL,user_id INT NOT NULL,status VARCHAR(50),PRIMARY KEY(order_item_id));
+CREATE TABLE IF NOT EXISTS db2.t_order_item (order_item_id BIGINT NOT NULL,order_id BIGINT NOT NULL,user_id INT NOT NULL,status VARCHAR(50),PRIMARY KEY(order_item_id));
+
+-- 做了读写分离,则数据只会在db0(主库)插入
+INSERT INTO t_order_item (order_item_id,order_id, user_id, status) VALUES (1,11,1,'init_order_item');
+```
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620163135712-1273366446.png)
+
+
+向表添加记录,不指定向哪个库添加; 
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620163938433-967600562.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620163714966-1038959449.png)
+
+
+查询数据查询不到,因为没做主从复制,所以没有从库中数据
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620164004518-1454257132.png)
+
+
+手动往从库里面添加数据查询测试
+```sql
+INSERT INTO db1.t_order_item (order_item_id,order_id, user_id, status) VALUES (3,11,1,'init_order_item');
+INSERT INTO db2.t_order_item (order_item_id,order_id, user_id, status) VALUES (4,11,1,'init_order_item');
+```
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620164640943-1112391170.png)
+
+
+数据库实现了随机查询
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210620164937137-2060446257.png)
+
+
+
+
+### 总结
+
+
+
+
+
+from：
+https://www.bilibili.com/video/BV1LK411s7RX?p=1&spm_id_from=pageDriver
