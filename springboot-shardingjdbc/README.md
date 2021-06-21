@@ -620,8 +620,19 @@ INSERT INTO db2.t_order_item (order_item_id,order_id, user_id, status) VALUES (4
 
 ### 总结
 
+#### Sharding-JDBC
+1、什么是Sharding-JDBC
+2、使用Sharding-JDBC水平切分
+3、使用Sharding-JDBC垂直切分
+4、使用Sharding-JDBC操作公共表
+5、使用Sharding-JDBC读写分离
 
+#### Sharding-Proxy
+透明化的数据库代理端它可以帮我们操作多库多表的情况,让我们觉得是在单库单表的操作。
 
+1、什么是Sharding-Proxy
+2、使用Sharding-Proxy分库分表
+3、使用Sharding-Proxy读写分离
 
 
 from：
