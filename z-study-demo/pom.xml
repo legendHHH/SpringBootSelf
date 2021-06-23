@@ -19,6 +19,12 @@
     </properties>
 
     <dependencies>
+        <!--openjdk  分析对象在JVM的大小和分布-->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.9</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-jdbc-core -->
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
