@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 
@@ -61,6 +62,50 @@ public class CityRestController {
             cityList.add(city);
         }
         cityService.batchInsert(cityList);
+        System.out.println(cityList.stream().map(City::getId).collect(Collectors.toList()));
+        return 1;
+    }
+
+    //异步线程池
+    ExecutorService executor = new ThreadPoolExecutor(0, 5000,
+            60L, TimeUnit.SECONDS,
+            new SynchronousQueue<Runnable>());
+
+    /**
+     * 使用CompletableFuture 异步批量插入
+     * http://localhost:8083/api/city/batchInsert2
+     *
+     * @return
+     */
+    @RequestMapping(value = "/api/city/batchInsert2", method = RequestMethod.GET)
+    public int batchInsert2() {
+        List<City> cityList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            City city = new City();
+            city.setDescription("CompletableFuture北京路步行街" + i + i);
+            city.setCityName("CompletableFuture北京路步行街" + i);
+            city.setProvinceId(i + 10000L);
+            city.setId(i + 10L);
+            cityList.add(city);
+        }
+        //异步线程插入
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(10000);
+                cityService.batchInsert(cityList);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return "";
+        }, executor);
+
+        /*try {
+            System.out.println("future:" + future.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }*/
         System.out.println(cityList.stream().map(City::getId).collect(Collectors.toList()));
         return 1;
     }
