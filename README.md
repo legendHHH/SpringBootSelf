@@ -155,3 +155,72 @@ git cherry-pick命令的作用，就是将指定的提交(commit)应用于其他
 `git push origin <your_tag_name> 推送一个标签到远程`
 
 `git push origin --tags 推送多个本地标签到远程`
+
+
+
+### git常见问题收录
+
+#### 1. OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+
+![](https://img2020.cnblogs.com/blog/1231979/202103/1231979-20210322135854054-1615411202.png)
+
+>解决办法：主要原因是安全设置的问题.
+
+首先执行 git config http.sslVerify "false"
+若出现下列错误：git config http.sslVerify "false" fatal: not in a git directory
+
+再继续执行 git config —global http.sslVerify "false"   问题解决
+
+
+
+#### 2. SSH服务器拒绝了密码和登录Ubuntu只提示public key登录问题解决
+安装：sudo apt install openssh-server
+
+sudo vim /etc/ssh/sshd_config
+
+#启用密码验证 
+PasswordAuthentication yes
+
+#关闭密钥验证 
+RSAAuthentication no
+PubkeyAuthentication no
+
+![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210702105319527-998506702.png)
+
+
+/etc/init.d/ssh restart
+
+![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210702105519224-650858348.png)
+
+
+lsa_release -a
+![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210702105630503-188950527.png)
+
+
+
+
+### JDK安装(下载使用的免费账号记录)
+2696671285@qq.com 
+密码：Oracle123
+
+
+
+cp jdk-8u291-linux-x64.tar.gz /usr/java1.8
+
+cd /usr
+tar -zxvf java1.8
+
+vim /etc/profile
+
+将光标移到最后一行，粘贴如下内容:
+```profile
+#java environment
+export JAVA_HOME=/usr/jdk1.8.0_291
+export CLASSPATH=.:${JAVA_HOME}/jre/lib/rt.jar:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
+export PATH=$PATH:${JAVA_HOME}/bin
+
+```
+
+source /etc/profile
+
+java -version
