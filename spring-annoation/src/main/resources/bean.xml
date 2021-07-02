@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-          http://www.springframework.org/schema/beans
-          http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="person" class="com.legend.spring.bean.Person">
         <property name="id" value="123"/>
         <property name="name" value="legend"/>
     </bean>
 
-
+    <!--包扫描卸载配置类中 @Controller、@Service、@Repository-->
+    <!--<context:component-scan base-package="com.legend.spring"/>-->
 </beans>
