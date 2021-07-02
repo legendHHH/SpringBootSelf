@@ -23,5 +23,10 @@ public class MySpringMain {
         AnnotationConfigApplicationContext applicationContext2 = new AnnotationConfigApplicationContext(MyConfig.class);
         Person bean = applicationContext2.getBean(Person.class);
         System.out.println(bean);
+
+        String[] names = applicationContext2.getBeanNamesForType(Person.class);
+        for (String name:names) {
+            System.out.println(name);
+        }
     }
 }
