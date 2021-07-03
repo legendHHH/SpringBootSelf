@@ -1,6 +1,8 @@
 package com.legend.spring.config;
 
 import com.legend.spring.bean.Person;
+import com.legend.spring.condition.LinuxCondition;
+import com.legend.spring.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
 
@@ -14,6 +16,8 @@ import org.springframework.context.annotation.ComponentScan.Filter;
  * @description
  * @date 2021/7/3
  */
+//类中组件统一设置。满足当前条件,这个类中配置的所有bean注册才能生效
+//@Conditional({WindowsCondition.class})
 @Configuration
 @ComponentScan(value = "com.legend.spring",
         //excludeFilters = Filter[],指定扫描的时候按照规则排除那些组件
@@ -48,12 +52,37 @@ public class MyConfig2 {
      * request：同一次请求创建一个实例
      * session：同一个session创建一个实例
      *
+     * 懒加载@Lazy：
+     *      单实例bean：默认在容器启动的时候创建对象;
+     *      懒加载：容器启动不创建对象。第一次使用(获取)Bean创建对象,并初始化
+     *
+     *
      * @return
      */
-    @Scope(value = "prototype")
+    //@Scope(value = "prototype")
+    @Lazy
     @Bean
     public Person person() {
         System.out.println("给容器中添加Person.....");
         return new Person(1, "44444");
+    }
+
+    /**
+     * @Conditional({})：按照一定的条件进行判断,满足条件给容器中注册bean
+     * 如果是Windows，给容器中注册("bill")
+     * 如果是Linux，给容器中注册("linus")
+     *
+     * @return
+     */
+    @Conditional({WindowsCondition.class})
+    @Bean("bill")
+    public Person person01() {
+        return new Person(2, "Bill Gates比尔·盖茨");
+    }
+
+    @Conditional({LinuxCondition.class})
+    @Bean("linus")
+    public Person person02() {
+        return new Person(3, "Linus Benedict Torvalds林纳斯·托瓦兹");
     }
 }
