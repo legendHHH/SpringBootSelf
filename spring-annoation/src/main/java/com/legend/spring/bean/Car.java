@@ -1,5 +1,7 @@
 package com.legend.spring.bean;
 
+import org.springframework.stereotype.Component;
+
 /**
  * 生命周期
  *
@@ -8,6 +10,7 @@ package com.legend.spring.bean;
  * @description
  * @date 2021/7/3
  */
+@Component
 public class Car {
 
     public Car() {
