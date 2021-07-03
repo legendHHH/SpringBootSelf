@@ -1,7 +1,12 @@
 package com.legend.spring.config;
 
+import com.legend.spring.bean.Color;
+import com.legend.spring.bean.ColorFactoryBean;
 import com.legend.spring.bean.Person;
+import com.legend.spring.bean.Red;
 import com.legend.spring.condition.LinuxCondition;
+import com.legend.spring.condition.MyImportBeanDefinitionRegistrar;
+import com.legend.spring.condition.MyImportSelector;
 import com.legend.spring.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -17,8 +22,10 @@ import org.springframework.context.annotation.ComponentScan.Filter;
  * @date 2021/7/3
  */
 //类中组件统一设置。满足当前条件,这个类中配置的所有bean注册才能生效
-//@Conditional({WindowsCondition.class})
+@Conditional({WindowsCondition.class})
 @Configuration
+//快速导入组件 id
+@Import({Color.class, Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 @ComponentScan(value = "com.legend.spring",
         //excludeFilters = Filter[],指定扫描的时候按照规则排除那些组件
         /*excludeFilters = {
@@ -84,5 +91,23 @@ public class MyConfig2 {
     @Bean("linus")
     public Person person02() {
         return new Person(3, "Linus Benedict Torvalds林纳斯·托瓦兹");
+    }
+
+    /**
+     * 给容器中注册组件：
+     *      1.包扫描+组件标注注解(@Controller/@Service/@Repository/@Component)
+     *      2.@Bean[导入的第三方包里面的组件]
+     *      3.@Import[快速给容器中导入一个组件]
+     *          1.@Import(要导入到容器中的组件);容器中就会自动注册这个组件,id默认是全类名
+     *          2.@ImportSelector：返回需要导入的组件的全类名数组;
+     *          3.@ImportBeanDefinitionRegistrar：手动注册bean到容器中
+     *
+     *      4.使用Spring提供的FactoryBean(工厂Bean)
+     *          1.默认获取到的是工厂bean调用getObject创建的对象
+     *          2.要获取工厂Bean本身我们需要给id前面加一个 &  ("&colorFactoryBean")
+     */
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
     }
 }
