@@ -6,6 +6,7 @@ import com.legend.spring.config.MyConfig2;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
  * @author legend
@@ -15,6 +16,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class IOCTest {
 
+    AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig2.class);
+
+    @SuppressWarnings("resources")
+    @Test
+    public void method3() {
+        String[] beanNamesForType = applicationContext.getBeanNamesForType(Person.class);
+        for (String name : beanNamesForType) {
+            System.out.println("method3："+name);
+        }
+
+        //测试Linux 可以修改VM Option ： -Dos.name=linux
+        //动态获取环境变量的值：Windows 10
+        ConfigurableEnvironment environment = applicationContext.getEnvironment();
+        String property = environment.getProperty("os.name");
+        System.out.println(property);
+    }
 
     @SuppressWarnings("resources")
     @Test
