@@ -55,6 +55,10 @@ import org.springframework.context.annotation.Scope;
  *  postProcessBeforeInitialization：在初始化之前工作
  *  postProcessAfterInitialization：在初始化之后
  *
+ *
+ * Spring底层对BeanPostProcessor的使用：
+ *      bean赋值,注入其他组件,@Autowire,生命周期注解功能,@Async,xxx BeanPostProcessor;
+ *
  * @author legend
  * @version 1.0
  * @description
