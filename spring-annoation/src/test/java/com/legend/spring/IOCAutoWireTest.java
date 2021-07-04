@@ -2,6 +2,7 @@ package com.legend.spring;
 
 import com.legend.spring.bean.Boss;
 import com.legend.spring.bean.Car;
+import com.legend.spring.bean.Color;
 import com.legend.spring.config.MyConfigOfAutowired;
 import com.legend.spring.dao.BookDao;
 import com.legend.spring.service.BookService;
@@ -33,6 +34,10 @@ public class IOCAutoWireTest {
 
         Car car = applicationContext.getBean(Car.class);
         System.out.println(car);
+
+        Color color = applicationContext.getBean(Color.class);
+        System.out.println(color);
+        System.out.println("ioc容器："+applicationContext);
 
         //关闭容器
         applicationContext.close();
