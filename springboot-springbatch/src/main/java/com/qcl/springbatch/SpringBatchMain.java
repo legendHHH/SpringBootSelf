@@ -1,5 +1,6 @@
 package com.qcl.springbatch;
 
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  * @date 2021/7/5
  */
+@EnableBatchProcessing
 @SpringBootApplication
 public class SpringBatchMain {
 
