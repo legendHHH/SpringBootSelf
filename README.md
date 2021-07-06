@@ -224,3 +224,30 @@ export PATH=$PATH:${JAVA_HOME}/bin
 source /etc/profile
 
 java -version
+
+
+
+### IDEA配置连接虚拟机docker
+-- 查看配置文件位置
+systemctl show --property=FragmentPath docker
+
+-- 修改配置文件
+sudo vim /usr/lib/systemd/system/docker.service
+    在该行添加如下内容：(这里端口为2375，所以后面在idea中连接时也要填写该端口)
+     ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+
+![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210706133444912-423184107.png)
+
+
+-- 重新加载配置文件
+systemctl daemon-reload    
+
+
+-- 重启docker
+systemctl restart docker
+
+-- 测试
+ curl 远程服务器ip:2375/info
+ curl 远程服务器ip:2375/version
+ 
+ ![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210706133320615-1674995652.png)
