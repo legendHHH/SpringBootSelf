@@ -24,8 +24,8 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
  * @description
  * @date 2021/7/5
  */
-@Configuration
-@EnableBatchProcessing
+//@Configuration
+//@EnableBatchProcessing
 public class SplitDemo {
 
     @Autowired
