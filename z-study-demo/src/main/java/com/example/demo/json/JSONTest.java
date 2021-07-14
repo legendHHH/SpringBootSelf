@@ -1,12 +1,10 @@
 package com.example.demo.json;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -34,5 +32,14 @@ public class JSONTest {
         });
         pageList = temp;
         System.out.println("排序后：" + JSONObject.toJSONString(pageList));*/
+
+        //测试2
+        String str = "{\"code\":1,\"message\":\"success\",\"data\":[{\"id\":\"001-0000011897-0\",\"productCode\":\"0\",\"productName\":\"德上 大黄通便片 12片*2板/盒\",\"platformProductCode\":\"15980006082297712\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204265,\"stockNum\":0,\"groupId\":11897,\"isWarning\":0,\"price\":0,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100020\",\"productCode\":\"1100020\",\"productName\":\"天济 利多卡因氯己定气雾剂 60g\",\"platformProductCode\":\"15381178402565344\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204265,\"stockNum\":0,\"groupId\":11897,\"isWarning\":0,\"price\":null,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100028\",\"productCode\":\"1100028\",\"productName\":\"友南 吲哚美辛栓  0.1g*10枚/盒\",\"platformProductCode\":\"15936968052224106\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204265,\"stockNum\":0,\"groupId\":11897,\"isWarning\":0,\"price\":0,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100029\",\"productCode\":\"1100029\",\"productName\":\"友南 甲硝唑栓 500mg*10s/盒\",\"platformProductCode\":\"15936968052224041\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204265,\"stockNum\":0,\"groupId\":11897,\"isWarning\":0,\"price\":580,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100033\",\"productCode\":\"1100033\",\"productName\":\"太宁 复方角菜酸酯栓 3.4g*6枚\",\"platformProductCode\":\"15381203922869433\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204265,\"stockNum\":0,\"groupId\":11897,\"isWarning\":0,\"price\":null,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100043\",\"productCode\":\"1100043\",\"productName\":\"友南 对乙酰氨基酚栓 0.15g*10枚\",\"platformProductCode\":\"15381186902657762\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204265,\"stockNum\":0,\"groupId\":11897,\"isWarning\":0,\"price\":null,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100048\",\"productCode\":\"1100048\",\"productName\":\"马应龙 甲硝唑栓 10粒/盒\",\"platformProductCode\":\"15936968062224260\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204840,\"stockNum\":1,\"groupId\":11897,\"isWarning\":0,\"price\":1980,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100078\",\"productCode\":\"1100078\",\"productName\":\"美克 联苯苄唑乳膏 10g\",\"platformProductCode\":\"15381195552778221\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204840,\"stockNum\":1,\"groupId\":11897,\"isWarning\":0,\"price\":1460,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100079\",\"productCode\":\"1100079\",\"productName\":\"达克宁 硝酸咪康唑阴道软胶囊 1.2g*1粒/盒\",\"platformProductCode\":\"1590135382226596\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204840,\"stockNum\":3,\"groupId\":11897,\"isWarning\":0,\"price\":2780,\"marketPrice\":0,\"priceSyncTime\":1618419282183,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null},{\"id\":\"001-0000011897-1100087\",\"productCode\":\"1100087\",\"productName\":\"喜辽妥  多磺酸粘多糖乳膏  14g\",\"platformProductCode\":\"1603686341226197\",\"platformKey\":\"ele\",\"ppCode\":1,\"syncStatus\":0,\"lastSyncTime\":1625776204265,\"stockNum\":0,\"groupId\":11897,\"isWarning\":0,\"price\":3860,\"marketPrice\":0,\"priceSyncTime\":null,\"canSale\":null,\"approvalNumber\":null,\"specs\":null,\"pack\":null,\"manufacturer\":null,\"barcode\":null,\"specialKeys\":null}],\"count\":8413}";
+        JSONObject jsonObject = JSONObject.parseObject(str, JSONObject.class);
+        String data = String.valueOf(jsonObject.get("data"));
+        JSONArray jsonArray = JSONArray.parseArray(data);
+        List<Object> list = new ArrayList<>(jsonArray);
+        Map<Object, Long> map = list.stream().collect(Collectors.groupingBy(p -> p, Collectors.counting()));
+        System.out.println(JSONObject.toJSONString(map));
     }
 }
