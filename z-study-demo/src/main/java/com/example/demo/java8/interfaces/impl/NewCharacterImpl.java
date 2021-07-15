@@ -1,6 +1,6 @@
 package com.example.demo.java8.interfaces.impl;
 
-import com.legend.interfaces.NewCharacter;
+import com.example.demo.java8.interfaces.NewCharacter;
 
 /**
  * 新特性关键字--default
