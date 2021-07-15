@@ -197,6 +197,18 @@ lsa_release -a
 ![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210702105630503-188950527.png)
 
 
+### Centos7设置时区
+- 查看系统时间
+date
+
+- 更改系统时间时区
+timedatectl set-timezone Asia/Shanghai
+
+- 可以重启后查看，防止重启后失效
+reboot
+
+date
+
 
 
 ### JDK安装(下载使用的免费账号记录)

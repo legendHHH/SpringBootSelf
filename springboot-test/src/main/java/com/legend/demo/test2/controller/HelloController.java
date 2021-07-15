@@ -2,6 +2,7 @@ package com.legend.demo.test2.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
@@ -22,5 +23,18 @@ public class HelloController {
     public String helloW() {
         System.out.println(dataSource);
         return "HAND Hello";
+    }
+
+    /**
+     * http://localhost:9909/hello/show2?pageNo=2&pageSize=20
+     * @param page
+     * @param limit
+     * @return
+     */
+    @RequestMapping("/show2")
+    public String helloW2(@RequestParam(required = false, defaultValue = "1", value = "pageNo") int page,
+                          @RequestParam(required = false, defaultValue = "10", value = "pageSize") int limit) {
+        System.out.println("page："+ page + "pageSize：" + limit);
+        return "page："+ page + "pageSize：" + limit;
     }
 }
