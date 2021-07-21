@@ -13,4 +13,7 @@ import com.legend.demo.test2.domain.User;
 public interface MockService {
 
     public User getUserById(Integer id);
+
+
+    public User testRetry(Integer id);
 }
