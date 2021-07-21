@@ -20,7 +20,9 @@ public class HelloController {
     }
 
     @RequestMapping("/show")
-    public String helloW() {
+    public String helloW() throws InterruptedException {
+        //测试超时
+        Thread.sleep(10000);
         System.out.println(dataSource);
         return "HAND Hello";
     }
