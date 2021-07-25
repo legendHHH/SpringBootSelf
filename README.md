@@ -263,3 +263,28 @@ systemctl restart docker
  curl 远程服务器ip:2375/version
  
  ![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210706133320615-1674995652.png)
+
+
+
+### 超时重试解决
+- 引入GAV坐标
+```xml
+<dependency>
+    <groupId>org.springframework.retry</groupId>
+    <artifactId>spring-retry</artifactId>
+    <version>1.1.2.RELEASE</version>
+</dependency>
+```
+
+- 抛出RuntimeException异常后，继续重试，最多重试5次，每次在上一次的基础上延后1秒，multiplier为乘系数。若5次重试后依旧失败，则默认调用带有注解@Recover的方法，给接口返回一个默认值。
+![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210721101300196-711377172.png)
+
+
+- 测试
+```
+2021-07-21 10:07:24.613 ERROR 18712 --- [nio-9909-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.retry.ExhaustedRetryException: Cannot locate recovery method; nested exception is java.lang.RuntimeException: idd不能小于0] with root cause
+```
+![](https://img2020.cnblogs.com/blog/1231979/202107/1231979-20210721100745648-1524356201.png)
+
+
+>解决方法：调用方法和恢复方法的返回值需要一致
