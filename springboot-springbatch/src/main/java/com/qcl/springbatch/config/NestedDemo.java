@@ -20,7 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
  * @description
  * @date 2021/7/5
  */
-@Configuration
+//@Configuration
 public class NestedDemo {
 
     /**
