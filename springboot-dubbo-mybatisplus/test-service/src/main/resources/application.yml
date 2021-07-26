@@ -1,0 +1,36 @@
+server:
+  port: 38888
+spring:
+  application:
+    name: test-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+dubbo:
+  protocol:
+    loadbalance: leastactive
+    threadpool: cached
+  scan:
+    base-packages: com.legend.test.service
+  application:
+    qos-enable: false
+    name: testserver
+  registry:
+    id: my-registry
+    #    address:  zookeeper://127.0.0.1:2181?client=curator
+    address:  zookeeper://127.0.0.1:2181?client=curator
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.legend.test.entity
+  global-config:
+    db-config:
+      field-strategy: not-empty
+      id-type: auto
+      db-type: mysql
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    auto-mapping-unknown-column-behavior: none
