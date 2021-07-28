@@ -74,7 +74,22 @@ head节点：不存放具体的数据 作用就是表示单链表头
     3)示意图帮助理解删除
 
 
-https://www.bilibili.com/video/BV1E4411H73v?p=19&spm_id_from=pageDriver
+### 单向环形链表介绍
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210624202439981-292556763.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202106/1231979-20210624203652460-1413349313.png)
+
+
+构建一个单向的环形链表思路
+1.先创建第一个节点,让first指向该节点,并形成环形
+2.后面当我们每创建一个新的节点，就把该节点，加入到已有的环形链表中即可.
+
+遍历环形链表
+1.先让一个辅助指针(变量)curBoy，指向first节点
+2.然后通过一个while循环遍历该环形链表即可curBoy.next == first结束
+
+
+https://www.bilibili.com/video/BV1E4411H73v?p=28&spm_id_from=pageDriver
 
 
 B树和B+树在线可视化过程的链接
