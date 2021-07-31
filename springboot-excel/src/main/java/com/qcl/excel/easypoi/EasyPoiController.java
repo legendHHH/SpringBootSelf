@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -108,6 +109,17 @@ public class EasyPoiController {
         //String fileName, HttpServletResponse response, Workbook workbook
         ExpAndImpUtil.downLoadExcel("大数据ceshi.xlsx", response, workbook);
 
+    }
+
+    /**
+     * list<bean> 转list<Object>
+     * @param list
+     * @param <T>
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> List<T> convert(List<?> list) {
+        return (List<T>)list;
     }
 
     /**
