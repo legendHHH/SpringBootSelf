@@ -1,13 +1,13 @@
 package com.legend.springbootmybatis.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.legend.springbootmybatis.domain.City;
 import com.legend.springbootmybatis.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import javax.annotation.PostConstruct;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
@@ -18,8 +18,26 @@ public class CityRestController {
     @Autowired
     private CityService cityService;
 
+    private static Map<String, String> map = new HashMap<>(16);
+
+    /**
+     * Spring容器加载的时候初始化一部分数据
+     */
+    @PostConstruct
+    public void init(){
+        City cityById = cityService.findCityById(2L);
+        map.put(cityById.getCityName(), cityById.getDescription());
+    }
+
+    /**
+     * http://localhost:8083/api/city?cityName=889999998888
+     *
+     * @param cityName
+     * @return
+     */
     @RequestMapping(value = "/api/city", method = RequestMethod.GET)
     public City findOneCity(@RequestParam(value = "cityName", required = true) String cityName) {
+        System.out.println(JSONObject.toJSONString(map));
         return cityService.findCityByName(cityName);
     }
 
