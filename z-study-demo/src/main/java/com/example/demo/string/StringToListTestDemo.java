@@ -1,5 +1,7 @@
 package com.example.demo.string;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,5 +24,11 @@ public class StringToListTestDemo {
         List<String> list2 = Arrays.asList(split2);
         System.out.println(list.size());
         System.out.println(list2.size());
+
+
+        //list转String[]
+        List<String> titleList = Arrays.asList("测试123456");
+        String[] strs1 = titleList.toArray(new String[3]);
+        System.out.println(JSONObject.toJSONString(strs1));
     }
 }
