@@ -113,8 +113,18 @@ import org.springframework.context.annotation.Scope;
  *  postProcessAfterInitialization：在初始化之后工作
  *
  *
- * Spring底层对BeanPostProcessor的使用：
+ * Spring底层对BeanPostProcessor(org.springframework.beans.factory.config.BeanPostProcessor)的使用：
  *      bean赋值,注入其他组件,@Autowire,生命周期注解功能,@Async,xxx BeanPostProcessor;
+ *
+ *      ApplicationContext容器装配Bean对象处理器
+ *      org.springframework.context.support.ApplicationContextAwareProcessor
+ *
+ *      处理  @PostConstruct、@PreDestroy
+ *      org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor
+ *
+ *
+ *      处理 @Autowire
+ *      org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor
  *
  * @author legend
  * @version 1.0

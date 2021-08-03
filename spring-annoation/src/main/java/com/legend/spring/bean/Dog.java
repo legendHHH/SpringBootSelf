@@ -20,6 +20,9 @@ import javax.annotation.PreDestroy;
 @Component
 public class Dog implements ApplicationContextAware {
 
+    /**
+     * 在容器中保存起来
+     */
     private ApplicationContext applicationContext;
 
     public Dog() {
@@ -28,6 +31,9 @@ public class Dog implements ApplicationContextAware {
 
     /**
      * 对象创建并赋值之后调用
+     *
+     * //这个处理器处理的
+     * org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor
      *
      * @throws Exception
      */
@@ -48,7 +54,7 @@ public class Dog implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        //ApplicationContextAwareProcess来实现的
+        //ApplicationContextAwareProcess来实现的(org.springframework.context.support.ApplicationContextAwareProcessor)
         this.applicationContext = applicationContext;
     }
 }
