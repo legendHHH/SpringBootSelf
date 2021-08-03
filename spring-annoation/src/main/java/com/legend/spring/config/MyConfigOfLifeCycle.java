@@ -39,6 +39,63 @@ import org.springframework.context.annotation.Scope;
  *      多实例：容器不会管理这个bean,容器不会调用销毁方法
  *
  *
+ *
+ *
+ * 遍历的到容器中所有的 BeanPostProcessor,挨个执行beforeInitialization
+ * 一旦返回null跳出for循环,不会执行后面的BeanPostProcessor.postProcessBeforeInitialization
+ *
+ * ![](https://img2020.cnblogs.com/blog/1231979/202108/1231979-20210803215246376-217474532.png)
+ *
+ * BeanPostProcessor的原理：
+ * try {
+ *      //1.给Bean进行属性赋值 get/set
+ * 	    populateBean(beanName, mbd, instanceWrapper);
+ * 		exposedObject = initializeBean(beanName, exposedObject, mbd);
+ * }
+ *
+ * //2.
+ * wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);//执行初始化之前
+ *  具体执行方法：
+     *  @Override
+     * 	public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
+     * 			throws BeansException {
+     *
+     * 		Object result = existingBean;
+     * 		//遍历所有的 BeanPostProcessor
+     * 		for (BeanPostProcessor processor : getBeanPostProcessors()) {
+     * 			Object current = processor.postProcessBeforeInitialization(result, beanName);
+     * 			if (current == null) {
+     * 				return result;
+     * 			}
+     * 			result = current;
+     * 		}
+     * 		return result;
+     * 	}
+ *
+ * //3.
+ * invokeInitMethods(beanName, wrappedBean, mbd);//执行自定义初始化
+ *
+ * //4.
+ * wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);//执行初始化之后
+ *
+     *  @Override
+     * 	public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
+     * 			throws BeansException {
+     *
+     * 		Object result = existingBean;
+     * 	    //遍历所有的 BeanPostProcessor
+     * 		for (BeanPostProcessor processor : getBeanPostProcessors()) {
+     * 			Object current = processor.postProcessAfterInitialization(result, beanName);
+     * 			if (current == null) {
+     * 				return result;
+     * 			}
+     * 			result = current;
+     * 		}
+     * 		return result;
+     * 	}
+ *
+ *
+ *
  * 1.指定初始化和销毁方法：
  *      通过@Bean注解指定init-method和 destroy-method
  *
@@ -53,7 +110,7 @@ import org.springframework.context.annotation.Scope;
 *  4.BeanPostProcessor[Interface]：bean的后置处理器;
  *  在bean初始化前后进行一些处理工作
  *  postProcessBeforeInitialization：在初始化之前工作
- *  postProcessAfterInitialization：在初始化之后
+ *  postProcessAfterInitialization：在初始化之后工作
  *
  *
  * Spring底层对BeanPostProcessor的使用：
