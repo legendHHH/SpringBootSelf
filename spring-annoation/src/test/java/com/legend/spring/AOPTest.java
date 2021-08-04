@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
+ * AOP测试类
+ *
  * @author legend
  * @version 1.0
  * @description
@@ -25,7 +27,10 @@ public class AOPTest {
         System.out.println("容器创建完成");
 
         //不要自己手动创建 MathCalculator
+        //MathCalculator mathCalculator = new MathCalculator();
+        //mathCalculator.div(1, 1);
 
+        //在Spring容器中获取对象
         MathCalculator mathCalculator = applicationContext.getBean(MathCalculator.class);
         System.out.println("计算结果："+mathCalculator.div(1, 1));
 
