@@ -105,6 +105,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *          4.再给容器中注册实现了Ordered接口的BeanPostProcessor
  *          5.注册没有实现优先级的BeanPostProcessor
  *          6.注册BeanPostProcessor，实际上就是创建BeanPostProcessor对象，保存在容器中
+ *            //以AnnotationAwareAspectJAutoProxyCreator为例子：
  *
  *             创建internalAutoProxyCreator的 BeanPostProcessor【AnnotationAwareAspectJAutoProxyCreator】
  *                  1.创建Bean的实例
@@ -128,28 +129,297 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
                              * 		}
                              * 	}
  *
- *                      2.applyBeanPostProcessorBeforeInitialization()：应用后置处理器的postProcessorBeforeInitialization
+                             * 	//接着先调用父类的setBeanFactory,在执行initBeanFactory  ===》参考 (org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator#setBeanFactory(org.springframework.beans.factory.BeanFactory))
+                             * 	public void setBeanFactory(BeanFactory beanFactory) {
+                             *         super.setBeanFactory(beanFactory);
+                             *         if (!(beanFactory instanceof ConfigurableListableBeanFactory)) {
+                             *             throw new IllegalArgumentException("AdvisorAutoProxyCreator requires a ConfigurableListableBeanFactory: " + beanFactory);
+                             *         } else {
+                             *             this.initBeanFactory((ConfigurableListableBeanFactory)beanFactory);
+                             *         }
+                             *     }
+ *
+ *                           //this.initBeanFactory 具体实现逻辑  接着看 4
+                             *     protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+                             *         super.initBeanFactory(beanFactory);
+                             *         if (this.aspectJAdvisorFactory == null) {
+                             *             //重新包装工厂
+                             *             this.aspectJAdvisorFactory = new ReflectiveAspectJAdvisorFactory(beanFactory);
+                             *         }
+                             *
+                             *         this.aspectJAdvisorsBuilder = new AnnotationAwareAspectJAutoProxyCreator.BeanFactoryAspectJAdvisorsBuilderAdapter(beanFactory, this.aspectJAdvisorFactory);
+                             *     }
+ *
+ *
+ *                      2.applyBeanPostProcessorsBeforeInitialization()：应用后置处理器的postProcessorBeforeInitialization
+ *                           //具体执行方法：
+ *                              @Override
+                             * 	public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
+                             * 			throws BeansException {
+                             *
+                             * 		Object result = existingBean;
+                             * 		for (BeanPostProcessor processor : getBeanPostProcessors()) {
+                             * 			Object current = processor.postProcessBeforeInitialization(result, beanName);
+                             * 			if (current == null) {
+                             * 				return result;
+                             * 			}
+                             * 			result = current;
+                             * 		}
+                             * 		return result;
+                             * 	}
+ *
+ *
  *                      3.invokeInitMethods()：执行自定义初始化的方法
- *                      4.applyBeanPostProcessorAfterInitialization()：应用后置处理器的postProcessorAfterInitialization
+ *
+                             *      protected void invokeInitMethods(String beanName, final Object bean, @Nullable RootBeanDefinition mbd)
+                             * 			throws Throwable {
+                             *
+                             * 		boolean isInitializingBean = (bean instanceof InitializingBean);
+                             * 		if (isInitializingBean && (mbd == null || !mbd.isExternallyManagedInitMethod("afterPropertiesSet"))) {
+                             * 			if (logger.isTraceEnabled()) {
+                             * 				logger.trace("Invoking afterPropertiesSet() on bean with name '" + beanName + "'");
+                             * 			}
+                             * 			if (System.getSecurityManager() != null) {
+                             * 				try {
+                             * 					AccessController.doPrivileged((PrivilegedExceptionAction<Object>) () -> {
+                             * 						((InitializingBean) bean).afterPropertiesSet();
+                             * 						return null;
+                             * 					}, getAccessControlContext());
+                             * 				}
+                             * 				catch (PrivilegedActionException pae) {
+                             * 					throw pae.getException();
+                             * 				}
+                             * 			}
+                             * 			else {
+                             * 				((InitializingBean) bean).afterPropertiesSet();
+                             * 			}
+                             * 		}
+                             *
+                             * 		if (mbd != null && bean.getClass() != NullBean.class) {
+                             * 			String initMethodName = mbd.getInitMethodName();
+                             * 			if (StringUtils.hasLength(initMethodName) &&
+                             * 					!(isInitializingBean && "afterPropertiesSet".equals(initMethodName)) &&
+                             * 					!mbd.isExternallyManagedInitMethod(initMethodName)) {
+                             * 				invokeCustomInitMethod(beanName, bean, mbd);
+                             * 			}
+                             * 		}
+                             * 	}
+ *
+ *
+ *
+ *                      4.applyBeanPostProcessorsAfterInitialization()：应用后置处理器的postProcessAfterInitialization;
+ *                           //具体执行方法：
+ *                              @Override
+                             * 	public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
+                             * 			throws BeansException {
+                             *
+                             * 		Object result = existingBean;
+                             * 		for (BeanPostProcessor processor : getBeanPostProcessors()) {
+                             * 			Object current = processor.postProcessAfterInitialization(result, beanName);
+                             * 			if (current == null) {
+                             * 				return result;
+                             * 			}
+                             * 			result = current;
+                             * 		}
+                             * 		return result;
+                             * 	}
+ *
  *
  *                  4.BeanPostProcessor(AnnotationAwareAspectJAutoProxyCreator)创建成功---》aspectJAdvisorsBuilder
+                             *   protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+                             *         super.initBeanFactory(beanFactory);
+                             *         if (this.aspectJAdvisorFactory == null) {
+                             *             this.aspectJAdvisorFactory = new ReflectiveAspectJAdvisorFactory(beanFactory);
+                             *         }
+                             *
+                             *         this.aspectJAdvisorsBuilder = new AnnotationAwareAspectJAutoProxyCreator.BeanFactoryAspectJAdvisorsBuilderAdapter(beanFactory, this.aspectJAdvisorFactory);
+                             *     }
+ *
+ *
  *          7.把BeanPostProcessor注册到BeanFactory中;
+ *            //org.springframework.context.support.PostProcessorRegistrationDelegate#registerBeanPostProcessors(org.springframework.beans.factory.config.ConfigurableListableBeanFactory, java.util.List)
+ *            registerBeanPostProcessors(beanFactory, orderedPostProcessors);
+ *               //核心逻辑
  *               beanFactory.addBeanPostProcessor(postProcessor);
+                             *  //具体执行
+                             *  private static void registerBeanPostProcessors(
+                             * 			ConfigurableListableBeanFactory beanFactory, List<BeanPostProcessor> postProcessors) {
+                             *
+                             * 		for (BeanPostProcessor postProcessor : postProcessors) {
+                             * 			beanFactory.addBeanPostProcessor(postProcessor);
+                             * 		}
+                             * 	}
+ *
+ *
+ *
  *
  * ====================以上是创建和注册AnnotationAwareAspectJAutoProxyCreator的过程====================
  *
+ *              //AnnotationAwareAspectJAutoProxyCreator 的处理器类型为 InstantiationAwareBeanPostProcessor   (跟BeanPostProcessor很类似)
  *              AnnotationAwareAspectJAutoProxyCreator===>  InstantiationAwareBeanPostProcessor
  *
- *      4.finishBeanFactoryInitlization(beanFactory);完成BeanFactory工作;创建剩下的单实例bean
+ *
+ *      4.finishBeanFactoryInitialization(beanFactory);完成BeanFactory初始化工作;创建剩下的单实例bean
+ *          //完整源码可以参考：org.springframework.context.support.AbstractApplicationContext#finishBeanFactoryInitialization(org.springframework.beans.factory.config.ConfigurableListableBeanFactory)
  *          1.遍历获取容器中所有的bean,依次创建对象getBean(beanName);
+ *              //点这个方法进去 beanFactory.preInstantiateSingletons();
  *              getBean--->doGetBean--->getSingleton()
+ *
  *          2.创建Bean
+ *              【AnnotationAwareAspectJAutoProxyCreator会在所有bean创建之前有一个拦截,因为它是 InstantiationAwareBeanPostProcessor后置处理器,会调用postProcessBeforeInstantiation方法】
+ *
  *              1.先从缓存中获取当前Bean,如果能获取到，说明bean是之前被创建过的,直接使用，否则再创建
- *              2.createBean();创建Bean
+ *                注意：只要创建好的bean都会被缓存起来
+ *
+ *              2.createBean();创建Bean    AnnotationAwareAspectJAutoProxyCreator会在任何bean创建之前先尝试返回bean的实例
+ *                【BeanPostProcessor是在Bean对象创建完成初始化前后调用的】
+ *                【InstantiationAwareBeanPostProcessor是在创建Bean实例之前先尝试用后置处理器返回对象】
+ *
+ *                  //org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#createBean(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
  *                  1.resolveBeforeInstantiation(beanName,mdbToUser);解析BeforeInstantiation
- *                    希望后置处理器在此能返回代理对象，如果能返回代理对象就使用，如果不能就继续
+ *                     // Give BeanPostProcessors a chance to return a proxy instead of the target bean instance.
+ *                     //Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
+ *                    希望后置处理器在此能返回代理对象，如果能返回代理对象就使用，如果不能就继续 2.doCreateBean
  *                    1.后置处理器先尝试返回对象
+ *                        //
+ *                        bean = applyBeanPostProcessorsBeforeInstantiation(targetType, beanName);
+ *                           //拿到所有的后置处理器,如果是InstantiationAwareBeanPostProcessor  就执行 postProcessBeforeInstantiation方法
+                             *  @Nullable
+                             * 	protected Object applyBeanPostProcessorsBeforeInstantiation(Class<?> beanClass, String beanName) {
+                             * 		for (BeanPostProcessor bp : getBeanPostProcessors()) {
+                             * 			if (bp instanceof InstantiationAwareBeanPostProcessor) {
+                             * 				InstantiationAwareBeanPostProcessor ibp = (InstantiationAwareBeanPostProcessor) bp;
+                             * 				Object result = ibp.postProcessBeforeInstantiation(beanClass, beanName);
+                             * 				if (result != null) {
+                             * 					return result;
+                             * 				}
+                             * 			}
+                             * 		}
+                             * 		return null;
+                             * 	}
+ *
+ *
+ *
+ *
+ *                            bean = applyBeanPostProcessorsAfterInitialization(bean, beanName);
+ *
+ *
+ *
+ *
+                             *  @Nullable
+                             * 	protected Object resolveBeforeInstantiation(String beanName, RootBeanDefinition mbd) {
+                             * 		Object bean = null;
+                             * 		if (!Boolean.FALSE.equals(mbd.beforeInstantiationResolved)) {
+                             * 			// Make sure bean class is actually resolved at this point.
+                             * 			if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
+                             * 				Class<?> targetType = determineTargetType(beanName, mbd);
+                             * 				if (targetType != null) {
+                             * 					bean = applyBeanPostProcessorsBeforeInstantiation(targetType, beanName);
+                             * 					if (bean != null) {
+                             * 						bean = applyBeanPostProcessorsAfterInitialization(bean, beanName);
+                             * 					}
+                             * 				}
+                             * 			}
+                             * 			mbd.beforeInstantiationResolved = (bean != null);
+                             * 		}
+                             * 		return bean;
+                             * 	}
+ *
  *                  2.doCreateBean(BeanName,mdbToUse,agrs);真正的去创建Bean实例和3.6流程一样
+ *                     //org.springframework.beans.factory.support.DefaultSingletonBeanRegistry#getSingleton(java.lang.String, org.springframework.beans.factory.ObjectFactory)
+ *
+ *
+ *                           //finishBeanFactoryInitialization 处理源码
+                             *    protected void finishBeanFactoryInitialization(ConfigurableListableBeanFactory beanFactory) {
+                             * 		// Initialize conversion service for this context.
+                             * 		if (beanFactory.containsBean(CONVERSION_SERVICE_BEAN_NAME) &&
+                             * 				beanFactory.isTypeMatch(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class)) {
+                             * 			beanFactory.setConversionService(
+                             * 					beanFactory.getBean(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class));
+                             * 		}
+                             *
+                             * 		// Register a default embedded value resolver if no bean post-processor
+                             * 		// (such as a PropertyPlaceholderConfigurer bean) registered any before:
+                             * 		// at this point, primarily for resolution in annotation attribute values.
+                             * 		if (!beanFactory.hasEmbeddedValueResolver()) {
+                             * 			beanFactory.addEmbeddedValueResolver(strVal -> getEnvironment().resolvePlaceholders(strVal));
+                             * 		}
+                             *
+                             * 		// Initialize LoadTimeWeaverAware beans early to allow for registering their transformers early.
+                             * 		String[] weaverAwareNames = beanFactory.getBeanNamesForType(LoadTimeWeaverAware.class, false, false);
+                             * 		for (String weaverAwareName : weaverAwareNames) {
+                             * 			getBean(weaverAwareName);
+                             * 		}
+                             *
+                             * 		// Stop using the temporary ClassLoader for type matching.
+                             * 		beanFactory.setTempClassLoader(null);
+                             *
+                             * 		// Allow for caching all bean definition metadata, not expecting further changes.
+                             * 		beanFactory.freezeConfiguration();
+                             *
+                             * 		// Instantiate all remaining (non-lazy-init) singletons.
+                             * 		beanFactory.preInstantiateSingletons();
+                             * 	}
+ *
+                             * 	//具体的  beanFactory.preInstantiateSingletons(); 逻辑
+                             * 	@Override
+                             * 	public void preInstantiateSingletons() throws BeansException {
+                             * 		if (logger.isTraceEnabled()) {
+                             * 			logger.trace("Pre-instantiating singletons in " + this);
+                             * 		}
+                             *
+                             * 		// Iterate over a copy to allow for init methods which in turn register new bean definitions.
+                             * 		// While this may not be part of the regular factory bootstrap, it does otherwise work fine.
+                             * 		List<String> beanNames = new ArrayList<>(this.beanDefinitionNames);
+                             *
+                             * 		// Trigger initialization of all non-lazy singleton beans...
+                             * 		for (String beanName : beanNames) {
+                             * 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
+                             * 			if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
+                             * 				if (isFactoryBean(beanName)) {
+                             * 					Object bean = getBean(FACTORY_BEAN_PREFIX + beanName);
+                             * 					if (bean instanceof FactoryBean) {
+                             * 						final FactoryBean<?> factory = (FactoryBean<?>) bean;
+                             * 						boolean isEagerInit;
+                             * 						if (System.getSecurityManager() != null && factory instanceof SmartFactoryBean) {
+                             * 							isEagerInit = AccessController.doPrivileged((PrivilegedAction<Boolean>)
+                             * 											((SmartFactoryBean<?>) factory)::isEagerInit,
+                             * 									getAccessControlContext());
+                             * 						}
+                             * 						else {
+                             * 							isEagerInit = (factory instanceof SmartFactoryBean &&
+                             * 									((SmartFactoryBean<?>) factory).isEagerInit());
+                             * 						}
+                             * 						if (isEagerInit) {
+                             * 							getBean(beanName);
+                             * 						}
+                             * 					}
+                             * 				}
+                             * 				else {
+                             * 					getBean(beanName);
+                             * 				}
+                             * 			}
+                             * 		}
+                             *
+                             * 		// Trigger post-initialization callback for all applicable beans...
+                             * 		for (String beanName : beanNames) {
+                             * 			Object singletonInstance = getSingleton(beanName);
+                             * 			if (singletonInstance instanceof SmartInitializingSingleton) {
+                             * 				final SmartInitializingSingleton smartSingleton = (SmartInitializingSingleton) singletonInstance;
+                             * 				if (System.getSecurityManager() != null) {
+                             * 					AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
+                             * 						smartSingleton.afterSingletonsInstantiated();
+                             * 						return null;
+                             * 					}, getAccessControlContext());
+                             * 				}
+                             * 				else {
+                             * 					smartSingleton.afterSingletonsInstantiated();
+                             * 				}
+                             * 			}
+                             * 		}
+                             * 	}
+ *
+ *
  *
  *
  *
