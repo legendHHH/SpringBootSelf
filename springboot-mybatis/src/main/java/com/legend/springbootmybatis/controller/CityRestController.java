@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
@@ -39,6 +40,11 @@ public class CityRestController {
     public City findOneCity(@RequestParam(value = "cityName", required = true) String cityName) {
         System.out.println(JSONObject.toJSONString(map));
         return cityService.findCityByName(cityName);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String test() {
+        return "Hello World。。。。";
     }
 
     @RequestMapping(value = "/api/city6", method = RequestMethod.GET)
@@ -236,5 +242,23 @@ public class CityRestController {
         List<Integer> in = new ArrayList<>();
         System.out.println(Long.parseLong(String.valueOf(city.getId())));
         System.out.println(in.toString());
+    }
+
+    /**
+     * request.getParameter +号变成空格
+     * http://localhost:9000/uio?code=X33GFZhDSa+Dy9K9LHdaaA==
+     * http://localhost:9000/uio?code=X33GFZ%2BhDSa%25Dy9K9LHdaa===7&a=1
+     * http://localhost:9000/uio?code=X33GFZ%2BhDSa%25Dy9K9LHdaa7&a=1
+     *
+     * @return
+     */
+    @GetMapping("/uio")
+    public String method4444(HttpServletRequest request){
+        String code = request.getParameter("code");
+        String queryString = request.getQueryString();
+        System.out.println(code);
+        System.out.println(queryString);
+        System.out.println("hello");
+        return code;
     }
 }
