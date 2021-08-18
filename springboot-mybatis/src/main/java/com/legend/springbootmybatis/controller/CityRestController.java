@@ -250,15 +250,37 @@ public class CityRestController {
      * http://localhost:9000/uio?code=X33GFZ%2BhDSa%25Dy9K9LHdaa===7&a=1
      * http://localhost:9000/uio?code=X33GFZ%2BhDSa%25Dy9K9LHdaa7&a=1
      *
+     * 有些符号在URL中是不能直接传递的，如果要在URL中传递这些特殊符号，那么就要使用他们的编码了。
+     * 编码的格式为：%加字符的ASCII码，即一个百分号%，后面跟对应字符的ASCII（16进制）码值。例如 空格的编码值是"%20"。
+     * 如果不使用转义字符，这些编码就会当URL中定义的特殊字符处理。
+     * 下表中列出了一些URL特殊符号及编码 十六进制值
+     * 1) + URL 中+号表示空格 %2B
+     * 2) 空格 URL中的空格可以用+号或者编码 %20
+     * 3) / 分隔目录和子目录 %2F
+     * 4) ? 分隔实际的 URL 和参数 %3F
+     * 5) % 指定特殊字符 %25
+     * 6) # 表示书签 %23
+     * 7) &amp; URL 中指定的参数间的分隔符 %26
+     * 8) = URL 中指定参数的值 %3D
+     *
      * @return
      */
     @GetMapping("/uio")
-    public String method4444(HttpServletRequest request){
+    public String dealRequestParam(HttpServletRequest request){
         String code = request.getParameter("code");
         String queryString = request.getQueryString();
         System.out.println(code);
         System.out.println(queryString);
-        System.out.println("hello");
+
+        //特殊处理参数值
+        Map<String, String> map = new HashMap<>(16);
+        String[] split = queryString.split("&");
+        for (int i = 0; i < split.length; i++) {
+            String s = split[i];
+            String[] value = s.split("=");
+            map.put(value[0], value[1]);
+        }
+        System.out.println("hello" + map.toString());
         return code;
     }
 }
