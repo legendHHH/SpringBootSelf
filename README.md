@@ -290,6 +290,25 @@ systemctl restart docker
 >解决方法：调用方法和恢复方法的返回值需要一致
 
 
+### Docker-compose
+
+Dockerfile 用来构建 Docker 镜像，那么 docker-compose 则是用来创建容器的。 
+
+Docker 有三个主要的功能：Build、Ship 和 Run，使用 docker-compose 可以帮我们在 Run 的层面解决很多实际问题。docker-compose 通过一个 yaml 模板文件来统一管理多个容器的配置，如网络、数据卷、执行指令、环境变量、资源限制等等。有了 docker-compose 我们便可以一键重启、关闭、删除、监控所有的 docker 服务，只需要一次配置，则可以对容器进行统一管理，那么此时我们则不必为了每次要运行一堆容器时写大量的命令而头疼。
+
+
+Docker Compose 是 Docker 官方编排（Orchestration）项目之一，负责快速在集群中部署分布式应用。 你可以也通过执行下面的命令，高速安装Docker Compose。
+
+```
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.12.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+
+docker-compose version # 查看版本号，测试是否安装成功
+
+你可以通过修改URL中的版本，可以自定义您的需要的版本。
+```
+
 
 ### 在局域网的两台电脑如何实现相互访问mysql数据库
 
