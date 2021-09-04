@@ -1,8 +1,7 @@
 import pandas as pd
 import pymysql
 
-/**
-创建链接
+# 创建链接
 conn = pymysql.connect(
     host='localhost',
     user='root',
