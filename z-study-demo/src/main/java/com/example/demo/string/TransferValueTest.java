@@ -39,5 +39,27 @@ public class TransferValueTest {
         String str = "adbv";
         ts.changeMethod3(str);
         System.out.println("---------string：" + str);
+
+        String formatTest = stringFormatTest();
+        System.out.println("---------stringformate：" + formatTest);
+
+        Integer x = 1;
+        System.out.println("1".equals(x));
+    }
+
+    /**
+     * 字符串格式化自动补位填充
+     *
+     * @return
+     */
+    public static String stringFormatTest(){
+        Integer chainId = 394123;
+        String productCode = "101060";
+        String tableId = String.format("%010d",chainId) + productCode;
+        System.out.println(tableId);
+        //0000000354101060
+        //0000000394101060
+        //0000394123101060
+        return tableId;
     }
 }
