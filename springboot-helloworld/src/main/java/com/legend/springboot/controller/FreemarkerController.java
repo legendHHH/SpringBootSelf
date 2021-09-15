@@ -51,4 +51,18 @@ public class FreemarkerController {
         map.put("name", "hello world");
         return "index";
     }
+
+    /**
+     * 跳转404的ftl文件
+     * http://localhost:8089/notFound
+     *
+     * @param map
+     * @return
+     */
+    @GetMapping("/notFound")
+    public String notFound(Map<String, String> map) {
+        System.out.println("hello 404");
+        map.put("name", "hello world");
+        return "404";
+    }
 }
