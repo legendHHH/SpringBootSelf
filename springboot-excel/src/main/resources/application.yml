@@ -15,3 +15,10 @@ spring:
       ddl-auto: update
     #控制台显示sql
     show-sql: true
+
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
