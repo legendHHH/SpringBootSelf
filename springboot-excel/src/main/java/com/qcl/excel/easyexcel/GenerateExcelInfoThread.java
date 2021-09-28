@@ -11,7 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-
+/**
+ * 查询数据异步线程
+ *
+ * @author legend
+ * @version 1.0
+ * @description
+ * @date 2021/9/28
+ */
 public class GenerateExcelInfoThread implements Callable<List<UserExcelVo>> {
     private int i;
     private UserRepository userRepository;
