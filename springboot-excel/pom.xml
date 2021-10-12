@@ -114,6 +114,11 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.78</version>
+        </dependency>
 
         <!--easyexcel 排除旧版本依赖 引入自己新版的poi-->
         <!--<dependency>
