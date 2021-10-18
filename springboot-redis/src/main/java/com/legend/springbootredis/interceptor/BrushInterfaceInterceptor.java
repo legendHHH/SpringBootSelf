@@ -25,12 +25,12 @@ import java.io.OutputStream;
 //@Component
 public class BrushInterfaceInterceptor extends HandlerInterceptorAdapter {
 
-    @Autowired
+    //@Autowired
     private RedisService redisService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //判断请求是否属于方法的请求
+        /*//判断请求是否属于方法的请求
         if (handler instanceof HandlerMethod) {
             HandlerMethod hm = (HandlerMethod) handler;
             AccessLimit accessLimit = hm.getMethodAnnotation(AccessLimit.class);
@@ -67,18 +67,18 @@ public class BrushInterfaceInterceptor extends HandlerInterceptorAdapter {
                 return false;
             }
 
-        }
+        }*/
 
         return true;
     }
 
     private void render(HttpServletResponse response, CodeMsg cm) throws Exception {
-        response.setContentType("application/json;charset=UTF-8");
+        /*response.setContentType("application/json;charset=UTF-8");
         OutputStream out = response.getOutputStream();
         String str = JSON.toJSONString(Result.error(cm));
         out.write(str.getBytes("UTF-8"));
         out.flush();
-        out.close();
+        out.close();*/
     }
 
     @Override

@@ -2,9 +2,13 @@ package com.redis.lock.controller;
 
 import com.redis.lock.util.RedissonUtil;
 import org.redisson.Redisson;
+import org.redisson.api.RBloomFilter;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.StringUtils;
@@ -177,5 +181,57 @@ public class LockController {
         System.out.println("hello");
         //来检测是否配置成功;
         return redisson.getConfig().toJSON();
+    }
+
+    /**
+     * redis进行数据预热
+     * http://localhost:1234/dataPreheating
+     *
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/dataPreheating")
+    @ResponseBody
+    public String dataPreheating() throws Exception {
+        System.out.println("hello dataPreheating");
+        stringRedisTemplate.executePipelined(new RedisCallback<Object>() {
+            @Override
+            public Object doInRedis(RedisConnection redisConnection) throws DataAccessException {
+                redisConnection.openPipeline();
+                for (int offset = 10000; offset >= 0; offset--) {
+                    boolean value = offset % 2 == 0 ? true : false;
+                    redisConnection.setBit("bloom-filter-data-1".getBytes(), offset, value);
+                }
+                redisConnection.closePipeline();
+                return null;
+            }
+        });
+        System.out.println("数据预热完成");
+        return redisson.getConfig().toJSON();
+    }
+
+    /**
+     * redis进行数据预判
+     * http://localhost:1234/judgeData
+     *
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/judgeData")
+    @ResponseBody
+    public String method() {
+
+        //RBloomFilter<String> bloomFilter = redisson.getBloomFilter("test5-bloom-filter");
+        RBloomFilter<String> bloomFilter = redisson.getBloomFilter("bloom-filter-data-1");
+        // 初始化布隆过滤器，数组长度100W，误判率 1%
+        bloomFilter.tryInit(10000L, 0.01);
+        // 添加数据
+        //bloomFilter.add("Tom哥");
+        // 判断是否存在
+        System.out.println(bloomFilter.contains("微观技术"));
+        System.out.println(bloomFilter.contains("微观技术"));
+        System.out.println(bloomFilter.contains("Tom哥"));
+        System.out.println(bloomFilter.count());
+        return "666";
     }
 }

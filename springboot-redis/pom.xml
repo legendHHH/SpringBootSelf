@@ -85,6 +85,12 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.9</version>
         </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>20030203.000129</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

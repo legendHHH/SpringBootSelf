@@ -4,21 +4,30 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.EasyExcelFactory;
+import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.ExcelWriter;
+import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.metadata.Sheet;
+import com.alibaba.excel.read.builder.ExcelReaderBuilder;
+import com.alibaba.excel.read.metadata.ReadSheet;
 import com.alibaba.excel.support.ExcelTypeEnum;
 import com.alibaba.excel.write.builder.ExcelWriterSheetBuilder;
 import com.alibaba.excel.write.merge.LoopMergeStrategy;
+import com.alibaba.excel.write.merge.OnceAbsoluteMergeStrategy;
 import com.alibaba.excel.write.metadata.WriteSheet;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.google.common.base.Function;
 import com.qcl.excel.domain.User;
 import com.qcl.excel.easyexcel.handler.StyleExcelHandler;
 import com.qcl.excel.repository.UserRepository;
+import com.qcl.excel.vo.TsOrderVoForEasyExport;
 import com.qcl.excel.vo.UserExcelVo;
 import com.qcl.excel.vo.UserExcelVo2;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +35,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,6 +66,8 @@ public class EasyExcelController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
     /**
      * 导出本地文件保存
      *
@@ -310,7 +322,7 @@ public class EasyExcelController {
 
             long startTime = System.currentTimeMillis();
             // 去调用写入,这里我调用了五次，实际使用时根据数据库分页的总的页数来
-            for (int i = 0; i < 1500; i++) {
+            for (int i = 0; i < 15; i++) {
                 //System.out.println("当前开始执行操作：" + i);
                 // 分页去数据库查询数据 这里可以去数据库查询每一页的数据
                 //List<UserExcelVo> data = data();
@@ -352,33 +364,25 @@ public class EasyExcelController {
             //thread.join();
 
             try {
-                //用invokeAll方法提交任务，返回数据的顺序和tasks中的任务顺序一致，如果第一个线程查0-10000行数据，第二个线程查10000-10001行数据，
-                //第二个线程大概率比第一个线程先执行完，但是futures中第一位数据是0-10000的数据。
                 List<Future<List<UserExcelVo>>> futures = exector.invokeAll(tasks);
-                for (int i = 0; i < 1500; i++) {
+                for (int i = 0; i < 15; i++) {
                     List<UserExcelVo> exifInfoList = futures.get(i).get();
-                    System.out.println("1111:"+exifInfoList.toString());
+                    LOGGER.info("1111：{}", exifInfoList.toString());
                     excelWriter.write(exifInfoList, writeSheet);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println(e.getMessage());
+                LOGGER.info(e.getMessage());
             }
 
-
             long endTime = System.currentTimeMillis();
-            System.out.println("总耗时：" + (endTime - startTime));
+            LOGGER.info("总耗时：{}", (endTime - startTime));
         } finally {
             // 千万别忘记finish 会帮忙关闭流
             if (excelWriter != null) {
                 excelWriter.finish();
             }
         }
-
-        /*writer.write(resultPro,sheetBuilder
-                .registerWriteHandler(new BizMergeStrategy(strategyMap))
-                .build());*/
-
     }
 
     private List<UserExcelVo> data() {
@@ -396,4 +400,234 @@ public class EasyExcelController {
         return userExcelVoList;
     }
 
+
+    /**
+     *
+     * @return
+     */
+    @RequestMapping("/jdbc")
+    @ResponseBody
+    public Object method() {
+        String fileName = "D:/" + "repeatedWrite22" + System.currentTimeMillis() + ".xlsx";
+        ExcelWriterSheetBuilder sheetBuilder = EasyExcel.writerSheet("订单");
+        ExcelWriter excelWriter = null;
+
+        // 这里 需要指定写用哪个class去写
+        excelWriter = EasyExcel.write(fileName, TsOrderVoForEasyExport.class).build();
+
+        //合并策略
+        //LoopMergeStrategy loopMergeStrategy = new LoopMergeStrategy(2, 0);
+        //OnceAbsoluteMergeStrategy onceAbsoluteMergeStrategy = new OnceAbsoluteMergeStrategy(1, 6000, 0, 0);
+
+        //需要合并的索引列
+        int[] mergeColIndex = {0,1,2,3,4,5,6,7,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,32,33,34,38,39};
+        //需要从第一行开始，列头第一行
+        int mergeRowIndex = 1;
+        ExcelFileCellMergeStrategy excelFileCellMergeStrategy = new ExcelFileCellMergeStrategy(mergeColIndex,mergeRowIndex);
+
+        /*MergeStrategy mergeStrategy = new MergeStrategy(6000, 0, 1);
+        MergeStrategy mergeStrategy3 = new MergeStrategy(6000,2,3);*/
+        //MergeStrategy mergeStrategy3 = new MergeStrategy(6000,4, 5, 6, 7, 14, 15, 16, 17, 18, 19, 20, 26, 27, 28, 29, 33);
+
+        // 这里注意 如果同一个sheet只要创建一次
+        //WriteSheet writeSheet = EasyExcel.writerSheet("模板").registerWriteHandler(mergeStrategy).registerWriteHandler(mergeStrategy3).build();
+        //WriteSheet writeSheet = EasyExcel.writerSheet("模板").registerWriteHandler(excelFileCellMergeStrategy).build();
+
+        String sql = "";
+        int corePoolSize = 10;
+        int maximumPoolSize = 20;
+        //用线程池管理多线程
+        ThreadPoolExecutor exector = (ThreadPoolExecutor) Executors.newFixedThreadPool(corePoolSize);
+        exector.setCorePoolSize(corePoolSize);
+        exector.setMaximumPoolSize(maximumPoolSize);
+        List<GenerateExcelInfoThread2> tasks = new ArrayList<>();
+
+        long startTime = System.currentTimeMillis();
+        List<TsOrderVoForEasyExport> resultPro = new ArrayList<>();
+        try {
+            for (int i = 0; i < 81; i++) {
+                //PageHelper.startPage(i - 1, 100);
+                sql = "SELECT order_sn, pay_sn, order_type, order_from, buyer_name, buyer_phone, add_time, payment_time, sku_name, sku_code AS skuCode, item_no, spec, number, unit_price, goods_amount,( SELECT count(*) FROM ts_order_item WHERE order_id = ts_order.order_id) AS goods_kind, order_amount, pd_amount, voucher_price, shipping_fee, order_state, evaluation_state, delete_state, refund_state,( SELECT refund_amount FROM ts_refund_return WHERE order_id = ts_order.order_id LIMIT 1 ) AS refund_amount, ts_order_common.shipping_code, ts_order.store_id, mall_store.store_code, ts_order.store_name, ts_order.chain_id, mall_product_storage.NAME AS storage_name, ts_order.chain_code, mall_chain.chain_name, req_no, sku_activity_type, reciver_phone, reciver_name, reciver_info,( SELECT CODE FROM mem_vip_card mc WHERE mc.user_id = ts_order.buyer_id AND mc.store_id = ts_order.store_id AND mc.is_delete = 0 LIMIT 1 ) AS card_no, ts_order.employee_phone, platform_discount, merchant_discount, order_amount + ifnull( douli_amount, 0 )+ ifnull( pd_amount, 0 )+ ifnull( pukang_amount, 0 ) AS order_amount_origin, ifnull( douli_amount, 0 ) AS douli_amount, ifnull( pukang_amount, 0 ) AS pukang_amount, ts_order_item.commission, sp_share_clerk.share_name, ts_order_item.product_id, ts_order.share_phone, ts_order.share_name AS shareUserName, ts_order.share_type, ( SELECT channel_name FROM mall_channel m WHERE m.id = ts_order.channel_id ) AS channel_name FROM ts_order LEFT JOIN ts_order_common ON ts_order.order_id = ts_order_common.order_id LEFT JOIN ts_order_item ON ts_order.order_id = ts_order_item.order_id LEFT JOIN mall_store ON ts_order.store_id = mall_store.store_id LEFT JOIN mall_chain ON ts_order.chain_id = mall_chain.id LEFT JOIN mall_product_storage ON ts_order.storage_id = mall_product_storage.id LEFT JOIN sp_share_clerk ON ts_order_item.share_clerk_id = sp_share_clerk.share_clerk_id WHERE ( delete_state = 0 and order_state <> 0  and ts_order.store_id in ( 715 ) ) AND add_time >= '2021-01-29 23:59:59' ORDER by order_sn DESC " +
+                        " limit  " + (i * 100) + ",100 ";
+
+                List<Map<String, Object>> listMap = jdbcTemplate.queryForList(sql);
+                List<TsOrderVoForEasyExport> listTsOrderVoForEasyExport = JSON.parseArray(JSON.toJSONString(listMap), TsOrderVoForEasyExport.class);
+                resultPro.addAll(listTsOrderVoForEasyExport);
+
+                /*GenerateExcelInfoThread2 readExifInfoThread = new GenerateExcelInfoThread2(jdbcTemplate, i, sql);
+                tasks.add(readExifInfoThread);*/
+
+                LOGGER.info("分页查询sql语句：{}", sql);
+            }
+
+            List<Future<List<TsOrderVoForEasyExport>>> futures = exector.invokeAll(tasks);
+
+            //List<TsOrderVoForEasyExport> resultPro = new ArrayList<>();
+            /*for (int i = 0; i < 81; i++) {
+                LOGGER.info("处理数据：{}", i);
+                List<TsOrderVoForEasyExport> exifInfoList = futures.get(i).get();
+                //LOGGER.info("多线程获取返回的数据:{}" ,exifInfoList.toString());
+                resultPro.addAll(exifInfoList);
+
+                //Map<String, List<RowRangeDto>> strategyMap = addMerStrategy(exifInfoList);
+
+                *//*if (i <= 40) {
+                    excelWriter.write(exifInfoList, EasyExcel.writerSheet("模板f").build());
+                } else {
+                    excelWriter.write(exifInfoList, EasyExcel.writerSheet("模板f2").build());
+                }*//*
+
+                LOGGER.info("处理数据完成：", i);
+            }*/
+
+            Map<String, List<RowRangeDto>> strategyMap = addMerStrategy(resultPro);
+            excelWriter.write(resultPro, EasyExcel.writerSheet("模板").registerWriteHandler(new BizMergeStrategy(strategyMap)).build());
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOGGER.error(e.getMessage());
+        } finally {
+            // 千万别忘记finish 会帮忙关闭流
+            if (excelWriter != null) {
+                excelWriter.finish();
+            }
+        }
+        long endTime = System.currentTimeMillis();
+        LOGGER.info("总耗时：{}", (endTime - startTime));
+        //List<Map<String, Object>> list = userRepository.query();
+        return "总耗时：" + (endTime - startTime);
+    }
+
+
+    public static void readExcel(String fileName){
+        File file = new File("D://repeatedWrite221632814895910.xlsx");
+        ExcelListener excelListener = new ExcelListener();
+        ExcelReader excelReader = EasyExcel.read(fileName, TsOrderVoForEasyExport.class, excelListener).build();
+        ReadSheet readSheet = EasyExcel.readSheet(0).build();
+        excelReader.read(readSheet);
+        // 这里千万别忘记关闭，读的时候会创建临时文件，到时磁盘会崩的
+        excelReader.finish();
+
+//        WriteSheet writeSheet = EasyExcel.writerSheet("模板").build();
+//        ExcelWriter excelWriter = EasyExcel.write("12345" + fileName, TsOrderVoForEasyExport.class).build();
+//        excelWriter.finish();
+
+        Workbook book = POIExcelUtil.readExcelFromFile(file);
+        org.apache.poi.ss.usermodel.Sheet sheetAt = book.getSheetAt(0);
+        Workbook megreWorkbook = new XSSFWorkbook();
+        org.apache.poi.ss.usermodel.Sheet sheet = megreWorkbook.createSheet(book.getSheetName(0));
+
+        //POIExcelUtil.cloneSheet(file, 2, "模板");
+
+        /*List<Object> list = excelListener.getDatas();
+        list.forEach((tsOrder) -> {
+            TsOrderVoForEasyExport import1 = (TsOrderVoForEasyExport) tsOrder;
+            System.out.println(import1.getOrderSn() + ", " + import1.getBuyerName());
+        });*/
+
+        /*//新建监听器
+        ExcelListener listener = new ExcelListener();
+        ExcelReaderBuilder excelReaderBuilder = EasyExcel.read(file);
+        ExcelReader excelReader = excelReaderBuilder.build();
+        List<ReadSheet> sheets = excelReader.excelExecutor().sheetList();
+        for (ReadSheet sheet : sheets) {
+
+
+        }
+        excelReader.read(sheets);
+
+        List<Object> list = listener.getDatas();
+        list.forEach((tsOrder) -> {
+            TsOrderVoForEasyExport import1 = (TsOrderVoForEasyExport) tsOrder;
+            System.out.println(import1.getOrderSn() + ", " + import1.getBuyerName());
+        });
+        // 清空之前的数据
+        listener.getDatas().clear();*/
+
+        //获取加载生成的excel
+        //判断sheet的页数
+        //获取第二个sheet开始  判断第一个sheet的最后一条数据的位置 然后追加数据合并sheet
+
+        //将最终的文件上传到obs
+    }
+
+
+    public static void main(String[] args) {
+        readExcel("D://repeatedWrite221632814895910.xlsx");
+    }
+
+    /**
+     * @Description: 添加合并策略
+     * @Param:
+     * @return:
+     **/
+    private Map<String, List<RowRangeDto>> addMerStrategy(List<TsOrderVoForEasyExport> excelDtoList) {
+        Map<String, List<RowRangeDto>> strategyMap = new HashMap<>(16);
+        long startTime = System.currentTimeMillis();
+
+        TsOrderVoForEasyExport preExcelDto = null;
+        for (int i = 0; i < excelDtoList.size(); i++) {
+            TsOrderVoForEasyExport currDto = excelDtoList.get(i);
+            if (preExcelDto != null) {
+                //从第二行开始判断是否需要合并
+                if (currDto.getOrderSn().equals(preExcelDto.getOrderSn())) {
+                    //如果订单号一样，则可合并订单主单相关列
+                    fillStrategyMap(strategyMap, "0", i);
+                    fillStrategyMap(strategyMap, "1", i);
+                    fillStrategyMap(strategyMap, "2", i);
+                    fillStrategyMap(strategyMap, "3", i);
+                    fillStrategyMap(strategyMap, "4", i);
+                    fillStrategyMap(strategyMap, "5", i);
+                    fillStrategyMap(strategyMap, "6", i);
+                    fillStrategyMap(strategyMap, "7", i);
+                    fillStrategyMap(strategyMap, "14", i);
+                    fillStrategyMap(strategyMap, "15", i);
+                    fillStrategyMap(strategyMap, "16", i);
+                    fillStrategyMap(strategyMap, "17", i);
+                    fillStrategyMap(strategyMap, "18", i);
+                    fillStrategyMap(strategyMap, "19", i);
+                    fillStrategyMap(strategyMap, "20", i);
+                    fillStrategyMap(strategyMap, "21", i);
+                    fillStrategyMap(strategyMap, "22", i);
+                    fillStrategyMap(strategyMap, "23", i);
+                    fillStrategyMap(strategyMap, "24", i);
+                    fillStrategyMap(strategyMap, "25", i);
+                    fillStrategyMap(strategyMap, "26", i);
+                    fillStrategyMap(strategyMap, "27", i);
+                    fillStrategyMap(strategyMap, "28", i);
+                    fillStrategyMap(strategyMap, "29", i);
+                    fillStrategyMap(strategyMap, "32", i);
+                    fillStrategyMap(strategyMap, "33", i);
+                    fillStrategyMap(strategyMap, "34", i);
+                    fillStrategyMap(strategyMap, "38", i);
+                    fillStrategyMap(strategyMap, "39", i);
+                }
+            }
+            preExcelDto = currDto;
+        }
+        long endTime = System.currentTimeMillis();
+        LOGGER.info("合并策略总耗时：{}", (endTime - startTime));
+        return strategyMap;
+    }
+
+    /**
+     * @Description: 新增或修改合并策略map
+     * @Param:
+     * @return:
+     **/
+    private void fillStrategyMap(Map<String, List<RowRangeDto>> strategyMap, String key, int index) {
+        List<RowRangeDto> rowRangeDtoList = strategyMap.get(key) == null ? new ArrayList<>() : strategyMap.get(key);
+        boolean flag = false;
+        for (RowRangeDto dto : rowRangeDtoList) {
+            //分段list中是否有end索引是上一行索引的，如果有，则索引+1
+            if (dto.getEnd() == index) {
+                dto.setEnd(index + 1);
+                flag = true;
+            }
+        }
+        //如果没有，则新增分段
+        if (!flag) {
+            rowRangeDtoList.add(new RowRangeDto(index, index + 1));
+        }
+        strategyMap.put(key, rowRangeDtoList);
+    }
 }

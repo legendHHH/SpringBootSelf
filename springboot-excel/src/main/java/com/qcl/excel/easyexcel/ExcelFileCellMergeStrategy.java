@@ -80,9 +80,14 @@ public class ExcelFileCellMergeStrategy implements CellWriteHandler {
      */
     private void mergeWithPrevRow(WriteSheetHolder writeSheetHolder, Cell cell, int curRowIndex, int curColIndex) {
         //获取当前行的当前列的数据和上一行的当前列数据，通过上一行数据是否相同进行合并
-        Object curData = cell.getCellTypeEnum() == CellType.STRING ? cell.getStringCellValue() : cell.getNumericCellValue();
-        Cell preCell = cell.getSheet().getRow(curRowIndex - 1).getCell(curColIndex);
-        Object preData = preCell.getCellTypeEnum() == CellType.STRING ? preCell.getStringCellValue() : preCell.getNumericCellValue();
+        int idCol= mergeColumnIndex[0];
+        //获取当前行的当前列的数据和上一行的当前列列数据，通过上一行数据是否相同进行合并
+        Cell curCell = cell.getSheet().getRow(curRowIndex).getCell(idCol);
+        Object curData = curCell.getCellTypeEnum() == CellType.STRING ? curCell.getStringCellValue() :
+                curCell.getNumericCellValue();
+        Cell preCell = cell.getSheet().getRow(curRowIndex - 1).getCell(idCol);
+        Object preData = preCell.getCellTypeEnum() == CellType.STRING ? preCell.getStringCellValue() :
+                preCell.getNumericCellValue();
 
         //比较当前行的第一列的单元格与上一行是否相同，相同合并当前单元格与上一行
         if (curData.equals(preData)) {

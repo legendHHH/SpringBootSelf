@@ -35,6 +35,7 @@ public class RedisTestController {
     @RequestMapping(value = "set/{key}/{value}", method = RequestMethod.GET)
     public String testSet(@PathVariable String key, @PathVariable String value) {
         redisTemplate.opsForValue().set(key, value);
+        redisTemplate.opsForSet().add("10_exportTask", value);
         return key + ":" + value;
     }
 

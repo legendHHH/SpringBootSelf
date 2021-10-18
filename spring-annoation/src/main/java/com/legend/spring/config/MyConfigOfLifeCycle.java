@@ -133,7 +133,7 @@ import org.springframework.context.annotation.Scope;
  */
 @ComponentScan({"com.legend.spring.bean"})
 @Configuration
-public class MyConfigOfLifeCycle {
+public class  MyConfigOfLifeCycle {
 
     //@Scope("prototype")
     @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
