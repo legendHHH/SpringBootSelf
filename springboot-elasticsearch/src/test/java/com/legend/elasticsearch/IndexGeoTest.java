@@ -2,15 +2,14 @@ package com.legend.elasticsearch;
 
 import com.alibaba.fastjson.JSONObject;
 import com.legend.elasticsearch.entity.ChainEsMappingDoc;
-import com.legend.elasticsearch.entity.Item;
 import com.legend.elasticsearch.respository.ChainRepository;
-import com.legend.elasticsearch.respository.ItemRepository;
-import org.elasticsearch.action.search.SearchRequest;
+import com.legend.elasticsearch.vo.SearchChainVo;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.client.Client;
 import org.elasticsearch.common.unit.DistanceUnit;
 import org.elasticsearch.index.query.*;
 import org.elasticsearch.search.SearchHit;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.sort.GeoDistanceSortBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.junit.Test;
@@ -28,10 +27,8 @@ import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
  * 采用类的字节码信息创建索引并映射
@@ -180,27 +177,76 @@ public class IndexGeoTest {
     }
 
     /**
-     * 查询全部，并按照价格降序排序
+     * 使用elasticsearchTemplate返回Client进行自定义方法查询数据
      */
     @Test
-    public void testFind() {
-        // 查询全部，并按照价格降序排序
-        //Iterable<ChainEsMappingDoc> items = this.chainRepository.findAll(Sort.by(Sort.Direction.DESC, "price"));
-        Iterable<ChainEsMappingDoc> items = this.chainRepository.findAll(Sort.by(Sort.Direction.DESC, "price").descending());
-        items.forEach(System.out::println);
-        //items.forEach(item-> System.out.println(item));
-    }
+    public void testGeoAndSort() {
+        Integer pageNo = 1;
+        Integer pageSize = 15;
+        double latitude = 22.531883;
+        double longitude = 113.921961;
 
+        Map<String, Object> paramMap = new HashMap<>(16);
+        paramMap.put("latitude", latitude);
+        paramMap.put("longitude", longitude);
+        paramMap.put("state", 0);
 
-    /**
-     * 使用自定义方法查询数据
-     */
-    @Test
-    public void testFindByTittle() {
         // 使用自定义方法查询数据
-        /*Iterable<Item> items = this.chainRepository.findByTitle("手机");
-        items.forEach(System.out::println);*/
-        //items.forEach(item-> System.out.println(item));
+        //获取client客户端
+        Client client = elasticsearchTemplate.getClient();
+        SearchRequestBuilder searchRequest = client.prepareSearch("geo").setTypes("mall_chain_type");
+        //分页
+        searchRequest.setFrom((pageNo - 1) * pageSize);
+        searchRequest.setSize(pageSize);
+        //间接实现了QueryBuilder接口
+        BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
+
+        //以某点为中心，搜索指定范围
+        GeoDistanceQueryBuilder distanceQueryBuilder = new GeoDistanceQueryBuilder("location");
+        distanceQueryBuilder.point(latitude, longitude);
+        // 定义查询单位：公里
+        distanceQueryBuilder.distance(2500, DistanceUnit.KILOMETERS);
+        boolQueryBuilder.filter(distanceQueryBuilder);
+
+        //添加查询参数
+        paramMap.forEach((k, v) -> {
+            if (k.equals("state")) {
+                log.info("进入state....");
+                boolQueryBuilder.mustNot(QueryBuilders.termQuery(k, v));
+            }
+        });
+
+        // 按距离升序
+        GeoDistanceSortBuilder distanceSortBuilder =
+                new GeoDistanceSortBuilder("location", latitude, longitude);
+        distanceSortBuilder.unit(DistanceUnit.KILOMETERS);
+        distanceSortBuilder.order(SortOrder.ASC);
+
+        QueryBuilder queryBuilder = boolQueryBuilder;
+
+        SearchResponse response = searchRequest.addSort(distanceSortBuilder).setQuery(queryBuilder).execute().actionGet();
+
+        long totalCount = response.getHits().getTotalHits();
+        log.info("内购商城-门店查询完整查询参数SearchRequest：{},es查询总条数totalCount:{}",searchRequest.toString(), totalCount);
+
+        List<SearchChainVo> chainVoList = new ArrayList<>();
+        for (SearchHit hit : response.getHits().getHits()) {
+            Map<String, Object> map = hit.getSourceAsMap();
+            log.info("内购商城-查询的数据信息：{}", JSONObject.toJSONString(map));
+
+            SearchChainVo vo = JSONObject.parseObject(JSONObject.toJSONString(map), SearchChainVo.class);
+
+            //获取距离值，并保留两位小数点
+            BigDecimal geoDis = new BigDecimal((double) hit.getSortValues()[0]);
+            Map<String, Object> hitMap = hit.getSourceAsMap();
+            //在创建MAPPING的时候，属性名的不可为geoDistance。
+            hitMap.put("geoDistance", geoDis.setScale(2, BigDecimal.ROUND_HALF_DOWN));
+
+            //返回好计算的距离
+            vo.setGeoDistance(geoDis.setScale(2, BigDecimal.ROUND_HALF_DOWN));
+            chainVoList.add(vo);
+        }
+        log.info("查询接口距离数据：{}", JSONObject.toJSONString(chainVoList));
     }
 
     /**
