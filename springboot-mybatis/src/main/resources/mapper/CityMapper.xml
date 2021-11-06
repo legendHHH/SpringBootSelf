@@ -159,7 +159,7 @@
 	<insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="true"
 			keyProperty="id">
 
-		INSERT INTO `springboot_springserurity`.`city`(`province_id`, `city_name`, `description`)
+		INSERT INTO `mybatis`.`city`(`province_id`, `city_name`, `description`)
 		VALUES
 		<foreach collection="list" item="item" index="index" separator=",">
 			(
