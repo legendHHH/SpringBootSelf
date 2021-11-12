@@ -91,7 +91,7 @@
 		<!--<selectKey resultType="java.lang.Integer" keyProperty="stock" order="AFTER">
 			select * FROM city WHERE id &lt; #{id}
 		</selectKey>-->
-		update city set eva_num = eva_num + 1, city_name = #{cityName}, province_id = #{provinceId} where id <![CDATA[<=]]> #{id}
+		update city set eva_num = eva_num + 1, city_name = CONCAT(city_name, #{cityName}, ','), province_id = #{provinceId} where id = #{id}
 	</update>
 
     <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
