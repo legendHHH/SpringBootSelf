@@ -1,7 +1,10 @@
 package com.example.demo.reflection;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -10,8 +13,11 @@ import java.io.Serializable;
  * @Version 1.0
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class GdOrderGoodsVo implements Serializable {
 
+    @NotNull(message = "1234567")
     private String id;//商品id
     private String supplierId;//国大商品id
     private String goodsCode;//商品69码
