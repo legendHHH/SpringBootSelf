@@ -146,6 +146,7 @@ public class CityRestController {
 
     /**
      * 测试更新后的数据返回
+     * http://localhost:9000/updateAfter
      *
      * @return
      */
@@ -155,7 +156,8 @@ public class CityRestController {
         city.setId(4L);
         city.setCityName("测试123456");
         city.setProvinceId(12L);
-        return cityService.update2(city).toString();
+        //return cityService.update2(city).toString();
+        return cityService.updateByScript(city).toString();
     }
 
     /**

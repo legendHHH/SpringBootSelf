@@ -41,6 +41,12 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public City updateByScript(City city) {
+        cityDao.updateByScript(city);
+        return cityDao.findById(city.getId());
+    }
+
+    @Override
     public void batchInsert(List<City> city) {
         cityDao.batchInsert(city);
     }

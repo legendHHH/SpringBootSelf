@@ -44,6 +44,14 @@ public interface CityService {
     City update2(City city);
 
     /**
+     * 更新数据通过脚本
+     *
+     * @param city
+     * @return
+     */
+    City updateByScript(City city);
+
+    /**
      * 保存或者更新
      *
      * @param city

@@ -2,6 +2,7 @@ package com.legend.springbootmybatis.dao;
 
 import com.legend.springbootmybatis.domain.City;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -40,6 +41,17 @@ public interface CityDao {
      * @param city
      */
     void update2(City city);
+
+    @Update({"<script>",
+            "update city",
+            "  <set>",
+            "    <if test='evaNum != null'>eva_num=#{evaNum},</if>",
+            "    <if test='cityName != null'>city_name=#{cityName},</if>",
+            "    <if test='provinceId != null'>province_id=#{provinceId},</if>",
+            "  </set>",
+            "where id=#{id}",
+            "</script>"})
+    void updateByScript(City city);
 
     /**
      * 批量保存或更新
