@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.legend.springbootmybatis.domain.City;
 import com.legend.springbootmybatis.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
+//@Controller
 public class CityRestController {
 
     @Autowired
@@ -134,6 +136,19 @@ public class CityRestController {
         return 1;
     }
 
+    /**
+     * 拦截指定params
+     * http://localhost:9000/testParams?type=test   正确
+     * http://localhost:9000/testParams?type=123    错误
+     *
+     * @return
+     */
+    @RequestMapping(value = "/testParams", method = RequestMethod.GET, params = "type=test")
+    public String paramsMethod() {
+        //return "Hey Get Params";
+        //测试重定向
+        return "redirect:https://www.baidu.com";
+    }
 
     @GetMapping("/testSelect")
     public String method() {

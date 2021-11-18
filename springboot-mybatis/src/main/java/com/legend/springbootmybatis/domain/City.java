@@ -109,6 +109,14 @@ public class City {
         this.idList = idList;
     }
 
+    public City(String cityName, String description) {
+        this.cityName = cityName;
+        this.description = description;
+    }
+
+    public City() {
+    }
+
     @Override
     public String toString() {
         return "City{" +
