@@ -1,10 +1,12 @@
 package com.legend.springbootmybatis.service.impl;
 
+import com.legend.springbootmybatis.annotation.MyMysqlMaster;
 import com.legend.springbootmybatis.dao.CityDao;
 import com.legend.springbootmybatis.domain.City;
 import com.legend.springbootmybatis.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -46,11 +48,15 @@ public class CityServiceImpl implements CityService {
         return cityDao.findById(city.getId());
     }
 
+    @MyMysqlMaster
+    @Transactional
     @Override
     public void batchInsert(List<City> city) {
         cityDao.batchInsert(city);
     }
 
+    @MyMysqlMaster
+    @Transactional
     @Override
     public int saveOrUpdate(City city) {
         return cityDao.saveOrUpdate(city);

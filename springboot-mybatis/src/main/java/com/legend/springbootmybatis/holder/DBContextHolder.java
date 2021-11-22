@@ -35,7 +35,18 @@ public class DBContextHolder {
     }
 
     public static void slave() {
-        set(DBTypeEnum.SLAVE1);
-        logger.info("切换到slave1");
+        //轮询
+        int index = counter.getAndIncrement() % 2;
+        //
+        if (counter.get() > 9999) {
+            counter.set(-1);
+        }
+        if (index == 0) {
+            set(DBTypeEnum.SLAVE1);
+            logger.info("切换到slave1");
+        } else {
+            set(DBTypeEnum.SLAVE2);
+            logger.info("切换到slave2");
+        }
     }
 }
