@@ -61,20 +61,24 @@ public class ItemController {
     private RedisTemplate redisTemplate;
 
     /**
+     * http://localhost:8012/create/index
      * 创建索引库和类型测试
      *
      * @return
      */
     @GetMapping("/create/index")
     public String createIndex() {
-        System.out.println("hello");
+        //构造数据
         Item item = new Item(1L, "小米手机7", " 手机",
                 "小米", 3499.00, "http://image.leyou.com/13123.jpg");
+
+        //保存数据
         itemRepository.save(item);
 
+        //查询数据
         Item itemRepositoryById = itemRepository.findById(1L).get();
 
-        StringBuffer result = null;
+        StringBuffer result = new StringBuffer();
         try {
             result.append(objectMapper.writeValueAsString(itemRepositoryById));
         } catch (JsonProcessingException e) {
