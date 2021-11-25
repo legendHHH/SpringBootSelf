@@ -7,4 +7,7 @@ package com.qcl.springboot.ci;
  * @date 2020/9/12
  */
 public class JenkinsCiApplication {
+    public static void main(String[] args) {
+
+    }
 }
