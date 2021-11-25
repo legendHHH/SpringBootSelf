@@ -13,7 +13,17 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-            id, last_name, email,gender,age
-        </sql>
+        id, last_name, email,gender,age
+    </sql>
+
+    <insert id="xmlBatchInsert">
+        INSERT INTO tb_employee(last_name, email,gender,age) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.lastName},
+            #{item.email},
+            #{item.gender},
+            #{item.age})
+        </foreach>
+    </insert>
 
 </mapper>
