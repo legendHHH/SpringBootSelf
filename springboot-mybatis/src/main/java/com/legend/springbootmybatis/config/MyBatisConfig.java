@@ -20,6 +20,7 @@ import javax.sql.DataSource;
  * @description
  * @date 2021/11/22
  */
+//开启注解事务管理，等同于xml配置文件中的 <tx:annotation-driven />
 @EnableTransactionManagement
 @Configuration
 public class MyBatisConfig {
