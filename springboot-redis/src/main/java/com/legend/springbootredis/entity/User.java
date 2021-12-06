@@ -9,6 +9,11 @@ public class User {
         super();
     }
 
+    public User(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public User(Integer id, String name, String password) {
         super();
         this.id = id;

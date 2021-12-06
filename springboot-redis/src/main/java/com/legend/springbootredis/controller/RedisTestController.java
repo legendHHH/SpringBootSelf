@@ -1,6 +1,10 @@
 package com.legend.springbootredis.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.legend.springbootredis.entity.User;
+import org.apache.commons.lang.StringUtils;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -9,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * redis测试接口
@@ -84,5 +90,95 @@ public class RedisTestController {
         Boolean execute = redisTemplate.execute(redisScript, keys, "100");
         System.out.println(execute);
         return "abc";
+    }
+
+    /**
+     * 测试接口幂等
+     *
+     * @return
+     */
+    @PostMapping("/mideng")
+    @ResponseBody
+    public String miDeng(HttpServletRequest request) {
+        String requestNo = request.getParameter("requestNo");
+        String state = request.getParameter("state");
+        //判断redis的值是否存在
+        String key = "test_" + requestNo + "_" + state;
+
+        if (redisTemplate.hasKey(key)) {
+            String value = redisTemplate.opsForValue().get(key);
+
+            if (StringUtils.isNotEmpty(value) && !"".equals(value) && !value.contains("正在处理中...")) {
+                System.out.println("从缓存中获取......");
+                User user = JSONObject.parseObject(value, User.class);
+                user.setPassword("q12121212");
+                user.setName("从缓存中拿到name");
+                return JSONObject.toJSONString(user);
+            }
+            System.out.println("正在处理中.....");
+            return "正在处理中.....";
+        }
+        redisTemplate.opsForValue().set(key, "正在处理中.....", 20);
+
+        //TODO 业务处理
+        User user = new User(1, "666");
+        try {
+            Thread.sleep(1000);
+
+            System.out.println("从业务处理中获取......");
+            redisTemplate.opsForValue().set(key, JSONObject.toJSONString(user), 20);
+        } catch (InterruptedException e) {
+            System.out.println("出现异常.....");
+            e.printStackTrace();
+            redisTemplate.delete(key);
+        }
+
+        return JSONObject.toJSONString(user);
+    }
+
+
+    /**
+     * 测试接口幂等
+     *
+     * @return
+     */
+    @PostMapping("/midengPro")
+    @ResponseBody
+    public String miDengPro(HttpServletRequest request) {
+        String requestNo = request.getParameter("requestNo");
+        String state = request.getParameter("state");
+        //判断redis的值是否存在
+        String key = "test_" + requestNo + "_" + state;
+
+        Boolean flag = redisTemplate.opsForValue().setIfAbsent(key + "_7", "正在处理中....");
+        System.out.println(flag);
+        if (!flag) {
+            String value = redisTemplate.opsForValue().get(key);
+
+            if (StringUtils.isNotEmpty(value) && !"".equals(value) && !value.contains("正在处理中...")) {
+                System.out.println("从缓存中获取......");
+                User user = JSONObject.parseObject(value, User.class);
+                user.setPassword("121212");
+                user.setName("拿到name");
+                return JSONObject.toJSONString(user);
+            }
+            System.out.println("正在处理中.....");
+            return "正在处理中.....";
+        }
+
+        //TODO 业务处理
+        User user = new User(12, "1234");
+        try {
+            Thread.sleep(1000);
+
+            System.out.println("从业务处理中获取......");
+            redisTemplate.opsForValue().set(key, JSONObject.toJSONString(user), 20);
+        } catch (InterruptedException e) {
+            System.out.println("出现异常.....");
+            e.printStackTrace();
+            redisTemplate.delete(key);
+        }
+
+        return JSONObject.toJSONString(user);
     }
 }

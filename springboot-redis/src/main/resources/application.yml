@@ -36,7 +36,7 @@ spring:
     #useGlobalDataSourceStat: true
   redis:
     # Redis数据库索引（默认为0）
-    database: 0
+    database: 9
     # Redis服务器地址
     host: 127.0.0.1
     # Redis服务器连接端口
@@ -55,6 +55,10 @@ spring:
         max-idle: 8
         # 连接池中的最小空闲连接
         min-idle: 0
+
+redis:
+  config:
+    host: redis://127.0.0.1:6379
 
 # mybatis 配置：
 #mybatis:
