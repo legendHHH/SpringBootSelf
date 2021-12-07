@@ -2,7 +2,7 @@ package com.qcl.springsecurity.config;
 
 //import com.qcl.springsecurity.MyPasswordEncoder;
 
-import com.qcl.springsecurity.service.MyUserService;
+//import com.qcl.springsecurity.service.MyUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,7 +24,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     //@Autowired
-    private MyUserService myUserService;
+    //private MyUserService myUserService;
 
     /**
      * 可以快速搭建安全认证功能
@@ -41,10 +41,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("demo").password("demo").roles("USER");*/
 
         //替换成数据库管理用户
-        auth.userDetailsService(myUserService).passwordEncoder(new MyPasswordEncoder());
+        //auth.userDetailsService(myUserService).passwordEncoder(new MyPasswordEncoder());
 
         //SpringSecurity默认的数据库验证
-        auth.jdbcAuthentication().usersByUsernameQuery("").authoritiesByUsernameQuery("").passwordEncoder(new MyPasswordEncoder());
+        //auth.jdbcAuthentication().usersByUsernameQuery("").authoritiesByUsernameQuery("").passwordEncoder(new MyPasswordEncoder());
     }
 
     /**
@@ -55,6 +55,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //配置需要登录验证
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
@@ -62,6 +63,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().permitAll()
                 .and()
                 .formLogin();
+
+        //配置不需要登录验证
+        /*http.authorizeRequests()
+                .anyRequest().permitAll().and().logout().permitAll();*/
 
         //关闭默认得csrf认证
         http.csrf().disable();

@@ -1,0 +1,26 @@
+spring:
+  profiles: dev
+  # 数据库配置
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springmvc_permission?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    # 配置Druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+  # 配置session存储方式，暂时关掉该功能
+  session:
+    store-type: none
+  security:
+    user:
+      name: admin
+      password: 123456
+
+# 首先将权限验证关闭
+# 已过时,可以在在Application启动配置类上修改 //@SpringBootApplication(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class})
+#security:
+#  basic:
+#    enabled: false
+
+server:
+  port: 8080
