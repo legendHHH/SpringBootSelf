@@ -326,3 +326,24 @@ INSERT INTO `mysql`.`user`(`Host`, `User`, `Password`, `Select_priv`, `Insert_pr
 ```
 ![](https://img2020.cnblogs.com/blog/1231979/202108/1231979-20210809151103530-1363879100.png)
 
+
+### linux下上传和下载文件到远程服务器
+scp -rp /path/filename username@remoteIP:/path #将本地文件拷贝到服务器上
+scp -rp username@remoteIP:/path/filename /path #将远程文件从服务器下载到本地
+
+
+### centos7安装node forever
+- 安装Nodejs
+- 安装forever
+    - 进入项目路径：执行：npm install forever -g
+    - /创建链接,使用forever时就不需要加入路径：ln -s /root/home/downloads/node-v5.2/bin/forever /usr/bin/forever
+
+
+- 用forever：启动forever start xxx.js
+- 重启：forever restart  xxx.js
+- 停止：forever stop xxx.js
+
+
+
+
+### jenkins过滤版本，可选择版本
