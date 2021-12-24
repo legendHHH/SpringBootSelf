@@ -1,0 +1,36 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "streamreader", 
+                    "parameter": {
+                        "column": [
+							{
+								"type":"string",
+								"value":"zhangsan"
+							},
+							{
+								"type":"int",
+								"value":"18"
+							}
+						], 
+                        "sliceRecordCount": "10"
+                    }
+                }, 
+                "writer": {
+                    "name": "streamwriter", 
+                    "parameter": {
+                        "encoding": "UTF-8", 
+                        "print": true
+                    }
+                }
+            }
+        ], 
+        "setting": {
+            "speed": {
+                "channel": "1"
+            }
+        }
+    }
+}
