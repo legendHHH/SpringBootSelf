@@ -1220,4 +1220,443 @@ MongoDB是由C++语言编写的，是一个基于分布式文件存储的开源�
 
 
 #### 5.4 安装
+- 安装地址
+[MongoDB下载地址](https://www.mongodb.com/try/download/community)
  
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225124642508-351543349.png)
+
+- 安装
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225132025821-516152264.png)
+
+#### 5.5 基础概念详解
+
+##### 5.5.1 数据库
+- admin:从权限的角度来看，这是"root"数据库。要是将一个用户添加到这个数据库，这个用户自动继承所有数据库的权限。一些特定的服务器端命令也只能从这个数据库运行，比如列出所有的数据库或者关闭服务器。
+- local:这个数据永远不会被复制，可以用来存储限于本地单台服务器的任意集合
+- config:当Mongo用于分片设置时，config 数据库在内部使用，用于保存分片的相关信息。
+
+
+2）显示当前使用的数据库
+```
+>db
+test
+```
+3）切换数据库
+```
+> use local
+switched to db locale 
+
+>db
+local
+```
+
+##### 5.5.2 集合
+集合就是MongoDB 文档组，类似于MySQL中的table。
+集合存在于数据库中，集合没有固定的结构，这意味着你在对集合可以插入不同格式和类型的数据，但通常情况下我们插入集合的数据都会有一定的关联性。
+
+MongoDB中使用createCollection()方法来创建集合。下面来看看如何创建集合:
+```
+db.createCollection(name, options)
+
+参数说明：
+	name：要创建的集合的名称
+	options:可选参数，指定有关内存大小及索引的选项，有以下参数:
+
+```
+
+
+```
+//查看所有数据库
+show dbs;
+
+//查看当前数据库
+db;
+
+//创建表
+db.createCollection("hello_world");
+
+//查看表
+show collections;
+
+//插入数据
+db.hello_world.insert({"name":"123", "url":"https://wwww.baidu.com"});
+db.hello_world.insert({"name":"1", "url":"https://wwww.taobao.com"});
+
+//查看所有数据 & 查看某条数据
+db.hello_world.find()
+db.hello_world.find({"name":"1"})
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225144139539-888461305.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225144402153-125318287.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225144613976-1642449697.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225144653128-299011384.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225144839252-1289407665.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225145217902-428521126.png)
+
+**说明：**
+- Objectld 类似唯一主键，可以很快的去生成和排序，包含 12 bytes，由24个16进制数字组成的字符串（每个字节可以存储两个16进制数字）,含义是：
+前4个字节表示创建unix 时间戳
+接下来的3个字节是机器标识码
+紧接的两个字节由进程id 组成PID
+最后三个字节是随机数
+
+
+
+```
+//创建一个固定集合mycol
+db.createCollection("mycol",{ capped : true,autoIndexId : true,size : 6142800, max:1000});
+
+show tables;
+
+//自动创建集合
+db.mycol2.insert({"name":"wangwu"})
+
+db.mycol2.find()
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225145744536-1496876885.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225145809991-760390902.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225145956340-1808663793.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225150008678-331620390.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225150033306-594079235.png)
+
+>在MongoDB中，你不需要创建集合。当你插入一些文档时，MongoDB会自动创建集合。
+
+
+```
+d
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225150453893-2114186085.png)
+
+
+##### 5.5.3 文档
+文档是一组键值(key-value)对组成。MongoDB的文档不需要设置相同的字段，并且相同的字段不需要相同的数据类型，这与关系型数据库有很大的区别，也是MongoDB非常突出的特点。
+一个简单的例子:
+```
+{"name":"hello"}
+```
+
+**注意:**
+- 1、文档中的键/值对是有序的。
+- 2、MongoDB区分类型和大小写。
+- 3、MongoDB的文档不能有重复的键。
+- 4、文档的键是字符串。除了少数例外情况，键可以使用任意UTF-8字符。
+
+#### 5.6 DataX 导入导出案例
+##### 5.6.1 读取MongoDB数据导入到MySQL
+- 查看MongoDB端口
+```
+pgrep -f mongod
+等价于
+ps -ef | grep mongod | grep -v grep awk '{print $2}'
+
+
+netstat -anp | grep pid
+
+-- 不指定本机,
+bin/mongod -bind_ip 0.0.0.0
+```
+
+
+- 查看json模板   bin/datax.py -r mongodbreader -w mysqlwriter
+```
+[root@localhost datax]# bin/datax.py ./job/mongodb2mysqljob.json 
+
+DataX (DATAX-OPENSOURCE-3.0), From Alibaba !
+Copyright (C) 2010-2017, Alibaba Group. All Rights Reserved.
+
+
+2021-12-25 15:50:22.696 [main] INFO  VMInfo - VMInfo# operatingSystem class => sun.management.OperatingSystemImpl
+2021-12-25 15:50:22.710 [main] INFO  Engine - the machine info  => 
+
+	osInfo:	Oracle Corporation 1.8 25.291-b10
+	jvmInfo:	Linux amd64 3.10.0-1160.31.1.el7.x86_64
+	cpu num:	2
+
+	totalPhysicalMemory:	-0.00G
+	freePhysicalMemory:	-0.00G
+	maxFileDescriptorCount:	-1
+	currentOpenFileDescriptorCount:	-1
+
+	GC Names	[PS MarkSweep, PS Scavenge]
+
+	MEMORY_NAME                    | allocation_size                | init_size                      
+	PS Eden Space                  | 256.00MB                       | 256.00MB                       
+	Code Cache                     | 240.00MB                       | 2.44MB                         
+	Compressed Class Space         | 1,024.00MB                     | 0.00MB                         
+	PS Survivor Space              | 42.50MB                        | 42.50MB                        
+	PS Old Gen                     | 683.00MB                       | 683.00MB                       
+	Metaspace                      | -0.00MB                        | 0.00MB                         
+
+
+2021-12-25 15:50:22.746 [main] INFO  Engine - 
+{
+	"content":[
+		{
+			"reader":{
+				"name":"mongodbreader",
+				"parameter":{
+					"address":[
+						"192.168.1.37:27017"
+					],
+					"collectionName":"mongo2mysql",
+					"column":[
+						{
+							"name":"name",
+							"type":"string"
+						},
+						{
+							"name":"url",
+							"type":"string"
+						}
+					],
+					"dbName":"test"
+				}
+			},
+			"writer":{
+				"name":"mysqlwriter",
+				"parameter":{
+					"column":[
+						"name",
+						"url"
+					],
+					"connection":[
+						{
+							"jdbcUrl":"jdbc:mysql://192.168.1.37:3306/test",
+							"table":[
+								"mongo2mysql"
+							]
+						}
+					],
+					"password":"******",
+					"username":"root",
+					"writeMode":"insert"
+				}
+			}
+		}
+	],
+	"setting":{
+		"speed":{
+			"channel":"1"
+		}
+	}
+}
+
+2021-12-25 15:50:22.784 [main] WARN  Engine - prioriy set to 0, because NumberFormatException, the value is: null
+2021-12-25 15:50:22.789 [main] INFO  PerfTrace - PerfTrace traceId=job_-1, isEnable=false, priority=0
+2021-12-25 15:50:22.789 [main] INFO  JobContainer - DataX jobContainer starts job.
+2021-12-25 15:50:22.798 [main] INFO  JobContainer - Set jobId = 0
+2021-12-25 15:50:23.057 [job-0] INFO  cluster - Cluster created with settings {hosts=[192.168.1.37:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2021-12-25 15:50:23.058 [job-0] INFO  cluster - Adding discovered server 192.168.1.37:27017 to client view of cluster
+2021-12-25 15:50:23.259 [cluster-ClusterId{value='61c6cd3fba4a5b44e8c8b90c', description='null'}-192.168.1.37:27017] INFO  connection - Opened connection [connectionId{localValue:1, serverValue:9}] to 192.168.1.37:27017
+2021-12-25 15:50:23.262 [cluster-ClusterId{value='61c6cd3fba4a5b44e8c8b90c', description='null'}-192.168.1.37:27017] INFO  cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.1.37:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 11]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, roundTripTimeNanos=1386099}
+2021-12-25 15:50:23.263 [cluster-ClusterId{value='61c6cd3fba4a5b44e8c8b90c', description='null'}-192.168.1.37:27017] INFO  cluster - Discovered cluster type of STANDALONE
+2021-12-25 15:50:23.677 [job-0] INFO  OriginalConfPretreatmentUtil - table:[mongo2mysql] all columns:[
+id,name,url
+].
+2021-12-25 15:50:23.700 [job-0] INFO  OriginalConfPretreatmentUtil - Write data [
+insert INTO %s (name,url) VALUES(?,?)
+], which jdbcUrl like:[jdbc:mysql://192.168.1.37:3306/test?yearIsDateType=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&rewriteBatchedStatements=true]
+2021-12-25 15:50:23.701 [job-0] INFO  JobContainer - jobContainer starts to do prepare ...
+2021-12-25 15:50:23.702 [job-0] INFO  JobContainer - DataX Reader.Job [mongodbreader] do prepare work .
+2021-12-25 15:50:23.703 [job-0] INFO  JobContainer - DataX Writer.Job [mysqlwriter] do prepare work .
+2021-12-25 15:50:23.705 [job-0] INFO  JobContainer - jobContainer starts to do split ...
+2021-12-25 15:50:23.706 [job-0] INFO  JobContainer - Job set Channel-Number to 1 channels.
+2021-12-25 15:50:23.747 [job-0] INFO  connection - Opened connection [connectionId{localValue:2, serverValue:10}] to 192.168.1.37:27017
+2021-12-25 15:50:23.767 [job-0] INFO  JobContainer - DataX Reader.Job [mongodbreader] splits to [1] tasks.
+2021-12-25 15:50:23.768 [job-0] INFO  JobContainer - DataX Writer.Job [mysqlwriter] splits to [1] tasks.
+2021-12-25 15:50:23.812 [job-0] INFO  JobContainer - jobContainer starts to do schedule ...
+2021-12-25 15:50:23.823 [job-0] INFO  JobContainer - Scheduler starts [1] taskGroups.
+2021-12-25 15:50:23.828 [job-0] INFO  JobContainer - Running by standalone Mode.
+2021-12-25 15:50:23.852 [taskGroup-0] INFO  TaskGroupContainer - taskGroupId=[0] start [1] channels for [1] tasks.
+2021-12-25 15:50:23.860 [taskGroup-0] INFO  Channel - Channel set byte_speed_limit to -1, No bps activated.
+2021-12-25 15:50:23.861 [taskGroup-0] INFO  Channel - Channel set record_speed_limit to -1, No tps activated.
+2021-12-25 15:50:23.900 [taskGroup-0] INFO  TaskGroupContainer - taskGroup[0] taskId[0] attemptCount[1] is started
+2021-12-25 15:50:23.903 [0-0-0-reader] INFO  cluster - Cluster created with settings {hosts=[192.168.1.37:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2021-12-25 15:50:23.904 [0-0-0-reader] INFO  cluster - Adding discovered server 192.168.1.37:27017 to client view of cluster
+2021-12-25 15:50:23.933 [cluster-ClusterId{value='61c6cd3fba4a5b44e8c8b90d', description='null'}-192.168.1.37:27017] INFO  connection - Opened connection [connectionId{localValue:3, serverValue:11}] to 192.168.1.37:27017
+2021-12-25 15:50:23.943 [cluster-ClusterId{value='61c6cd3fba4a5b44e8c8b90d', description='null'}-192.168.1.37:27017] INFO  cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.1.37:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 11]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, roundTripTimeNanos=1900511}
+2021-12-25 15:50:23.943 [cluster-ClusterId{value='61c6cd3fba4a5b44e8c8b90d', description='null'}-192.168.1.37:27017] INFO  cluster - Discovered cluster type of STANDALONE
+2021-12-25 15:50:23.977 [0-0-0-reader] INFO  connection - Opened connection [connectionId{localValue:4, serverValue:12}] to 192.168.1.37:27017
+2021-12-25 15:50:24.212 [taskGroup-0] INFO  TaskGroupContainer - taskGroup[0] taskId[0] is successed, used[327]ms
+2021-12-25 15:50:24.213 [taskGroup-0] INFO  TaskGroupContainer - taskGroup[0] completed it's tasks.
+2021-12-25 15:50:33.911 [job-0] INFO  StandAloneJobContainerCommunicator - Total 4 records, 71 bytes | Speed 7B/s, 0 records/s | Error 0 records, 0 bytes |  All Task WaitWriterTime 0.000s |  All Task WaitReaderTime 0.000s | Percentage 100.00%
+2021-12-25 15:50:33.912 [job-0] INFO  AbstractScheduler - Scheduler accomplished all tasks.
+2021-12-25 15:50:33.912 [job-0] INFO  JobContainer - DataX Writer.Job [mysqlwriter] do post work.
+2021-12-25 15:50:33.913 [job-0] INFO  JobContainer - DataX Reader.Job [mongodbreader] do post work.
+2021-12-25 15:50:33.913 [job-0] INFO  JobContainer - DataX jobId [0] completed successfully.
+2021-12-25 15:50:33.914 [job-0] INFO  HookInvoker - No hook invoked, because base dir not exists or is a file: /root/datax/hook
+2021-12-25 15:50:33.916 [job-0] INFO  JobContainer - 
+	 [total cpu info] => 
+		averageCpu                     | maxDeltaCpu                    | minDeltaCpu                    
+		-1.00%                         | -1.00%                         | -1.00%
+                        
+
+	 [total gc info] => 
+		 NAME                 | totalGCCount       | maxDeltaGCCount    | minDeltaGCCount    | totalGCTime        | maxDeltaGCTime     | minDeltaGCTime     
+		 PS MarkSweep         | 0                  | 0                  | 0                  | 0.000s             | 0.000s             | 0.000s             
+		 PS Scavenge          | 0                  | 0                  | 0                  | 0.000s             | 0.000s             | 0.000s             
+
+2021-12-25 15:50:33.917 [job-0] INFO  JobContainer - PerfTrace not enable!
+2021-12-25 15:50:33.918 [job-0] INFO  StandAloneJobContainerCommunicator - Total 4 records, 71 bytes | Speed 7B/s, 0 records/s | Error 0 records, 0 bytes |  All Task WaitWriterTime 0.000s |  All Task WaitReaderTime 0.000s | Percentage 100.00%
+2021-12-25 15:50:33.919 [job-0] INFO  JobContainer - 
+任务启动时刻                    : 2021-12-25 15:50:22
+任务结束时刻                    : 2021-12-25 15:50:33
+任务总计耗时                    :                 11s
+任务平均流量                    :                7B/s
+记录写入速度                    :              0rec/s
+读出记录总数                    :                   4
+读写失败总数                    :                   0
+
+[root@localhost datax]# 
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225155409231-726153943.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225155516673-940615702.png)
+
+
+### 六、SQL Server
+#### 6.1 什么是SQL Server
+美国Microsoft公司推出的一种关系型数据库系统。SQL Server是一个可扩展的、高性能的、为分布式客户机/服务器计算所设计的数据库管理系统，实现了与WindowsNT 的有机结合，提供了基于事务的企业级信息管理系统方案。SQL Server的基本语法和 MySQL基本相同。
+(1）高性能设计，可充分利用WindowsNT的优势。
+(2）系统管理先进，支持 Windows图形化管理工具，支持本地和远程的系统管理和配
+置。-
+(3）强壮的事务处理功能，采用各种方法保证数据的完整性。
+(4)支持对称多处理器结构、存储过程、ODBC，并具有自主的SQL语言。SQLServer以其内置的数据复制功能、强大的管理工具、与Internet 的紧密集成和开放的系统结构为广大的用户、开发人员和系统集成商提供了一个出众的数据库平台。
+
+
+#### 6.2 安装
+##### 6.2.1 安装要求
+系统要求:
+1、centos或redhat7.0以上系统
+2、内存2G以上-
+说明:
+linux下安装sqlserver数据库有2种办法:
+使用rpm安装包安装
+rpm安装包地址: https:/packages.microsoft.com/rhel/7/mssql-server-2017/安装时缺少什么依赖，就使用yum进行安装补齐
+使用yum镜像安装
+
+
+##### 6.2.2 安装步骤
+1）下载 Microsoft sQL Server 2017 Red Hat存储库配置文件
+```
+sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
+```
+
+2）执行安装
+```
+yum install -y mssql-serverl
+```
+
+3）完毕之后运行做相关配置
+```
+sudo /opt/mssql/bin/mssql-conf setup
+```
+
+##### 6.2.3 安装配置
+- 1）执行配置命令
+```
+sudo /opt/mssql/bin/mssql-conf setup  
+```
+
+- 2）选择安装的版本
+1-8   2
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225160512837-780021021.png)
+
+- 3）选择语言
+10  中文简体
+
+- 4）配置系统管理员密码
+
+- 5）完成
+
+
+##### 6.2.4 安装命令行工具
+```
+1）下载存储库配置文件
+sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/7/prod.repo
+
+2）执行安装
+sudo yum remove mssql-tools unixODBC-utf16-devel
+sudo yum install mssql-tools unixODBC-devel
+
+3）配置环境变量
+sudo vim /etc/profile.d/my_env.sh
+
+#添加环境变量
+export PATH="$PATH:/opt/mssql-tools/bin'
+source /etc/profile.d/my_env.sh'
+
+进入命令行工具
+sqlcmd -S localhost -U SA -P 密码 #用命令行连接
+
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211225161004766-2109661401.png)
+
+
+#### 6.3简单使用
+
+##### 6.3.1 启停命令
+```
+#启动
+systemctl jstart mssql-server 
+
+#重启
+systemctl restart mssql-server
+
+#停止
+systemctl stop mssql-server
+
+#查看状态
+systemctl status mssql-server
+
+#具体配置路径
+/opt/mssql/bin/mssql-conf
+
+```
+
+##### 6.3.2 创建数据库
+```
+建库
+>create database testme
+>go
+
+(2)看当前数据库列表
+>select* from SysDatabases
+
+(3)看当前数据表
+> use库名
+> select * from sysobiects where xtype='U'
+>go
+
+(4)看表的内容
+> select*from表名; 
+>go
+
+```
+
+
+#### 6.4 DataX 导入导出案例
+创建表并插入数据
+```
+>create table student(id int,name varchar(25))
+>go
+>insert into student values(1,'zhangsan')
+>go
+```
+
+##### 6.4.1 读取SQLServer数据导入到MySQL
+参考上面即可
+
+
+##### 6.4.2 读取SQLServer数据导入到HDFS
+
+参考上面即可
