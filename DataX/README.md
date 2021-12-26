@@ -1660,3 +1660,133 @@ systemctl status mssql-server
 ##### 6.4.2 读取SQLServer数据导入到HDFS
 
 参考上面即可
+
+
+
+### 七、DB2
+
+#### 7.1 什么是DB2
+DB2是 IBM 公司于1983年研制的一种关系型数据库系统(Relational DatabaseManagement System)，主要应用于大型应用系统，具有较好的可伸缩性。DB2是 IBM推出的第二个关系型数据库，所以称为 db2。DB2提供了高层次的数据利用性、完整性、安全性、并行性、可恢复性，以及小规模到大规模应用程序的执行能力，具有与平台无关的基本功能和SQL命令运行环境。可以同时在不同操作系统使用,包括Linux.UNIX和Windows。
+
+
+#### 7.2 DB2数据库对象关系
+- 1、instance，同一台机器上可以安装多个DB2 instance。
+- 2、database，同一个instance下面可以创建有多个database。
+- 3、schema,同一个database下面可以配置多个schema。
+- 4、table，同一个schema下可以创建多个table。
+
+
+
+#### 7.3 安装前准备
+
+##### 7.3.1 安装依赖
+```
+yum install -y bc binutils compat-libcapl compat-libstdc++33 elfutils-libelf elfutils-libelf-devel fontconfig-devel glibc glibc-devel ksh libaio libaio-devel libX11libXau libXi libXtst libXrender libXrender-devel libgcc libstdc++ libstdc++-devel libxcb make smartmontools sysstat kmod* gcc-c++ compat-libstdc++-33
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226110331786-2098053651.png)
+
+
+
+##### 7.3.1 修改配置文件sysctl.conf
+```
+vim /etc/sysctl.conf
+
+删除里面的内容,添加下面的内容
+
+net.ipv4.ip_local_port_range = 9000 65500
+fs.file-max = 6815744
+kernel.shmall =10523004
+kernel.shmmax =6465333657
+kernel.shmmni = 4096
+kernel.sem= 250 32000 100 128
+net.core.rmem_default=262144
+net.core.wmem_default=262144
+net.core.rmem_max=4194304
+net.core.wmem_max=1048576
+fs.aio-max-nr = 1048576
+
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226110729554-1197381596.png)
+
+
+##### 7.3.3 修改配置文件limits.conf
+```
+vim /etc/security/limits.conf
+
+
+在文件末尾追加(* 表示是所有用户)
+
+* soft nproc 65536
+* hard nproc 65536
+* soft nofile 65536
+* hard nofile 65536
+
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211224150629972-1821052922.png)
+
+>重启机器生效
+
+##### 7.3.4 上传安装包并解压
+```
+tar -zxvf v11.5.4 linuxx64_server_ dec.tar.gz -C /opt/module/
+
+chmod 777 server_dec
+```
+
+
+#### 7.4 安装
+在root用户下操作
+1）执行预检查命令
+```
+./db2prereqcheck -1 -s //检查环境
+```
+
+2）执行安装
+```
+./db2_install
+```
+pureScala可不装
+
+3）查看许可
+```
+此处是安装目录下的/adm/./db2licm -l
+```
+
+4）添加组和用户
+```
+groupadd -g 2000 db2iadml
+groupadd -g 2001 db2fadml
+useradd -m -g db2iadm1 -d /home/db2inst1 db2instl
+useradd -m -g db2fadm1 -d /home/db2fenc1 db2fenc1
+
+passwd db2inst1
+passwd db2fenc1
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226113747011-658816980.png)
+
+db2instl：所有实例者
+db2fenc1：受防护用户
+
+
+5）创建用户
+```
+cd ../v11.5/instance 
+./db2icrt -p 50000 -u db2fenc1 db2inst1
+```
+
+6）创建实例、开启服务
+```
+su - db2inst1
+db2sampl
+
+db2start
+```
+
+7）连接
+```
+db2
+connect to sample
+select * from staff
+```
+
+8）创建表和插入数据
