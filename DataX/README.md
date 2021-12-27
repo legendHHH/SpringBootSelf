@@ -1685,6 +1685,9 @@ yum install -y bc binutils compat-libcapl compat-libstdc++33 elfutils-libelf elf
 ```
 ![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226110331786-2098053651.png)
 
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226161328126-388651018.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226161903937-389368940.png)
 
 
 ##### 7.3.1 修改配置文件sysctl.conf
@@ -1728,51 +1731,454 @@ vim /etc/security/limits.conf
 
 ##### 7.3.4 上传安装包并解压
 ```
-tar -zxvf v11.5.4 linuxx64_server_ dec.tar.gz -C /opt/module/
+tar -zxvf v11.5.4_linuxx64_server_dec.tar.gz -C /opt/module/
 
+tar -zxvf v11.5.4_linuxx64_server_dec.tar.gz
 chmod 777 server_dec
 ```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226161055990-2003068737.png)
 
 
 #### 7.4 安装
 在root用户下操作
 1）执行预检查命令
 ```
-./db2prereqcheck -1 -s //检查环境
+./db2prereqcheck -l -s //检查环境
 ```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226161210840-1837073617.png)
+
+之前的依赖安装完成后执行检查环境还是缺少
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226162453393-2084868640.png)
+
+```
+yum install libstdc++.so.6
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226162559034-1998735106.png)
+
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226162638505-690638874.png)
+
 
 2）执行安装
 ```
 ./db2_install
 ```
-pureScala可不装
+>pureScala可不装，装集群才需要单机版不用
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226162934547-1377078669.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226163300087-892672081.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226163334941-1644607803.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226163609755-341732581.png)
+
+
+```
+[root@localhost server_dec]# ./db2prereqcheck -l -s
+Requirement not matched for DB2 database "Server" . Version: "11.5.4.0". Summary of prerequisites that are not met on the current system:    DBT3514W  The db2prereqcheck utility failed to find the following 32-bit library file: "/lib/libpam.so*". 
+
+
+Requirement not matched for DB2 database "Server" with pureScale feature . Version: "11.5.4.0". Summary of prerequisites that are not met on the current system: DBT3613E  The db2prereqcheck utility failed to verify the prerequisites for TSA. Ensure your machine meets all the TSA installation prerequisites. 
+
+DBT3507E  The db2prereqcheck utility failed to find the following package or file: "kernel-source". 
+
+
+[root@localhost server_dec]# ./db2_install
+Requirement not matched for DB2 database "Server" . Version: "11.5.4.0". 
+
+Summary of prerequisites that are not met on the current system: 
+
+   DBT3514W  The db2prereqcheck utility failed to find the following 32-bit library file: "/lib/libpam.so*". 
+
+
+Read the license agreement file in the db2/license directory.
+
+***********************************************************
+To accept those terms, enter "yes". Otherwise, enter "no" to cancel the install process. [yes/no]
+yes
+ 
+ 
+Default directory for installation of products - /opt/ibm/db2/V11.5
+
+***********************************************************
+Install into default directory (/opt/ibm/db2/V11.5) ? [yes/no] 
+yes
+ 
+ 
+Specify one of the following keywords to install DB2 products.
+
+  SERVER 
+  CONSV 
+  CLIENT 
+  RTCL 
+ 
+Enter "help" to redisplay product names.
+
+Enter "quit" to exit.
+
+***********************************************************
+SERVER
+***********************************************************
+Do you want to install the DB2 pureScale Feature? [yes/no] 
+no
+Requirement not matched for DB2 database "Server" . Version: "11.5.4.0". 
+
+Summary of prerequisites that are not met on the current system: 
+
+   DBT3514W  The db2prereqcheck utility failed to find the following 32-bit library file: "/lib/libpam.so*". 
+
+
+DB2 installation is being initialized.
+
+ Total number of tasks to be performed: 58 
+Total estimated time for all tasks to be performed: 2692 second(s) 
+
+Task #1 start
+Description: Checking license agreement acceptance 
+Estimated time 1 second(s) 
+Task #1 end 
+
+Task #2 start
+Description: Base Client Support for installation with root privileges 
+Estimated time 3 second(s) 
+Task #2 end 
+
+Task #3 start
+Description: Product Messages - English 
+Estimated time 14 second(s) 
+Task #3 end 
+
+Task #4 start
+Description: Base client support 
+Estimated time 290 second(s) 
+Task #4 end 
+
+Task #5 start
+Description: Java Runtime Support 
+Estimated time 216 second(s) 
+Task #5 end 
+
+Task #6 start
+Description: Java Help (HTML) - English 
+Estimated time 7 second(s) 
+Task #6 end 
+
+Task #7 start
+Description: Base server support for installation with root privileges 
+Estimated time 6 second(s) 
+Task #7 end 
+
+Task #8 start
+Description: Global Secure ToolKit 
+Estimated time 74 second(s) 
+Task #8 end 
+
+Task #9 start
+Description: Java support 
+Estimated time 11 second(s) 
+Task #9 end 
+
+Task #10 start
+Description: SQL procedures 
+Estimated time 3 second(s) 
+Task #10 end 
+
+Task #11 start
+Description: ICU Utilities 
+Estimated time 59 second(s) 
+Task #11 end 
+
+Task #12 start
+Description: Java Common files 
+Estimated time 18 second(s) 
+Task #12 end 
+
+Task #13 start
+Description: Base server support 
+Estimated time 572 second(s) 
+Task #13 end 
+
+Task #14 start
+Description: Control Center Help (HTML) - English 
+Estimated time 13 second(s) 
+Task #14 end 
+
+Task #15 start
+Description: Relational wrappers common 
+Estimated time 3 second(s) 
+Task #15 end 
+
+Task #16 start
+Description: DB2 data source support 
+Estimated time 6 second(s) 
+Task #16 end 
+
+Task #17 start
+Description: ODBC data source support 
+Estimated time 309 second(s) 
+Task #17 end 
+
+Task #18 start
+Description: Teradata data source support 
+Estimated time 3 second(s) 
+Task #18 end 
+
+Task #19 start
+Description: Spatial Extender server support 
+Estimated time 21 second(s) 
+Task #19 end 
+
+Task #20 start
+Description: Scientific Data Sources 
+Estimated time 5 second(s) 
+Task #20 end 
+
+Task #21 start
+Description: JDBC data source support 
+Estimated time 267 second(s) 
+Task #21 end 
+
+Task #22 start
+Description: IBM Software Development Kit (SDK) for Java(TM) 
+Estimated time 49 second(s) 
+Task #22 end 
+
+Task #23 start
+Description: DB2 LDAP support 
+Estimated time 4 second(s) 
+Task #23 end 
+
+Task #24 start
+Description: DB2 Instance Setup wizard 
+Estimated time 23 second(s) 
+Task #24 end 
+
+Task #25 start
+Description: Structured file data sources 
+Estimated time 5 second(s) 
+Task #25 end 
+
+Task #26 start
+Description: Integrated Flash Copy Support 
+Estimated time 3 second(s) 
+Task #26 end 
+
+Task #27 start
+Description: Oracle data source support 
+Estimated time 4 second(s) 
+Task #27 end 
+
+Task #28 start
+Description: Connect support 
+Estimated time 3 second(s) 
+Task #28 end 
+
+Task #29 start
+Description: Application data sources 
+Estimated time 4 second(s) 
+Task #29 end 
+
+Task #30 start
+Description: Spatial Extender client 
+Estimated time 3 second(s) 
+Task #30 end 
+
+Task #31 start
+Description: SQL Server data source support 
+Estimated time 4 second(s) 
+Task #31 end 
+
+Task #32 start
+Description: Communication support - TCP/IP 
+Estimated time 3 second(s) 
+Task #32 end 
+
+Task #33 start
+Description: Tivoli SA MP 
+Estimated time 300 second(s) 
+Task #33 end 
+
+Task #34 start
+Description: Base application development tools 
+Estimated time 32 second(s) 
+Task #34 end 
+
+Task #35 start
+Description: DB2 Update Service 
+Estimated time 4 second(s) 
+Task #35 end 
+
+Task #36 start
+Description: Parallel Extension 
+Estimated time 3 second(s) 
+Task #36 end 
+
+Task #37 start
+Description: EnterpriseDB code 
+Estimated time 3 second(s) 
+Task #37 end 
+
+Task #38 start
+Description: Replication tools 
+Estimated time 59 second(s) 
+Task #38 end 
+
+Task #39 start
+Description: Sample database source 
+Estimated time 4 second(s) 
+Task #39 end 
+
+Task #40 start
+Description: itlm 
+Estimated time 3 second(s) 
+Task #40 end 
+
+Task #41 start
+Description: DB2 Text Search 
+Estimated time 107 second(s) 
+Task #41 end 
+
+Task #42 start
+Description: Command Line Processor Plus 
+Estimated time 7 second(s) 
+Task #42 end 
+
+Task #43 start
+Description: Sybase data source support 
+Estimated time 3 second(s) 
+Task #43 end 
+
+Task #44 start
+Description: Informix data source support 
+Estimated time 4 second(s) 
+Task #44 end 
+
+Task #45 start
+Description: Federated Data Access Support 
+Estimated time 3 second(s) 
+Task #45 end 
+
+Task #46 start
+Description: First Steps 
+Estimated time 3 second(s) 
+Task #46 end 
+
+Task #47 start
+Description: Product Signature for DB2 Server Edition 
+Estimated time 7 second(s) 
+Task #47 end 
+
+Task #48 start
+Description: Guardium Installation Manager Client 
+Estimated time 36 second(s) 
+Task #48 end 
+
+Task #49 start
+Description: Setting DB2 library path 
+Estimated time 180 second(s) 
+Task #49 end 
+
+Task #50 start
+Description: Installing or updating DB2 HA scripts for IBM Tivoli System Automation for Multiplatforms (Tivoli SA MP) 
+Estimated time 40 second(s) 
+Task #50 end 
+
+Task #51 start
+Description: Executing control tasks 
+Estimated time 20 second(s) 
+Task #51 end 
+
+Task #52 start
+Description: Updating global registry 
+Estimated time 20 second(s) 
+Task #52 end 
+
+Task #53 start
+Description: Starting DB2 Fault Monitor 
+Estimated time 10 second(s) 
+Task #53 end 
+
+Task #54 start
+Description: Updating the db2ls and db2greg link 
+Estimated time 1 second(s) 
+Task #54 end 
+
+Task #55 start
+Description: Registering DB2 licenses 
+Estimated time 5 second(s) 
+Task #55 end 
+
+Task #56 start
+Description: Setting default global profile registry variables 
+Estimated time 1 second(s) 
+Task #56 end 
+
+Task #57 start
+Description: Initializing instance list 
+Estimated time 5 second(s) 
+Task #57 end 
+
+Task #58 start
+Description: Registering DB2 Update Service 
+Estimated time 30 second(s) 
+Task #58 end 
+
+Task #59 start
+Description: Updating global profile registry 
+Estimated time 3 second(s) 
+Task #59 end 
+
+The execution completed with warnings.
+
+For more information see the DB2 installation log at
+"/tmp/db2_install.log.741".
+[root@localhost server_dec]#
+
+```
 
 3）查看许可
 ```
-此处是安装目录下的/adm/./db2licm -l
+此处是安装目录下的/adm/db2licm -l
+
+默认安装的位置
+/opt/ibm/db2/V11.5/
+
+/opt/ibm/db2/V11.5/adm/db2licm -l
 ```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226164100179-851669879.png)
+
 
 4）添加组和用户
+db2inst1：所有实例者
+db2fenc1：受防护用户
 ```
-groupadd -g 2000 db2iadml
-groupadd -g 2001 db2fadml
-useradd -m -g db2iadm1 -d /home/db2inst1 db2instl
+groupadd -g 2000 db2iadm1
+groupadd -g 2001 db2fadm1
+useradd -m -g db2iadm1 -d /home/db2inst1 db2inst1
 useradd -m -g db2fadm1 -d /home/db2fenc1 db2fenc1
 
+//12345678
 passwd db2inst1
 passwd db2fenc1
 ```
 ![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226113747011-658816980.png)
 
-db2instl：所有实例者
-db2fenc1：受防护用户
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226164524002-987085819.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226164910876-1755304521.png)
+
 
 
 5）创建用户
 ```
-cd ../v11.5/instance 
+cd /opt/ibm/db2/V11.5/instance
 ./db2icrt -p 50000 -u db2fenc1 db2inst1
 ```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226164804646-515889641.png)
+
+ ![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226165009843-29561105.png)
+
 
 6）创建实例、开启服务
 ```
@@ -1781,12 +2187,339 @@ db2sampl
 
 db2start
 ```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226171725625-1737907147.png)
+
 
 7）连接
 ```
 db2
-connect to sample
+db2=>connect to sample
 select * from staff
 ```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226171858520-692910184.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226171948437-1497547276.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226172044234-323577673.png)
+
+
+使用DBeaver连接DB2数据库
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226172640287-1915916389.png)
+
+
 
 8）创建表和插入数据
+```
+CREATE TABLE STUDENT(ID int, NAME varchar(20));
+INSERT INTO STUDENT VALUES(1, 'zhangsan');
+INSERT INTO STUDENT VALUES(2, 'lisi');
+commit;
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226172937502-23552996.png)
+
+
+#### 7.5 DataX导入导出案例
+##### 7.5.1 注册DB2驱动
+datax暂时没有独立插件支持db2，需要使用通用的使用rdbmsreader或rdbmswriter。
+
+-  1）注册reader的 db2驱动
+```
+#备份原始的json文件
+cp /data/datax/plugin/reader/rdbmsreader/plugin.json plugin/reader/rdbmsreader/plugin-bak.json
+
+vim /data/datax/plugin/reader/rdbmsreader/plugin.json
+#在 drivers里添加db2的驱动类
+"drivers":["dm.jdbc.driver.DmDriver", "com.sybase.jdbc3.jdbc.SybDriver","com.edb.Driver", "com.ibm.db2.jcc.DB2Driver"]
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226185547110-987790898.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226185642352-1890651729.png)
+
+
+2）注册writer 的db2驱动
+```
+#备份原始的json文件
+cp /data/datax/plugin/writer/rdbmswriter/plugin.json plugin/writer/rdbmswriter/plugin-bak.json
+
+vim /data/datax/plugin/writer/rdbmswriter/plugin.json
+#在 drivers里添加db2的驱动类
+"drivers":["dm.jdbc.driver.DmDriver", "com.sybase.jdbc3.jdbc.SybDriver","com.edb.Driver", "com.ibm.db2.jcc.DB2Driver"]
+```
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226185948777-2082021548.png)
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226185920060-1131067649.png)
+
+
+##### 7.5.2 读取DB2的数据导入到HDFS
+- 查看json模板   bin/datax.py -r rdbmsreader -w hdfswriter
+```
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "rdbmsreader", 
+                    "parameter": {
+                        "column": [], 
+                        "connection": [
+                            {
+                                "jdbcUrl": [], 
+                                "table": []
+                            }
+                        ], 
+                        "password": "", 
+                        "username": "", 
+                        "where": ""
+                    }
+                }, 
+                "writer": {
+                    "name": "hdfswriter", 
+                    "parameter": {
+                        "column": [], 
+                        "compress": "", 
+                        "defaultFS": "", 
+                        "fieldDelimiter": "", 
+                        "fileName": "", 
+                        "fileType": "", 
+                        "path": "", 
+                        "writeMode": ""
+                    }
+                }
+            }
+        ], 
+        "setting": {
+            "speed": {
+                "channel": ""
+            }
+        }
+    }
+}
+```
+
+
+##### 7.5.3 读取DB2的数据导入到MySQL
+- 查看json模板   bin/datax.py -r rdbmsreader -w mysqlwriter
+- 修改json模板数据
+```
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "rdbmsreader", 
+                    "parameter": {
+                        "column": ["*"], 
+                        "connection": [
+                            {
+                                "jdbcUrl": ["jdbc:db2://192.168.56.10:50000/sample"], 
+                                "table": [
+                                    "STUDENT"
+                                ]
+                            }
+                        ], 
+                        "password": "12345678", 
+                        "username": "db2inst1", 
+                        "where": ""
+                    }
+                }, 
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                            "id",
+                            "name"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://192.168.1.37:3306/test",
+                                "table": ["db22mysql"]
+                            }
+                        ],
+                        "password": "123456",
+                        "username": "root",
+                        "writeMode": "insert"
+                    }
+                }
+            }
+        ], 
+        "setting": {
+            "speed": {
+                "channel": "1"
+            }
+        }
+    }
+}
+```
+
+- 执行job任务
+```
+bin/datax.py ./job/db22mysqljob.json
+```
+
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226190353571-31064466.png)
+
+
+- 执行log
+```
+[root@localhost datax]# bin/datax.py ./job/db22mysqljob.json 
+
+DataX (DATAX-OPENSOURCE-3.0), From Alibaba !
+Copyright (C) 2010-2017, Alibaba Group. All Rights Reserved.
+
+
+2021-12-26 18:48:32.817 [main] INFO  VMInfo - VMInfo# operatingSystem class => sun.management.OperatingSystemImpl
+2021-12-26 18:48:32.888 [main] INFO  Engine - the machine info  => 
+
+	osInfo:	Oracle Corporation 1.8 25.291-b10
+	jvmInfo:	Linux amd64 3.10.0-1160.31.1.el7.x86_64
+	cpu num:	2
+
+	totalPhysicalMemory:	-0.00G
+	freePhysicalMemory:	-0.00G
+	maxFileDescriptorCount:	-1
+	currentOpenFileDescriptorCount:	-1
+
+	GC Names	[PS MarkSweep, PS Scavenge]
+
+	MEMORY_NAME                    | allocation_size                | init_size                      
+	PS Eden Space                  | 256.00MB                       | 256.00MB                       
+	Code Cache                     | 240.00MB                       | 2.44MB                         
+	Compressed Class Space         | 1,024.00MB                     | 0.00MB                         
+	PS Survivor Space              | 42.50MB                        | 42.50MB                        
+	PS Old Gen                     | 683.00MB                       | 683.00MB                       
+	Metaspace                      | -0.00MB                        | 0.00MB                         
+
+
+2021-12-26 18:48:32.958 [main] INFO  Engine - 
+{
+	"content":[
+		{
+			"reader":{
+				"name":"rdbmsreader",
+				"parameter":{
+					"column":[
+						"*"
+					],
+					"connection":[
+						{
+							"jdbcUrl":[
+								"jdbc:db2://192.168.56.10:50000/sample"
+							],
+							"table":[
+								"STUDENT"
+							]
+						}
+					],
+					"password":"********",
+					"username":"db2inst1",
+					"where":""
+				}
+			},
+			"writer":{
+				"name":"mysqlwriter",
+				"parameter":{
+					"column":[
+						"id",
+						"name"
+					],
+					"connection":[
+						{
+							"jdbcUrl":"jdbc:mysql://192.168.1.37:3306/test",
+							"table":[
+								"db22mysql"
+							]
+						}
+					],
+					"password":"******",
+					"username":"root",
+					"writeMode":"insert"
+				}
+			}
+		}
+	],
+	"setting":{
+		"speed":{
+			"channel":"1"
+		}
+	}
+}
+
+2021-12-26 18:48:32.997 [main] WARN  Engine - prioriy set to 0, because NumberFormatException, the value is: null
+2021-12-26 18:48:33.000 [main] INFO  PerfTrace - PerfTrace traceId=job_-1, isEnable=false, priority=0
+2021-12-26 18:48:33.001 [main] INFO  JobContainer - DataX jobContainer starts job.
+2021-12-26 18:48:33.006 [main] INFO  JobContainer - Set jobId = 0
+2021-12-26 18:48:35.457 [job-0] INFO  OriginalConfPretreatmentUtil - Available jdbcUrl:jdbc:db2://192.168.56.10:50000/sample.
+2021-12-26 18:48:35.462 [job-0] WARN  OriginalConfPretreatmentUtil - 您的配置文件中的列配置存在一定的风险. 因为您未配置读取数据库表的列，当您的表字段个数、类型有变动时，可能影响任务正确性甚至会运行出错。请检查您的配置并作出修改.
+2021-12-26 18:48:38.713 [job-0] INFO  OriginalConfPretreatmentUtil - table:[db22mysql] all columns:[
+id,name
+].
+2021-12-26 18:48:38.739 [job-0] INFO  OriginalConfPretreatmentUtil - Write data [
+insert INTO %s (id,name) VALUES(?,?)
+], which jdbcUrl like:[jdbc:mysql://192.168.1.37:3306/test?yearIsDateType=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&rewriteBatchedStatements=true]
+2021-12-26 18:48:38.740 [job-0] INFO  JobContainer - jobContainer starts to do prepare ...
+2021-12-26 18:48:38.741 [job-0] INFO  JobContainer - DataX Reader.Job [rdbmsreader] do prepare work .
+2021-12-26 18:48:38.741 [job-0] INFO  JobContainer - DataX Writer.Job [mysqlwriter] do prepare work .
+2021-12-26 18:48:38.743 [job-0] INFO  JobContainer - jobContainer starts to do split ...
+2021-12-26 18:48:38.743 [job-0] INFO  JobContainer - Job set Channel-Number to 1 channels.
+2021-12-26 18:48:38.757 [job-0] INFO  JobContainer - DataX Reader.Job [rdbmsreader] splits to [1] tasks.
+2021-12-26 18:48:38.758 [job-0] INFO  JobContainer - DataX Writer.Job [mysqlwriter] splits to [1] tasks.
+2021-12-26 18:48:38.829 [job-0] INFO  JobContainer - jobContainer starts to do schedule ...
+2021-12-26 18:48:38.857 [job-0] INFO  JobContainer - Scheduler starts [1] taskGroups.
+2021-12-26 18:48:38.862 [job-0] INFO  JobContainer - Running by standalone Mode.
+2021-12-26 18:48:38.902 [taskGroup-0] INFO  TaskGroupContainer - taskGroupId=[0] start [1] channels for [1] tasks.
+2021-12-26 18:48:38.952 [taskGroup-0] INFO  Channel - Channel set byte_speed_limit to -1, No bps activated.
+2021-12-26 18:48:38.953 [taskGroup-0] INFO  Channel - Channel set record_speed_limit to -1, No tps activated.
+2021-12-26 18:48:39.011 [taskGroup-0] INFO  TaskGroupContainer - taskGroup[0] taskId[0] attemptCount[1] is started
+2021-12-26 18:48:39.048 [0-0-0-reader] INFO  CommonRdbmsReader$Task - Begin to read record by Sql: [select * from STUDENT 
+] jdbcUrl:[jdbc:db2://192.168.56.10:50000/sample].
+2021-12-26 18:48:39.910 [0-0-0-reader] INFO  CommonRdbmsReader$Task - Finished read record by Sql: [select * from STUDENT 
+] jdbcUrl:[jdbc:db2://192.168.56.10:50000/sample].
+2021-12-26 18:48:40.118 [taskGroup-0] INFO  TaskGroupContainer - taskGroup[0] taskId[0] is successed, used[1113]ms
+2021-12-26 18:48:40.119 [taskGroup-0] INFO  TaskGroupContainer - taskGroup[0] completed it's tasks.
+2021-12-26 18:48:48.976 [job-0] INFO  StandAloneJobContainerCommunicator - Total 1 records, 9 bytes | Speed 0B/s, 0 records/s | Error 0 records, 0 bytes |  All Task WaitWriterTime 0.000s |  All Task WaitReaderTime 0.801s | Percentage 100.00%
+2021-12-26 18:48:48.976 [job-0] INFO  AbstractScheduler - Scheduler accomplished all tasks.
+2021-12-26 18:48:48.977 [job-0] INFO  JobContainer - DataX Writer.Job [mysqlwriter] do post work.
+2021-12-26 18:48:48.978 [job-0] INFO  JobContainer - DataX Reader.Job [rdbmsreader] do post work.
+2021-12-26 18:48:48.978 [job-0] INFO  JobContainer - DataX jobId [0] completed successfully.
+2021-12-26 18:48:48.979 [job-0] INFO  HookInvoker - No hook invoked, because base dir not exists or is a file: /data/datax/hook
+2021-12-26 18:48:48.981 [job-0] INFO  JobContainer - 
+	 [total cpu info] => 
+		averageCpu                     | maxDeltaCpu                    | minDeltaCpu                    
+		-1.00%                         | -1.00%                         | -1.00%
+                        
+
+	 [total gc info] => 
+		 NAME                 | totalGCCount       | maxDeltaGCCount    | minDeltaGCCount    | totalGCTime        | maxDeltaGCTime     | minDeltaGCTime     
+		 PS MarkSweep         | 0                  | 0                  | 0                  | 0.000s             | 0.000s             | 0.000s             
+		 PS Scavenge          | 0                  | 0                  | 0                  | 0.000s             | 0.000s             | 0.000s             
+
+2021-12-26 18:48:48.982 [job-0] INFO  JobContainer - PerfTrace not enable!
+2021-12-26 18:48:48.982 [job-0] INFO  StandAloneJobContainerCommunicator - Total 1 records, 9 bytes | Speed 0B/s, 0 records/s | Error 0 records, 0 bytes |  All Task WaitWriterTime 0.000s |  All Task WaitReaderTime 0.801s | Percentage 100.00%
+2021-12-26 18:48:48.984 [job-0] INFO  JobContainer - 
+任务启动时刻                    : 2021-12-26 18:48:33
+任务结束时刻                    : 2021-12-26 18:48:48
+任务总计耗时                    :                 15s
+任务平均流量                    :                0B/s
+记录写入速度                    :              0rec/s
+读出记录总数                    :                   1
+读写失败总数                    :                   0
+
+[root@localhost datax]# 
+
+```
+
+
+#### 7.6 Windows版本安装DB2
+https://blog.csdn.net/u012288582/article/details/80870630
+
+
+
+### 八、执行流程源码分析
+
+#### 8.1 总体流程
+![](https://img2020.cnblogs.com/blog/1231979/202112/1231979-20211226230745590-1146003628.png)
+
+
+- 黄色:Job部分的执行阶段,
+- 蓝色:Task部分的执行阶段,
+- 绿色：框架执行阶段。
