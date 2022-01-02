@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * client端
+ * 启动参数：-Dlog4j2.formatMsgNoLookups=true
  *
  * @author legend
  * @version 1.0
