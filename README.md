@@ -332,6 +332,99 @@ scp -rp /path/filename username@remoteIP:/path #将本地文件拷贝到服务�
 scp -rp username@remoteIP:/path/filename /path #将远程文件从服务器下载到本地
 
 
+### Linux下执行shell脚本，出现错误 $'\r':command not found的解决方案
+
+这个错误是由于Windows系统和Linux系统的不同编码造成的。Windows下的回车是\r\n，而Linux下的回车是\n，所以用shell远程编写的脚本中的回车不被Linux系统识别，但使用vim编辑的时候还看不到\r。
+
+>解决方法：用vim编辑脚本文件时加上-b，即`vim -b filename`，这样打开的文件是"Binary mode"，可以看到多出来的东西，显示的是^M，删掉保存运行就行了。
+
+
+### 谷歌浏览器保留页面跳转前的请求
+开发中往往会遇到这样的情况，调试一个请求，但是请求中有报错的跳转，结果一刷新页面就自动跳转了，也看不到请求报错，
+
+>这个时候只要勾选上preserver log即可谷歌浏览器保留页面跳转前的请求
+
+
+###  Linux下使用shell脚本启动，停止，重启服务
+```
+#!/bin/bash
+#description: 启动重启server服务
+#启动命令所在目录
+HOME='/data/tsapp'
+#过滤查询执行.jar的线程PID
+pid=`ps -ef|grep TSApp.jar|grep -v grep|awk '{printf $2}'`
+#执行jar
+start(){
+   if [ -n "$pid" ]; then
+      echo "server already start,pid:$pid"
+      return 0
+   fi
+   #进入命令所在目录
+   cd $HOME
+   #启动服务 把日志输出到HOME目录的server.log文件中
+   nohup java -jar $HOME/TSApp.jar > $HOME/server.log 2>&1 &
+   spid=`ps -ef|grep TSApp.jar|grep -v grep|awk '{printf $2}'`
+   echo "program is start on pid:$spid"
+}
+#停止
+stop(){
+   if [ -z "$pid" ]; then
+      echo "not find program on pid:$pid"
+      return 0
+   fi
+   #结束程序，使用讯号2，如果不行可以尝试讯号9强制结束
+   kill -9 $pid
+   rm -rf $pid
+   echo "kill program use signal 2,pid:$pid"
+}
+status(){
+   if [ -z "$pid" ]; then
+      echo "not find program on pid:$pid"
+   else
+      echo "program is running,pid:$pid"
+   fi
+}
+
+case $1 in
+   start)
+      start
+   ;;
+   stop)
+      stop
+   ;;
+   restart)
+      $0 stop
+      sleep 2
+      $0 start
+    ;;
+   status)
+      status
+   ;;
+   *)
+      echo "Usage: {start|stop|status}"
+   ;;
+esac
+
+exit 0
+```
+
+执行方法：给脚本加权限，
+```
+chmod 777 tsapp.sh
+
+-- 启动jar
+./tsapp.sh start
+
+-- 停止jar
+./tsapp.sh stop
+
+-- 重新启动jar
+./tsapp.sh restart
+
+-- 查看jar运行状态
+./tsapp.sh status
+```
+
 ### centos7安装node forever
 - 安装Nodejs
 - 安装forever
