@@ -19,6 +19,17 @@
     </properties>
 
     <dependencies>
+        <!--Java调用python-->
+        <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython-standalone</artifactId>
+            <version>2.7.0</version>
+        </dependency>
         <!--openjdk  分析对象在JVM的大小和分布-->
         <dependency>
             <groupId>org.openjdk.jol</groupId>
@@ -98,6 +109,12 @@
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
             <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
