@@ -300,4 +300,20 @@ public class CityRestController {
         System.out.println("hello" + map.toString());
         return code;
     }
+
+    @GetMapping("/arthas")
+    public String arthas() {
+        int i = 10 / 0;
+        return "1";
+    }
+
+    @GetMapping("/arthas2")
+    public String arthasTimeOut() {
+        try {
+            Thread.sleep(1000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "1";
+    }
 }
