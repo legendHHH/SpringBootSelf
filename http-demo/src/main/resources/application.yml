@@ -4,7 +4,7 @@ spring:
     host: smtp.qq.com
     username: 737795279@qq.com
     #QQ邮箱的授权码
-    password: 123456
+    password: ktuwjwmhlmtibfha
     default-encoding: UTF-8
     properties:
       from: 737795279@qq.com #邮件发信人（即真实邮箱）
