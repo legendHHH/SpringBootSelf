@@ -1,5 +1,8 @@
 package com.legend.mybatis.pojo;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * User
  *
@@ -8,11 +11,23 @@ package com.legend.mybatis.pojo;
  * @description
  * @date 2022/4/9
  */
-public class User {
+public class User implements Serializable {
     private String id;
     private String username;
     private String password;
 
+    /**
+     * 一个用户有多个订单
+     */
+    private List<Order> orderList;
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public User() {
     }
@@ -53,6 +68,7 @@ public class User {
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", orderList=" + orderList +
                 '}';
     }
 }

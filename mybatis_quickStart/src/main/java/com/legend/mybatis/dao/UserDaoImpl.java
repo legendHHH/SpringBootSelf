@@ -41,4 +41,14 @@ public class UserDaoImpl implements IUserDao {
     public User selectOne(User user) {
         return null;
     }
+
+    @Override
+    public User findByCondition(User user) {
+        return null;
+    }
+
+    @Override
+    public List<User> findByIds(int[] arr) {
+        return null;
+    }
 }

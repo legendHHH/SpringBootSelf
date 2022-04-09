@@ -2,6 +2,9 @@ package com.legend.mybatis.test;
 
 import com.legend.mybatis.dao.IUserDao;
 import com.legend.mybatis.dao.UserDaoImpl;
+import com.legend.mybatis.mapper.IOrderMapper;
+import com.legend.mybatis.mapper.IUserMapper;
+import com.legend.mybatis.pojo.Order;
 import com.legend.mybatis.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -110,6 +113,52 @@ public class MyBatisTest {
         //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
         IUserDao mapper = sqlSession.getMapper(IUserDao.class);
         List<User> users = mapper.selectList();
+        for (User user : users) {
+            System.out.println(user);
+        }
+    }
+
+    @Test
+    public void test7() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
+        IUserDao mapper = sqlSession.getMapper(IUserDao.class);
+
+        int[] arr = {1, 2};
+        List<User> users = mapper.findByIds(arr);
+        for (User user : users) {
+            System.out.println(user);
+        }
+    }
+
+    @Test
+    public void test8() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
+        IOrderMapper mapper = sqlSession.getMapper(IOrderMapper.class);
+
+        List<Order> orders = mapper.findOrderAndUser();
+        for (Order order : orders) {
+            System.out.println(order);
+        }
+    }
+
+    @Test
+    public void test9() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
+        IUserMapper mapper = sqlSession.getMapper(IUserMapper.class);
+
+        List<User> users = mapper.findAll();
         for (User user : users) {
             System.out.println(user);
         }
