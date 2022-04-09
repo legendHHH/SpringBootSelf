@@ -8,12 +8,12 @@
     <properties resource="jdbc.properties"></properties>
 
     <!--给实体类的全限定类名给别名-->
-    <!--<typeAliases>
-        &lt;!&ndash;给单独的实体起别名&ndash;&gt;
-        &lt;!&ndash;  <typeAlias type="com.lagou.pojo.User" alias="user"></typeAlias>&ndash;&gt;
-        &lt;!&ndash;批量起别名：该包下所有的类的本身的类名：别名还不区分大小写&ndash;&gt;
-        <package name="com.lagou.pojo"/>
-    </typeAliases>-->
+    <typeAliases>
+        <!--给单独的实体起别名-->
+        <!--  <typeAlias type="com.legend.mybatis.pojo.User" alias="user"></typeAlias>-->
+        <!--批量起别名：该包下所有的类的本身的类名：别名还不区分大小写-->
+        <package name="com.legend.mybatis.pojo"/>
+    </typeAliases>
 
     <!--environments:运行环境-->
     <environments default="development">
@@ -32,8 +32,7 @@
 
     <!--引入映射配置文件-->
     <mappers>
-        <!--<mapper resource="UserMapper.xml"></mapper>-->
-        <mapper url="file://D:/WorkCode/ideaWork/SpringBootSelf/mybatis_quickStart/src/main/resources/UserMapper.xml"></mapper>
+        <mapper resource="UserMapper.xml"></mapper>
     </mappers>
 
 

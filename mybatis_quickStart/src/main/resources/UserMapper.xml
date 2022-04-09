@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="user">
+<mapper namespace="com.legend.mybatis.dao.IUserDao">
     <!--namespace : 名称空间：与id组成sql的唯一标识
         resultType： 表明返回值类型-->
 
@@ -16,10 +16,14 @@
         <include refid="selectUser"></include>
     </select>
 
+    <select id="selectList" resultType="com.legend.mybatis.pojo.User">
+        <include refid="selectUser"></include>
+    </select>
+
     <!--添加用户-->
     <!--parameterType：参数类型-->
-    <insert id="saveUser" parameterType="user">
-        insert into tbl_user values(#{id},#{username})
+    <insert id="saveUser" parameterType="uSeR">
+        insert into tbl_user values(#{id},#{username}, #{password})
     </insert>
 
     <!--修改-->

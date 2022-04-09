@@ -33,7 +33,7 @@ public class MyBatisTest {
         //默认开启一个事务，但是该事务不会自动提交。在进行增删改操作时，要手动提交事务
         SqlSession sqlSession = sqlSessionFactory.openSession();
         //4.sqlSession调用方法，查询所有selectList  查询单个：selectOne  添加：insert 修改：update  删除：delete
-        List<User> u2 = sqlSession.selectList("user.findAll");
+        List<User> u2 = sqlSession.selectList("com.legend.mybatis.dao.IUserDao.findAll");
         for (User user1 : u2) {
             System.out.println(user1);
         }
@@ -52,7 +52,8 @@ public class MyBatisTest {
         User user = new User();
         user.setId("90");
         user.setUsername("testInsert");
-        sqlSession.insert("user.saveUser", user);
+        user.setPassword("123456");
+        sqlSession.insert("com.legend.mybatis.dao.IUserDao.saveUser", user);
         //提交事务
         sqlSession.commit();
 
@@ -69,7 +70,7 @@ public class MyBatisTest {
         User user = new User();
         user.setId("90");
         user.setUsername("testUpdate");
-        sqlSession.update("user.updateUser", user);
+        sqlSession.update("com.legend.mybatis.dao.IUserDao.updateUser", user);
         //提交事务
         sqlSession.commit();
 
@@ -83,7 +84,7 @@ public class MyBatisTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        sqlSession.delete("user.deleteUser", 90);
+        sqlSession.delete("com.legend.mybatis.dao.IUserDao.deleteUser", 90);
         //提交事务
         sqlSession.commit();
 
@@ -98,5 +99,19 @@ public class MyBatisTest {
             System.out.println(user);
         }
 
+    }
+
+    @Test
+    public void test6() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
+        IUserDao mapper = sqlSession.getMapper(IUserDao.class);
+        List<User> users = mapper.selectList();
+        for (User user : users) {
+            System.out.println(user);
+        }
     }
 }
