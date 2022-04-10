@@ -10,8 +10,10 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -159,9 +161,32 @@ public class MyBatisTest {
         IUserMapper mapper = sqlSession.getMapper(IUserMapper.class);
 
         //List<User> users = mapper.findAll();
+        //List<User> users = mapper.findAllUser();
         List<User> users = mapper.findAllUserAndRole();
         for (User user : users) {
             System.out.println(user);
         }
+    }
+
+    private IUserMapper userMapper;
+
+    @Before
+    public void method() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+        //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
+        userMapper = sqlSession.getMapper(IUserMapper.class);
+    }
+
+    @Test
+    public void addUser() {
+        User user = new User();
+        user.setId("4");
+        user.setUsername("4");
+        user.setPassword("4");
+        userMapper.addUser(user);
+
     }
 }

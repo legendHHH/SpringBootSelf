@@ -32,11 +32,13 @@
 
     <!--引入映射配置文件-->
     <mappers>
-        <mapper resource="UserMapper.xml"></mapper>
+        <!--<mapper resource="UserMapper.xml"></mapper>
         <mapper resource="IUserMapper.xml"></mapper>
-        <mapper resource="IOrderMapper.xml"></mapper>
+        <mapper resource="IOrderMapper.xml"></mapper>-->
+        <!--注解开发的时候可以使用-->
+        <!--<mapper class="com.legend.mybatis.mapper.IUserMapper"></mapper>-->
         <!--批量引入mapper.xml的文件 接口文件需要和xml文件同包同名-->
-        <!--<package name="com.legend.mybatis.mapper"></package>-->
+        <package name="com.legend.mybatis.mapper"></package>
     </mappers>
 
 

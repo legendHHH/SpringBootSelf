@@ -4,20 +4,13 @@
 <mapper namespace="com.legend.mybatis.mapper.IUserMapper">
 
     <!--resultMap:手动来配置实体属性与表字段的映射关系-->
-    <resultMap id="orderMap" type="com.legend.mybatis.pojo.Order">
-        <result property="id" column="id"></result>
-        <result property="orderTime" column="orderTime"></result>
-        <result property="total" column="total"></result>
-        <association property="user" javaType="com.legend.mybatis.pojo.User">
-            <!--<result property="id" column="id"></result>-->
-            <!--可以写成外键的-->
-            <result property="id" column="uid"></result>
-            <result property="username" column="username"></result>
-            <result property="password" column="password"></result>
-        </association>
+    <resultMap id="userMap" type="com.legend.mybatis.pojo.User">
+        <result property="id" column="uid"></result>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
     </resultMap>
 
-    <select id="findAll" resultMap="orderMap">
-      select * from user u,orders o where u.id=o.uid
+    <select id="findAllUser" resultMap="userMap">
+      select * from user u
     </select>
 </mapper>
