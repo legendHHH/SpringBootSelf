@@ -20,4 +20,11 @@ public interface IUserMapper {
      * @return
      */
     public List<User> findAll();
+
+    /**
+     * 查询所有用户、同时查询每个用户关联的角色信息
+     *
+     * @return
+     */
+    public List<User> findAllUserAndRole();
 }

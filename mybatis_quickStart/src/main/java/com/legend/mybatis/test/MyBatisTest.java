@@ -158,7 +158,8 @@ public class MyBatisTest {
         //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
         IUserMapper mapper = sqlSession.getMapper(IUserMapper.class);
 
-        List<User> users = mapper.findAll();
+        //List<User> users = mapper.findAll();
+        List<User> users = mapper.findAllUserAndRole();
         for (User user : users) {
             System.out.println(user);
         }

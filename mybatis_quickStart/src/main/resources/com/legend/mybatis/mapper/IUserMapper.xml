@@ -17,7 +17,7 @@
         </association>
     </resultMap>
 
-    <select id="findAllUserAndRole" resultMap="orderMap">
+    <select id="findAll" resultMap="orderMap">
       select * from user u,orders o where u.id=o.uid
     </select>
 </mapper>
