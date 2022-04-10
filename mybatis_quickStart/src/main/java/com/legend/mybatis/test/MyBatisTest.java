@@ -1,5 +1,7 @@
 package com.legend.mybatis.test;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.legend.mybatis.dao.IUserDao;
 import com.legend.mybatis.dao.UserDaoImpl;
 import com.legend.mybatis.mapper.IOrderMapper;
@@ -217,5 +219,20 @@ public class MyBatisTest {
             System.out.println(user);
         }
 
+    }
+
+    @Test
+    public void pageHelperTest() {
+        PageHelper.startPage(1, 2);
+        List<User> userList = userMapper.findAllUser();
+        for (User user : userList) {
+            System.out.println(user);
+        }
+
+        PageInfo<User> userPageInfo = new PageInfo<>(userList);
+        System.out.println("总条数：" + userPageInfo.getTotal());
+        System.out.println("总页数：" + userPageInfo.getPages());
+        System.out.println("当前页：" + userPageInfo.getPageNum());
+        System.out.println("每页显示的条数：" + userPageInfo.getPageSize());
     }
 }

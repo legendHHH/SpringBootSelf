@@ -6,7 +6,8 @@
 
     <!--加载外部的properties文件-->
     <properties resource="jdbc.properties"></properties>
-    
+
+    <!--开启二级缓存-->
     <settings>
         <setting name="cacheEnabled" value="true"/>
     </settings>
@@ -18,6 +19,18 @@
         <!--批量起别名：该包下所有的类的本身的类名：别名还不区分大小写-->
         <package name="com.legend.mybatis.pojo"/>
     </typeAliases>
+
+    <plugins>
+        <!--自定义插件-->
+        <plugin interceptor="com.legend.mybatis.plugins.MyPlugin">
+            <!--配置参数-->
+            <property name="name" value="legend"/>
+        </plugin>
+        <!--分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
 
     <!--environments:运行环境-->
     <environments default="development">
