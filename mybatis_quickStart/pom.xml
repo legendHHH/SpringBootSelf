@@ -17,6 +17,13 @@
 
     <!--引入依赖-->
     <dependencies>
+        <!--mybatis与redis的整合-->
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-redis</artifactId>
+            <version>1.0.0-beta2</version>
+        </dependency>
+
         <!--mybatis坐标-->
         <dependency>
             <groupId>org.mybatis</groupId>

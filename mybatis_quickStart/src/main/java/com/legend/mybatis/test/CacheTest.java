@@ -80,12 +80,7 @@ public class CacheTest {
         //清空一级缓存
         sqlSession1.close();
 
-        //更新操作
-        User user = new User();
-        user.setId("1");
-        user.setUsername("gggg");
-        userMapper3.updateUser(user);
-        sqlSession3.commit();
+
 
         User user2 = userMapper2.findUserById(1);
         System.out.println(user1 == user2);

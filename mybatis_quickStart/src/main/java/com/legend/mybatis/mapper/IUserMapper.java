@@ -2,6 +2,8 @@ package com.legend.mybatis.mapper;
 
 import com.legend.mybatis.pojo.User;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.cache.impl.PerpetualCache;
+import org.mybatis.caches.redis.RedisCache;
 
 import java.util.List;
 
@@ -13,8 +15,8 @@ import java.util.List;
  * @description
  * @date 2022/4/9
  */
-//开启二级缓存
-@CacheNamespace
+//开启二级缓存 implementation指定实现缓存的实现类。默认是PerpetualCache
+@CacheNamespace(implementation = RedisCache.class)
 public interface IUserMapper {
 
     /**
@@ -95,6 +97,7 @@ public interface IUserMapper {
 
     /**
      * 根据id查询用户
+     * @Options(useCache = false) 注解表示不使用二级缓存
      *
      * @param id
      * @return
