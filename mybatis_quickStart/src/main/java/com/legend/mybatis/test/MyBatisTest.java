@@ -4,8 +4,10 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.legend.mybatis.dao.IUserDao;
 import com.legend.mybatis.dao.UserDaoImpl;
+import com.legend.mybatis.mapper.CityMapper;
 import com.legend.mybatis.mapper.IOrderMapper;
 import com.legend.mybatis.mapper.IUserMapper;
+import com.legend.mybatis.pojo.City;
 import com.legend.mybatis.pojo.Order;
 import com.legend.mybatis.pojo.User;
 import org.apache.ibatis.io.Resources;
@@ -14,6 +16,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
+import tk.mybatis.mapper.entity.Example;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -172,6 +175,7 @@ public class MyBatisTest {
 
     private IUserMapper userMapper;
     private IOrderMapper orderMapper;
+    private CityMapper cityMapper;
 
     @Before
     public void method() throws IOException {
@@ -182,6 +186,7 @@ public class MyBatisTest {
         //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
         userMapper = sqlSession.getMapper(IUserMapper.class);
         orderMapper = sqlSession.getMapper(IOrderMapper.class);
+        cityMapper = sqlSession.getMapper(CityMapper.class);
     }
 
     @Test
@@ -234,5 +239,24 @@ public class MyBatisTest {
         System.out.println("总页数：" + userPageInfo.getPages());
         System.out.println("当前页：" + userPageInfo.getPageNum());
         System.out.println("每页显示的条数：" + userPageInfo.getPageSize());
+    }
+
+    @Test
+    public void tkMapperTest() {
+        City city = cityMapper.selectByPrimaryKey(1L);
+        System.out.println(city);
+
+        City city1 = new City();
+        city1.setCityName("tkMapper");
+        int count = cityMapper.insertSelective(city1);
+        System.out.println(count);
+
+        //example
+        Example example = new Example(City.class);
+        example.createCriteria().andEqualTo("id", 1);
+        List<City> cityList = cityMapper.selectByExample(example);
+        for (City city2 : cityList) {
+            System.out.println(city2);
+        }
     }
 }

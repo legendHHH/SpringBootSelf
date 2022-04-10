@@ -17,6 +17,12 @@
 
     <!--引入依赖-->
     <dependencies>
+        <!--通用 mapper-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>3.1.2</version>
+        </dependency>
         <!--pageHelper分页插件-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>

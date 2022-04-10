@@ -30,6 +30,10 @@
         <plugin interceptor="com.github.pagehelper.PageHelper">
             <property name="dialect" value="mysql"/>
         </plugin>
+        <plugin interceptor="tk.mybatis.mapper.mapperhelper.MapperInterceptor">
+            <!--指定当前通用mapper接口是哪个-->
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper" />
+        </plugin>
     </plugins>
 
     <!--environments:运行环境-->
