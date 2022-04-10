@@ -1,10 +1,7 @@
 package com.legend.mybatis.mapper;
 
 import com.legend.mybatis.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -25,6 +22,20 @@ public interface IUserMapper {
      */
     public List<User> findAll();
 
+    /**
+     * 一对多注解实现查询用户的同时还查询订单列表
+     *
+     * @return
+     */
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "username", column = "username"),
+            @Result(property = "orderList", column = "id", javaType = List.class,
+                    many = @Many(select = "com.legend.mybatis.mapper.IOrderMapper.findOrderByUid"))
+    })
+    @Select("select * from user")
+    public List<User> findAllPro();
+
     public List<User> findAllUser();
 
     /**
@@ -33,6 +44,20 @@ public interface IUserMapper {
      * @return
      */
     public List<User> findAllUserAndRole();
+
+    /**
+     * 多对多查询所有用户、同时查询每个用户关联的角色信息
+     *
+     * @return
+     */
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "username", column = "username"),
+            @Result(property = "roleList", column = "id", javaType = List.class,
+                    many = @Many(select = "com.legend.mybatis.mapper.IRoleMapper.findRoleByUid"))
+    })
+    @Select("select * from user")
+    public List<User> findAllUserAndRolePro();
 
     /**
      * 添加用户
@@ -66,4 +91,12 @@ public interface IUserMapper {
     @Delete("delete from user where id = #{id}")
     public void deleteUser(Integer id);
 
+    /**
+     * 根据id查询用户
+     *
+     * @param id
+     * @return
+     */
+    @Select({"select * from user where id = #{id}"})
+    public User findUserById(Integer id);
 }

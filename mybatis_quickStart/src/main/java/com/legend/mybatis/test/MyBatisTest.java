@@ -169,6 +169,7 @@ public class MyBatisTest {
     }
 
     private IUserMapper userMapper;
+    private IOrderMapper orderMapper;
 
     @Before
     public void method() throws IOException {
@@ -178,6 +179,7 @@ public class MyBatisTest {
 
         //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
         userMapper = sqlSession.getMapper(IUserMapper.class);
+        orderMapper = sqlSession.getMapper(IOrderMapper.class);
     }
 
     @Test
@@ -187,6 +189,33 @@ public class MyBatisTest {
         user.setUsername("4");
         user.setPassword("4");
         userMapper.addUser(user);
+
+    }
+
+    @Test
+    public void oneToOne() {
+        List<Order> orderAndUserPro = orderMapper.findOrderAndUserPro();
+        for (Order order : orderAndUserPro) {
+            System.out.println(order);
+        }
+
+    }
+
+    @Test
+    public void oneToMany() {
+        List<User> userList = userMapper.findAllPro();
+        for (User user : userList) {
+            System.out.println(user);
+        }
+
+    }
+
+    @Test
+    public void manyToMany() {
+        List<User> userList = userMapper.findAllUserAndRolePro();
+        for (User user : userList) {
+            System.out.println(user);
+        }
 
     }
 }
