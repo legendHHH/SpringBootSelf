@@ -6,6 +6,10 @@
 
     <!--加载外部的properties文件-->
     <properties resource="jdbc.properties"></properties>
+    
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
 
     <!--给实体类的全限定类名给别名-->
     <typeAliases>

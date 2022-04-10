@@ -13,6 +13,8 @@ import java.util.List;
  * @description
  * @date 2022/4/9
  */
+//开启二级缓存
+@CacheNamespace
 public interface IUserMapper {
 
     /**
@@ -97,6 +99,7 @@ public interface IUserMapper {
      * @param id
      * @return
      */
+    @Options(useCache = false)
     @Select({"select * from user where id = #{id}"})
     public User findUserById(Integer id);
 }
