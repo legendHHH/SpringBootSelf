@@ -50,6 +50,33 @@ public class MyBatisTest {
         sqlSession.close();
     }
 
+
+    @Test
+    public void codeAnalysis() throws Exception {
+        //1.Resources读取配置文件，读成字节输入流，注意：还没解析
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        //2.解析了配置文件，封装成Configuration对象并创建了DefauleSqlSessionFactory对象
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        //以上就是1、2就是mybatis的初始化过程
+
+        //3.生产了DefaultSqlSession实例对象，设置了事务不自动提交，完成了Executor对象的创建
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        // 4.(1)根据statementId来从Configuration中大map集合中获取到了指定的MappedStatement对象
+           //(2)将查询任务委派了executor执行器
+        List<Object> objects = sqlSession.selectList("namespace.id");
+
+
+        //动态代理的形式源码分析
+        //使用JDK动态代理对mapper接口产生代理对象
+        IUserMapper userMapper = sqlSession.getMapper(IUserMapper.class);
+        //代理对象调用接口中的任意方法，执行的都是动态代理中的invoke方法(org.apache.ibatis.binding.MapperProxy.invoke)
+        List<User> all = userMapper.findAll();
+        for (User user : all) {
+            System.out.println(user);
+        }
+        sqlSession.close();
+    }
+
     @Test
     public void test2() throws Exception {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
