@@ -19,6 +19,12 @@
     </properties>
 
     <dependencies>
+        <!--easyexcel-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.2.6</version>
+        </dependency>
         <!--pdf生成工具类-->
         <dependency>
             <groupId>com.itextpdf</groupId>
