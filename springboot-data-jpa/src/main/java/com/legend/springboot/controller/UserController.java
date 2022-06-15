@@ -6,6 +6,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RequestMapping("/user")
 @RestController
@@ -21,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/saveOrUpdate")
-    public User save(User user) {
+    public User save(@RequestBody User user) {
         User save = new User();
 
         Integer id = user.getId();
@@ -39,6 +41,10 @@ public class UserController {
         return save;
     }
 
+    @GetMapping(value = "/list")
+    public List<User> list() {
+        return userRepository.findAll();
+    }
 
     @GetMapping(value = "/deleteById/{id}")
     public boolean update(@PathVariable(value = "id") Integer id) {

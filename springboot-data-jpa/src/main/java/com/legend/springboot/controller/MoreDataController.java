@@ -6,6 +6,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RequestMapping("/moredata")
 @RestController
@@ -37,6 +39,11 @@ public class MoreDataController {
             save = moreDataRepository.save(moreData1);
         }
         return save;
+    }
+
+    @GetMapping(value = "/list")
+    public List<MoreData> list() {
+        return moreDataRepository.findAll();
     }
 
     @GetMapping(value = "/deleteById/{id}")

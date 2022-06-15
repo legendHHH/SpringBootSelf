@@ -1,12 +1,12 @@
 package com.legend.springboot.controller;
 
 import com.legend.springboot.entity.Goods;
-import com.legend.springboot.entity.User;
 import com.legend.springboot.repository.GoodsRepository;
-import com.legend.springboot.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin
 @RequestMapping("/goods")
@@ -41,6 +41,10 @@ public class GoodsController {
         return save;
     }
 
+    @GetMapping(value = "/list")
+    public List<Goods> list() {
+        return goodsRepository.findAll();
+    }
 
     @GetMapping(value = "/deleteById/{id}")
     public boolean update(@PathVariable(value = "id") Integer id) {
