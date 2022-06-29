@@ -309,6 +309,25 @@ docker-compose version # 查看版本号，测试是否安装成功
 你可以通过修改URL中的版本，可以自定义您的需要的版本。
 ```
 
+### Java接口忽然报错，错误信息是Out of sort memory, consider increasing server sort buffer size
+字面意思就是 sort内存溢出，考虑增加服务器的排序缓冲区(sort_buffer_size)大小。
+```
+mysql> show variables like '%sort_buffer_size%';
++-------------------------+---------+
+| Variable_name | Value |
++-------------------------+---------+
+| innodb_sort_buffer_size | 1048576 |
+| myisam_sort_buffer_size | 8388608 |
+| sort_buffer_size | 262144 |
++-------------------------+---------+
+3 rows in set (0.01 sec)
+
+
+mysql> SET GLOBAL sort_buffer_size = 1024*1024;
+```
+>补充：EXPLAIN需要分析sql运行情况在分析原因
+
+
 
 ### 在局域网的两台电脑如何实现相互访问mysql数据库
 
