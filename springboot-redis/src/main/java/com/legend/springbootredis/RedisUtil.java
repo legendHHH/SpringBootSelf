@@ -105,6 +105,8 @@ public class RedisUtil {
         try {
             if (null != jedisPool) {
                 jedis = jedisPool.getResource();
+                // 选择下标为8的数据库，即DB8
+                jedis.select(8);
                 try {
                     jedis.auth("");
                 } catch (Exception e) {

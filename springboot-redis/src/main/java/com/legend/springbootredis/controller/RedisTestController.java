@@ -1,11 +1,13 @@
 package com.legend.springbootredis.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.legend.springbootredis.RedisUtil;
 import com.legend.springbootredis.entity.User;
 import org.apache.commons.lang.StringUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -59,6 +62,45 @@ public class RedisTestController {
     }
 
     /**
+     * 获取所有key的值到本地redis数据库
+     * http://localhost:8081/redisTest/syncAllKeyValue
+     *
+     * @return
+     */
+    @RequestMapping(value = "syncAllKeyValue", method = RequestMethod.GET)
+    public String syncAllKeyValue() {
+        Set<String> keys = redisTemplate.keys("*");
+        //    NONE("none"),
+        //    STRING("string"),
+        //    LIST("list"),
+        //    SET("set"),
+        //    ZSET("zset"),
+        //    HASH("hash");
+        for (String key : keys) {
+            DataType type = redisTemplate.type(key);
+
+            switch (type) {
+                case STRING:
+                    String value = redisTemplate.opsForValue().get(key);
+                    RedisUtil.set(key, value);
+                    break;
+                case SET:
+                    System.out.println("set");
+                    break;
+                case ZSET:
+                    System.out.println("ZSET");
+                    break;
+                case HASH:
+                    System.out.println("ZSET");
+                    break;
+                default:
+                    break;
+            }
+        }
+        return "success";
+    }
+
+    /**
      * 测试设置xxxx
      *
      * @param request
@@ -86,7 +128,7 @@ public class RedisTestController {
     @ResponseBody
     public String testLua() {
         List<String> keys = Arrays.asList("testLua", "hello lua");
-        System.out.println("script字符串："+redisScript.getScriptAsString());
+        System.out.println("script字符串：" + redisScript.getScriptAsString());
         Boolean execute = redisTemplate.execute(redisScript, keys, "100");
         System.out.println(execute);
         return "abc";
