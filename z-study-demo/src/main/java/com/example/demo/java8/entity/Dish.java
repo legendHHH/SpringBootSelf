@@ -43,6 +43,11 @@ public class Dish {
         this.type = type;
     }
 
+    public Dish(String name, int calories) {
+        this.name = name;
+        this.calories = calories;
+    }
+
     public Dish(String name, boolean vegetarian, int calories, Type type) {
         this.name = name;
         this.vegetarian = vegetarian;

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -31,9 +32,13 @@ public class LambdaDemo3 {
                 return;
             }
 
-            System.out.println(i);
-            System.out.println(123);
+//            System.out.println(i);
+//            System.out.println(123);
         });
-        System.out.println("haha");
+        System.out.println(list.size());
+        List<Integer> list1 = list.stream().filter(l -> l.intValue() == 1).collect(Collectors.toList());
+        System.out.println(list1.size());
+        System.out.println(list.size());
+        //System.out.println("haha");
     }
 }
