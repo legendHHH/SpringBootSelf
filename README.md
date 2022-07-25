@@ -51,7 +51,7 @@
 
 ## Git
 ### 获取项目到本地
-`git clone https://github.com/qichunlin/SpringBootSelf.git`
+`git clone https://github.com/legendHHH/SpringBootSelf.git`
 
 
 ### 新建本地仓库
@@ -444,6 +444,45 @@ chmod 777 tsapp.sh
 ./tsapp.sh status
 ```
 
+### Host '' is not allowed to connect to this MySQL server，如何解决？
+```
+在装有MySQL的机器上登录MySQL  mysql -u root -p password
+执行 use mysql;
+执行 update user set host = '%' where user = 'root'; #这一句执行完可能会报错，不用管它。
+执行 FLUSH PRIVILEGES;
+
+
+-- 非必须步骤
+查看user表中的数据：select Host, User,Password from user;
+修改user表中的Host：update user set Host='%' where User='root';
+
+
+8.0版本
+ALTER USER 'root'@'%' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER; #修改加密规则 ，'password'改成你的密码
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password'; #更新一下用户的密码 ，'password'是你的密码
+grant all privileges  on *.* to root@'%' identified by "password";
+```
+>第四步是刷新MySQL的权限相关表，一定不要忘了，我第一次的时候没有执行第四步，结果一直不成功，最后才找到这个原因
+
+
+### 如果连接状态为 2003 可能造成出现的原因：
+```
+网络不通畅
+mysql 服务未启动
+防火墙未开放端口
+```    
+
+### 安装nvm后报错：Could not retrieve https://nodejs.org/dist/index.json. Get "https://nodejs.org/dist/index
+在本地找到安装nvm的路径，在nvm文件夹下找到settings.txt,添加以下代码即可：
+```
+node_mirror:npm.taobao.org/mirrors/node/
+ 
+npm_mirror:npm.taobao.org/mirrors/npm/
+```
+
+
+
+
 ### centos7安装node forever
 - 安装Nodejs
 - 安装forever
@@ -456,6 +495,72 @@ chmod 777 tsapp.sh
 - 停止：forever stop xxx.js
 
 
+### idea svn配置报错:Can not use Subversion command line client
+大致产生的原因是，开始安装svn的时候command line client没选中安装。
 
+解决办法:
+modify 一下svn
+步骤:
+1、找到你的svn安装包，双击，
+2、之后选择(modify)修改安装
+3、之后会看到command line client tools前面是个叉
+4、点下叉，选择Entire feature will be installed on local hard drive5、然后就next, install就可以了。
+注意:安装完后，再确定一下环境变量path里，有没有"C:\Program FilesTortoiseSVN\bin"如果有，就大功告成，只差最后一步了。
+6、之后再按照IDEA提示 fix it
+
+重启一下IDEA就不会报错了。
+
+
+### Jenkins打包报错
+```
+Started by user XXX
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /data/jenkins/workspace/iQueue/IQueue
+Updating http://10.19.37.21/RD_Projects/Trunk/Src/iQueue at revision '2022-06-30T11:22:44.768 +0800' --quiet
+Using sole credentials zhangzebin1/****** in realm ‘<http://10.19.37.21:80> Subversion repositories’
+ERROR: Failed to update http://10.19.37.21/RD_Projects/Trunk/Src/iQueue
+org.tmatesoft.svn.core.SVNException: svn: E204900: Can't open 'C:\WINDOWS\TEMP\report.tmp': 拒绝访问。  
+svn: E175002: REPORT of '/RD_Projects/!svn/vcc/default': 500 Internal Server Error (http://10.19.37.21)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:70)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:57)
+	at org.tmatesoft.svn.core.internal.io.dav.DAVRepository.runReport(DAVRepository.java:1363)
+	at org.tmatesoft.svn.core.internal.io.dav.DAVRepository.update(DAVRepository.java:859)
+	at org.tmatesoft.svn.core.internal.wc16.SVNUpdateClient16.update(SVNUpdateClient16.java:507)
+	at org.tmatesoft.svn.core.internal.wc16.SVNUpdateClient16.doUpdate(SVNUpdateClient16.java:364)
+	at org.tmatesoft.svn.core.internal.wc16.SVNUpdateClient16.doUpdate(SVNUpdateClient16.java:274)
+	at org.tmatesoft.svn.core.internal.wc2.old.SvnOldUpdate.run(SvnOldUpdate.java:27)
+	at org.tmatesoft.svn.core.internal.wc2.old.SvnOldUpdate.run(SvnOldUpdate.java:11)
+	at org.tmatesoft.svn.core.internal.wc2.SvnOperationRunner.run(SvnOperationRunner.java:21)
+	at org.tmatesoft.svn.core.wc2.SvnOperationFactory.run(SvnOperationFactory.java:1239)
+	at org.tmatesoft.svn.core.wc2.SvnOperation.run(SvnOperation.java:294)
+	at org.tmatesoft.svn.core.wc.SVNUpdateClient.doUpdate(SVNUpdateClient.java:311)
+	at org.tmatesoft.svn.core.wc.SVNUpdateClient.doUpdate(SVNUpdateClient.java:291)
+	at org.tmatesoft.svn.core.wc.SVNUpdateClient.doUpdate(SVNUpdateClient.java:387)
+	at hudson.scm.subversion.UpdateUpdater$TaskImpl.perform(UpdateUpdater.java:159)
+	at hudson.scm.subversion.WorkspaceUpdater$UpdateTask.delegateTo(WorkspaceUpdater.java:168)
+	at hudson.scm.SubversionSCM$CheckOutTask.perform(SubversionSCM.java:1065)
+	at hudson.scm.SubversionSCM$CheckOutTask.invoke(SubversionSCM.java:1041)
+	at hudson.scm.SubversionSCM$CheckOutTask.invoke(SubversionSCM.java:1014)
+	at hudson.FilePath.act(FilePath.java:1163)
+	at hudson.FilePath.act(FilePath.java:1146)
+	at hudson.scm.SubversionSCM.checkout(SubversionSCM.java:961)
+	at hudson.scm.SubversionSCM.checkout(SubversionSCM.java:884)
+	at hudson.scm.SCM.checkout(SCM.java:505)
+	at hudson.model.AbstractProject.checkout(AbstractProject.java:1206)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.defaultCheckout(AbstractBuild.java:637)
+	at jenkins.scm.SCMCheckoutStrategy.checkout(SCMCheckoutStrategy.java:86)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:509)
+	at hudson.model.Run.execute(Run.java:1907)
+	at hudson.maven.MavenModuleSetBuild.run(MavenModuleSetBuild.java:543)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+ERROR: Subversion update failed
+org.tmatesoft.svn.core.SVNException: svn: E204900: Can't open 'C:\WINDOWS\TEMP\report.tmp': 拒绝访问。  
+svn: E175002: REPORT of '/RD_Projects/iManager/!svn/vcc/default': 500 Internal Server Error (http://10.1.3.251)
+	at org.tmatesoft.svn.core.internal.wc.SVNErrorManager.error(SVNErrorManager.java:70)
+```
+
+>新增一个权限账号即可
 
 ### jenkins过滤版本，可选择版本
