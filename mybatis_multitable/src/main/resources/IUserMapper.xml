@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.legend.mapper.IUserMapper">
+
+    <!-- resultMap:手动来配置实体属性与表字段的映射关系 -->
+    <resultMap id="orderMap" type="com.legend.pojo.Order">
+        <id property="id" column="id" />
+        <result property="orderTime" column="orderTime" />
+        <result property="total" column="total" />
+
+        <!-- 一对一 集合使用的标签 -->
+        <association property="user" javaType="com.legend.pojo.User">
+            <id property="id" column="uid" />
+            <result property="username" column="username" />
+        </association>
+    </resultMap>
+
+    <select id="findOrderAndUser" resultMap="orderMap">
+      SELECT * FROM orders o,`user` u WHERE u.id = o.uid
+    </select>
+</mapper>
