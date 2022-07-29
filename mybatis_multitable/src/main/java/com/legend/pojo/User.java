@@ -18,6 +18,11 @@ public class User implements Serializable {
     private String password;
 
     /**
+     * 一个用户有多个角色
+     */
+    private List<Role> roleList = new ArrayList<>();
+
+    /**
      * 一个用户有多个订单
      */
     private List<Order> orderList = new ArrayList<>();
@@ -28,6 +33,14 @@ public class User implements Serializable {
 
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
+    }
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 
     public User() {

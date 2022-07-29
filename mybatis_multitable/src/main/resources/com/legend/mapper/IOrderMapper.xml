@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.legend.mapper.IUserMapper">
+<mapper namespace="com.legend.mapper.IOrderMapper">
 
     <!-- resultMap:手动来配置实体属性与表字段的映射关系 -->
     <resultMap id="orderMap" type="com.legend.pojo.Order">
@@ -13,6 +13,7 @@
         <association property="user" javaType="com.legend.pojo.User">
             <id property="id" column="uid" />
             <result property="username" column="username" />
+            <result property="password" column="password" />
         </association>
     </resultMap>
 
