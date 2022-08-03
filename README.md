@@ -481,6 +481,35 @@ npm_mirror:npm.taobao.org/mirrors/npm/
 ```
 
 
+### 数字转化异常
+![](https://img2022.cnblogs.com/blog/1231979/202207/1231979-20220726084146069-1650760539.png)
+
+![](https://img2022.cnblogs.com/blog/1231979/202207/1231979-20220726084307622-1740064019.png)
+
+
+调整后
+![](https://img2022.cnblogs.com/blog/1231979/202207/1231979-20220726084328697-1654851605.png)
+
+
+
+### docker中的tomcat服务器时区不正确修改
+- 创建容器的时候设置时区
+添加参数 -v /etc/localtime:/etc/localtime 启动容器
+docker run -d -v /etc/localtime:/etc/localtime -p 8888:8080 tomcat:latest
+
+- 启动后的容器修改时区
+执行date 命令查看时间，会发现容器中的时间少了8个小时,这是由于时区不一致.
+
+
+docker exec -it <容器名> /bin/bash
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+docker restart <容器名>
+
+![](https://img2022.cnblogs.com/blog/1231979/202207/1231979-20220726085315201-107565124.png)
+
+
+复制主机的localtime（只是容器、宿主机时间同步）
+docker cp /etc/localtime 753f856bca45:/etc/
 
 
 ### centos7安装node forever
@@ -562,5 +591,39 @@ svn: E175002: REPORT of '/RD_Projects/iManager/!svn/vcc/default': 500 Internal S
 ```
 
 >新增一个权限账号即可
+
+
+### MySQL server has gone away 报错
+show global variables like 'max_allowed_packet';
+
++--------------------+---------+
+| Variable_name      | Value   |
++--------------------+---------+
+| max_allowed_packet | 4194304 |
+
+
+可以看到默认情况下该项的大小只有4m，接下来将该值设置成150m（1024*1024*150） 
+set global max_allowed_packet=157286400;
+
+
+通过调大该值，一般来说再次导入数据量大的sql应该就能成功了，如果任然报错，则继续再调大一些就行，请注意通过在命令行中进行设置只对当前有效，重启mysql服务之后则恢复默认值，但可以通过修改配置文件（可以在配置文件my.cnf中添加max_allowed_packet=150M即可）来达到永久有效的目的，可其实我们并不是经常有这种大量数据的导入操作，所以个人觉得通过命令行使得当前配置生效即可，没有必要修改配置文件。
+
+
+
+### jenkins启动之后报错提示,因为在清除过期缓存条目后可用空间仍不足 - 请考虑增加缓存的最大空间
+
+解决办法：在tomcat安装路径下找到conf/context.xml，在其中加入一条配置
+```
+<Resources cachingAllowed="true" cacheMaxSize="100000" />
+```
+![](https://img2022.cnblogs.com/blog/1231979/202208/1231979-20220802180324849-1919679316.png)
+
+
+
+### MongoDB服务安装
+cd MongoDB的bin目录下
+mongod.exe --install --logpath=D:\software\MongoDB\mongodb-win32-x86_64-2008plus-ssl-3.6.11\log\MongoDBloglog.txt  --dbpath=D:\software\MongoDB\mongodb-win32-x86_64-2008plus-ssl-3.6.11\data --serviceName=MongoDB
+
+![](https://img2022.cnblogs.com/blog/1231979/202207/1231979-20220727140423634-534753580.png)
 
 ### jenkins过滤版本，可选择版本
