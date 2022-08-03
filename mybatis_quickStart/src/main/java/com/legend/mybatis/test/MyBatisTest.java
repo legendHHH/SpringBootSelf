@@ -50,7 +50,11 @@ public class MyBatisTest {
         sqlSession.close();
     }
 
-
+    /**
+     * 二级缓存===>一级缓存===>数据库
+     *
+     * @throws Exception
+     */
     @Test
     public void codeAnalysis() throws Exception {
         //1.Resources读取配置文件，读成字节输入流，注意：还没解析
@@ -63,17 +67,23 @@ public class MyBatisTest {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         // 4.(1)根据statementId来从Configuration中大map集合中获取到了指定的MappedStatement对象
            //(2)将查询任务委派了executor执行器
-        List<Object> objects = sqlSession.selectList("namespace.id");
+        List<Object> objects = sqlSession.selectList("com.legend.mybatis.mapper.IUserMapper.findAllUser");
 
 
         //动态代理的形式源码分析
         //使用JDK动态代理对mapper接口产生代理对象
         IUserMapper userMapper = sqlSession.getMapper(IUserMapper.class);
         //代理对象调用接口中的任意方法，执行的都是动态代理中的invoke方法(org.apache.ibatis.binding.MapperProxy.invoke)
-        List<User> all = userMapper.findAll();
+        List<User> all = userMapper.findAllUser();
         for (User user : all) {
             System.out.println(user);
         }
+
+        //二级缓存源码分析测试(org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement)
+        SqlSession sqlSession2 = sqlSessionFactory.openSession();
+        //二级缓存才会生效
+        sqlSession.commit();
+        List<Object> objects2 = sqlSession2.selectList("com.legend.mybatis.mapper.IUserMapper.findAllUser");
         sqlSession.close();
     }
 
