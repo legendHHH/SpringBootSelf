@@ -22,7 +22,7 @@
 
     <plugins>
         <!--自定义插件-->
-        <plugin interceptor="com.legend.mybatis.plugins.MyPlugin">
+        <plugin interceptor="com.legend.plugins.MyPlugin">
             <!--配置参数-->
             <property name="name" value="legend"/>
         </plugin>
@@ -36,11 +36,12 @@
         </plugin>
     </plugins>
 
+
     <!--environments:运行环境-->
     <environments default="development">
         <environment id="development">
             <!--当前事务交由JDBC进行管理-->
-            <transactionManager type="JDBC"></transactionManager>
+            <transactionManager type="JDBC" />
             <!--当前使用mybatis提供的连接池-->
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
@@ -53,13 +54,14 @@
 
     <!--引入映射配置文件-->
     <mappers>
-        <!--<mapper resource="UserMapper.xml"></mapper>
+        <!--
         <mapper resource="IUserMapper.xml"></mapper>
-        <mapper resource="IOrderMapper.xml"></mapper>-->
+        <mapper resource="IOrderMapper.xml"></mapper>
+        -->
         <!--注解开发的时候可以使用-->
         <!--<mapper class="com.legend.mapper.IUserMapper"></mapper>-->
         <!--批量引入mapper.xml的文件 接口文件需要和xml文件同包同名-->
-        <package name="com.legend.mapper"></package>
+        <package name="com.legend.mapper" />
     </mappers>
 
 

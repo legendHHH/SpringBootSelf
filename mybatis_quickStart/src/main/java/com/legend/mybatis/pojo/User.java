@@ -17,32 +17,6 @@ public class User implements Serializable {
     private String username;
     private String password;
 
-    /**
-     * 一个用户有多个角色
-     */
-    private List<Role> roleList = new ArrayList<>();
-
-    /**
-     * 一个用户有多个订单
-     */
-    private List<Order> orderList = new ArrayList<>();
-
-    public List<Order> getOrderList() {
-        return orderList;
-    }
-
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
-    }
-
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
-    }
-
     public User() {
     }
 
@@ -82,8 +56,6 @@ public class User implements Serializable {
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", roleList=" + roleList +
-                ", orderList=" + orderList +
                 '}';
     }
 }

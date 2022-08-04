@@ -17,7 +17,8 @@
         </collection>
     </resultMap>
 
-    <select id="findAll" resultMap="userMap">
+    <!--userCache是用来设置是否禁用二级缓存的   flushCache="true"属性，默认情况下为true,即刷新缓存-->
+    <select id="findAll" resultMap="userMap" flushCache="true" useCache="false">
       SELECT u.*,o.id oid,o.ordertime,o.total,o.uid FROM user u LEFT JOIN orders o ON u.id=o.uid
     </select>
 
@@ -38,4 +39,9 @@
     <select id="findAllUserAndRole" resultMap="userRoleMap">
       SELECT * FROM user u LEFT JOIN sys_user_role ur ON ur.userid=u.id LEFT JOIN sys_role r ON r.id=ur.roleid
     </select>
+
+
+    <!--<cache></cache>-->
+    <!--指定自定义二级缓存类-->
+    <cache type="org.mybatis.caches.redis.RedisCache"></cache>
 </mapper>

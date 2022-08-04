@@ -1,17 +1,14 @@
-package com.legend.mybatis.pojo;
-
+package com.legend.pojo;
 
 import javax.persistence.*;
-import java.util.List;
-
 
 /**
- * 城市
+ * city
  *
  * @author legend
  * @version 1.0
  * @description
- * @date 2022/4/10
+ * @date 2022/8/4
  */
 @Table(name = "city")
 public class City {
@@ -22,7 +19,8 @@ public class City {
     // 对应的是主键id
     @Id
     // 设置主键生成策略
-    // IDENTITY：主键自增,数据库需要支持。oracle的话就是序列(SEQUENCE)  AUTO：自动选择适合数据库的策略 TABLE：以表的形式存储生成主键
+    // IDENTITY：主键自增,数据库需要支持。
+    // oracle的话就是序列(SEQUENCE)  AUTO：自动选择适合数据库的策略 TABLE：以表的形式存储生成主键
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -37,17 +35,6 @@ public class City {
      */
     @Column(name = "city_name")
     private String cityName;
-
-    /**
-     * 描述
-     */
-    private String description;
-
-    @Column(name = "sales_num")
-    private Integer salesNum;
-
-    @Column(name = "eva_num")
-    private Integer evaNum;
 
     public Long getId() {
         return id;
@@ -73,34 +60,6 @@ public class City {
         this.cityName = cityName;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getSalesNum() {
-        return salesNum;
-    }
-
-    public void setSalesNum(Integer salesNum) {
-        this.salesNum = salesNum;
-    }
-
-    public Integer getEvaNum() {
-        return evaNum;
-    }
-
-    public void setEvaNum(Integer evaNum) {
-        this.evaNum = evaNum;
-    }
-
-    public City(String cityName, String description) {
-        this.cityName = cityName;
-        this.description = description;
-    }
 
     public City() {
     }
@@ -111,9 +70,6 @@ public class City {
                 "id=" + id +
                 ", provinceId=" + provinceId +
                 ", cityName='" + cityName + '\'' +
-                ", description='" + description + '\'' +
-                ", salesNum=" + salesNum +
-                ", evaNum=" + evaNum +
                 '}';
     }
 }

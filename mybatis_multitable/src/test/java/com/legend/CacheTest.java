@@ -1,11 +1,8 @@
-package com.legend.mybatis.test;
+package com.legend;
 
-import com.legend.mybatis.dao.IUserDao;
-import com.legend.mybatis.dao.UserDaoImpl;
-import com.legend.mybatis.mapper.IOrderMapper;
-import com.legend.mybatis.mapper.IUserMapper;
-import com.legend.mybatis.pojo.Order;
-import com.legend.mybatis.pojo.User;
+import com.legend.mapper.IOrderMapper;
+import com.legend.mapper.IUserMapper;
+import com.legend.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,7 +12,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 /**
  * 缓存test
@@ -44,27 +40,41 @@ public class CacheTest {
         orderMapper = sqlSession.getMapper(IOrderMapper.class);
     }
 
+    /**
+     * 一级缓存
+     */
     @Test
     public void firstLevelCache() {
         //第一次查询id为1的用户
         User userById = userMapper.findUserById(1);
 
+        //第二次查询id为1的用户
+        User userById2 = userMapper.findUserById(1);
+        //true
+        System.out.println(userById == userById2);
+
+
         //更新用户  中间经过增删改操作，并进行了事务提交，就是刷新了一级缓存
+        //clearCache(); 手动刷新一级缓存
         User user = new User();
         user.setId("1");
         user.setUsername("45678");
         userMapper.updateUser(user);
+
+        User userById3 = userMapper.findUserById(1);
+        //false
+        System.out.println(userById == userById3);
+
         //手动提交事务
         //sqlSession.commit();
         //手动刷新一级缓存
         //sqlSession.clearCache();
-
-        //第一次查询id为1的用户
-        User userById2 = userMapper.findUserById(1);
-
-        System.out.println(userById == userById2);
     }
 
+    /**
+     * 二级缓存
+     * 缓存的不是对象，是数据
+     */
     @Test
     public void secondLevelCache() {
         SqlSession sqlSession1 = sqlSessionFactory.openSession();
@@ -83,11 +93,12 @@ public class CacheTest {
         //更新操作
         User user = new User();
         user.setId("1");
-        user.setUsername("gggg");
+        user.setUsername("test二级缓存");
         userMapper3.updateUser(user);
         sqlSession3.commit();
 
         User user2 = userMapper2.findUserById(1);
+        //第一次结果是false，第二次测试还是false
         System.out.println(user1 == user2);
     }
 }
