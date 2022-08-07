@@ -1,6 +1,7 @@
 package com.qcl.mybatisplus;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qcl.mybatisplus.entity.User;
 import com.qcl.mybatisplus.mapper.UserMapper;
@@ -73,7 +74,30 @@ public class MyBatisPlusApplicationTest {
         //根据id删除
         Map<String, Object> columnMap = new HashMap<>();
         columnMap.put("user_name", "legend9999");
+        columnMap.put("age", "19");
+
+        //将columnMap中的元素设置为删除的条件，多个条件是and的关系
         int result = userMapper.deleteByMap(columnMap);
+        System.out.println(result);
+    }
+
+    /**
+     * 测试根据条件删除
+     */
+    @Test
+    public void testDelete() {
+        //第二种方式
+        User user = new User();
+        user.setUserName("legend9999");
+        user.setAge(12);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>(user);
+
+        //第一种方式
+        /*QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_name","legend9999");
+        queryWrapper.eq("age","12");*/
+
+        int result = userMapper.delete(queryWrapper);
         System.out.println(result);
     }
 
@@ -160,9 +184,31 @@ public class MyBatisPlusApplicationTest {
         user.setId(1392821377689559042L);
         user.setUserName("legend");
         user.setAge(30);
-        user.setEmail("737796231@qq.com");
+        user.setMail("737796231@qq.com");
         int result = userMapper.updateById(user);
         System.out.println(result);
+    }
+
+    /**
+     * 测试条件更新
+     */
+    @Test
+    public void testUpdateWrapper() {
+        User user = new User();
+        //1.需要更新的字段
+        user.setUserName("wrapperTest");
+
+        //2.更新的条件
+        //QueryWrapper方式
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_name", "legend999");
+        int result = userMapper.update(user, queryWrapper);
+
+        //UpdateWrapper方式
+        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("user_name", "legend");
+        int result2 = userMapper.update(user, updateWrapper);
+        System.out.println(result+result2);
     }
 
     /**
@@ -173,7 +219,7 @@ public class MyBatisPlusApplicationTest {
         User user = new User();
         user.setUserName("legend9");
         user.setAge(33);
-        user.setEmail("737796231@qq.com");
+        user.setMail("737796231@qq.com");
         int result = userMapper.insert(user);
         System.out.println(result);
     }
