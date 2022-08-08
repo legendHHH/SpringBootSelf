@@ -18,6 +18,7 @@ public class MyBatisPlusConfig {
 
     /**
      * 分页插件
+     * 也可以在sqlMapConfig.xml中配置该插件
      *
      * @return
      */

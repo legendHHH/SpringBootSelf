@@ -15,4 +15,19 @@ import org.springframework.stereotype.Repository;
 //@Repository
 public interface UserMapper extends BaseMapper<User> {
 
+    /**
+     * 根据id查询
+     *
+     * @param id
+     * @return
+     */
+    User findById(Integer id);
+
+    /**
+     * 根据id查询(测试起别名)
+     *
+     * @param id
+     * @return
+     */
+    User findById2(Integer id);
 }

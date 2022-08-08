@@ -123,19 +123,97 @@ public class MyBatisPlusApplicationTest {
 
     /**
      * 测试简单分页查询
+     * 需要配置分页拦截器，分页查询操作才会生效com.qcl.mybatisplus.config.MyBatisPlusConfig#paginationInterceptor()
      */
     @Test
     public void testSelectPage() {
         //分页查询(需要添加分页插件)
+        //第一个参数：当前页，第二个参数：每页显示条数
         Page<User> page = new Page<>(0, 5);
-        Page<User> userPage = userMapper.selectPage(page, null);
+
+        //查询参数
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.gt("age", "18");
+
+        //根据QueryWrapper参数进行分页查询
+        Page<User> userPage = userMapper.selectPage(page, queryWrapper);
         List<User> userList = userPage.getRecords();
-        System.out.println(userList.toString());
+        System.out.println("分页数据：" + userList.toString());
         System.out.println("总页数：" + userPage.getPages());
         System.out.println("当前页：" + userPage.getCurrent());
         System.out.println("总条数：" + userPage.getTotal());
         System.out.println("是否有上一页：" + userPage.hasPrevious());
         System.out.println("是否有下一页：" + userPage.hasNext());
+    }
+
+    /**
+     * 测试根据ID查询记录
+     */
+    @Test
+    public void testSelectById() {
+        User user = userMapper.selectById(1L);
+        System.out.println(user.toString());
+    }
+
+    /**
+     * 测试查询一条记录
+     */
+    @Test
+    public void testSelectOne() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_name", "John");
+        queryWrapper.eq("age", "33");
+        //根据条件查询一条记录，如果查询结果超过一条会报错
+        User user = userMapper.selectOne(queryWrapper);
+        System.out.println(user.toString());
+    }
+
+    /**
+     * 测试查询id记录
+     */
+    @Test
+    public void testFindById() {
+        User user = userMapper.findById(1);
+        System.out.println(user.toString());
+    }
+
+    /**
+     * 测试查询id记录2
+     */
+    @Test
+    public void testFindById2() {
+        User user = userMapper.findById2(1);
+        System.out.println(user.toString());
+    }
+
+    /**
+     * 测试查询总记录数
+     */
+    @Test
+    public void testSelectCount() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        //查询年龄大于20的总条数
+        queryWrapper.gt("age", "20");
+
+        //根据条件查询一条记录，如果查询结果超过一条会报错
+        Integer count = userMapper.selectCount(queryWrapper);
+        System.out.println(count);
+    }
+
+    /**
+     * 测试查询总记录数
+     */
+    @Test
+    public void testSelectList() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        //查询年龄大于20的数据
+        queryWrapper.gt("age", "20");
+
+        List<User> userList = userMapper.selectList(queryWrapper);
+        for (User user : userList) {
+            System.out.println(user.toString());
+        }
+
     }
 
     /**
@@ -208,7 +286,7 @@ public class MyBatisPlusApplicationTest {
         UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("user_name", "legend");
         int result2 = userMapper.update(user, updateWrapper);
-        System.out.println(result+result2);
+        System.out.println(result + result2);
     }
 
     /**
