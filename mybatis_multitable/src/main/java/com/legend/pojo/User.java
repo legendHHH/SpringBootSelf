@@ -6,6 +6,9 @@ import java.util.List;
 
 /**
  * User
+ * 开启了二级缓存后，还需要将要缓存的pojo实现Serializable接口，为了将缓存数据取出执行反序列化操作，
+ * 因为二级缓存数据存储介质多种多样，不一定只存在内中，有可能存在硬盘中，如果我们要再取这个缓存的话，
+ * 就需要反序列化了。所以mybatis中的pojo都去实现Serializable
  *
  * @author legend
  * @version 1.0

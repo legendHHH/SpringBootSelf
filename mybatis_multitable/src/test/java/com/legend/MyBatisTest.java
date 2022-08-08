@@ -2,8 +2,10 @@ package com.legend;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.legend.mapper.ICityMapper;
 import com.legend.mapper.IOrderMapper;
 import com.legend.mapper.IUserMapper;
+import com.legend.pojo.City;
 import com.legend.pojo.Order;
 import com.legend.pojo.User;
 import org.apache.ibatis.io.Resources;
@@ -30,6 +32,7 @@ public class MyBatisTest {
 
     private IUserMapper userMapper;
     private IOrderMapper orderMapper;
+    private ICityMapper cityMapper;
 
     @Before
     public void extractCommon() throws IOException {
@@ -41,9 +44,44 @@ public class MyBatisTest {
         //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
         userMapper = sqlSession.getMapper(IUserMapper.class);
         orderMapper = sqlSession.getMapper(IOrderMapper.class);
+        cityMapper = sqlSession.getMapper(ICityMapper.class);
     }
 
+    //================================pageHelper分页查询================================
+    @Test
+    public void pageHelperUser() {
+        PageHelper.startPage(0,1);
+        List<User> userList = userMapper.findAll();
+        for (User user : userList) {
+            System.out.println(user);
+        }
+        PageInfo<User> userPageInfo = new PageInfo<>(userList);
+        System.out.println("总条数：" + userPageInfo.getTotal());
+        System.out.println("总页数：" + userPageInfo.getPages());
+        System.out.println("当前页：" + userPageInfo.getPageNum());
+        System.out.println("每页显示的条数：" + userPageInfo.getPageSize());
+    }
 
+    //================================tk通用Mapper解决单表的增删改查操作，实现是基于MyBatis的插件机制================================
+    @Test
+    public void tkMapperTest() {
+        City city = cityMapper.selectByPrimaryKey(1L);
+        System.out.println(city);
+
+        City city1 = new City();
+        city1.setProvinceId(999L);
+        city1.setCityName("TkMapperTest");
+        int count = cityMapper.insertSelective(city1);
+        System.out.println(count);
+
+        //example
+        Example example = new Example(City.class);
+        example.createCriteria().andEqualTo("id", 1);
+        List<City> cityList = cityMapper.selectByExample(example);
+        for (City city2 : cityList) {
+            System.out.println(city2);
+        }
+    }
 
     //================================基于mybatis注解开发================================
     @Test

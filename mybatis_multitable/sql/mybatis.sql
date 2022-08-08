@@ -89,4 +89,21 @@ CREATE TABLE `user`  (
 INSERT INTO `user` VALUES (1, '1', '1');
 INSERT INTO `user` VALUES (2, '测试数据', '2');
 
+
+-- ----------------------------
+-- Table structure for city
+-- ----------------------------
+DROP TABLE IF EXISTS `city`;
+CREATE TABLE `city`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `province_id` int(11) NULL DEFAULT NULL,
+  `city_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of city
+-- ----------------------------
+INSERT INTO `city` VALUES (1, 1, 'tkMapper');
+
 SET FOREIGN_KEY_CHECKS = 1;

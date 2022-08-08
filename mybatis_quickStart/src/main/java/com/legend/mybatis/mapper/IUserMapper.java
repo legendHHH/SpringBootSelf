@@ -2,8 +2,6 @@ package com.legend.mybatis.mapper;
 
 import com.legend.mybatis.pojo.User;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.cache.impl.PerpetualCache;
-import org.mybatis.caches.redis.RedisCache;
 
 import java.util.List;
 
@@ -15,94 +13,29 @@ import java.util.List;
  * @description
  * @date 2022/4/9
  */
-//开启二级缓存 implementation指定实现缓存的实现类。默认是PerpetualCache
-@CacheNamespace(implementation = RedisCache.class)
 public interface IUserMapper {
 
     /**
-     * 查询所有用户、同时查询每个用户关联的订单信息
+     * 查询所有用户
      *
      * @return
      */
     public List<User> findAll();
 
     /**
-     * 一对多注解实现查询用户的同时还查询订单列表
-     *
-     * @return
-     */
-    @Results({
-            @Result(property = "id", column = "id"),
-            @Result(property = "username", column = "username"),
-            @Result(property = "orderList", column = "id", javaType = List.class,
-                    many = @Many(select = "com.legend.mybatis.mapper.IOrderMapper.findOrderByUid"))
-    })
-    @Select("select * from user")
-    public List<User> findAllPro();
-
-    public List<User> findAllUser();
-
-    /**
-     * 查询所有用户、同时查询每个用户关联的角色信息
-     *
-     * @return
-     */
-    public List<User> findAllUserAndRole();
-
-    /**
-     * 多对多查询所有用户、同时查询每个用户关联的角色信息
-     *
-     * @return
-     */
-    @Results({
-            @Result(property = "id", column = "id"),
-            @Result(property = "username", column = "username"),
-            @Result(property = "roleList", column = "id", javaType = List.class,
-                    many = @Many(select = "com.legend.mybatis.mapper.IRoleMapper.findRoleByUid"))
-    })
-    @Select("select * from user")
-    public List<User> findAllUserAndRolePro();
-
-    /**
-     * 添加用户
+     * 多条件组合查询：演示if
      *
      * @param user
-     */
-    @Insert("insert into user values(#{id},#{username},#{password})")
-    public void addUser(User user);
-
-    /**
-     * 更新用户
-     *
-     * @param user
-     */
-    @Update("update user set username = #{username} where id = #{id}")
-    public void updateUser(User user);
-
-    /**
-     * 查询用户
-     *
      * @return
      */
-    @Select("select * from user")
-    public List<User> selectUser();
+    public List<User> findByCondition(User user);
+
 
     /**
-     * 删除用户
+     * 多值查询：演示foreach
      *
-     * @param id
-     */
-    @Delete("delete from user where id = #{id}")
-    public void deleteUser(Integer id);
-
-    /**
-     * 根据id查询用户
-     * @Options(useCache = false) 注解表示不使用二级缓存
-     *
-     * @param id
+     * @param ids
      * @return
      */
-    @Options(useCache = false)
-    @Select({"select * from user where id = #{id}"})
-    public User findUserById(Integer id);
+    public List<User> findByIds(int[] ids);
 }

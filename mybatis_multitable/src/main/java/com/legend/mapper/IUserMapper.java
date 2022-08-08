@@ -2,6 +2,7 @@ package com.legend.mapper;
 
 import com.legend.pojo.User;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.cache.impl.PerpetualCache;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ import java.util.List;
  * @description
  * @date 2022/4/9
  */
+//开启二级缓存 implementation指定实现缓存的实现类。默认是PerpetualCache
+//@CacheNamespace(implementation = PerpetualCache.class)
 public interface IUserMapper {
 
     /**
@@ -64,10 +67,12 @@ public interface IUserMapper {
 
     /**
      * 根据id查询用户(配合com.legend.mapper.IOrderMapper#findOrderAndUserByAnnoation()方法查询数据)
+     * @Options(useCache = false) 注解表示不使用二级缓存
      *
      * @param id
      * @return
      */
+    @Options(useCache = false)
     @Select({"select * from user where id = #{id}"})
     public User findUserById(Integer id);
 
