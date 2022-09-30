@@ -309,6 +309,37 @@ docker-compose version # 查看版本号，测试是否安装成功
 你可以通过修改URL中的版本，可以自定义您的需要的版本。
 ```
 
+
+### 2>&1到底是什么意思？
+```
+java -jar app.jar > app.log 2>&1 &
+```
+部署过项目的应该对这命令很熟悉，相信大部分人都知道>表示的是重定向，那么什么是重定向？2>&1又是什么意思？
+
+
+#### 文件描述符原理
+每个进程可以打开多个文件，所以每个进程都会有一个私有的文件描述符表（file descriptors table）。
+
+下文称file descriptors table中的每一个条目为file descriptor，称file descriptor中的整数为fd。
+
+
+文件描述符表的前3项已经被默认使用了。
+- 0：标准输入（stdin）
+- 1：标准输出（stdout）
+- 2：标准错误（stderr）
+![](https://img2022.cnblogs.com/blog/1231979/202209/1231979-20220930112625052-928719554.png)
+
+
+
+`java -jar app.jar > app.log 2>&1 &`  这条指令的意思就是将app.jar程序用>运算符重定向标准输出，由原本的指向显示器改为app.log文件。
+
+2>是用来重定向标准错误，因为标准错误在描述符表中的fd就是2，同样，其实重定向标准输出也可以表示为1>，不过一般简写为>。
+
+
+标准错误和标准输出可以重定向到同一个地方，比如指令中的&1表示的就是标准输出，2>&1的含义就是重定向标准错误到标准输出表示的数据流中。
+
+
+
 ### Java接口忽然报错，错误信息是Out of sort memory, consider increasing server sort buffer size
 字面意思就是 sort内存溢出，考虑增加服务器的排序缓冲区(sort_buffer_size)大小。
 ```
