@@ -1,4 +1,5 @@
 ## ShardingSphere
+快速上手ShardingSphere！B站直达：https://b23.tv/CCVPnO9
 
 ### ShardingSphere是什么
 1.Apache ShardingSphere 是一套开源的分布式数据库解决方案组成的生态圈,
