@@ -47,7 +47,7 @@ public interface CarConverter {
     @Mapping(target = "type", source = "carType.type")
     @Mapping(target = "seatCount", source = "numberOfSeats")
     @Mapping(target = "price", numberFormat = "$#.00")
-    @Mapping(target = "createTime", expression = "java(LocalDateTime.now())")
+    //@Mapping(target = "createTime", expression = "java(LocalDateTime.now())")
     CarDTO carToCarDTO(Car car);
 
     /**
