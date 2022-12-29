@@ -894,6 +894,202 @@ source /etc/profile
 
 
 
+
+### MapStruct
+
+编译报错`Error:(21, 1) java: Couldn't retrieve @Mapper annotation`
+是因为swagge2里面引入了MapStruct的版本
+
+#### 查找依赖树
+mvn dependency:tree > maven.txt
+
+mvn dependency:tree -Dverbose -Dincludes=org.mapstruct:mapstruct
+
+
+#### 解决方法
+exclude排除不同版本，使用相同版本的MapStruct。
+
+`注意：Lombok版本大于1.18.16时，需要添加lombok-mapstruct-binding。`
+
+
+- 添加依赖
+```xml
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<version>1.18.16</version>
+</dependency>
+<dependency>
+	<groupId>org.mapstruct</groupId>
+	<artifactId>mapstruct</artifactId>
+	<version>1.4.1.Final</version>
+</dependency>
+```
+ 
+- lombok<1.18.16时：
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+        <source>8</source>
+        <target>8</target>
+        <annotationProcessorPaths>
+            <path>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.4.2.Final</version>
+            </path>
+            <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+            </path>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```
+
+- lombok>1.18.16时：
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+        <source>11</source>
+        <target>11</target>
+        <annotationProcessorPaths>
+            <path>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.4.2.Final</version>
+            </path>
+            <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+            </path>
+            <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-mapstruct-binding</artifactId>
+                <version>0.2.0</version>
+            </path>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```
+>https://mapstruct.org/faq/#Why-do-I-get-this-error-Could-not-retrieve-Mapper-annotation-during-compilation
+
+
+#### Error:(29, 15) java: Unknown property "gender" in result type StudentVO. Did you mean "null"?
+```xml
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok-mapstruct-binding</artifactId>
+    <version>0.2.0</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+
+关于lombok和mapstruct的版本兼容问题，maven插件要使用3.6.0版本以上、lombok使用1.16.16版本以上，另外编译的lombok mapstruct的插件不要忘了。否则会出现下面的错误：No property named “aaa” exists in source parameter(s). Did you mean “null”?
+
+这种异常就是lombok编译异常导致缺少get setter方法造成的。还有就是缺少构造函数也会抛异常。
+
+
+<!-- idea 2018.1.1 之前的版本需要添加下面的配置，后期的版本就不需要了，可以注释掉 -->
+```xml
+<dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct-processor</artifactId>
+    <version>${org.mapstruct.version}</version>
+    <scope>provided</scope>
+</dependency>
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+        <annotationProcessorPaths>
+          <path>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${org.projectlombok.version}</version>
+          </path>
+          <path>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+          </path>
+        </annotationProcessorPaths>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+```
+
+### ElasticSearch7设置用户名密码验证的登录
+- 修改conf下面的elasticsearch.yml配置文件
+```yml
+xpack.security.enabled: true
+xpack.license.self_generated.type: basic
+xpack.security.transport.ssl.enabled: true
+```
+
+完整的yml配置文件
+```yml
+http.host: 0.0.0.0
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+xpack.security.enabled: true
+xpack.license.self_generated.type: basic
+xpack.security.transport.ssl.enabled: true
+```
+
+- 进入安装es的 bin/文件夹下 找到 elasticsearch-setup-passwords.bat
+  或者打开cmd运行 `elasticsearch-setup-passwords interactive` 然后设置几个用户的密码
+![](https://img2023.cnblogs.com/blog/1231979/202212/1231979-20221229193039413-772779007.png)
+
+
+- 设置完验证结果
+![](https://img2023.cnblogs.com/blog/1231979/202212/1231979-20221229193750112-1698385936.png)
+
+![](https://img2023.cnblogs.com/blog/1231979/202212/1231979-20221229193851912-859894798.png)
+
+
+- 修改项目的配置
+```yml
+spring: 
+  data:
+    # elasticsearch配置
+    elasticsearch:
+      # 开启es仓库
+      repositories:
+        enabled: true
+      client:
+        reactive:
+          endpoints: 127.0.0.1:9200
+          connection-timeout: 3000
+          socket-timeout: 3000
+          username: elastic
+          password: 123456
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200
+      username: elastic
+      password: 123456
+```
+
+
+
 ### Centos 中使用yum安装指定版本nodejs
 
 - 设置版本
