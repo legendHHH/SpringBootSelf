@@ -5,21 +5,21 @@ import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.index.query.PrefixQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.WildcardQueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 /**
- * 文档前缀查询
+ * 文档模糊查询
  *
  * @author legend
  * @version 1.0
  * @description
- * @date 2023/1/8
+ * @date 2023/1/9
  */
-public class EsTest_Client_Doc_PerfixQuery {
+public class EsTest_Client_Doc_WildcardQuery {
 
     public static void main(String[] args) throws Exception {
         //创建es客户端
@@ -29,12 +29,13 @@ public class EsTest_Client_Doc_PerfixQuery {
         searchRequest.indices("knowledge");
 
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        //前缀查询 查询XoSI下面的子目录id包含XoSI （XoSI001、XoSI001001001等）
-        PrefixQueryBuilder prefixQueryBuilder = QueryBuilders.prefixQuery("catalogId", "string");
-        //UNPREFIX
-        //QueryBuilders.boolQuery().mustNot(QueryBuilders.prefixQuery("catalogId", "string"));
+        //模糊查询类似MySQL数据库的Like查询
+        WildcardQueryBuilder wildcardQueryBuilder = QueryBuilders.wildcardQuery("title.keyword", "惠普*");
 
-        searchSourceBuilder.query(prefixQueryBuilder);
+        //UNLIKE
+        //QueryBuilders.boolQuery().mustNot(QueryBuilders.wildcardQuery("title.keyword", "*惠普*"));
+
+        searchSourceBuilder.query(wildcardQueryBuilder);
         searchRequest.source(searchSourceBuilder);
 
         SearchResponse searchResponse = esClient.search(searchRequest, RequestOptions.DEFAULT);
