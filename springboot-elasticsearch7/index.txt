@@ -1,0 +1,171 @@
+PUT /movie
+{
+  "mappings": {
+    "properties": {
+      "title": {
+        "type": "text",
+        "analyzer": "ik_max_word",
+        "fields": {
+          "suggest": {
+            "type": "completion",
+            "analyzer": "ik_max_word"
+          }
+        }
+      },
+      "content": {
+        "type": "text",
+        "analyzer": "ik_max_word"
+      }
+    }
+  }
+}
+
+PUT /movie/_doc/1
+{
+"title": "西游记电影系列",
+"content": "西游记之月光宝盒将与2021年进行......"
+}
+
+PUT /movie/_doc/2
+{
+"title": "西游记文学系列",
+"content": "某知名网络小说作家已经完成了大话西游同名小说的出版"
+}
+
+PUT /movie/_doc/3
+{
+"title": "西游记之大话西游手游",
+"content": "网易游戏近日出品了大话西游经典IP的手游，正在火爆内测中"
+}
+
+
+GET /movie/_search
+{
+  "suggest": {
+    "my-suggest": {
+      "prefix": "西游记",
+      "completion": {
+        "field": "title.suggest"
+      }
+    }
+  }
+}
+
+
+
+POST articles/_bulk
+{ "index" : { } }
+{ "body": "lucene is very cool"}
+{ "index" : { } }
+{ "body": "Elasticsearch builds on top of lucene"}
+{ "index" : { } }
+{ "body": "Elasticsearch rocks"}
+{ "index" : { } }
+{ "body": "elastic is the company behind ELK stack"}
+{ "index" : { } }
+{ "body": "Elk stack rocks"}
+{ "index" : {} }
+{  "body": "elasticsearch is rock solid"}
+
+
+POST /articles/_search
+{
+  "size": 1,
+  "query": {
+    "match": {
+      "body": "elasticserch"
+    }
+  },
+  "suggest": {
+    "term-suggestion": {
+      "text": "elasticserch",
+      "term": {
+        "suggest_mode": "missing",
+        "field": "body"
+      }
+    }
+  }
+}
+
+
+
+
+POST /articles/_search
+{
+  "suggest": {
+    "my-suggestion": {
+      "text": "lucne and elasticsear rock hello world ",
+      "phrase": {
+        "field": "body",
+        "max_errors":2,
+        "confidence":2,
+        "direct_generator":[{
+          "field":"body",
+          "suggest_mode":"missing"
+        }],
+        "highlight": {
+          "pre_tag": "<em>",
+          "post_tag": "</em>"
+        }
+      }
+    }
+  }
+}
+
+
+PUT comments
+{
+  "mappings": {
+    "properties": {
+      "comment_autocomplete": {
+        "type": "completion",
+        "contexts": [
+          {
+            "type": "category",
+            "name": "comment_category"
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+POST comments/_doc
+{
+  "comment":"苹果电脑",
+  "comment_autocomplete":{
+    "input":["苹果电脑"],
+    "contexts":{
+      "comment_category":"电器商城"
+    }
+  }
+}
+
+POST comments/_doc
+{
+  "comment":"红红的冰糖心苹果",
+  "comment_autocomplete":{
+    "input":["苹果"],
+    "contexts":{
+      "comment_category":"水果商城"
+    }
+  }
+}
+
+
+
+POST comments/_search
+{
+  "suggest": {
+    "my_suggestion": {
+      "prefix": "苹",
+      "completion":{
+        "field":"comment_autocomplete",
+        "contexts":{
+          "comment_category":"电器商城"
+        }
+      }
+    }
+  }
+}
