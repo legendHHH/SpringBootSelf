@@ -119,6 +119,12 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.78</version>
         </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>20030203.000129</version>
+            <scope>compile</scope>
+        </dependency>
 
         <!--easyexcel 排除旧版本依赖 引入自己新版的poi-->
         <!--<dependency>

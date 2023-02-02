@@ -29,6 +29,8 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   # 指定sql映射文件位置
   mapper-locations: classpath:mybatis/mapper/*.xml
+  # 指定Typehandler的包路径
+  type-handlers-package: com.legend.springboot.myencrypt
 
 #    schema:
 #      - classpath:sql/department.sql

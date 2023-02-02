@@ -27,5 +27,5 @@ public class Student {
     private GenderEnum gender;
     private Double height;
     private Date birthday;
-
+    private String address;
 }

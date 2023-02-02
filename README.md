@@ -309,6 +309,37 @@ docker-compose version # 查看版本号，测试是否安装成功
 你可以通过修改URL中的版本，可以自定义您的需要的版本。
 ```
 
+
+### 2>&1到底是什么意思？
+```
+java -jar app.jar > app.log 2>&1 &
+```
+部署过项目的应该对这命令很熟悉，相信大部分人都知道>表示的是重定向，那么什么是重定向？2>&1又是什么意思？
+
+
+#### 文件描述符原理
+每个进程可以打开多个文件，所以每个进程都会有一个私有的文件描述符表（file descriptors table）。
+
+下文称file descriptors table中的每一个条目为file descriptor，称file descriptor中的整数为fd。
+
+
+文件描述符表的前3项已经被默认使用了。
+- 0：标准输入（stdin）
+- 1：标准输出（stdout）
+- 2：标准错误（stderr）
+![](https://img2022.cnblogs.com/blog/1231979/202209/1231979-20220930112625052-928719554.png)
+
+
+
+`java -jar app.jar > app.log 2>&1 &`  这条指令的意思就是将app.jar程序用>运算符重定向标准输出，由原本的指向显示器改为app.log文件。
+
+2>是用来重定向标准错误，因为标准错误在描述符表中的fd就是2，同样，其实重定向标准输出也可以表示为1>，不过一般简写为>。
+
+
+标准错误和标准输出可以重定向到同一个地方，比如指令中的&1表示的就是标准输出，2>&1的含义就是重定向标准错误到标准输出表示的数据流中。
+
+
+
 ### Java接口忽然报错，错误信息是Out of sort memory, consider increasing server sort buffer size
 字面意思就是 sort内存溢出，考虑增加服务器的排序缓冲区(sort_buffer_size)大小。
 ```
@@ -610,6 +641,195 @@ set global max_allowed_packet=157286400;
 
 
 
+### Tomcat解决项目跨域问题（普通的web项目也不是ssm），Tomcat10的版本也支持下面的方式
+防止项目请求接口跨域问题
+
+- 第一种：在tomcat部署项目中，需要修改tomcat配置文件解决跨域。修改tomcat下面的conf/web.xml
+
+![](https://img2022.cnblogs.com/blog/1231979/202211/1231979-20221110181004683-86386200.png)
+
+在此文件下方新增（在<welcome-file-list>节点上面新增）
+```
+<filter>
+  <filter-name>CorsFilter</filter-name>
+  <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+  <init-param>
+    <param-name>cors.allowed.origins</param-name>
+    <param-value>*</param-value>
+  </init-param>
+</filter>
+<filter-mapping>
+  <filter-name>CorsFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+```
+或者在项目中进行修改，下载对应版本的tomcat-catalina的jar包
+
+https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-catalina/9.0.40/tomcat-catalina-9.0.40.jar
+
+2、在WEB-INF/web.xml配置过滤器
+
+
+```xml
+<filter>  
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+ 
+ 
+```xml
+<filter>  
+  <filter-name>CorsFilter</filter-name>  
+  <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>  
+  <init-param>  
+    <param-name>cors.allowed.origins</param-name>  
+    <param-value>*</param-value>  
+  </init-param>  
+  <init-param>  
+    <param-name>cors.allowed.methods</param-name>  
+    <param-value>GET,POST,HEAD,OPTIONS,PUT</param-value>  
+  </init-param>  
+  <init-param>  
+    <param-name>cors.allowed.headers</param-name>  
+    <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers</param-value>  
+  </init-param>  
+  <init-param>  
+    <param-name>cors.exposed.headers</param-name>  
+    <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>  
+  </init-param>  
+  <init-param>  
+    <param-name>cors.support.credentials</param-name>  
+    <param-value>true</param-value>  
+  </init-param>  
+  <init-param>  
+    <param-name>cors.preflight.maxage</param-name>  
+    <param-value>10</param-value>  
+  </init-param>  
+</filter>  
+<filter-mapping>  
+  <filter-name>CorsFilter</filter-name>  
+  <url-pattern>/*</url-pattern>  
+</filter-mapping>  
+``` 
+
+- 总结
+spring CORS跨域请求解决方案总结：（建议采用方案1）
+
+1、springboot CORS 跨域请求解决三大方案，springboot CorsFilter解决跨域问题
+
+https://www.iteye.com/blog/fanshuyao-2517777
+
+ 
+
+2、cors-filter使用，cors-filter解决跨域访问，cors-filter跨域请求
+
+https://www.iteye.com/blog/fanshuyao-2517803
+
+ 
+
+3、org.ebaysf.web的cors-filter使用，cors-filter跨域请求
+
+https://www.iteye.com/blog/fanshuyao-2517820
+
+ 
+
+4、java tomcat-catalina CorsFilter使用，apache tomcat-catalina CorsFilter使用
+
+https://www.iteye.com/blog/fanshuyao-2517821
+
+
+5、springboot jsonp 跨域请求，springboot使用jsonp跨域
+
+https://www.iteye.com/blog/fanshuyao-2517789
+
+
+
+#### tomcat10 带来的报错：jakarta.servlet.ServletException: 类com.kang.servlet.HelloServlet不是Servlet
+
+下载cors-filter-2.9.jar，java-property-utils-1.9.jar这两个库文件，放到lib目录下。（可在
+
+http://search.maven.org上查询并下载。）工程项目（如：test-demo）中web.xml中的配置如下：  
+
+```xml
+ <!--CORS 跨域资源访问-->
+     <filter>
+         <filter-name>CORS</filter-name>
+         <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+         <init-param>
+             <param-name>cors.allowGenericHttpRequests</param-name>
+             <param-value>true</param-value>
+         </init-param>
+         <init-param>
+             <param-name>cors.allowOrigin</param-name>
+             <param-value>*</param-value>
+         </init-param>
+         <init-param>
+             <param-name>cors.allowSubdomains</param-name>
+             <param-value>false</param-value>
+         </init-param>
+         <init-param>
+             <param-name>cors.supportedMethods</param-name>
+             <param-value>GET, HEAD, POST, OPTIONS</param-value>
+         </init-param>
+         <init-param>
+             <param-name>cors.supportedHeaders</param-name>
+             <param-value>*</param-value>
+         </init-param>
+         <init-param>
+             <param-name>cors.exposedHeaders</param-name>
+             <param-value>X-Test-1, X-Test-2</param-value>
+         </init-param>
+         <init-param>
+             <param-name>cors.supportsCredentials</param-name>
+             <param-value>true</param-value>
+         </init-param>
+         <init-param>
+             <param-name>cors.maxAge</param-name>
+             <param-value>3600</param-value>
+         </init-param>
+     </filter>
+     <filter-mapping>
+         <filter-name>CORS</filter-name>
+         <url-pattern>/*</url-pattern>
+     </filter-mapping>
+```
+
+
+pom版本依赖
+```
+<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+<dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>5.0.0</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
+<dependency>
+    <groupId>jakarta.servlet.jsp</groupId>
+    <artifactId>jakarta.servlet.jsp-api</artifactId>
+    <version>3.0.0</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+
+
+### eclipse部署项目会出现报错：Tomcat version 8.5 only supports J2EE 1.2, 1.3, 1.4, and Java EE 5, 6, and 7 Web modules
+经过上网查询，这句话的意思是：Tomcat 8.5 版仅支持 J2EE 1.2、1.3、1.4 和 Java EE 5、6 和 7 Web 模块。
+
+我们只需要进到eclipse打开项目下的 .setting 目录中，编辑 org.eclipse.wst.common.project.facet.core.xml 这个文件
+
+将 <installed facet="jst.web" version="4.0"/> 这一项的版本号降低到 3.0 即可。（我的 Tomcat 为 8.5，Jdk 为 1.8）
+
+
 ### jenkins启动之后报错提示,因为在清除过期缓存条目后可用空间仍不足 - 请考虑增加缓存的最大空间
 
 解决办法：在tomcat安装路径下找到conf/context.xml，在其中加入一条配置
@@ -620,6 +840,14 @@ set global max_allowed_packet=157286400;
 
 
 
+### 解压zip报错java.lang.IllegalArgumentException: MALFORMED
+我解压的文件夹中包含中文名称，如 王小热热.png，这样解压完成后就会报错：java.lang.IllegalArgumentException: MALFORMED 
+
+解决方案：
+设置编码方式为GBK即可。
+zipFile = new ZipFile(srcFile, Charset.forName("GBK"));
+
+
 ### MongoDB服务安装
 cd MongoDB的bin目录下
 mongod.exe --install --logpath=D:\software\MongoDB\mongodb-win32-x86_64-2008plus-ssl-3.6.11\log\MongoDBloglog.txt  --dbpath=D:\software\MongoDB\mongodb-win32-x86_64-2008plus-ssl-3.6.11\data --serviceName=MongoDB
@@ -627,3 +855,247 @@ mongod.exe --install --logpath=D:\software\MongoDB\mongodb-win32-x86_64-2008plus
 ![](https://img2022.cnblogs.com/blog/1231979/202207/1231979-20220727140423634-534753580.png)
 
 ### jenkins过滤版本，可选择版本
+
+
+### 【基于yum安装的nodejs】卸载
+1.自带工具删除
+yum remove nodejs npm -y 
+
+2.手动删除残留
+进入 /usr/local/lib 删除所有 node 和 node_modules文件夹
+进入 /usr/local/include 删除所有 node 和  node_modules 文件夹
+
+进入 /usr/local/bin 删除 node 的可执行文件node和npm
+
+检查 ~ 文件夹里面的"local" "lib"  "include"  文件夹，然后删除里面的所有  "node" 和  "node_modules" 文件夹
+
+完成。
+
+
+### Centos离线安装Nodejs
+淘宝镜像源下载nodejs：https://npm.taobao.org/mirrors/node/v14.2.0/node-v14.2.0-linux-x64.tar.gz
+
+解压：tar -xvf node-v14.2.0-linux-x64.tar.gz
+
+配置环境变量
+```
+# 编辑环境变量,按i进入编辑模式，按Esc 输入wq回车后退出并保存
+vi /etc/profile
+
+# ----------将以下内容粘贴到合适的位置（最顶上/下都可以）---------
+export NODE_HOME=/root/node-v14.2.0-linux-x64 # node目录
+export PATH=$NODE_HOME/bin:$PATH
+
+```
+
+刷新环境变量
+source /etc/profile
+
+
+
+
+
+### MapStruct
+
+编译报错`Error:(21, 1) java: Couldn't retrieve @Mapper annotation`
+是因为swagge2里面引入了MapStruct的版本
+
+#### 查找依赖树
+mvn dependency:tree > maven.txt
+
+mvn dependency:tree -Dverbose -Dincludes=org.mapstruct:mapstruct
+
+
+#### 解决方法
+exclude排除不同版本，使用相同版本的MapStruct。
+
+`注意：Lombok版本大于1.18.16时，需要添加lombok-mapstruct-binding。`
+
+
+- 添加依赖
+```xml
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<version>1.18.16</version>
+</dependency>
+<dependency>
+	<groupId>org.mapstruct</groupId>
+	<artifactId>mapstruct</artifactId>
+	<version>1.4.1.Final</version>
+</dependency>
+```
+ 
+- lombok<1.18.16时：
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+        <source>8</source>
+        <target>8</target>
+        <annotationProcessorPaths>
+            <path>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.4.2.Final</version>
+            </path>
+            <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+            </path>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```
+
+- lombok>1.18.16时：
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+        <source>11</source>
+        <target>11</target>
+        <annotationProcessorPaths>
+            <path>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.4.2.Final</version>
+            </path>
+            <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+            </path>
+            <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-mapstruct-binding</artifactId>
+                <version>0.2.0</version>
+            </path>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```
+>https://mapstruct.org/faq/#Why-do-I-get-this-error-Could-not-retrieve-Mapper-annotation-during-compilation
+
+
+#### Error:(29, 15) java: Unknown property "gender" in result type StudentVO. Did you mean "null"?
+```xml
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok-mapstruct-binding</artifactId>
+    <version>0.2.0</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+
+关于lombok和mapstruct的版本兼容问题，maven插件要使用3.6.0版本以上、lombok使用1.16.16版本以上，另外编译的lombok mapstruct的插件不要忘了。否则会出现下面的错误：No property named “aaa” exists in source parameter(s). Did you mean “null”?
+
+这种异常就是lombok编译异常导致缺少get setter方法造成的。还有就是缺少构造函数也会抛异常。
+
+
+<!-- idea 2018.1.1 之前的版本需要添加下面的配置，后期的版本就不需要了，可以注释掉 -->
+```xml
+<dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct-processor</artifactId>
+    <version>${org.mapstruct.version}</version>
+    <scope>provided</scope>
+</dependency>
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+        <annotationProcessorPaths>
+          <path>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${org.projectlombok.version}</version>
+          </path>
+          <path>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+          </path>
+        </annotationProcessorPaths>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+```
+
+### ElasticSearch7设置用户名密码验证的登录
+- 修改conf下面的elasticsearch.yml配置文件
+```yml
+xpack.security.enabled: true
+xpack.license.self_generated.type: basic
+xpack.security.transport.ssl.enabled: true
+```
+
+完整的yml配置文件
+```yml
+http.host: 0.0.0.0
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+xpack.security.enabled: true
+xpack.license.self_generated.type: basic
+xpack.security.transport.ssl.enabled: true
+```
+
+- 进入安装es的 bin/文件夹下 找到 elasticsearch-setup-passwords.bat
+  或者打开cmd运行 `elasticsearch-setup-passwords interactive` 然后设置几个用户的密码
+![](https://img2023.cnblogs.com/blog/1231979/202212/1231979-20221229193039413-772779007.png)
+
+
+- 设置完验证结果
+![](https://img2023.cnblogs.com/blog/1231979/202212/1231979-20221229193750112-1698385936.png)
+
+![](https://img2023.cnblogs.com/blog/1231979/202212/1231979-20221229193851912-859894798.png)
+
+
+- 修改项目的配置
+```yml
+spring: 
+  data:
+    # elasticsearch配置
+    elasticsearch:
+      # 开启es仓库
+      repositories:
+        enabled: true
+      client:
+        reactive:
+          endpoints: 127.0.0.1:9200
+          connection-timeout: 3000
+          socket-timeout: 3000
+          username: elastic
+          password: 123456
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200
+      username: elastic
+      password: 123456
+```
+
+
+
+### Centos 中使用yum安装指定版本nodejs
+
+- 设置版本
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
+
+>setup_14.x 是对版本的设置，我需要的是14.x系列的最新版本。你可以指定具体的版本
+
+- 执行安装
+sudo yum install nodejs

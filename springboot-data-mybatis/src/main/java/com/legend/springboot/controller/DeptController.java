@@ -6,6 +6,7 @@ import com.legend.springboot.bean.Employee;
 import com.legend.springboot.mapper.DepartmentCursorMapper;
 import com.legend.springboot.mapper.DepartmentMapper;
 import com.legend.springboot.mapper.EmployeeMapper;
+import com.legend.springboot.myencrypt.Encrypt;
 import org.apache.ibatis.cursor.Cursor;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -136,4 +138,18 @@ public class DeptController {
     }
 
 
+    @GetMapping("/deptEncrypt")
+    public Department insertDeptEncrypt(Department department) {
+        String departmentName = department.getDepartmentName();
+        Encrypt encrypt = new Encrypt(departmentName);
+        department.setDeptNameEncrypt(encrypt);
+        departmentMapper.insertDeptEncrypt(department);
+        return department;
+    }
+
+    @GetMapping("/deptDecrypt")
+    public List<Department> queryDeptDecrypt(Integer id, String deptName) {
+        Department deptById = departmentMapper.getDeptByIdDecrypt(id, new Encrypt(deptName));
+        return Arrays.asList(deptById);
+    }
 }

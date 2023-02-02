@@ -23,4 +23,6 @@ public class StudentVO {
     private String gender;
     private Double height;
     private String birthday;
+    private String course;
+    private String address;
 }

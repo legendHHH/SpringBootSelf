@@ -126,16 +126,21 @@ public class BeanMapUtil {
     public static Map<String, Object> objectToMap(Object obj) throws IllegalAccessException {
         Map<String, Object> map = new HashMap<>(16);
         Class<?> clazz = obj.getClass();
-        for (Field field : clazz.getDeclaredFields()) {
-            field.setAccessible(true);
-            String fieldName = field.getName();
-            if (fieldName.equals("serialVersionUID")) {
-                continue;
+        //循环父类属性
+        while (clazz != null) {
+            for (Field field : clazz.getDeclaredFields()) {
+                field.setAccessible(true);
+                String fieldName = field.getName();
+                if (fieldName.equals("serialVersionUID")) {
+                    continue;
+                }
+                Object value = field.get(obj);
+                if (value != null) {
+                    map.put(fieldName, value);
+                }
             }
-            Object value = field.get(obj);
-            if (value != null) {
-                map.put(fieldName, value);
-            }
+            //获得父类的字节码对象
+            clazz = clazz.getSuperclass();
         }
         return map;
     }

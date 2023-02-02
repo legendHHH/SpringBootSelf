@@ -170,31 +170,104 @@ redis的源码分析
 ### String字符串类型
 String适合做单值缓存，对象缓存，分布式锁等
 
+
+#### SET key value [EX seconds] [PX milliseconds] [NX|XX]
+
+`时间复杂度：O(1)`
+`将字符串值value关联到key如果key已经持有有其他值，set就会覆写旧值，无视类型。当 set 命令对一个带有生存时间（ttl）的键进行设置之后， 该键原有的 ttl 将被清除。`
+`返回值：总是OK` 
+
+参数解析：
+- EX seconds：将key的过期时间设置为seconds秒。执行 `SET key value EX seconds` 的效果等同于执行 `SETEX key seconds value`
+- PX milliseconds：将key的过期时间设置为 milliseconds 毫秒。执行 `SET key value PX milliseconds` 的效果等同于执行 `PSETEX key milliseconds value` 。
+- NX：只有key不存在时，才能对key进行设置操作。执行 `SET key value NX` 的效果等同于执行 `SETNX key value` 。
+- XX：只有key已经存在时，才能对key进行操作
+
+
+命令示例：
 ```
-set             set key value           赋值
-
-get             get key                 取值
-
-getset          getset key value	    取值并赋值
-
-setnx           setnx key value         当value不存在时采用赋值set key value NX PX 3000 原子操作，px 设置毫秒数
-
-append          append key value        向尾部追加值
-
-strlen          strlen key	            获取字符串长度
-
-incr            incr key	            递增数字
-
-incrby          incrby key increment	增加指定的整数
-
-decr            decr key	            递减数字
-
-decrby          decrby key decrement	减少指定的整数
-
-mset            mset key value key value	批量赋值
-
-mget            mget key key	        批量取值
+SET ===> set key value 赋值
+         set k "v" EX 100 赋值并设置过期时间
+         set k2 "v" NX 赋值（如果key已经存在，设置失败）
+         set k3 "v" XX 赋值（如果key原来不存在，设置失败）
 ```
+
+
+#### SETNX key value
+
+`时间复杂度：O(1)`
+`只在key不存在的情况下,才能将key的值设置为value。`
+`返回值：成功1，失败0`
+
+命令示例：
+```
+SETNX ===> setnx key value  SETNX是『SET if Not eXists』的简写
+```
+
+
+#### SETEX key seconds value
+
+`时间复杂度：O(1)`
+`将key的值设置为value,并将key的生存时间设置为seconds秒。如果key已经存在,那么SETEX命令将覆盖已有的值。`
+`返回值：OK`
+
+
+命令示例：
+```
+SETEX ===> setex key 60 val SETEX是『SET eXpire』的简写
+```
+
+
+#### PSETEX key milliseconds value
+
+`时间复杂度：O(1)`
+`将key的值设置为value,并将key的生存时间设置为milliseconds毫秒。`
+`返回值：OK`
+
+
+命令示例：
+```
+PSETEX ===> PSETEX mykey 10000 "Hello" 
+```
+
+
+#### GET key
+
+`时间复杂度：O(1)`
+`返回与键 key 相关联的字符串值。如果key的值并非字符串类型，那么返回一个错误，因为GET命令只能用于字符串值。`
+`返回值：key存在返回value，key不存在返回nil`
+
+
+命令示例：
+```
+GET ===> get key 取值
+```
+
+#### GETSET key value
+
+`时间复杂度：O(1)`
+`将key的值设为value,并返回key在被设置之前的旧值。`
+`返回值：key对应的旧值，key设置前不存在返回nil`
+
+
+命令示例：
+```
+GETSET ===> getset key value 获取的是这个key上一次的值显示并赋值最新的值（如果是新的key则会显示nil）
+```
+
+
+#### STRLEN key
+
+`时间复杂度：O(1)`
+`将key的值设为value,并返回key在被设置之前的旧值。`
+`返回值：返回key储存的字符串值的长度。`
+
+
+命令示例：
+```
+GETSET ===> getset key value 获取的是这个key上一次的值显示并赋值最新的值（如果是新的key则会显示nil）
+```
+
 ![](https://img2020.cnblogs.com/blog/1231979/202011/1231979-20201117091554948-1592297842.png)
 
 https://juejin.im/post/6893871526710525966?utm_source=gold_browser_extension

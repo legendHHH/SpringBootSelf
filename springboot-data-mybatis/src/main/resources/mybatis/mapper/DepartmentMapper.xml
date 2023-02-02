@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.legend.springboot.mapper.DepartmentMapper">
+
+    <resultMap id="BaseResultMapper" type="com.legend.springboot.bean.Department">
+        <id column="id" property="id"/>
+        <result column="department_name" property="departmentName"/>
+        <result column="dept_name_encrypt" property="deptNameEncrypt" typeHandler="com.legend.springboot.myencrypt.EncryptTypeHandler"/>
+    </resultMap>
+
+
+    <select id="getDeptByIdDecrypt" resultMap="BaseResultMapper">
+        select * from department where id = #{id} or dept_name_encrypt = #{deptNameEncrypt}
+    </select>
+
+</mapper>

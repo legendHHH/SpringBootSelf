@@ -53,3 +53,19 @@ mybatis配置文件位置，如果有单独的mybatis配置，将其路径配置
 ```xml
 mybatis-plus.mapper-locations=classpath*:mapper/*.xml,classpath*:mapper/**/*.xml
 ```
+
+
+#### mapUnderscoreToCamelCase
+是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN（下划线命名） 到经典 Java 属性名 aColumn（驼峰命名） 的类似映射。
+
+```xml
+mybatis-plus.configuration.map-underscore-to-camel-case=true
+```
+![](https://img2022.cnblogs.com/blog/1231979/202208/1231979-20220808222331895-567915268.png)
+
+
+
+>注意：该参数不能和mybatis-plus.config-location同时存在，会执行报错 Caused by: java.lang.IllegalStateException: Property 'configuration' and 'configLocation' can not specified with together
+![](https://img2022.cnblogs.com/blog/1231979/202208/1231979-20220808222831156-1225950009.png)
+
+

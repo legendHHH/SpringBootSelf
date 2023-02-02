@@ -3,6 +3,7 @@ package com.example.demo.json;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -41,5 +42,13 @@ public class JSONTest {
         List<Object> list = new ArrayList<>(jsonArray);
         Map<Object, Long> map = list.stream().collect(Collectors.groupingBy(p -> p, Collectors.counting()));
         System.out.println(JSONObject.toJSONString(map));
+
+        Product product = new Product();
+        product.setLastUpdateTime(new Date());
+        //防止日期变时间戳,默认的会变成时间戳类型
+        String jsonString = JSON.toJSONStringWithDateFormat(product, "yyyy-MM-dd HH:mm:ss", SerializerFeature.WriteDateUseDateFormat);
+        String jsonString2 = JSONObject.toJSONStringWithDateFormat(product, "yyyy-MM-dd HH:mm:ss", SerializerFeature.WriteDateUseDateFormat);
+        System.out.println(jsonString);
+        System.out.println(jsonString2);
     }
 }
