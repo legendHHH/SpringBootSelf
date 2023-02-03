@@ -1099,3 +1099,114 @@ curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
 
 - 执行安装
 sudo yum install nodejs
+
+
+
+### Jenkins 构建时间 相差 八小时 解决方法
+地址栏输入：http://localhost:8099/script】或【系统管理-执行脚本命令】执行脚本命令行
+```script
+System.setProperty('org.apache.commons.jelly.tags.fmt.timeZone','Asia/Shanghai')
+```
+
+
+### IDEA实现远程DEBUG （jar包和war包）
+#### jar包
+启动参数上加上
+```shell
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8327
+
+完整===> nohup java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8327 app.jar  >D:/app.log 2>&1 &
+```
+
+#### war包
+在tomcat的bin目录下的catalina.sh文件首行加上
+```shell
+CATALINA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8427"
+```
+加完之后重启tomcat
+
+
+### springboot的jar包大小优化
+- 第一步：正常编译jar包，将lib文件夹解压出来。这时的pom.xml配置文件如下：
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>com.example.DemoApplication</mainClass>
+                <layout>ZIP</layout>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    <plugins>
+<build>
+```
+
+进入项目根目录，执行命令：mvn clean install
+将编译后的 Jar 包解压，拷贝 BOOT-INF 目录下的 lib 文件夹 到目标路径
+
+
+- 第二步 修改pom.xml配置文件，使我们编译出来的jar包不包含lib：
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>com.example.DemoApplication</mainClass>
+                <layout>ZIP</layout>
+                <includes>
+                    <include>
+                        <groupId>nothing</groupId>
+                        <artifactId>nothing</artifactId>
+                    </include>
+                </includes>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    <plugins>
+<build>
+```
+
+配置完成后，再次执行编译：mvn clean install
+
+生成的 Jar 包体积明显变小，如下所示， 外部的 jar 包已经不会被引入了。
+
+
+- 第三步 运行编译后的jar包
+
+将 步骤 1 解压出来的 lib 文件夹、步骤 2 编译的 jar 包放在同一个目录, 运行下面命令：
+
+
+java -Dloader.path=D:/lib -jar /path/to/demo-0.0.1-SNAPSHOT.jar
+或者在 maven 中输入一下命令导出需要用到的 jar 包
+
+
+mvn dependency:copy-dependencies -DoutputDirectory=D:\\ideaWork\\lib -DincludeScope=runtime
+
+
+
+### rancher
+mkdir -p /usr/local/docker/rancher-2.5.12/rancher
+mkdir -p /usr/local/docker/rancher-2.5.12/log
+mkdir -p /usr/local/docker/rancher-2.5.12/kubelet
+mkdir -p /usr/local/docker/rancher-2.5.12/cni
+
+
+
+docker run --privileged -d --restart=unless-stopped -p 8082:80 -p 8443:443 -v /usr/local/docker/rancher-2.5.12/rancher:/var/lib/rancher -v /usr/local/docker/rancher-2.5.12/log:/var/log -v /usr/local/docker/rancher-2.5.12/cni:/var/lib/cni -v /usr/local/docker/rancher-2.5.12/kubelet:/var/lib/kubelet --name rancher rancher/rancher:v2.5.12
