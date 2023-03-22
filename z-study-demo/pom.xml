@@ -19,6 +19,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.6.1</version>
+        </dependency>
         <!-- okhttp -->
         <dependency>
             <groupId>com.squareup.okhttp</groupId>
