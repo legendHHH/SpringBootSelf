@@ -1211,3 +1211,11 @@ mkdir -p /usr/local/docker/rancher-2.5.12/cni
 
 
 docker run --privileged -d --restart=unless-stopped -p 8082:80 -p 8443:443 -v /usr/local/docker/rancher-2.5.12/rancher:/var/lib/rancher -v /usr/local/docker/rancher-2.5.12/log:/var/log -v /usr/local/docker/rancher-2.5.12/cni:/var/lib/cni -v /usr/local/docker/rancher-2.5.12/kubelet:/var/lib/kubelet --name rancher rancher/rancher:v2.5.12
+
+
+
+
+#### JVM 环境参数
+在线上生产环境， JVM 的 Xms 和 Xmx 设置一样大小的内存容量， 避免在 GC 后调整堆大小带来的压力。产生内存抖动
+
+设置-XX： +HeapDumpOnOutOfMemoryError 参数,让 JVM 碰到 OOM 场景时输出 dump 信息。
