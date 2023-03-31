@@ -41,7 +41,7 @@ public class MyBatisTest {
         //事务自动提交
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-        //使用jdk动态代理获得MyBatis框架⽣成的UserMapper接口的实现类
+        //使用jdk动态代理获得MyBatis框架生成的UserMapper接口的实现类
         userMapper = sqlSession.getMapper(IUserMapper.class);
         orderMapper = sqlSession.getMapper(IOrderMapper.class);
         cityMapper = sqlSession.getMapper(ICityMapper.class);
