@@ -1,3 +1,33 @@
+### idea报错Failed to read candidate component class、No Spring WebApplicationInitializer types detected on classpath
+今天idea导入一个新项目之后，启动之后出现了所下图所示的问题：     
+- 1.1
+![](https://img2023.cnblogs.com/blog/1231979/202304/1231979-20230421173136158-190993173.png)
+
+- 1.2
+![](https://img2023.cnblogs.com/blog/1231979/202304/1231979-20230421173234105-1680390943.png)
+
+- 2
+![](https://img2023.cnblogs.com/blog/1231979/202304/1231979-20230421173338303-1686876148.png)
+
+>并且action包里面的action类打了断点没有一个勾只有一个普通红点
+
+
+网上搜了一下原因可能是是JDK版本高了，因为项目中使用的是Spring 3，而我本地安装的是JDK 8，因此产生了兼容性的问题。（spring 3兼容jdk 7， spring 4兼容jdk 8）
+![](https://img2023.cnblogs.com/blog/1231979/202304/1231979-20230421173849483-2002561820.png)
+
+然后如下图设置一下即可  
+![](https://img2023.cnblogs.com/blog/1231979/202304/1231979-20230421172859726-1848359974.png)
+
+![](https://img2023.cnblogs.com/blog/1231979/202304/1231979-20230421172841343-686129939.png)
+
+问题解决。 但是有一个地方需要注意一下： 如果Eclipse需要将java compiler改成了1.7
+
+
+**运行成功并且界面可以显示后台也有正常的日志了**
+![](https://img2023.cnblogs.com/blog/1231979/202304/1231979-20230421173717970-449285274.png)
+
+
+
 ### IE浏览器下载文件中文文件名乱码问题解决
 
 ```
