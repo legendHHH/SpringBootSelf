@@ -1,3 +1,42 @@
+### javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath
+添加下面的依赖
+```
+<dependency>
+    <groupId>javax.el</groupId>
+    <artifactId>javax.el-api</artifactId>
+    <version>2.2.4</version>
+</dependency>
+
+<dependency>
+    <groupId>org.glassfish.web</groupId>
+    <artifactId>javax.el</artifactId>
+    <version>2.2.4</version>
+</dependency>
+```
+
+
+
+### Mail server connection failed; nested exception is javax.mail.MessagingException:
+修改成下面的配置
+```
+spring:
+  mail:
+    host: smtp.qq.com
+    # 默认端口号是465的
+    port: 587
+    username: 邮箱
+    password: 授权码
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
+```
+
+
+
 ### Tomcat启动之后访问项目接口提示报错
 ```
 The page you tried to access (/manager/dologin) does not exist.
