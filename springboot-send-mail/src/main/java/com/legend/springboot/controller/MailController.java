@@ -30,7 +30,8 @@ public class MailController {
     @GetMapping("/")
     public ModelAndView index() {
         //打开发送邮件的页面
-        ModelAndView mv = new ModelAndView("sendMail");
+        //ModelAndView mv = new ModelAndView("sendMail");
+        ModelAndView mv = new ModelAndView("test");
         //邮件发信人
         mv.addObject("from", mailService.getMailSendFrom());
         return mv;
